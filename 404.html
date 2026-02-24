@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Page Not Found | Logan Loans</title>
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <style>
+    :root {
+      --bg: #FBF7EF;
+      --ink: #1F2933;
+      --muted: #52616B;
+      --primary: #165A3F;
+      --sage: #CFE7D7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+    }
+    .icon {
+      font-size: 64px;
+      margin-bottom: 24px;
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    h1 {
+      font-size: clamp(28px, 5vw, 42px);
+      margin-bottom: 12px;
+      color: var(--primary);
+    }
+    p {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 480px;
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 28px;
+      border-radius: 999px;
+      font-weight: 700;
+      text-decoration: none;
+      background: var(--primary);
+      color: var(--bg);
+      box-shadow: 0 10px 24px rgba(22, 90, 63, 0.18);
+      transition: transform 0.16s ease, box-shadow 0.16s ease;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px rgba(22, 90, 63, 0.22);
+    }
+    .links {
+      margin-top: 32px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+    }
+    .links a {
+      color: var(--primary);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-weight: 600;
+    }
+    .links a:hover {
+      color: var(--ink);
+    }
+  </style>
+</head>
+<body>
+  <div class="icon">🏠</div>
+  <h1>Page not found</h1>
+  <p>Looks like this page took a wrong turn. No worries—let's get you back on track to your dream home.</p>
+  <a class="btn" href="/">Back to Home</a>
+
+  <div class="links">
+    <a href="/contact.html">Get Pre-Approved</a>
+    <a href="/programs.html">Loan Programs</a>
+    <a href="/faq.html">FAQ</a>
+    <a href="tel:+14808037763">Call (480) 803-7763</a>
+  </div>
+</body>
+</html>

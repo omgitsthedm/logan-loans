@@ -1,0 +1,35 @@
+{
+  "profile_url": "https://www.instagram.com/logan.loans",
+  "items": [
+    {
+      "url": "https://www.instagram.com/logan.loans",
+      "image": "./assets/insta1.svg",
+      "alt": "Instagram post placeholder 1"
+    },
+    {
+      "url": "https://www.instagram.com/logan.loans",
+      "image": "./assets/insta2.svg",
+      "alt": "Instagram post placeholder 2"
+    },
+    {
+      "url": "https://www.instagram.com/logan.loans",
+      "image": "./assets/insta3.svg",
+      "alt": "Instagram post placeholder 3"
+    },
+    {
+      "url": "https://www.instagram.com/logan.loans",
+      "image": "./assets/insta4.svg",
+      "alt": "Instagram post placeholder 4"
+    },
+    {
+      "url": "https://www.instagram.com/logan.loans",
+      "image": "./assets/insta5.svg",
+      "alt": "Instagram post placeholder 5"
+    },
+    {
+      "url": "https://www.instagram.com/logan.loans",
+      "image": "./assets/insta6.svg",
+      "alt": "Instagram post placeholder 6"
+    }
+  ]
+}

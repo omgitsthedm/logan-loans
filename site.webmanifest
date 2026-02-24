@@ -1,0 +1,21 @@
+{
+  "name": "Logan Loans",
+  "short_name": "Logan Loans",
+  "description": "Phoenix-area mortgages explained like a human. Clear guidance, quick pre-approvals, and a calm process.",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#165A3F",
+  "background_color": "#FBF7EF",
+  "display": "standalone",
+  "start_url": "/"
+}

@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+  <!-- Favicon set -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <title>Arizona Mortgage Lender | Logan Loans (Statewide)</title>
+
+  <style>
+    /* Critical CSS - Inlined to eliminate render blocking */
+    :root{--bg:#FBF7EF;--surface:#FFFFFF;--ink:#1F2933;--muted:#52616B;--primary:#165A3F;--sage:#CFE7D7;--border:#E7E0D6;--apricot:#F3B27A;--mint:#2FAF7A;--glow:rgba(243,178,122,0.35);--max:1120px;--padX:20px;--sectionY:80px;--sectionYMobile:56px;--rDoor:22px;--rCard:16px;--rPill:999px;--fontBody:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;--fontHead:Georgia,'Times New Roman',serif;--ease:cubic-bezier(.2,.8,.2,1);--easeOut:cubic-bezier(0,0,0.2,1);--easeBounce:cubic-bezier(0.34,1.56,0.64,1);--tFast:160ms;--tMed:420ms;--tSlow:720ms;--shadow:0 16px 40px rgba(22,90,63,0.12);--shadowHover:0 22px 52px rgba(22,90,63,0.18);--shadowCard:0 14px 28px rgba(22,90,63,0.10);--shadowGlow:0 0 60px rgba(243,178,122,0.25);--focus:0 0 0 4px rgba(47,175,122,0.25)}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}html{scroll-behavior:auto}.door{transform:none;opacity:1}.threshold{transform:scaleX(1)}.doorSheen{display:none}.pathLine{stroke-dashoffset:0}.pathPulse{display:none}}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:var(--fontBody);background:var(--bg);color:var(--ink);line-height:1.7;font-size:19px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}img{max-width:100%;display:block;height:auto}a{color:inherit;text-decoration:none}button,input,textarea,select{font:inherit}::selection{background:var(--glow)}
+    .skip-link{position:absolute;top:-100px;left:50%;transform:translateX(-50%);background:var(--primary);color:var(--bg);padding:12px 24px;border-radius:var(--rPill);font-weight:700;z-index:10000;transition:top var(--tFast) var(--ease)}.skip-link:focus{top:12px;outline:none;box-shadow:var(--focus)}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--padX)}.stack{display:flex;flex-direction:column;gap:12px}.stack-lg{display:flex;flex-direction:column;gap:20px}.row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.muted{color:var(--muted)}.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .kicker{display:inline-block;font-size:14px;letter-spacing:0.16em;text-transform:uppercase;color:var(--primary);margin:0 0 14px 0;font-weight:700}.h1{font-family:var(--fontHead);font-size:clamp(36px,5vw,60px);line-height:1.1;margin:0;letter-spacing:-0.5px;font-weight:700}.h2{font-family:var(--fontHead);font-size:clamp(30px,3.5vw,46px);margin:0;line-height:1.15;font-weight:700}.h3{font-family:var(--fontHead);font-size:clamp(24px,2.5vw,30px);margin:0;line-height:1.25;font-weight:700}.p{margin:0;font-size:20px;color:var(--muted);max-width:65ch;line-height:1.7}.small{font-size:16px}.tiny{font-size:14px}
+    .header{position:sticky;top:0;z-index:100;background:rgba(251,247,239,0.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:16px}.brand{display:flex;align-items:center;gap:10px}.brandLogo{height:40px;width:auto}.navLinks{display:flex;align-items:center;gap:6px;flex-wrap:wrap}.navLinks a{color:var(--muted);font-weight:600;font-size:16px;padding:10px 14px;border-radius:10px;transition:all var(--tFast) var(--ease);position:relative}.navCta{display:flex;gap:10px;align-items:center}
+    .btn{display:inline-flex;align-items:center;justify-content:center;border-radius:var(--rPill);padding:16px 28px;font-weight:700;font-size:17px;border:2px solid transparent;cursor:pointer;transition:all var(--tFast) var(--easeBounce);white-space:nowrap;position:relative;overflow:hidden;min-height:54px}.btnPrimary{background:linear-gradient(135deg,var(--primary) 0%,#1e7a54 100%);color:var(--bg);box-shadow:0 8px 24px rgba(22,90,63,0.22)}.btnSecondary{background:var(--surface);color:var(--primary);border-color:rgba(22,90,63,0.2);box-shadow:0 4px 12px rgba(22,90,63,0.08)}
+    .section{padding:var(--sectionY) 0}.threshold{height:2px;background:linear-gradient(90deg,var(--primary),var(--mint),var(--apricot));transform-origin:left;transform:scaleX(0);transition:transform 800ms var(--easeOut);margin-bottom:20px;border-radius:2px}
+    .hero{padding:60px 0 50px}.door{position:relative;border:1px solid var(--border);border-radius:var(--rDoor);background:linear-gradient(180deg,rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.5) 100%);box-shadow:var(--shadow),inset 0 1px 0 rgba(255,255,255,0.8);overflow:hidden;transform:scale(0.96) translateY(20px);opacity:0;animation:doorIn 900ms var(--easeOut) forwards;animation-delay:100ms}@keyframes doorIn{to{transform:scale(1) translateY(0);opacity:1}}.heroInner{position:relative;padding:48px 44px;display:grid;grid-template-columns:1.2fr 0.8fr;gap:32px;align-items:center}.heroWithImage{grid-template-columns:1.1fr 0.9fr}.heroContent{display:flex;flex-direction:column;gap:24px}.heroVisual{display:flex;align-items:center;justify-content:center}.heroImage{width:100%;max-width:500px;height:auto;border-radius:var(--rDoor);box-shadow:var(--shadowCard);object-fit:cover}
+    .navToggle{border:1px solid rgba(22,90,63,0.18);border-radius:12px;padding:10px 12px;background:rgba(251,247,239,0.95);color:var(--primary);cursor:pointer}.burger{display:block;width:22px;height:2px;background:var(--primary);position:relative;border-radius:2px}.burger::before,.burger::after{content:"";position:absolute;left:0;width:22px;height:2px;background:var(--primary);border-radius:2px}.burger::before{top:-7px}.burger::after{top:7px}
+    .drawer{position:fixed;inset:0;background:rgba(31,41,51,0.5);opacity:0;pointer-events:none;transition:opacity var(--tMed) var(--ease);z-index:200}.drawer.is-open{opacity:1;pointer-events:auto}.drawerInner{position:absolute;right:12px;left:12px;top:12px;border-radius:var(--rDoor);background:rgba(251,247,239,0.98);border:1px solid var(--border);box-shadow:var(--shadowHover);padding:18px;transform:translateY(-10px) scale(0.98);transition:all var(--tMed) var(--easeBounce)}.drawer.is-open .drawerInner{transform:translateY(0) scale(1)}.drawerTop{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}.drawerTitle{margin:0;font-weight:900;color:var(--ink);font-size:17px}.drawerClose{width:40px;height:40px;border:1px solid rgba(22,90,63,0.15);border-radius:12px;background:rgba(251,247,239,0.95);cursor:pointer;display:grid;place-items:center;font-size:18px}.drawerLink{display:block;padding:14px 16px;border-radius:12px;font-weight:700;color:var(--ink);border:1px solid transparent}.drawerCtas{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.drawerNote{margin:14px 0 0 0;font-size:13px;color:var(--muted);text-align:center}
+    .mobileBar{position:fixed;left:12px;right:12px;bottom:12px;display:flex;gap:10px;padding:12px;border-radius:var(--rDoor);background:rgba(251,247,239,0.95);border:1px solid var(--border);box-shadow:0 -8px 32px rgba(22,90,63,0.15);z-index:50;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}.mobileBarBtn{flex:1;padding:14px 16px}
+    body{padding-bottom:100px}
+    .desktopOnly{display:flex}.mobileOnly{display:none}
+    .card{border:1px solid var(--border);border-radius:var(--rCard);padding:22px;background:rgba(255,255,255,0.65);position:relative}
+    .card,.step,.quote,.arizonaItem,.instaCard,.formCard,.investorSection,.porch{opacity:0;transform:translateY(28px) scale(0.97)}.section.is-visible .card,.section.is-visible .step,.section.is-visible .quote,.section.is-visible .arizonaItem,.section.is-visible .instaCard,.section.is-visible .formCard,.section.is-visible .investorSection,.section.is-visible .porch,.hero .card,.hero .porch{opacity:1;transform:translateY(0) scale(1)}.trust{opacity:0;transform:translateX(-20px)}.door .trust{opacity:1;transform:translateX(0)}.mobileBar{opacity:0;transform:translateY(100px)}
+    .cardTitle{font-weight:800;margin:0 0 10px 0;font-size:20px;position:relative}.cardText{color:var(--muted);margin:0;font-size:17px;line-height:1.6;position:relative}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:20px}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}.step{border:1px solid var(--border);border-radius:var(--rCard);padding:24px;background:rgba(251,247,239,0.6);position:relative}.stepNum{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--sage) 0%,rgba(207,231,215,0.6) 100%);color:var(--primary);font-weight:900;font-size:18px;border:1px solid rgba(22,90,63,0.1);margin-bottom:14px}
+    .porch{border:1px solid var(--border);border-radius:var(--rDoor);background:linear-gradient(135deg,rgba(207,231,215,0.4) 0%,rgba(255,255,255,0.6) 50%,rgba(243,178,122,0.15) 100%);box-shadow:var(--shadow);padding:28px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;position:relative;overflow:hidden}
+    .footer{border-top:1px solid var(--border);padding:48px 0 40px;background:linear-gradient(180deg,transparent 0%,rgba(207,231,215,0.1) 100%)}.footerSimple{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;margin-bottom:32px}.footerMain{display:flex;flex-direction:column;gap:12px}.footerLogo{height:45px;width:auto}.footerTagline{font-size:18px;color:var(--muted);margin:0}.footerContact p{margin:0 0 8px 0;font-size:17px}.footerSocial .socialLinks{display:flex;gap:20px}.footerSocial .socialLinks a{font-weight:600;font-size:16px;color:var(--primary);text-decoration:underline;text-underline-offset:3px}.footerBottom{padding-top:24px;border-top:1px dashed rgba(22,90,63,0.15)}.footerLicense{font-size:15px;color:var(--muted);margin:0 0 8px 0}.footerLicense a{color:var(--primary);text-decoration:underline;text-underline-offset:2px}.footerEnd{margin-top:24px;font-size:16px;font-weight:800;color:#ff7a1a}.footerEnd a{color:#ff7a1a;text-decoration:underline;text-underline-offset:3px}.footTitle{font-weight:800;margin:0 0 14px 0;font-size:18px}
+    .formWrap{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}.formCard{border:1px solid var(--border);border-radius:var(--rDoor);background:rgba(255,255,255,0.7);box-shadow:var(--shadow);padding:24px}.formGrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}.field{display:flex;flex-direction:column;gap:6px}.fieldFull{grid-column:1 / -1}.label,label{font-weight:700;font-size:16px;color:var(--ink)}.input,input,textarea,select{width:100%;padding:16px 18px;border-radius:12px;border:2px solid rgba(22,90,63,0.12);background:rgba(255,255,255,0.9);font-size:18px;font-weight:500}
+    .uLink{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:2px;color:var(--primary);font-weight:700}
+    .faq{margin-top:20px;border:1px solid var(--border);border-radius:var(--rDoor);overflow:hidden;background:rgba(255,255,255,0.6)}.faqItem{border-top:1px solid var(--border)}.faqItem:first-child{border-top:0}.faqBtn{width:100%;text-align:left;border:0;background:transparent;padding:20px;font-weight:700;font-size:16px;color:var(--ink);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}.faqIcon{width:32px;height:32px;border-radius:10px;border:1px solid rgba(22,90,63,0.15);display:grid;place-items:center;color:var(--primary);background:rgba(251,247,239,0.9);flex:0 0 auto;font-size:18px;font-weight:400}.faqPanel{max-height:0;overflow:hidden;transition:max-height var(--tMed) var(--ease)}.faqPanelInner{padding:0 20px 20px 20px;color:var(--muted);font-size:16px;line-height:1.65}
+    .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}.quote{border:1px solid var(--border);border-radius:var(--rCard);padding:24px;background:linear-gradient(180deg,rgba(251,247,239,0.8) 0%,rgba(255,255,255,0.6) 100%);position:relative}.qText{margin:0 0 12px 0;color:var(--ink);font-weight:600;font-size:16px;line-height:1.55;padding-left:8px}.qMeta{margin:0;color:var(--muted);font-size:14px;font-weight:500}
+    .chipGrid{display:flex;flex-wrap:wrap;gap:10px}.chip{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;border:1px solid rgba(22,90,63,0.15);background:rgba(207,231,215,0.2);color:var(--ink);font-weight:700;font-size:13px;text-decoration:none}
+    .footList{margin:0;padding:0;list-style:none}.footList li{margin:0 0 10px 0;color:var(--muted);font-size:16px}
+    .meetLogan{display:grid;grid-template-columns:1fr 1.5fr;gap:40px;align-items:center;margin-top:24px}.loganPhoto{display:flex;justify-content:center}.loganHeadshot{border-radius:var(--rDoor);box-shadow:var(--shadowCard);max-width:100%;height:auto;object-fit:cover}.loganBio{display:flex;flex-direction:column;gap:16px}.loganBio .p{font-size:19px;line-height:1.75}
+    .arizonaGrid{display:grid;grid-template-columns:1.5fr 1fr 1fr;grid-template-rows:auto auto;gap:16px;margin-top:24px}.arizonaItem{border-radius:var(--rCard);overflow:hidden;box-shadow:var(--shadowCard)}.arizonaItem img{width:100%;height:100%;object-fit:cover;display:block}.arizonaLarge{grid-row:span 2}.arizonaLarge img{height:100%;min-height:320px}
+    .instaGrid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:16px}.instaCard{display:block;border-radius:16px;overflow:hidden;border:1px solid rgba(22,90,63,0.12);background:rgba(255,255,255,0.7);aspect-ratio:1/1}.instaCard img{width:100%;height:100%;object-fit:cover;display:block}
+    .calculatorWrap{border:1px solid var(--border);border-radius:var(--rDoor);overflow:hidden;background:var(--surface);box-shadow:var(--shadow);margin-top:20px}.calculatorWrap iframe{width:100%;min-height:600px;border:none;display:block}
+    .investorSection{background:linear-gradient(180deg,rgba(207,231,215,0.15) 0%,transparent 100%);border-radius:var(--rDoor);padding:32px;margin-top:24px;border:1px solid rgba(22,90,63,0.1)}
+    .presence{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--muted);margin-left:8px}.dot{width:10px;height:10px;border-radius:50%;background:var(--mint)}
+    .trust{display:flex;flex-direction:column;gap:12px;padding:20px;border-radius:var(--rCard);border:1px solid var(--border);background:rgba(251,247,239,0.95);box-shadow:0 8px 24px rgba(22,90,63,0.08)}.trust strong{color:var(--primary)}.trustItem{font-size:14px;color:var(--muted);padding-left:12px;border-left:3px solid var(--sage)}
+    .pathWrap{margin-top:18px;max-width:560px}.pathSvg{width:100%;height:auto;overflow:visible}
+    .hr{height:1px;background:var(--border);border:0;margin:24px 0}
+    .notice{border:2px dashed rgba(22,90,63,0.2);border-radius:var(--rCard);padding:16px;background:rgba(207,231,215,0.2);color:var(--muted);font-size:15px;line-height:1.55}
+    .badgeRow{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}.badge{display:inline-flex;align-items:center;padding:8px 12px;border-radius:999px;border:1px solid rgba(22,90,63,0.15);background:rgba(207,231,215,0.25);font-weight:700;font-size:13px;color:var(--primary)}
+    .cardLink{display:flex;justify-content:space-between;align-items:center;gap:12px}.chev{width:32px;height:32px;border-radius:10px;border:1px solid rgba(22,90,63,0.15);display:grid;place-items:center;color:var(--primary);background:rgba(251,247,239,0.9);font-size:16px;flex-shrink:0}
+    .related{margin-top:20px;padding-top:20px;border-top:1px solid rgba(22,90,63,0.1)}
+    .inlineStatus{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--muted);min-height:20px;margin-top:8px}.check{width:20px;height:20px;border-radius:6px;border:2px solid rgba(22,90,63,0.15);display:grid;place-items:center;color:var(--mint);background:rgba(207,231,215,0.3);opacity:0;transform:scale(0.8)}
+    .srOnly{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}.help{font-size:15px;color:var(--muted);margin-top:6px}
+    .subNav{font-size:12px!important;opacity:0.85;padding:6px 10px!important;border-radius:8px;border:1px solid rgba(22,90,63,0.12)!important;background:rgba(207,231,215,0.15)}
+    @media(max-width:1000px){.grid4{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:900px){.section{padding:var(--sectionYMobile) 0}.hero{padding-top:48px;padding-bottom:32px}.heroInner{grid-template-columns:1fr;padding:32px 24px}.heroWithImage{grid-template-columns:1fr}.heroVisual{order:-1;margin-bottom:16px}.heroImage{max-width:100%;max-height:280px;object-fit:cover;width:100%}.desktopOnly{display:none!important}.mobileOnly{display:block!important}.grid3{grid-template-columns:1fr}.steps{grid-template-columns:1fr}.quotes{grid-template-columns:1fr}.footerSimple{grid-template-columns:1fr;text-align:center;gap:32px}.footerLogo{margin:0 auto}.footerSocial .socialLinks{justify-content:center}.footerBottom{text-align:center}.meetLogan{grid-template-columns:1fr;text-align:center;gap:24px}.loganHeadshot{max-width:280px;margin:0 auto}.loganBio .btn{align-self:center}.arizonaGrid{grid-template-columns:1fr 1fr;grid-template-rows:auto}.arizonaLarge{grid-column:span 2;grid-row:span 1}.arizonaLarge img{min-height:200px;max-height:300px}.instaGrid{grid-template-columns:repeat(3,1fr)}.formWrap{grid-template-columns:1fr}.p{font-size:17px}.btn{padding:14px 20px}.navLinks a{padding:10px 12px}.pathWrap{max-width:480px}}
+    @media(max-width:720px){.formGrid{grid-template-columns:1fr}}
+    @media(max-width:700px){.chipGrid{justify-content:center}.related{text-align:center}.chip{font-size:14px;padding:12px 16px}}
+    @media(max-width:600px){.grid4{grid-template-columns:1fr}.arizonaGrid{grid-template-columns:1fr}.arizonaLarge{grid-column:span 1}}
+    @media(max-width:520px){.instaGrid{grid-template-columns:repeat(2,1fr)}}
+    @media(min-width:901px){body{padding-bottom:0}}
+    @media print{.header,.mobileBar,.drawer{display:none!important}body{padding:0}.door{box-shadow:none;border:1px solid #ccc}}
+  </style>
+
+  <meta name="description" content="Serving all of Arizona with a focus on premium communities like Paradise Valley, Scottsdale, and Arcadia. Clear steps, fast pre-approvals, steady updates." />
+  <link rel="canonical" href="https://www.logan.loans/arizona.html" />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+
+  <meta property="og:title" content="Arizona Mortgage Lender | Logan Loans (Statewide)" />
+  <meta property="og:description" content="Serving all of Arizona with a focus on premium communities like Paradise Valley, Scottsdale, and Arcadia. Clear steps, fast pre-approvals, steady updates." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.logan.loans/arizona.html" />
+  <meta property="og:image" content="https://www.logan.loans/og-image.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Arizona Mortgage Lender | Logan Loans (Statewide)" />
+  <meta name="twitter:description" content="Serving all of Arizona with a focus on premium communities like Paradise Valley, Scottsdale, and Arcadia. Clear steps, fast pre-approvals, steady updates." />
+  <meta name="twitter:image" content="https://www.logan.loans/og-image.jpg" />
+
+    <!-- Google Analytics 4 - Placeholder: GA4 Measurement ID needed (G-XXXXXXXXXX) -->
+  <!--
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.logan.loans/#website",
+      "url": "https://www.logan.loans/",
+      "name": "Logan Loans",
+      "description": "Mortgages explained like a human across Arizona and Southern California. Clear guidance, fast pre-approvals, and a calm process.",
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://www.logan.loans/#localbusiness",
+      "name": "Logan Loans",
+      "url": "https://www.logan.loans/",
+             "sameAs": ["https://www.instagram.com/logan.loans", "https://www.linkedin.com/in/logansulliv", "https://www.tiktok.com/@logan.loans?_t=ZT-8wwNgrzGCx4&_r=1", "https://forward.loans/loan-officer/logan-sullivan/", "https://www.grandfundingllc.com/"],
+      "telephone": "+14808037763",
+      "address": {"@type":"PostalAddress","streetAddress":"11201 N Tatum Blvd #300","addressLocality":"Phoenix","addressRegion":"AZ","postalCode":"85028","addressCountry":"US"},
+      "areaServed": [
+        "Arizona",
+        "Phoenix",
+        "Scottsdale",
+        "Paradise Valley",
+        "Sedona",
+        "Flagstaff",
+        "Tucson",
+        "Fountain Hills",
+        "Carefree",
+        "Cave Creek",
+        "Mesa",
+        "Tempe",
+        "Chandler",
+        "Gilbert"
+      ],
+      "priceRange": "$$"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.logan.loans/arizona.html#webpage",
+      "url": "https://www.logan.loans/arizona.html",
+      "name": "Arizona Mortgage Lender | Logan Loans (Statewide)",
+      "isPartOf": {
+        "@id": "https://www.logan.loans/#website"
+      }
+    }
+  ]
+}
+  </script>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do you serve all of Arizona or only Phoenix?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We serve all of Arizona statewide. Phoenix and Scottsdale are common, but we can help anywhere in the state."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "I’m buying in Paradise Valley or North Scottsdale. What’s different?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Premium purchases benefit from clean documentation, fast communication, and a clear-to-close plan so timelines stay tight and surprises stay small."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How fast can I get pre-approved?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Often quickly once we have the basics (income, assets, credit). If anything needs cleanup, we’ll give you a clear checklist."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What documents do I need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Commonly: pay stubs, W-2s/1099s, bank statements, and ID. We tailor the list to your situation so it stays manageable."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What’s the timeline from offer to keys in Arizona?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Timelines vary, but we map milestones: underwriting, appraisal, final approval, and closing. You’ll get steady updates throughout."
+      }
+    }
+  ]
+}
+  </script>
+
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="header">
+    <div class="wrap">
+      <div class="nav">
+        <a class="brand" href="./index.html#top" aria-label="Logan Loans home">
+          <img src="./assets/img/logo.svg" alt="Logan Loans" class="brandLogo" width="140" height="40">
+        </a>
+
+        <nav class="navLinks desktopOnly" aria-label="Primary">
+          <a href="./programs.html">Programs</a>
+          <a href="./faq.html">FAQ</a>
+          <a href="./meet-logan.html">Meet Logan</a>
+          <a href="./contact.html">Contact</a>
+        </nav>
+
+        <div class="navCta desktopOnly">
+          <a class="btn btnPrimary" href="./contact.html#intake">Get Pre-Approved</a>
+          <a class="btn btnSecondary" href="tel:+14808037763">Call (480) 803-7763</a>
+        </div>
+
+        <button class="navToggle mobileOnly" type="button" aria-label="Open menu" aria-expanded="false" data-nav-toggle>
+          <span class="burger" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="drawer" data-drawer aria-hidden="true" inert>
+      <div class="drawerInner">
+        <div class="drawerTop">
+          <p class="drawerTitle">Menu</p>
+          <button class="drawerClose" type="button" aria-label="Close menu" data-drawer-close>✕</button>
+        </div>
+        <a class="drawerLink" href="./programs.html">Programs</a>
+        <a class="drawerLink" href="./faq.html">FAQ</a>
+        <a class="drawerLink" href="./meet-logan.html">Meet Logan</a>
+        <a class="drawerLink" href="./contact.html">Contact</a>
+
+        <div class="drawerCtas">
+          <a class="btn btnPrimary" href="./contact.html#intake">Get Pre-Approved</a>
+          <a class="btn btnSecondary" href="tel:+14808037763">Call (480) 803-7763</a>
+        </div>
+
+        <p class="drawerNote">Arizona • Southern California</p>
+      </div>
+    </div>
+  </header>
+<main id="main-content">
+
+<section class="section" data-observe>
+  <div class="wrap">
+    <div class="threshold" aria-hidden="true"></div>
+    <p class="kicker">Arizona mortgages</p>
+    <h1 class="h1" style="font-size:clamp(30px,4vw,48px)">Arizona mortgage lending, statewide. Premium markets, handled cleanly.</h1>
+    <p class="p">We serve <strong>all of Arizona</strong>, with extra focus on high-end communities where details, speed, and calm communication matter.</p>
+
+    <div class="related" style="margin-top:16px;">
+      <p class="small muted" style="margin:0 0 10px 0;">Featured communities:</p>
+      <div class="chipGrid">
+        <a class="chip" href="./paradise-valley.html">Paradise Valley mortgage lending, handled cleanly.</a>
+<a class="chip" href="./north-scottsdale.html">North Scottsdale and Silverleaf</a>
+<a class="chip" href="./arcadia-biltmore.html">Arcadia and Biltmore</a>
+<a class="chip" href="./sedona.html">Sedona</a>
+<a class="chip" href="./flagstaff.html">Flagstaff</a>
+<a class="chip" href="./catalina-foothills.html">Catalina Foothills</a>
+      </div>
+    </div>
+
+    <div class="grid3" role="list" aria-label="Arizona clusters" style="margin-top:18px;">
+
+      <div class="card">
+        <p class="cardTitle">Phoenix luxury corridor</p>
+        <ul class="footList" style="margin-top:8px;">
+          <li><a class="uLink" href="./arcadia-biltmore.html">Arcadia</a></li>
+<li><a class="uLink" href="./arcadia-biltmore.html">Biltmore</a></li>
+<li><a class="uLink" href="./arcadia-biltmore.html">Uptown Phoenix</a></li>
+        </ul>
+      </div>
+
+
+      <div class="card">
+        <p class="cardTitle">Scottsdale + Paradise Valley</p>
+        <ul class="footList" style="margin-top:8px;">
+          <li><a class="uLink" href="./north-scottsdale.html">North Scottsdale</a></li>
+<li><a class="uLink" href="./north-scottsdale.html">Silverleaf</a></li>
+<li><a class="uLink" href="./paradise-valley.html">Paradise Valley</a></li>
+        </ul>
+      </div>
+
+
+      <div class="card">
+        <p class="cardTitle">North Valley lifestyle</p>
+        <ul class="footList" style="margin-top:8px;">
+          <li><a class="uLink" href="./north-scottsdale.html">Carefree</a></li>
+<li><a class="uLink" href="./north-scottsdale.html">Cave Creek</a></li>
+<li><a class="uLink" href="./north-scottsdale.html">Fountain Hills</a></li>
+        </ul>
+      </div>
+
+
+      <div class="card">
+        <p class="cardTitle">Second-home markets</p>
+        <ul class="footList" style="margin-top:8px;">
+          <li><a class="uLink" href="./sedona.html">Sedona</a></li>
+<li><a class="uLink" href="./flagstaff.html">Flagstaff (Pine Canyon)</a></li>
+        </ul>
+      </div>
+
+
+      <div class="card">
+        <p class="cardTitle">Southern Arizona</p>
+        <ul class="footList" style="margin-top:8px;">
+          <li><a class="uLink" href="./catalina-foothills.html">Tucson (Catalina Foothills)</a></li>
+<li>Oro Valley</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <p class="cardTitle">Every other Arizona community</p>
+        <p class="cardText">If your city isn’t listed, you’re still covered. Tell us where you’re buying and we’ll confirm the best next step.</p>
+        <div class="row" style="margin-top:12px;">
+          <a class="btn btnPrimary" href="./contact.html#intake">Start the Form ✍️</a>
+          <a class="btn btnSecondary" href="./faq.html">Read FAQs</a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="hr"/>
+
+    <p class="cardTitle" style="margin:0 0 10px 0;">Arizona FAQs (short answers)</p>
+    <div class="faq" aria-label="Arizona mortgage FAQs">
+
+      <div class="faqItem">
+        <button class="faqBtn" data-faq-btn aria-expanded="false" type="button">
+          Do you serve all of Arizona or only Phoenix?
+          <span class="faqIcon" aria-hidden="true">+</span>
+        </button>
+        <div class="faqPanel"><div class="faqPanelInner">We serve all of Arizona statewide. Phoenix and Scottsdale are common, but we can help anywhere in the state.</div></div>
+      </div>
+
+      <div class="faqItem">
+        <button class="faqBtn" data-faq-btn aria-expanded="false" type="button">
+          I’m buying in Paradise Valley or North Scottsdale. What’s different?
+          <span class="faqIcon" aria-hidden="true">+</span>
+        </button>
+        <div class="faqPanel"><div class="faqPanelInner">Premium purchases benefit from clean documentation, fast communication, and a clear-to-close plan so timelines stay tight and surprises stay small.</div></div>
+      </div>
+
+      <div class="faqItem">
+        <button class="faqBtn" data-faq-btn aria-expanded="false" type="button">
+          How fast can I get pre-approved?
+          <span class="faqIcon" aria-hidden="true">+</span>
+        </button>
+        <div class="faqPanel"><div class="faqPanelInner">Often quickly once we have the basics (income, assets, credit). If anything needs cleanup, we’ll give you a clear checklist.</div></div>
+      </div>
+
+      <div class="faqItem">
+        <button class="faqBtn" data-faq-btn aria-expanded="false" type="button">
+          What documents do I need?
+          <span class="faqIcon" aria-hidden="true">+</span>
+        </button>
+        <div class="faqPanel"><div class="faqPanelInner">Commonly: pay stubs, W-2s/1099s, bank statements, and ID. We tailor the list to your situation so it stays manageable.</div></div>
+      </div>
+
+      <div class="faqItem">
+        <button class="faqBtn" data-faq-btn aria-expanded="false" type="button">
+          What’s the timeline from offer to keys in Arizona?
+          <span class="faqIcon" aria-hidden="true">+</span>
+        </button>
+        <div class="faqPanel"><div class="faqPanelInner">Timelines vary, but we map milestones: underwriting, appraisal, final approval, and closing. You’ll get steady updates throughout.</div></div>
+      </div>
+
+    </div>
+
+    <div class="porch porchPulse" style="margin-top:22px;">
+      <div class="stack">
+        <p class="cardTitle" style="margin:0;">Tell us your Arizona city and timeline.</p>
+        <p class="small muted" style="margin:0;">We’ll reply with a simple plan and the exact next step.</p>
+      </div>
+      <div class="row">
+        <a class="btn btnPrimary" href="./contact.html#intake">Start the Form ✍️</a>
+        <a class="btn btnSecondary" href="tel:+14808037763">Call 📞</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footerSimple">
+      <div class="footerMain">
+        <img src="./assets/img/logo.svg" alt="Logan Loans" class="footerLogo" width="160" height="45">
+        <p class="footerTagline">Arizona mortgages, explained like a human.</p>
+      </div>
+
+      <div class="footerContact">
+        <p class="footTitle">Contact</p>
+        <p><a href="tel:+14808037763" class="uLink">(480) 803-7763</a></p>
+        <p><a href="mailto:logan@forward.loans" class="uLink">logan@forward.loans</a></p>
+        <p class="small muted">Mon–Fri 9am–6pm, Sat 10am–4pm</p>
+      </div>
+
+      <div class="footerSocial">
+        <p class="footTitle">Connect</p>
+        <div class="socialLinks">
+          <a href="https://www.instagram.com/logan.loans" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+          <a href="https://www.linkedin.com/in/logansulliv" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+          <a href="https://www.google.com/search?q=Logan+Sullivan+Mortgage+Advisor" target="_blank" rel="noopener" aria-label="Google Reviews">Reviews</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footerBottom">
+      <p class="footerLicense">
+        <strong>NMLS</strong> 2466872 (Logan Sullivan) • <strong>Forward Loans</strong> NMLS 2006640<br>
+        <a href="https://forward.loans/loan-officer/logan-sullivan/" target="_blank" rel="noopener">Official Profile</a> •
+        <a href="./privacy.html">Privacy</a> •
+        <a href="./disclosures.html">Disclosures</a>
+      </p>
+      <p class="small muted">All loans subject to credit approval. Same-day pre-approval depends on timing and completeness of information.</p>
+    </div>
+
+    <div class="footerEnd">
+      Designed, Hosted and Cared For By <a href="https://littlefightnyc.com" target="_blank" rel="noopener">LittleFightNYC.com</a>
+    </div>
+  </div>
+</footer>
+
+</main>
+
+<div class="mobileBar mobileOnly" role="region" aria-label="Quick actions">
+  <a class="btn btnSecondary mobileBarBtn" href="tel:+14808037763" aria-label="Call Logan Loans">📞 Call</a>
+  <a class="btn btnPrimary mobileBarBtn" href="./contact.html#intake" aria-label="Get pre-approved">✅ Pre-Approve</a>
+</div>
+
+<link rel="stylesheet" href="./styles.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="./styles.css"></noscript>
+<script src="./app.js" defer></script>
+</body>
+</html>
