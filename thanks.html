@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Application Received | Logan Loans</title>
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <style>
+    :root{--bg:#FBF7EF;--surface:#FFFFFF;--ink:#1F2933;--muted:#52616B;--primary:#165A3F;--sage:#CFE7D7;--border:#E7E0D6;--apricot:#F3B27A;--mint:#2FAF7A;--glow:rgba(243,178,122,0.35);--max:1120px;--padX:20px;--rDoor:22px;--rCard:16px;--rPill:999px;--fontBody:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;--fontHead:Georgia,'Times New Roman',serif;--ease:cubic-bezier(.2,.8,.2,1);--easeOut:cubic-bezier(0,0,0.2,1);--easeBounce:cubic-bezier(0.34,1.56,0.64,1);--tFast:160ms;--tMed:420ms;--shadow:0 16px 40px rgba(22,90,63,0.12);--focus:0 0 0 4px rgba(47,175,122,0.25)}
+    @media(prefers-reduced-motion:reduce){*{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:var(--fontBody);background:var(--bg);color:var(--ink);line-height:1.7;font-size:19px;-webkit-font-smoothing:antialiased;padding-bottom:100px}img{max-width:100%;display:block;height:auto}a{color:inherit;text-decoration:none}button,input,textarea,select{font:inherit}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--padX)}.stack{display:flex;flex-direction:column;gap:12px}.row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.muted{color:var(--muted)}
+    .skip-link{position:absolute;top:-100px;left:50%;transform:translateX(-50%);background:var(--primary);color:var(--bg);padding:12px 24px;border-radius:var(--rPill);font-weight:700;z-index:10000;transition:top var(--tFast) var(--ease)}.skip-link:focus{top:12px;outline:none;box-shadow:var(--focus)}
+    .kicker{display:inline-block;font-size:14px;letter-spacing:0.16em;text-transform:uppercase;color:var(--primary);margin:0 0 14px 0;font-weight:700}.h1{font-family:var(--fontHead);font-size:clamp(34px,4.5vw,54px);line-height:1.12;margin:0;font-weight:700}.h2{font-family:var(--fontHead);font-size:clamp(24px,3vw,38px);margin:0;line-height:1.2;font-weight:700}.h3{font-family:var(--fontHead);font-size:clamp(20px,2.2vw,28px);margin:0 0 10px 0;line-height:1.3;font-weight:700}.p{margin:0;font-size:19px;color:var(--muted);max-width:65ch;line-height:1.7}.small{font-size:16px}.tiny{font-size:14px}
+    .header{position:sticky;top:0;z-index:100;background:rgba(251,247,239,0.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:16px}.brand img{height:40px;width:auto}.navLinks{display:flex;align-items:center;gap:6px}.navLinks a{color:var(--muted);font-weight:600;font-size:16px;padding:10px 14px;border-radius:10px}.navCta{display:flex;gap:10px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;border-radius:var(--rPill);padding:16px 28px;font-weight:700;font-size:17px;border:2px solid transparent;cursor:pointer;transition:all var(--tFast) var(--easeBounce);white-space:nowrap;min-height:54px}.btnPrimary{background:linear-gradient(135deg,var(--primary),#1e7a54);color:var(--bg);box-shadow:0 8px 24px rgba(22,90,63,0.22)}.btnSecondary{background:var(--surface);color:var(--primary);border-color:rgba(22,90,63,0.2);box-shadow:0 4px 12px rgba(22,90,63,0.08)}
+    .navToggle{border:1px solid rgba(22,90,63,0.18);border-radius:12px;padding:10px 12px;background:rgba(251,247,239,0.95);color:var(--primary);cursor:pointer}.burger{display:block;width:22px;height:2px;background:var(--primary);position:relative;border-radius:2px}.burger::before,.burger::after{content:"";position:absolute;left:0;width:22px;height:2px;background:var(--primary);border-radius:2px}.burger::before{top:-7px}.burger::after{top:7px}
+    .drawer{position:fixed;inset:0;background:rgba(31,41,51,0.5);opacity:0;pointer-events:none;transition:opacity var(--tMed) var(--ease);z-index:200}.drawer.is-open{opacity:1;pointer-events:auto}.drawerInner{position:absolute;right:12px;left:12px;top:12px;border-radius:var(--rDoor);background:rgba(251,247,239,0.98);border:1px solid var(--border);box-shadow:var(--shadow);padding:18px;transform:translateY(-10px) scale(0.98);transition:all var(--tMed) var(--easeBounce)}.drawer.is-open .drawerInner{transform:translateY(0) scale(1)}.drawerTop{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}.drawerTitle{margin:0;font-weight:900;font-size:17px}.drawerClose{width:40px;height:40px;border:1px solid rgba(22,90,63,0.15);border-radius:12px;background:rgba(251,247,239,0.95);cursor:pointer;display:grid;place-items:center;font-size:18px}.drawerLink{display:block;padding:14px 16px;border-radius:12px;font-weight:700;color:var(--ink);border:1px solid transparent}.drawerCtas{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.drawerNote{margin:14px 0 0 0;font-size:13px;color:var(--muted);text-align:center}
+    .mobileBar{position:fixed;left:12px;right:12px;bottom:12px;display:flex;gap:10px;padding:12px;border-radius:var(--rDoor);background:rgba(251,247,239,0.95);border:1px solid var(--border);box-shadow:0 -8px 32px rgba(22,90,63,0.15);z-index:50;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}.mobileBarBtn{flex:1;padding:14px 16px}
+    .desktopOnly{display:flex}.mobileOnly{display:none}
+    .section{padding:80px 0}
+    .threshold{height:2px;background:linear-gradient(90deg,var(--primary),var(--mint),var(--apricot));transform-origin:left;transform:scaleX(0);transition:transform 800ms var(--easeOut);margin-bottom:24px;border-radius:2px}
+    .card{border:1px solid var(--border);border-radius:var(--rCard);padding:24px;background:rgba(255,255,255,0.65)}
+    .confirmBanner{background:linear-gradient(135deg,rgba(47,175,122,0.12) 0%,rgba(207,231,215,0.3) 100%);border:2px solid rgba(47,175,122,0.25);border-radius:var(--rDoor);padding:36px;margin-bottom:40px;text-align:center}
+    .checkCircle{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--mint),var(--primary));display:grid;place-items:center;margin:0 auto 20px auto;font-size:36px;color:white;box-shadow:0 8px 24px rgba(47,175,122,0.3)}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+    .uLink{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:2px;color:var(--primary);font-weight:700}
+    .porch{border:1px solid var(--border);border-radius:var(--rDoor);background:linear-gradient(135deg,rgba(207,231,215,0.4) 0%,rgba(255,255,255,0.6) 50%,rgba(243,178,122,0.15) 100%);box-shadow:var(--shadow);padding:28px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+    .loganCard{display:flex;align-items:center;gap:16px;background:rgba(255,255,255,0.8);border:1px solid rgba(22,90,63,0.12);border-radius:var(--rDoor);padding:24px}
+    .loganPhoto{width:80px;height:80px;border-radius:50%;object-fit:cover;border:2px solid var(--sage);flex-shrink:0}
+    .prose{max-width:720px}.prose h2{font-family:var(--fontHead);font-size:clamp(22px,2.5vw,32px);margin:40px 0 14px 0;font-weight:700}.prose h3{font-family:var(--fontHead);font-size:clamp(18px,2vw,24px);margin:28px 0 10px 0;font-weight:700}.prose p{font-size:18px;color:var(--muted);line-height:1.75;margin:0 0 18px 0}.prose ul{padding-left:20px;margin:0 0 18px 0}.prose li{font-size:18px;color:var(--muted);line-height:1.7;margin-bottom:8px}
+    .footer{border-top:1px solid var(--border);padding:48px 0 40px;background:linear-gradient(180deg,transparent 0%,rgba(207,231,215,0.1) 100%)}.footerSimple{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;margin-bottom:32px}.footerMain{display:flex;flex-direction:column;gap:12px}.footerLogo{height:45px;width:auto}.footerTagline{font-size:18px;color:var(--muted);margin:0}.footerContact p{margin:0 0 8px 0;font-size:17px}.footerSocial .socialLinks{display:flex;gap:20px}.footerSocial .socialLinks a{font-weight:600;font-size:16px;color:var(--primary);text-decoration:underline;text-underline-offset:3px}.footerBottom{padding-top:24px;border-top:1px dashed rgba(22,90,63,0.15)}.footerLicense{font-size:15px;color:var(--muted);margin:0 0 8px 0}.footerLicense a{color:var(--primary);text-decoration:underline;text-underline-offset:2px}.footerEnd{margin-top:24px;font-size:16px;font-weight:800;color:#ff7a1a}.footerEnd a{color:#ff7a1a;text-decoration:underline;text-underline-offset:3px}.footTitle{font-weight:800;margin:0 0 14px 0;font-size:18px}
+    @media(max-width:900px){.section{padding:56px 0}.grid3{grid-template-columns:1fr}.desktopOnly{display:none!important}.mobileOnly{display:block!important}.footerSimple{grid-template-columns:1fr;text-align:center;gap:32px}.footerLogo{margin:0 auto}.footerSocial .socialLinks{justify-content:center}.footerBottom{text-align:center}.porch{flex-direction:column}.loganCard{flex-direction:column;text-align:center}.p{font-size:17px}.btn{padding:14px 20px}}
+    @media(min-width:901px){body{padding-bottom:0}}
+  </style>
+
+  <meta name="description" content="Your pre-approval request has been received. Logan Sullivan will review your application personally and reach out shortly." />
+  <link rel="canonical" href="https://www.logan.loans/thanks.html" />
+  <meta name="robots" content="noindex,nofollow" />
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="header">
+    <div class="wrap">
+      <div class="nav">
+        <a class="brand" href="./index.html" aria-label="Logan Loans home">
+          <img src="./assets/img/logo.svg" alt="Logan Loans" width="140" height="40">
+        </a>
+        <nav class="navLinks desktopOnly" aria-label="Primary">
+          <a href="./programs.html">Programs</a>
+          <a href="./faq.html">FAQ</a>
+          <a href="./meet-logan.html">Meet Logan</a>
+          <a href="./contact.html">Contact</a>
+        </nav>
+        <div class="navCta desktopOnly">
+          <a class="btn btnPrimary" href="./apply.html">Get Pre-Approved</a>
+          <a class="btn btnSecondary" href="tel:+14808037763">Call (480) 803-7763</a>
+        </div>
+        <button class="navToggle mobileOnly" type="button" aria-label="Open menu" aria-expanded="false" data-nav-toggle>
+          <span class="burger" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+    <div class="drawer" data-drawer aria-hidden="true" inert>
+      <div class="drawerInner">
+        <div class="drawerTop">
+          <p class="drawerTitle">Menu</p>
+          <button class="drawerClose" type="button" aria-label="Close menu" data-drawer-close>✕</button>
+        </div>
+        <a class="drawerLink" href="./programs.html">Programs</a>
+        <a class="drawerLink" href="./faq.html">FAQ</a>
+        <a class="drawerLink" href="./meet-logan.html">Meet Logan</a>
+        <a class="drawerLink" href="./contact.html">Contact</a>
+        <div class="drawerCtas">
+          <a class="btn btnPrimary" href="./apply.html">Get Pre-Approved</a>
+          <a class="btn btnSecondary" href="tel:+14808037763">Call (480) 803-7763</a>
+        </div>
+        <p class="drawerNote">Arizona • Southern California</p>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="section" style="padding-top:48px;">
+      <div class="wrap">
+
+        <!-- CONFIRMATION BANNER -->
+        <div class="confirmBanner" role="status" aria-live="polite">
+          <div class="checkCircle" aria-hidden="true">✓</div>
+          <p class="kicker" style="margin-bottom:8px;">You're in good hands</p>
+          <h1 class="h1" style="margin-bottom:12px;">Application received.</h1>
+          <p class="p" style="margin:0 auto;">Logan will review your request personally and reach out — usually the same business day. Check your inbox (and spam, just in case).</p>
+        </div>
+
+        <!-- LOGAN INTRO CARD -->
+        <div class="loganCard" style="margin-bottom:40px;">
+          <img src="./assets/img/logan-headshot-2.webp" alt="Logan Sullivan, Mortgage Advisor" class="loganPhoto" width="80" height="80">
+          <div>
+            <p style="font-weight:800;font-size:18px;margin:0 0 6px 0;">A note from Logan</p>
+            <p class="small muted" style="margin:0;">"I read every application myself. Before I call, I'll have already pulled your loan scenario and thought through the best options for your situation. The conversation will be focused, not a fishing expedition."</p>
+            <p class="tiny muted" style="margin:6px 0 0 0;">Logan Sullivan · NMLS 2466872 · <a class="uLink" href="tel:+14808037763">(480) 803-7763</a></p>
+          </div>
+        </div>
+
+        <!-- CONTENT: WHAT HAPPENS NOW + EDUCATION -->
+        <div style="display:grid;grid-template-columns:1fr 320px;gap:48px;align-items:start;" class="contentGrid">
+          <div class="prose">
+            <h2>What happens between now and your call</h2>
+            <p>You've already done the hardest part. The form you filled out gives Logan everything he needs to look at your scenario before picking up the phone — so when he does call, you're not starting from scratch.</p>
+            <p>Here's exactly what Logan does with your application before reaching out:</p>
+            <ul>
+              <li><strong>Reviews your goal and timeline</strong> to determine which loan programs are actually worth discussing — rather than presenting everything on the menu.</li>
+              <li><strong>Identifies the likely rate range</strong> for your scenario so the first number you hear is grounded in reality, not a teaser.</li>
+              <li><strong>Flags any potential hurdles</strong> upfront — credit, income type, property type — so you're not blindsided three weeks into the process.</li>
+              <li><strong>Prepares a shortlist of options</strong> so the call is a decision conversation, not an information dump.</li>
+            </ul>
+
+            <h2>What to expect on the call</h2>
+            <p>The first call is usually 15–20 minutes. Logan will confirm the basics of your situation, answer your questions honestly, and walk you through the two or three options that actually make sense for you. He's not going to push you toward the loan that earns him the most — he's going to push you toward the one you can comfortably live with for 30 years.</p>
+            <p>If the timing works and you want to move forward, he'll tell you exactly which documents to gather next. If you're still six months out, he'll tell you what to do in the meantime to put yourself in the strongest position possible.</p>
+
+            <h2>Documents you may want to find ahead of time</h2>
+            <p>You don't need these for the call — but having them ready speeds things up considerably once you decide to move forward:</p>
+            <ul>
+              <li>Last 2 years of W-2s or 1099s (or both if you have mixed income)</li>
+              <li>Last 2 years of federal tax returns</li>
+              <li>Most recent 2 months of pay stubs</li>
+              <li>Most recent 2 months of bank statements (all pages)</li>
+              <li>Government-issued photo ID</li>
+              <li>For investment properties: current leases and rent rolls if applicable</li>
+            </ul>
+            <p>If your income situation is non-traditional — self-employed, 1099, rental income, business owner — don't worry. Logan works with complex income structures regularly. Just mention it on the call and he'll tell you exactly what applies to your situation.</p>
+
+            <h2>What "same-day pre-approval" actually means</h2>
+            <p>You may have seen the phrase on the site. Here's the honest explanation: once Logan has had a short conversation with you and you've authorized a soft credit pull, he can often have a pre-approval scenario ready the same day. The letter itself — the signed document your agent puts in front of a seller — comes after full document review, which typically takes 24–48 hours depending on how quickly documents come in.</p>
+            <p>The goal isn't to rush. The goal is to move fast when the market requires it and take your time when it doesn't. Logan will calibrate to your timeline.</p>
+
+            <h2>Questions Logan gets asked a lot</h2>
+            <p><strong>Does this hurt my credit?</strong> No. The intake process uses a soft pull, which doesn't affect your score. A hard pull only happens when you authorize it — typically once you've found a property and are ready to lock.</p>
+            <p><strong>Am I locked into working with Logan?</strong> Not at all. There's no obligation from this form. The call is free, the advice is free, and you can shop other lenders if you want. Logan's approach is to earn your business with clarity and speed — not paperwork you didn't agree to.</p>
+            <p><strong>What if my credit isn't perfect?</strong> Tell Logan on the call. He's worked with buyers rebuilding credit, navigating recent derogatory marks, and managing complex debt-to-income situations. The earlier you're honest about the full picture, the better the plan he can build for you.</p>
+          </div>
+
+          <!-- SIDEBAR -->
+          <div style="display:flex;flex-direction:column;gap:20px;position:sticky;top:88px;">
+            <div class="card">
+              <p style="font-weight:800;font-size:17px;margin:0 0 12px 0;">While you wait</p>
+              <div style="display:flex;flex-direction:column;gap:10px;">
+                <a href="./how-it-works.html" class="uLink" style="font-size:16px;">How the process works →</a>
+                <a href="./programs.html" class="uLink" style="font-size:16px;">Browse loan programs →</a>
+                <a href="./faq.html" class="uLink" style="font-size:16px;">Common questions answered →</a>
+                <a href="./meet-logan.html" class="uLink" style="font-size:16px;">Meet Logan →</a>
+              </div>
+            </div>
+
+            <div class="card" style="background:linear-gradient(135deg,rgba(207,231,215,0.4),rgba(255,255,255,0.7));">
+              <p style="font-weight:800;font-size:17px;margin:0 0 6px 0;">Prefer to call now?</p>
+              <p class="small muted" style="margin:0 0 14px 0;">Skip the wait and start the conversation today.</p>
+              <a class="btn btnPrimary" href="tel:+14808037763" style="width:100%;justify-content:center;">(480) 803-7763</a>
+              <p class="tiny muted" style="text-align:center;margin:8px 0 0 0;">Mon–Fri 9am–6pm · Sat 10am–4pm</p>
+            </div>
+
+            <div class="card">
+              <p style="font-weight:800;font-size:17px;margin:0 0 10px 0;">Share with your agent</p>
+              <p class="small muted" style="margin:0 0 12px 0;">Let your real estate agent know you've submitted a pre-approval request. They'll appreciate the heads-up.</p>
+              <a class="uLink" href="https://www.google.com/search?q=Logan+Sullivan+Mortgage+Advisor" target="_blank" rel="noopener" style="font-size:15px;">Read Logan's Google Reviews →</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- NEXT STEPS -->
+    <section class="section" style="padding-top:0;" data-observe>
+      <div class="wrap">
+        <div class="threshold" aria-hidden="true"></div>
+        <p class="kicker">Keep exploring</p>
+        <h2 class="h2">Resources to make the most of the next few weeks</h2>
+        <div class="grid3" style="margin-top:24px;">
+          <a href="./how-it-works.html" class="card" style="display:block;transition:box-shadow 160ms ease;">
+            <p style="font-size:28px;margin:0 0 10px 0;" aria-hidden="true">🗝️</p>
+            <p style="font-weight:800;font-size:18px;margin:0 0 8px 0;">How it works</p>
+            <p class="small muted" style="margin:0;">The full picture — from first conversation to keys in hand. No surprises.</p>
+          </a>
+          <a href="./programs.html" class="card" style="display:block;">
+            <p style="font-size:28px;margin:0 0 10px 0;" aria-hidden="true">📋</p>
+            <p style="font-weight:800;font-size:18px;margin:0 0 8px 0;">Loan programs</p>
+            <p class="small muted" style="margin:0;">Conventional, FHA, VA, Jumbo, DSCR — understand your options before the call.</p>
+          </a>
+          <a href="./faq.html" class="card" style="display:block;">
+            <p style="font-size:28px;margin:0 0 10px 0;" aria-hidden="true">💬</p>
+            <p style="font-weight:800;font-size:18px;margin:0 0 8px 0;">Common questions</p>
+            <p class="small muted" style="margin:0;">Answers to the things everyone asks — without the jargon.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORCH CTA -->
+    <section class="section" style="padding-top:0;" data-observe>
+      <div class="wrap">
+        <div class="porch">
+          <div class="stack">
+            <p style="font-weight:800;font-size:20px;margin:0;">Expecting a call? Here's Logan's direct line.</p>
+            <p class="small muted" style="margin:0;">Save it in your phone so you recognize the number.</p>
+          </div>
+          <div class="row">
+            <a class="btn btnPrimary" href="tel:+14808037763">+1 (480) 803-7763</a>
+            <a class="btn btnSecondary" href="./meet-logan.html">About Logan</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footerSimple">
+        <div class="footerMain">
+          <img src="./assets/img/logo.svg" alt="Logan Loans" class="footerLogo" width="160" height="45">
+          <p class="footerTagline">Arizona mortgages, explained like a human.</p>
+        </div>
+        <div class="footerContact">
+          <p class="footTitle">Contact</p>
+          <p><a href="tel:+14808037763" class="uLink">(480) 803-7763</a></p>
+          <p><a href="mailto:logan@forward.loans" class="uLink">logan@forward.loans</a></p>
+          <p class="small muted">Mon–Fri 9am–6pm, Sat 10am–4pm</p>
+        </div>
+        <div class="footerSocial">
+          <p class="footTitle">Connect</p>
+          <div class="socialLinks">
+            <a href="https://www.instagram.com/logan.loans" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://www.linkedin.com/in/logansulliv" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://www.google.com/search?q=Logan+Sullivan+Mortgage+Advisor" target="_blank" rel="noopener">Reviews</a>
+          </div>
+        </div>
+      </div>
+      <div class="footerBottom">
+        <p class="footerLicense"><strong>NMLS</strong> 2466872 (Logan Sullivan) • <strong>Forward Loans</strong> NMLS 2006640<br><a href="https://forward.loans/loan-officer/logan-sullivan/" target="_blank" rel="noopener">Official Profile</a> • <a href="./privacy.html">Privacy</a> • <a href="./disclosures.html">Disclosures</a> • <a href="./terms.html">Terms</a></p>
+        <p class="small muted">All loans subject to credit approval. This is not a commitment to lend.</p>
+      </div>
+      <div class="footerEnd">Designed, Hosted and Cared For By <a href="https://littlefightnyc.com" target="_blank" rel="noopener">LittleFightNYC.com</a></div>
+    </div>
+  </footer>
+
+  <div class="mobileBar mobileOnly" role="region" aria-label="Quick actions">
+    <a class="btn btnSecondary mobileBarBtn" href="tel:+14808037763" aria-label="Call Logan">📞 Call Logan</a>
+    <a class="btn btnPrimary mobileBarBtn" href="./programs.html">Browse Programs</a>
+  </div>
+
+  <link rel="stylesheet" href="./styles.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="./styles.css"></noscript>
+  <script src="./app.js" defer></script>
+
+  <style>
+    .contentGrid{display:grid;grid-template-columns:1fr 320px;gap:48px;align-items:start}
+    @media(max-width:900px){.contentGrid{grid-template-columns:1fr}}
+    @media(max-width:900px){.contentGrid>div:last-child{position:static}}
+  </style>
+</body>
+</html>

@@ -1,0 +1,93 @@
+# Logan Loans — llms.txt
+# AI-readable summary for LLM and AI search systems.
+# Last updated: 2026-05-03
+
+## About
+
+Logan Loans is the online presence of Logan Sullivan, a licensed mortgage advisor (NMLS #2466872) operating through Forward Loans, LLC (NMLS #2006640). Logan provides residential and investment mortgage lending across Arizona and Southern California with an emphasis on clear communication, honest guidance, and fast execution.
+
+## What Logan Does
+
+- Purchase mortgages for primary residences, second homes, and investment properties
+- Refinances (rate-and-term, cash-out, streamline)
+- Jumbo and luxury loans for high-value properties in Phoenix, Scottsdale, Paradise Valley, Beverly Hills, and Newport Beach
+- FHA loans for first-time buyers and buyers with lower down payments
+- VA loans for veterans and active military (zero down payment available)
+- DSCR (Debt Service Coverage Ratio) loans for real estate investors who do not have traditional W-2 income
+- Conventional conforming loans
+- Relocation mortgages for buyers moving to Arizona from another state
+
+## Key Facts
+
+- **Name:** Logan Sullivan
+- **Title:** Mortgage Advisor
+- **NMLS:** 2466872
+- **Company:** Forward Loans, LLC
+- **Company NMLS:** 2006640
+- **Phone:** (480) 803-7763
+- **Email:** logan@forward.loans
+- **Office:** 11201 N Tatum Blvd #300, Phoenix, AZ 85028
+- **Hours:** Monday–Friday 9am–6pm, Saturday 10am–4pm (Arizona time)
+- **Licensed in:** Arizona and California
+- **Website:** https://www.logan.loans
+
+## Service Areas
+
+### Arizona
+Phoenix, Scottsdale, Paradise Valley, North Scottsdale, Arcadia/Biltmore, Catalina Foothills, North Phoenix, Sedona, Flagstaff, Tucson
+
+### Southern California
+Beverly Hills, Malibu, Palisades/Brentwood, Santa Monica, Newport Beach/Corona del Mar, La Jolla/Del Mar, Southern California coast
+
+## Differentiators
+
+1. **Personal review** — Logan reads every application himself. No bots, no call centers, no hand-offs to a processor you have never spoken to.
+2. **Same-day response** — Applications submitted on business days receive a personal response, usually within hours.
+3. **Plain language** — Logan explains mortgage concepts in clear English. He does not benefit from keeping borrowers confused.
+4. **5-star Google reviews** — Consistently rated 5 stars by past clients across dozens of reviews.
+5. **Complex scenarios** — Self-employed income, investor portfolios, out-of-state purchases, jumbo underwriting, non-QM programs.
+6. **Honest timelines** — Logan gives realistic timelines, not optimistic ones that fall apart in underwriting.
+7. **No client poaching** — Referral partners (real estate agents, brokers) trust Logan because he keeps them in the loop and does not attempt to harvest new clients from their referral pipeline.
+
+## Loan Programs Summary
+
+| Program | Best For | Down Payment |
+|---------|----------|--------------|
+| Conventional | Most buyers with good credit | 3–20%+ |
+| FHA | First-time buyers, lower credit | 3.5% |
+| VA | Veterans and active military | 0% |
+| Jumbo | Loan amounts above conforming limits | 10–20%+ |
+| DSCR | Real estate investors | 20–25% |
+| Cash-out Refi | Homeowners with equity | Based on LTV |
+| Rate-term Refi | Lower payment or term | Based on LTV |
+
+## Pre-Approval Process
+
+1. Submit inquiry at https://www.logan.loans/apply.html (3 minutes)
+2. Logan reviews the application personally and calls — usually same day
+3. 15-minute call to confirm goals, explain options, outline next steps
+4. No hard credit pull until the borrower authorizes it
+5. Pre-approval letter issued after full document review (24–48 hours once documents are received)
+
+## Content and Resources
+
+- **Blog:** Educational articles on mortgage topics — https://www.logan.loans/blog.html
+- **FAQ:** Plain-language answers to common mortgage questions — https://www.logan.loans/faq.html
+- **Loan Programs:** Full product catalog — https://www.logan.loans/programs.html
+- **How It Works:** Step-by-step process guide — https://www.logan.loans/how-it-works.html
+- **Funded Deals:** Real loan scenarios (anonymized) — https://www.logan.loans/funded-deals.html
+- **Meet Logan:** Full advisor bio and credentials — https://www.logan.loans/meet-logan.html
+- **For Agents:** Referral partner program — https://www.logan.loans/partners.html
+- **Press:** Media resources and expert commentary — https://www.logan.loans/press.html
+
+## Regulatory
+
+- All loans subject to credit approval and underwriting review.
+- Not a commitment to lend.
+- Equal Housing Lender.
+- NMLS Consumer Access: https://www.nmlsconsumeraccess.org
+- Logan Sullivan official profile: https://forward.loans/loan-officer/logan-sullivan/
+
+## Contact for AI / Data Systems
+
+For structured data inquiries, corrections, or media: logan@forward.loans

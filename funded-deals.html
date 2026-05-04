@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Funded Deals | Real Arizona Mortgages | Logan Loans</title>
+
+  <!-- Favicon set -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <style>
+    /* Critical CSS - Inlined to eliminate render blocking */
+    :root{--bg:#FBF7EF;--surface:#FFFFFF;--ink:#1F2933;--muted:#52616B;--primary:#165A3F;--sage:#CFE7D7;--border:#E7E0D6;--apricot:#F3B27A;--mint:#2FAF7A;--glow:rgba(243,178,122,0.35);--max:1120px;--padX:20px;--sectionY:80px;--sectionYMobile:56px;--rDoor:22px;--rCard:16px;--rPill:999px;--fontBody:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;--fontHead:Georgia,'Times New Roman',serif;--ease:cubic-bezier(.2,.8,.2,1);--easeOut:cubic-bezier(0,0,0.2,1);--easeBounce:cubic-bezier(0.34,1.56,0.64,1);--tFast:160ms;--tMed:420ms;--tSlow:720ms;--shadow:0 16px 40px rgba(22,90,63,0.12);--shadowHover:0 22px 52px rgba(22,90,63,0.18);--shadowCard:0 14px 28px rgba(22,90,63,0.10);--shadowGlow:0 0 60px rgba(243,178,122,0.25);--focus:0 0 0 4px rgba(47,175,122,0.25)}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}html{scroll-behavior:auto}.door{transform:none;opacity:1}.threshold{transform:scaleX(1)}.doorSheen{display:none}}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:var(--fontBody);background:var(--bg);color:var(--ink);line-height:1.7;font-size:19px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}img{max-width:100%;display:block;height:auto}a{color:inherit;text-decoration:none}button,input,textarea,select{font:inherit}::selection{background:var(--glow)}
+    .skip-link{position:absolute;top:-100px;left:50%;transform:translateX(-50%);background:var(--primary);color:var(--bg);padding:12px 24px;border-radius:var(--rPill);font-weight:700;z-index:10000;transition:top var(--tFast) var(--ease)}.skip-link:focus{top:12px;outline:none;box-shadow:var(--focus)}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--padX)}.stack{display:flex;flex-direction:column;gap:12px}.stack-lg{display:flex;flex-direction:column;gap:20px}.row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.muted{color:var(--muted)}.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .kicker{display:inline-block;font-size:14px;letter-spacing:0.16em;text-transform:uppercase;color:var(--primary);margin:0 0 14px 0;font-weight:700}.h1{font-family:var(--fontHead);font-size:clamp(36px,5vw,60px);line-height:1.1;margin:0;letter-spacing:-0.5px;font-weight:700}.h2{font-family:var(--fontHead);font-size:clamp(30px,3.5vw,46px);margin:0;line-height:1.15;font-weight:700}.h3{font-family:var(--fontHead);font-size:clamp(22px,2.5vw,28px);margin:0;line-height:1.25;font-weight:700}.p{margin:0;font-size:20px;color:var(--muted);max-width:65ch;line-height:1.7}.small{font-size:16px}.tiny{font-size:14px}
+    .header{position:sticky;top:0;z-index:100;background:rgba(251,247,239,0.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:16px}.brand{display:flex;align-items:center;gap:10px}.brandLogo{height:40px;width:auto}.navLinks{display:flex;align-items:center;gap:6px;flex-wrap:wrap}.navLinks a{color:var(--muted);font-weight:600;font-size:16px;padding:10px 14px;border-radius:10px;transition:all var(--tFast) var(--ease);position:relative}.navCta{display:flex;gap:10px;align-items:center}
+    .btn{display:inline-flex;align-items:center;justify-content:center;border-radius:var(--rPill);padding:16px 28px;font-weight:700;font-size:17px;border:2px solid transparent;cursor:pointer;transition:all var(--tFast) var(--easeBounce);white-space:nowrap;position:relative;overflow:hidden;min-height:54px}.btnPrimary{background:linear-gradient(135deg,var(--primary) 0%,#1e7a54 100%);color:var(--bg);box-shadow:0 8px 24px rgba(22,90,63,0.22)}.btnSecondary{background:var(--surface);color:var(--primary);border-color:rgba(22,90,63,0.2);box-shadow:0 4px 12px rgba(22,90,63,0.08)}
+    .section{padding:var(--sectionY) 0}.threshold{height:2px;background:linear-gradient(90deg,var(--primary),var(--mint),var(--apricot));transform-origin:left;transform:scaleX(0);transition:transform 800ms var(--easeOut);margin-bottom:20px;border-radius:2px}
+    .hero{padding:60px 0 50px}.door{position:relative;border:1px solid var(--border);border-radius:var(--rDoor);background:linear-gradient(180deg,rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.5) 100%);box-shadow:var(--shadow),inset 0 1px 0 rgba(255,255,255,0.8);overflow:hidden;transform:scale(0.96) translateY(20px);opacity:0;animation:doorIn 900ms var(--easeOut) forwards;animation-delay:100ms}@keyframes doorIn{to{transform:scale(1) translateY(0);opacity:1}}.heroInner{position:relative;padding:56px 48px;display:flex;flex-direction:column;gap:24px}.heroContent{display:flex;flex-direction:column;gap:24px}
+    .navToggle{border:1px solid rgba(22,90,63,0.18);border-radius:12px;padding:10px 12px;background:rgba(251,247,239,0.95);color:var(--primary);cursor:pointer}.burger{display:block;width:22px;height:2px;background:var(--primary);position:relative;border-radius:2px}.burger::before,.burger::after{content:"";position:absolute;left:0;width:22px;height:2px;background:var(--primary);border-radius:2px}.burger::before{top:-7px}.burger::after{top:7px}
+    .drawer{position:fixed;inset:0;background:rgba(31,41,51,0.5);opacity:0;pointer-events:none;transition:opacity var(--tMed) var(--ease);z-index:200}.drawer.is-open{opacity:1;pointer-events:auto}.drawerInner{position:absolute;right:12px;left:12px;top:12px;border-radius:var(--rDoor);background:rgba(251,247,239,0.98);border:1px solid var(--border);box-shadow:var(--shadowHover);padding:18px;transform:translateY(-10px) scale(0.98);transition:all var(--tMed) var(--easeBounce)}.drawer.is-open .drawerInner{transform:translateY(0) scale(1)}.drawerTop{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}.drawerTitle{margin:0;font-weight:900;color:var(--ink);font-size:17px}.drawerClose{width:40px;height:40px;border:1px solid rgba(22,90,63,0.15);border-radius:12px;background:rgba(251,247,239,0.95);cursor:pointer;display:grid;place-items:center;font-size:18px}.drawerLink{display:block;padding:14px 16px;border-radius:12px;font-weight:700;color:var(--ink);border:1px solid transparent}.drawerCtas{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.drawerNote{margin:14px 0 0 0;font-size:13px;color:var(--muted);text-align:center}
+    .mobileBar{position:fixed;left:12px;right:12px;bottom:12px;display:flex;gap:10px;padding:12px;border-radius:var(--rDoor);background:rgba(251,247,239,0.95);border:1px solid var(--border);box-shadow:0 -8px 32px rgba(22,90,63,0.15);z-index:50;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}.mobileBarBtn{flex:1;padding:14px 16px}
+    body{padding-bottom:100px}
+    .desktopOnly{display:flex}.mobileOnly{display:none}
+    .card{border:1px solid var(--border);border-radius:var(--rCard);padding:22px;background:rgba(255,255,255,0.65);position:relative}
+    .card,.porch,.founderCard{opacity:0;transform:translateY(28px) scale(0.97)}.section.is-visible .card,.section.is-visible .porch,.section.is-visible .founderCard,.hero .card{opacity:1;transform:translateY(0) scale(1)}.mobileBar{opacity:0;transform:translateY(100px)}
+    .cardTitle{font-weight:800;margin:0 0 10px 0;font-size:20px}.cardText{color:var(--muted);margin:0;font-size:17px;line-height:1.6}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+    .porch{border:1px solid var(--border);border-radius:var(--rDoor);background:linear-gradient(135deg,rgba(207,231,215,0.4) 0%,rgba(255,255,255,0.6) 50%,rgba(243,178,122,0.15) 100%);box-shadow:var(--shadow);padding:28px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;position:relative;overflow:hidden}
+    .footer{border-top:1px solid var(--border);padding:48px 0 40px;background:linear-gradient(180deg,transparent 0%,rgba(207,231,215,0.1) 100%)}.footerSimple{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;margin-bottom:32px}.footerMain{display:flex;flex-direction:column;gap:12px}.footerLogo{height:45px;width:auto}.footerTagline{font-size:18px;color:var(--muted);margin:0}.footerContact p{margin:0 0 8px 0;font-size:17px}.footerSocial .socialLinks{display:flex;gap:20px}.footerSocial .socialLinks a{font-weight:600;font-size:16px;color:var(--primary);text-decoration:underline;text-underline-offset:3px}.footerBottom{padding-top:24px;border-top:1px dashed rgba(22,90,63,0.15)}.footerLicense{font-size:15px;color:var(--muted);margin:0 0 8px 0}.footerLicense a{color:var(--primary);text-decoration:underline;text-underline-offset:2px}.footerEnd{margin-top:24px;font-size:16px;font-weight:800;color:#ff7a1a}.footerEnd a{color:#ff7a1a;text-decoration:underline;text-underline-offset:3px}.footTitle{font-weight:800;margin:0 0 14px 0;font-size:18px}
+    .uLink{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:2px;color:var(--primary);font-weight:700}
+    .footList{margin:0;padding:0;list-style:none}.footList li{margin:0 0 10px 0;color:var(--muted);font-size:16px}
+    .faq{margin-top:20px;border:1px solid var(--border);border-radius:var(--rDoor);overflow:hidden;background:rgba(255,255,255,0.6)}.faqItem{border-top:1px solid var(--border)}.faqItem:first-child{border-top:0}.faqBtn{width:100%;text-align:left;border:0;background:transparent;padding:20px;font-weight:700;font-size:16px;color:var(--ink);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}.faqIcon{width:32px;height:32px;border-radius:10px;border:1px solid rgba(22,90,63,0.15);display:grid;place-items:center;color:var(--primary);background:rgba(251,247,239,0.9);flex:0 0 auto;font-size:18px;font-weight:400}.faqPanel{max-height:0;overflow:hidden;transition:max-height var(--tMed) var(--ease)}.faqPanelInner{padding:0 20px 20px 20px;color:var(--muted);font-size:16px;line-height:1.65}
+
+    /* Funded Deals specific */
+    .trustStrip{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+    .statPill{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:999px;border:1px solid rgba(22,90,63,0.18);background:rgba(207,231,215,0.25);font-weight:700;font-size:15px;color:var(--ink)}
+    .statPill strong{color:var(--primary)}
+
+    .dealCard{border:1px solid var(--border);border-radius:var(--rCard);padding:24px;background:rgba(255,255,255,0.65);display:flex;flex-direction:column;gap:14px;transition:box-shadow var(--tFast) var(--ease),transform var(--tFast) var(--ease)}
+    .dealCard:hover{box-shadow:var(--shadowHover);transform:translateY(-2px)}
+    .dealBadge{display:inline-flex;align-items:center;padding:6px 12px;border-radius:999px;border:1px solid rgba(22,90,63,0.15);background:var(--sage);color:var(--primary);font-weight:700;font-size:13px;align-self:flex-start}
+    .dealAmount{font-family:var(--fontHead);font-size:clamp(26px,3vw,34px);font-weight:700;color:var(--ink);margin:0;line-height:1.1}
+    .dealStats{display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--border);padding-top:12px}
+    .dealStat{display:flex;gap:8px;align-items:baseline;font-size:15px}
+    .dealStatLabel{color:var(--muted);min-width:88px;font-weight:600;font-size:14px}
+    .dealStatValue{color:var(--ink);font-weight:700}
+    .dealOutcome{font-size:16px;font-style:italic;color:var(--muted);border-left:3px solid var(--apricot);padding-left:12px;margin:0;line-height:1.5}
+
+    .disclaimer{margin-top:28px;border:1px dashed rgba(22,90,63,0.18);border-radius:var(--rCard);padding:16px 20px;background:rgba(207,231,215,0.12);color:var(--muted);font-size:15px;line-height:1.55}
+
+    .founderCard{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center;border:1px solid var(--border);border-radius:var(--rDoor);padding:28px;background:rgba(255,255,255,0.65);box-shadow:var(--shadowCard)}
+    .founderThumb{width:88px;height:88px;border-radius:999px;overflow:hidden;flex-shrink:0;border:3px solid var(--sage)}
+    .founderThumb img{width:100%;height:100%;object-fit:cover;object-position:top}
+    .founderInfo{display:flex;flex-direction:column;gap:6px}
+    .founderName{font-family:var(--fontHead);font-size:22px;font-weight:700;color:var(--ink);margin:0}
+    .founderTitle{font-size:15px;color:var(--muted);margin:0;font-weight:600}
+    .founderNmls{font-size:13px;color:var(--muted);margin:0}
+
+    @media(max-width:900px){.section{padding:var(--sectionYMobile) 0}.hero{padding-top:48px;padding-bottom:32px}.heroInner{padding:32px 24px}.desktopOnly{display:none!important}.mobileOnly{display:block!important}.grid3{grid-template-columns:1fr}.footerSimple{grid-template-columns:1fr;text-align:center;gap:32px}.footerLogo{margin:0 auto}.footerSocial .socialLinks{justify-content:center}.footerBottom{text-align:center}.founderCard{grid-template-columns:1fr;text-align:center}.founderThumb{margin:0 auto}.p{font-size:17px}.btn{padding:14px 20px}.navLinks a{padding:10px 12px}.trustStrip{justify-content:center}}
+    @media(min-width:901px){body{padding-bottom:0}}
+    @media print{.header,.mobileBar,.drawer{display:none!important}body{padding:0}.door{box-shadow:none;border:1px solid #ccc}}
+  </style>
+
+  <meta name="description" content="Real loans, real clients, real results. See funded deals from Logan Sullivan, NMLS 2466872 — Arizona mortgages closed on time." />
+  <link rel="canonical" href="https://www.logan.loans/funded-deals.html" />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Funded Deals | Real Arizona Mortgages | Logan Loans" />
+  <meta property="og:description" content="Real loans, real clients, real results. See funded deals from Logan Sullivan, NMLS 2466872 — Arizona mortgages closed on time." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.logan.loans/funded-deals.html" />
+  <meta property="og:image" content="https://www.logan.loans/assets/img/logan-main.webp" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Funded Deals | Real Arizona Mortgages | Logan Loans" />
+  <meta name="twitter:description" content="Real loans, real clients, real results. See funded deals from Logan Sullivan, NMLS 2466872 — Arizona mortgages closed on time." />
+  <meta name="twitter:image" content="https://www.logan.loans/assets/img/logan-main.webp" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.logan.loans/funded-deals.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.logan.loans/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Funded Deals",
+          "item": "https://www.logan.loans/funded-deals.html"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.logan.loans/funded-deals.html#webpage",
+      "url": "https://www.logan.loans/funded-deals.html",
+      "name": "Funded Deals | Real Arizona Mortgages | Logan Loans",
+      "description": "Real loans, real clients, real results. See funded deals from Logan Sullivan, NMLS 2466872 — Arizona mortgages closed on time.",
+      "isPartOf": { "@id": "https://www.logan.loans/#website" },
+      "breadcrumb": { "@id": "https://www.logan.loans/funded-deals.html#breadcrumb" }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://www.logan.loans/funded-deals.html#deals",
+      "name": "Recent Funded Deals — Logan Sullivan",
+      "description": "Anonymized funded mortgage deals closed by Logan Sullivan, NMLS 2466872.",
+      "numberOfItems": 6,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Paradise Valley Jumbo Conventional — $1,240,000",
+          "description": "Jumbo conventional purchase in Paradise Valley. 20% down payment. Closed in 18 days for a competitive offer."
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Scottsdale DSCR Investor Loan — $485,000",
+          "description": "DSCR investor loan in Scottsdale for a self-employed buyer. Qualified on rental income with no W-2."
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "North Phoenix First-Time FHA — $378,000",
+          "description": "FHA purchase in North Phoenix for a first-time buyer with a complex credit history. Closed in 32 days with 3.5% down."
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Sedona Vacation Home Conventional — $620,000",
+          "description": "Conventional second home purchase in Sedona with an existing primary mortgage."
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "Beverly Hills Jumbo Purchase — $2,100,000",
+          "description": "California jumbo purchase for a buyer relocating from Arizona. Cross-state coordination, no delays."
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "name": "North Scottsdale VA Loan — $512,000",
+          "description": "VA loan for a veteran buyer with zero down payment in North Scottsdale. Closed in 24 days."
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does Logan handle complex or unusual loan scenarios?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Unusual scenarios — self-employment, complex credit, multiple properties, cross-state purchases — are where careful lenders separate from average ones. Logan reviews every file before committing to a path, communicates what's needed upfront, and builds a realistic timeline so nothing comes apart at closing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can Logan work with buyers who don't have W-2 income?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Investors and self-employed buyers have multiple qualifying pathways including DSCR loans (qualify on rental income), bank statement loans (12–24 months of deposits), and conventional programs with a full two-year self-employment history. The right path depends on the deal and the buyer's goals."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does a fast close actually require from the buyer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Speed depends heavily on document readiness. When buyers provide clean docs promptly and the appraisal comes back on time, 18–25 day closes are realistic. Logan will tell you exactly what's needed and when so there are no surprises on the timeline."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+  <!-- Skip Link for Accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="header">
+    <div class="wrap">
+      <div class="nav">
+        <a class="brand" href="./index.html#top" aria-label="Logan Loans home">
+          <img src="./assets/img/logo.svg" alt="Logan Loans" class="brandLogo" width="140" height="40">
+        </a>
+
+        <nav class="navLinks desktopOnly" aria-label="Primary">
+          <a href="./programs.html">Programs</a>
+          <a href="./faq.html">FAQ</a>
+          <a href="./meet-logan.html">Meet Logan</a>
+          <a href="./contact.html">Contact</a>
+        </nav>
+
+        <div class="navCta desktopOnly">
+          <a class="btn btnPrimary" href="./apply.html">Get Pre-Approved</a>
+          <a class="btn btnSecondary" href="tel:+14808037763">Call (480) 803-7763</a>
+        </div>
+
+        <button class="navToggle mobileOnly" type="button" aria-label="Open menu" aria-expanded="false" data-nav-toggle>
+          <span class="burger" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="drawer" data-drawer aria-hidden="true" inert>
+      <div class="drawerInner">
+        <div class="drawerTop">
+          <p class="drawerTitle">Menu</p>
+          <button class="drawerClose" type="button" aria-label="Close menu" data-drawer-close>&#x2715;</button>
+        </div>
+        <a class="drawerLink" href="./programs.html">Programs</a>
+        <a class="drawerLink" href="./faq.html">FAQ</a>
+        <a class="drawerLink" href="./meet-logan.html">Meet Logan</a>
+        <a class="drawerLink" href="./contact.html">Contact</a>
+
+        <div class="drawerCtas">
+          <a class="btn btnPrimary" href="./apply.html">Get Pre-Approved</a>
+          <a class="btn btnSecondary" href="tel:+14808037763">Call (480) 803-7763</a>
+        </div>
+
+        <p class="drawerNote">Arizona &bull; Southern California</p>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="wrap">
+        <nav aria-label="Breadcrumb">
+          <ol style="display:flex;gap:8px;list-style:none;margin:0 0 24px 0;padding:0;font-size:14px;color:var(--muted);">
+            <li><a href="./index.html" class="uLink">Home</a></li>
+            <li aria-hidden="true" style="color:var(--border);">/</li>
+            <li aria-current="page" style="color:var(--ink);font-weight:600;">Funded Deals</li>
+          </ol>
+        </nav>
+        <div class="door">
+          <div class="heroInner">
+            <div class="heroContent">
+              <p class="kicker">Proof of work</p>
+              <h1 class="h1">Loans closed. Families moved in.</h1>
+              <p class="p">These are real deals. Real clients. Real scenarios that required creative thinking, fast execution, and honest communication.</p>
+
+              <!-- Trust Strip -->
+              <div class="trustStrip" role="list" aria-label="Key stats">
+                <div class="statPill" role="listitem"><strong>47+</strong> Reviews</div>
+                <div class="statPill" role="listitem">
+                  <span aria-hidden="true" style="color:var(--apricot);">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                  <strong>5-Star</strong> Rating
+                </div>
+                <div class="statPill" role="listitem"><strong>3&ndash;5 Day</strong> Clear-to-Close</div>
+                <div class="statPill" role="listitem"><strong>NMLS</strong> 2466872</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEAL CARDS -->
+    <section class="section" data-observe>
+      <div class="wrap">
+        <div class="threshold" aria-hidden="true"></div>
+        <p class="kicker">Recent closings</p>
+        <h2 class="h2">Six deals worth knowing about.</h2>
+        <p class="p">Each one had a wrinkle. Each one closed.</p>
+
+        <div class="grid3" role="list" aria-label="Funded mortgage deals">
+
+          <!-- Deal 1: Paradise Valley Jumbo -->
+          <article class="dealCard card" role="listitem">
+            <span class="dealBadge">Jumbo Conventional</span>
+            <p class="dealAmount">$1,240,000</p>
+            <div class="dealStats">
+              <div class="dealStat">
+                <span class="dealStatLabel">Location</span>
+                <span class="dealStatValue">Paradise Valley, AZ</span>
+              </div>
+              <div class="dealStat">
+                <span class="dealStatLabel">Program</span>
+                <span class="dealStatValue">Jumbo Conventional</span>
+              </div>
+              <div class="dealStat">
+                <span class="dealStatLabel">Timeline</span>
+                <span class="dealStatValue">18-day close</span>
+              </div>
+              <div class="dealStat">
+                <span class="dealStatLabel">Down</span>
+                <span class="dealStatValue">20%</span>
+              </div>
+            </div>
+            <p class="dealOutcome">Client needed clean docs and a fast close for a competitive offer. Done.</p>
+          </article>
+
+          <!-- Deal 2: Scottsdale DSCR -->
+          <article class="dealCard card" role="listitem">
+            <span class="dealBadge">DSCR Investor</span>
+            <p class="dealAmount">$485,000</p>
+            <div class="dealStats">
+              <div class="dealStat">
+                <span class="dealStatLabel">Location</span>
+                <span class="dealStatValue">Scottsdale, AZ</span>
+              </div>
+              <div class="dealStat">
+                <span class="dealStatLabel">Program</span>
+                <span class="dealStatValue">DSCR Investment</span>
+              </div>
+              <div class="dealStat">
+                <span class="dealStatLabel">Cash flow</span>
+                <span class="dealStatValue">Positive Day 1</span>
+              </div>
+              <div class="dealStat">
+                <span class="dealStatLabel">Income</span>
+                <span class="dealStatValue">Rental (no W-2)</span>
+              </div>
+            </div>
+            <p class="dealOutcome">Self-employed investor &mdash; no W-2, no problem. Qualified on rental income.</p>
+          </article>
+
+          <!-- Deal 3: North Phoenix FHA -->
+          <article class="dealCard card" role="listitem">
+            <span class="dealBadge">First-Time FHA</span>
+            <p class="dealAmount">$378,000</p>
+            <div class="dealStats">
+              <div class="dealStat">
+                <span class="dealStatLabel">Location</span>
+                <span class="dealStatValue">North Phoenix, AZ</span>
+              </div>
+              <div class="dealStat">
+                <span class="dealStatLabel">Program</span>
+                <span class="dealStatValue">FHA Purchase</span>
+              </div>
+              <div class="dealStat">
+                <span class="dealStatLabel">Timeline</span>
+                <span class="dealStatValue">32-day close</span>
+              </div>
+              <div class="dealStat">
+                <span class="dealStatLabel">Down</span>
+                <span class="dealStatValue">3.5%</span>
+              </div>
+            </div>
+            <p class="dealOutcome">First-time buyer, complicated credit history. Closed in 32 days.</p>
+          </article>
+
+          <!-- Deal 4: Sedona Vacation Home -->
+          <article class="dealCard card" role="listitem">
+            <span class="dealBadge">Vacation Home</span>
+            <p class="dealAmount">$620,000</p>
+            <div class="dealStats">
+              <div class="dealStat">
+                <span class="dealStatLabel">Location</span>
+                <span class="dealStatValue">Sedona, AZ</span>
+              </div>
+              <div class="dealStat">
+                <span class="dealStatLabel">Program</span>
+                <span class="dealStatValue">Conventional</span>
+              </div>
+              <div class="dealStat">
+                <span class="dealStatLabel">Type</span>
+                <span class="dealStatValue">Second Home</span>
+              </div>
+              <div class="dealStat">
+                <span class="dealStatLabel">Complexity</span>
+                <span class="dealStatValue">Existing mortgage</span>
+              </div>
+            </div>
+            <p class="dealOutcome">Second home purchase with existing mortgage &mdash; underwriting complexity handled.</p>
+          </article>
+
+          <!-- Deal 5: Beverly Hills Jumbo -->
+          <article class="dealCard card" role="listitem">
+            <span class="dealBadge">Jumbo</span>
+            <p class="dealAmount">$2,100,000</p>
+            <div class="dealStats">
+              <div class="dealStat">
+                <span class="dealStatLabel">Location</span>
+                <span class="dealStatValue">Beverly Hills, CA</span>
+              </div>
+              <div class="dealStat">
+                <span class="dealStatLabel">Program</span>
+                <span class="dealStatValue">Jumbo Purchase</span>
+              </div>
+              <div class="dealStat">
+                <span class="dealStatLabel">Buyer</span>
+                <span class="dealStatValue">Relocating from AZ</span>
+              </div>
+              <div class="dealStat">
+                <span class="dealStatLabel">Scope</span>
+                <span class="dealStatValue">Cross-state</span>
+              </div>
+            </div>
+            <p class="dealOutcome">Out-of-state buyer relocating from AZ. Cross-state coordination, no delays.</p>
+          </article>
+
+          <!-- Deal 6: North Scottsdale VA -->
+          <article class="dealCard card" role="listitem">
+            <span class="dealBadge">VA Loan</span>
+            <p class="dealAmount">$512,000</p>
+            <div class="dealStats">
+              <div class="dealStat">
+                <span class="dealStatLabel">Location</span>
+                <span class="dealStatValue">North Scottsdale, AZ</span>
+              </div>
+              <div class="dealStat">
+                <span class="dealStatLabel">Program</span>
+                <span class="dealStatValue">VA Purchase</span>
+              </div>
+              <div class="dealStat">
+                <span class="dealStatLabel">Down</span>
+                <span class="dealStatValue">$0 (zero down)</span>
+              </div>
+              <div class="dealStat">
+                <span class="dealStatLabel">Timeline</span>
+                <span class="dealStatValue">24-day close</span>
+              </div>
+            </div>
+            <p class="dealOutcome">Veteran buyer, zero down. Fast VA appraisal coordination, 24-day close.</p>
+          </article>
+
+        </div>
+
+        <!-- Disclaimer -->
+        <p class="disclaimer" role="note">
+          All deal details are approximate and anonymized to protect client privacy. Loan amounts, timelines, and terms reflect representative scenarios. Results may vary based on individual credit, income, property type, and market conditions.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" data-observe>
+      <div class="wrap">
+        <div class="threshold" aria-hidden="true"></div>
+        <p class="kicker">Behind the numbers</p>
+        <h2 class="h2">How Logan handles the hard ones.</h2>
+        <p class="p">Not every deal is straightforward. Here's what to expect when it isn't.</p>
+
+        <div class="faq" role="list" aria-label="Frequently asked questions about tough loan scenarios">
+
+          <div class="faqItem" role="listitem">
+            <button class="faqBtn" data-faq-btn aria-expanded="false" type="button">
+              How does Logan handle complex or unusual loan scenarios?
+              <span class="faqIcon" aria-hidden="true">+</span>
+            </button>
+            <div class="faqPanel">
+              <div class="faqPanelInner">
+                Unusual scenarios &mdash; self-employment, complex credit, multiple properties, cross-state purchases &mdash; are where careful lenders separate from average ones. Logan reviews every file before committing to a path, communicates what's needed upfront, and builds a realistic timeline so nothing comes apart at closing.
+              </div>
+            </div>
+          </div>
+
+          <div class="faqItem" role="listitem">
+            <button class="faqBtn" data-faq-btn aria-expanded="false" type="button">
+              Can Logan work with buyers who don't have W-2 income?
+              <span class="faqIcon" aria-hidden="true">+</span>
+            </button>
+            <div class="faqPanel">
+              <div class="faqPanelInner">
+                Yes. Investors and self-employed buyers have multiple qualifying pathways including DSCR loans (qualify on rental income), bank statement loans (12&ndash;24 months of deposits), and conventional programs with a full two-year self-employment history. The right path depends on the deal and the buyer's goals.
+              </div>
+            </div>
+          </div>
+
+          <div class="faqItem" role="listitem">
+            <button class="faqBtn" data-faq-btn aria-expanded="false" type="button">
+              What does a fast close actually require from the buyer?
+              <span class="faqIcon" aria-hidden="true">+</span>
+            </button>
+            <div class="faqPanel">
+              <div class="faqPanelInner">
+                Speed depends heavily on document readiness. When buyers provide clean docs promptly and the appraisal comes back on time, 18&ndash;25 day closes are realistic. Logan will tell you exactly what's needed and when so there are no surprises on the timeline.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PORCH CTA -->
+    <section class="section" data-observe>
+      <div class="wrap">
+        <div class="threshold" aria-hidden="true"></div>
+        <div class="porch" aria-label="Call to action">
+          <div class="stack">
+            <p class="cardTitle" style="margin:0;">Ready to be the next one?</p>
+            <p class="small muted" style="margin:0;">Every deal on this page started with a short conversation. Yours can too.</p>
+          </div>
+          <div class="row">
+            <a class="btn btnPrimary" href="./apply.html">Get Pre-Approved &rarr;</a>
+            <a class="btn btnSecondary" href="tel:+14808037763">Call (480) 803-7763</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOUNDER STRIP -->
+    <section class="section" data-observe>
+      <div class="wrap">
+        <div class="threshold" aria-hidden="true"></div>
+        <p class="kicker">Your lender</p>
+        <div class="founderCard">
+          <div class="founderThumb">
+            <img
+              src="./assets/img/logan-headshot-1.webp"
+              alt="Logan Sullivan, Arizona Mortgage Advisor"
+              width="88"
+              height="88"
+              loading="lazy"
+            >
+          </div>
+          <div class="founderInfo">
+            <p class="founderName">Logan Sullivan</p>
+            <p class="founderTitle">Mortgage Advisor &bull; Forward Loans LLC</p>
+            <p class="founderNmls">NMLS 2466872 &bull; Forward Loans LLC NMLS 2006640 &bull; Licensed in AZ &amp; CA</p>
+            <p style="font-size:16px;color:var(--muted);margin:6px 0 0 0;">The deals above aren't showpieces &mdash; they're a normal week. If your situation is complicated, that's exactly where I do my best work. Start with a call or fill out the intake form.</p>
+            <div class="row" style="margin-top:12px;">
+              <a class="btn btnPrimary" href="./apply.html">Get Pre-Approved</a>
+              <a class="btn btnSecondary" href="./meet-logan.html">Meet Logan</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="wrap">
+        <div class="footerSimple">
+          <div class="footerMain">
+            <img src="./assets/img/logo.svg" alt="Logan Loans" class="footerLogo" width="160" height="45">
+            <p class="footerTagline">Arizona mortgages, explained like a human.</p>
+          </div>
+
+          <div class="footerContact">
+            <p class="footTitle">Contact</p>
+            <p><a href="tel:+14808037763" class="uLink">(480) 803-7763</a></p>
+            <p><a href="mailto:logan@forward.loans" class="uLink">logan@forward.loans</a></p>
+            <p class="small muted">Mon&ndash;Fri 9am&ndash;6pm, Sat 10am&ndash;4pm</p>
+          </div>
+
+          <div class="footerSocial">
+            <p class="footTitle">Connect</p>
+            <div class="socialLinks">
+              <a href="https://www.instagram.com/logan.loans" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+              <a href="https://www.linkedin.com/in/logansulliv" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+              <a href="https://www.google.com/search?q=Logan+Sullivan+Mortgage+Advisor" target="_blank" rel="noopener" aria-label="Google Reviews">Reviews</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footerBottom">
+          <p class="footerLicense">
+            <strong>NMLS</strong> 2466872 (Logan Sullivan) &bull; <strong>Forward Loans</strong> NMLS 2006640<br>
+            <a href="https://forward.loans/loan-officer/logan-sullivan/" target="_blank" rel="noopener">Official Profile</a> &bull;
+            <a href="./privacy.html">Privacy</a> &bull;
+            <a href="./disclosures.html">Disclosures</a> &bull;
+            <a href="./terms.html">Terms</a>
+          </p>
+          <p class="small muted">All loans subject to credit approval. Deal details are approximate and anonymized. Results may vary based on individual circumstances.</p>
+        </div>
+
+        <div class="footerEnd">
+          Designed, Hosted and Cared For By <a href="https://littlefightnyc.com" target="_blank" rel="noopener">LittleFightNYC.com</a>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <div class="mobileBar mobileOnly" role="region" aria-label="Quick actions">
+    <a class="btn btnSecondary mobileBarBtn" href="tel:+14808037763" aria-label="Call Logan Loans">&#128222; Call</a>
+    <a class="btn btnPrimary mobileBarBtn" href="./apply.html" aria-label="Get pre-approved">Get Pre-Approved</a>
+  </div>
+
+  <link rel="stylesheet" href="./styles.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="./styles.css"></noscript>
+  <script src="./app.js" defer></script>
+</body>
+</html>

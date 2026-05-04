@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Press &amp; Media | Logan Loans</title>
+
+  <!-- Favicon set -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <style>
+    /* Critical CSS - Inlined to eliminate render blocking */
+    :root{--bg:#FBF7EF;--surface:#FFFFFF;--ink:#1F2933;--muted:#52616B;--primary:#165A3F;--sage:#CFE7D7;--border:#E7E0D6;--apricot:#F3B27A;--mint:#2FAF7A;--glow:rgba(243,178,122,0.35);--max:1120px;--padX:20px;--sectionY:80px;--sectionYMobile:56px;--rDoor:22px;--rCard:16px;--rPill:999px;--fontBody:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;--fontHead:Georgia,'Times New Roman',serif;--ease:cubic-bezier(.2,.8,.2,1);--easeOut:cubic-bezier(0,0,0.2,1);--easeBounce:cubic-bezier(0.34,1.56,0.64,1);--tFast:160ms;--tMed:420ms;--tSlow:720ms;--shadow:0 16px 40px rgba(22,90,63,0.12);--shadowHover:0 22px 52px rgba(22,90,63,0.18);--shadowCard:0 14px 28px rgba(22,90,63,0.10);--shadowGlow:0 0 60px rgba(243,178,122,0.25);--focus:0 0 0 4px rgba(47,175,122,0.25)}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}html{scroll-behavior:auto}.door{transform:none;opacity:1}.threshold{transform:scaleX(1)}.doorSheen{display:none}}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:var(--fontBody);background:var(--bg);color:var(--ink);line-height:1.7;font-size:19px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}img{max-width:100%;display:block;height:auto}a{color:inherit;text-decoration:none}button,input,textarea,select{font:inherit}::selection{background:var(--glow)}
+    .skip-link{position:absolute;top:-100px;left:50%;transform:translateX(-50%);background:var(--primary);color:var(--bg);padding:12px 24px;border-radius:var(--rPill);font-weight:700;z-index:10000;transition:top var(--tFast) var(--ease)}.skip-link:focus{top:12px;outline:none;box-shadow:var(--focus)}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--padX)}.stack{display:flex;flex-direction:column;gap:12px}.stack-lg{display:flex;flex-direction:column;gap:20px}.row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.muted{color:var(--muted)}.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .kicker{display:inline-block;font-size:14px;letter-spacing:0.16em;text-transform:uppercase;color:var(--primary);margin:0 0 14px 0;font-weight:700}.h1{font-family:var(--fontHead);font-size:clamp(36px,5vw,60px);line-height:1.1;margin:0;letter-spacing:-0.5px;font-weight:700}.h2{font-family:var(--fontHead);font-size:clamp(30px,3.5vw,46px);margin:0;line-height:1.15;font-weight:700}.h3{font-family:var(--fontHead);font-size:clamp(24px,2.5vw,30px);margin:0;line-height:1.25;font-weight:700}.p{margin:0;font-size:20px;color:var(--muted);max-width:65ch;line-height:1.7}.small{font-size:16px}.tiny{font-size:14px}
+    .header{position:sticky;top:0;z-index:100;background:rgba(251,247,239,0.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:16px}.brand{display:flex;align-items:center;gap:10px}.brandLogo{height:40px;width:auto}.navLinks{display:flex;align-items:center;gap:6px;flex-wrap:wrap}.navLinks a{color:var(--muted);font-weight:600;font-size:16px;padding:10px 14px;border-radius:10px;transition:all var(--tFast) var(--ease);position:relative}.navCta{display:flex;gap:10px;align-items:center}
+    .btn{display:inline-flex;align-items:center;justify-content:center;border-radius:var(--rPill);padding:16px 28px;font-weight:700;font-size:17px;border:2px solid transparent;cursor:pointer;transition:all var(--tFast) var(--easeBounce);white-space:nowrap;position:relative;overflow:hidden;min-height:54px}.btnPrimary{background:linear-gradient(135deg,var(--primary) 0%,#1e7a54 100%);color:var(--bg);box-shadow:0 8px 24px rgba(22,90,63,0.22)}.btnSecondary{background:var(--surface);color:var(--primary);border-color:rgba(22,90,63,0.2);box-shadow:0 4px 12px rgba(22,90,63,0.08)}
+    .section{padding:var(--sectionY) 0}.threshold{height:2px;background:linear-gradient(90deg,var(--primary),var(--mint),var(--apricot));transform-origin:left;transform:scaleX(0);transition:transform 800ms var(--easeOut);margin-bottom:20px;border-radius:2px}
+    .hero{padding:60px 0 50px}.door{position:relative;border:1px solid var(--border);border-radius:var(--rDoor);background:linear-gradient(180deg,rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.5) 100%);box-shadow:var(--shadow),inset 0 1px 0 rgba(255,255,255,0.8);overflow:hidden;transform:scale(0.96) translateY(20px);opacity:0;animation:doorIn 900ms var(--easeOut) forwards;animation-delay:100ms}@keyframes doorIn{to{transform:scale(1) translateY(0);opacity:1}}.heroInner{position:relative;padding:48px 44px;display:grid;grid-template-columns:1fr;gap:32px;align-items:center}.heroContent{display:flex;flex-direction:column;gap:24px}
+    .navToggle{border:1px solid rgba(22,90,63,0.18);border-radius:12px;padding:10px 12px;background:rgba(251,247,239,0.95);color:var(--primary);cursor:pointer}.burger{display:block;width:22px;height:2px;background:var(--primary);position:relative;border-radius:2px}.burger::before,.burger::after{content:"";position:absolute;left:0;width:22px;height:2px;background:var(--primary);border-radius:2px}.burger::before{top:-7px}.burger::after{top:7px}
+    .drawer{position:fixed;inset:0;background:rgba(31,41,51,0.5);opacity:0;pointer-events:none;transition:opacity var(--tMed) var(--ease);z-index:200}.drawer.is-open{opacity:1;pointer-events:auto}.drawerInner{position:absolute;right:12px;left:12px;top:12px;border-radius:var(--rDoor);background:rgba(251,247,239,0.98);border:1px solid var(--border);box-shadow:var(--shadowHover);padding:18px;transform:translateY(-10px) scale(0.98);transition:all var(--tMed) var(--easeBounce)}.drawer.is-open .drawerInner{transform:translateY(0) scale(1)}.drawerTop{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}.drawerTitle{margin:0;font-weight:900;color:var(--ink);font-size:17px}.drawerClose{width:40px;height:40px;border:1px solid rgba(22,90,63,0.15);border-radius:12px;background:rgba(251,247,239,0.95);cursor:pointer;display:grid;place-items:center;font-size:18px}.drawerLink{display:block;padding:14px 16px;border-radius:12px;font-weight:700;color:var(--ink);border:1px solid transparent}.drawerCtas{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.drawerNote{margin:14px 0 0 0;font-size:13px;color:var(--muted);text-align:center}
+    .mobileBar{position:fixed;left:12px;right:12px;bottom:12px;display:flex;gap:10px;padding:12px;border-radius:var(--rDoor);background:rgba(251,247,239,0.95);border:1px solid var(--border);box-shadow:0 -8px 32px rgba(22,90,63,0.15);z-index:50;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}.mobileBarBtn{flex:1;padding:14px 16px}
+    body{padding-bottom:100px}
+    .desktopOnly{display:flex}.mobileOnly{display:none}
+    .card{border:1px solid var(--border);border-radius:var(--rCard);padding:22px;background:rgba(255,255,255,0.65);position:relative}
+    .card,.step,.quote,.porch,.formCard,.investorSection{opacity:0;transform:translateY(28px) scale(0.97)}.section.is-visible .card,.section.is-visible .step,.section.is-visible .quote,.section.is-visible .porch,.section.is-visible .formCard,.section.is-visible .investorSection,.hero .card,.hero .porch{opacity:1;transform:translateY(0) scale(1)}.trust{opacity:0;transform:translateX(-20px)}.door .trust{opacity:1;transform:translateX(0)}.mobileBar{opacity:0;transform:translateY(100px)}
+    .cardTitle{font-weight:800;margin:0 0 10px 0;font-size:20px;position:relative}.cardText{color:var(--muted);margin:0;font-size:17px;line-height:1.6;position:relative}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+    .porch{border:1px solid var(--border);border-radius:var(--rDoor);background:linear-gradient(135deg,rgba(207,231,215,0.4) 0%,rgba(255,255,255,0.6) 50%,rgba(243,178,122,0.15) 100%);box-shadow:var(--shadow);padding:28px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;position:relative;overflow:hidden}
+    .footer{border-top:1px solid var(--border);padding:48px 0 40px;background:linear-gradient(180deg,transparent 0%,rgba(207,231,215,0.1) 100%)}.footerSimple{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;margin-bottom:32px}.footerMain{display:flex;flex-direction:column;gap:12px}.footerLogo{height:45px;width:auto}.footerTagline{font-size:18px;color:var(--muted);margin:0}.footerContact p{margin:0 0 8px 0;font-size:17px}.footerSocial .socialLinks{display:flex;gap:20px}.footerSocial .socialLinks a{font-weight:600;font-size:16px;color:var(--primary);text-decoration:underline;text-underline-offset:3px}.footerBottom{padding-top:24px;border-top:1px dashed rgba(22,90,63,0.15)}.footerLicense{font-size:15px;color:var(--muted);margin:0 0 8px 0}.footerLicense a{color:var(--primary);text-decoration:underline;text-underline-offset:2px}.footerEnd{margin-top:24px;font-size:16px;font-weight:800;color:#ff7a1a}.footerEnd a{color:#ff7a1a;text-decoration:underline;text-underline-offset:3px}.footTitle{font-weight:800;margin:0 0 14px 0;font-size:18px}
+    .uLink{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:2px;color:var(--primary);font-weight:700}
+    .chipGrid{display:flex;flex-wrap:wrap;gap:10px}.chip{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;border:1px solid rgba(22,90,63,0.15);background:rgba(207,231,215,0.2);color:var(--ink);font-weight:700;font-size:13px;text-decoration:none}
+    .footList{margin:0;padding:0;list-style:none}.footList li{margin:0 0 10px 0;color:var(--muted);font-size:16px}
+    .hr{height:1px;background:var(--border);border:0;margin:24px 0}
+    .trust{display:flex;flex-direction:column;gap:12px;padding:20px;border-radius:var(--rCard);border:1px solid var(--border);background:rgba(251,247,239,0.95);box-shadow:0 8px 24px rgba(22,90,63,0.08)}.trust strong{color:var(--primary)}.trustItem{font-size:14px;color:var(--muted);padding-left:12px;border-left:3px solid var(--sage)}
+    .badgeRow{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}.badge{display:inline-flex;align-items:center;padding:8px 12px;border-radius:999px;border:1px solid rgba(22,90,63,0.15);background:rgba(207,231,215,0.25);font-weight:700;font-size:13px;color:var(--primary)}
+    /* Press-specific */
+    .pressLayout{display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:start;margin-top:24px}
+    .pressPhoto{border-radius:var(--rDoor);box-shadow:var(--shadowCard);width:100%;height:auto;object-fit:cover}
+    .pressSidebar{display:flex;flex-direction:column;gap:20px}
+    .pressPhotoWrap{display:flex;flex-direction:column;gap:16px}
+    .pressInfoBox{border:1px solid var(--border);border-radius:var(--rCard);padding:20px;background:rgba(255,255,255,0.65);}
+    .pressInfoRow{display:flex;flex-direction:column;gap:4px;margin-bottom:14px}.pressInfoRow:last-child{margin-bottom:0}
+    .pressLabel{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--primary)}
+    .pressValue{font-size:17px;color:var(--ink);font-weight:500}
+    .pullQuote{border-left:4px solid var(--apricot);padding:20px 24px;background:linear-gradient(135deg,rgba(243,178,122,0.08) 0%,rgba(255,255,255,0.5) 100%);border-radius:0 var(--rCard) var(--rCard) 0;margin:0}
+    .pullQuoteText{font-family:var(--fontHead);font-size:clamp(18px,2vw,24px);line-height:1.45;color:var(--ink);margin:0 0 12px 0;font-style:italic}
+    .pullQuoteAttr{font-size:15px;color:var(--muted);font-weight:600;margin:0}
+    .coverageCard{border:1px solid var(--border);border-radius:var(--rCard);padding:24px;background:rgba(255,255,255,0.65);display:flex;flex-direction:column;gap:12px}
+    .coverageType{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:var(--primary)}
+    .coverageTitle{font-family:var(--fontHead);font-size:20px;font-weight:700;color:var(--ink);margin:0}
+    .coverageDesc{font-size:16px;color:var(--muted);margin:0;line-height:1.55}
+    @media(max-width:900px){.section{padding:var(--sectionYMobile) 0}.hero{padding-top:48px;padding-bottom:32px}.heroInner{padding:32px 24px}.desktopOnly{display:none!important}.mobileOnly{display:block!important}.grid3{grid-template-columns:1fr}.pressLayout{grid-template-columns:1fr;gap:32px}.footerSimple{grid-template-columns:1fr;text-align:center;gap:32px}.footerLogo{margin:0 auto}.footerSocial .socialLinks{justify-content:center}.footerBottom{text-align:center}.p{font-size:17px}.btn{padding:14px 20px}.navLinks a{padding:10px 12px}}
+    @media(max-width:700px){.chipGrid{justify-content:center}}
+    @media(min-width:901px){body{padding-bottom:0}}
+    @media print{.header,.mobileBar,.drawer{display:none!important}body{padding:0}.door{box-shadow:none;border:1px solid #ccc}}
+  </style>
+
+  <meta name="description" content="Media resources, bio, and contact for Logan Sullivan, NMLS 2466872. Available for interviews on Arizona real estate, mortgage lending, and housing market trends." />
+  <link rel="canonical" href="https://www.logan.loans/press.html" />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Press &amp; Media | Logan Loans" />
+  <meta property="og:description" content="Media resources, bio, and contact for Logan Sullivan, NMLS 2466872. Available for interviews on Arizona real estate, mortgage lending, and housing market trends." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.logan.loans/press.html" />
+  <meta property="og:image" content="https://www.logan.loans/assets/img/logan-main.webp" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Press &amp; Media | Logan Loans" />
+  <meta name="twitter:description" content="Media resources, bio, and contact for Logan Sullivan, NMLS 2466872. Available for interviews on Arizona real estate, mortgage lending, and housing market trends." />
+  <meta name="twitter:image" content="https://www.logan.loans/assets/img/logan-main.webp" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.logan.loans/#website",
+      "url": "https://www.logan.loans/",
+      "name": "Logan Loans",
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.logan.loans/press.html#webpage",
+      "url": "https://www.logan.loans/press.html",
+      "name": "Press & Media | Logan Loans",
+      "description": "Media resources, bio, and contact for Logan Sullivan, NMLS 2466872. Available for interviews on Arizona real estate, mortgage lending, and housing market trends.",
+      "isPartOf": { "@id": "https://www.logan.loans/#website" },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.logan.loans/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Press & Media",
+          "item": "https://www.logan.loans/press.html"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.logan.loans/#logan-sullivan",
+      "name": "Logan Sullivan",
+      "jobTitle": "Mortgage Advisor",
+      "description": "Licensed mortgage advisor (NMLS 2466872) with Forward Loans, LLC (NMLS 2006640), serving home buyers and investors across Arizona and Southern California.",
+      "url": "https://www.logan.loans/meet-logan.html",
+      "image": "https://www.logan.loans/assets/img/logan-main.webp",
+      "telephone": "+14808037763",
+      "email": "logan@forward.loans",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Forward Loans, LLC",
+        "url": "https://forward.loans/",
+        "identifier": {
+          "@type": "PropertyValue",
+          "name": "NMLS",
+          "value": "2006640"
+        }
+      },
+      "identifier": {
+        "@type": "PropertyValue",
+        "name": "NMLS",
+        "value": "2466872"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Phoenix",
+        "addressRegion": "AZ",
+        "addressCountry": "US"
+      },
+      "knowsAbout": [
+        "Arizona Housing Market",
+        "Mortgage Rate Trends",
+        "First-Time Homebuyer Programs",
+        "Jumbo & Luxury Lending",
+        "DSCR Investor Loans",
+        "FHA & VA Programs",
+        "Real Estate Market Cycles",
+        "Phoenix & Scottsdale Real Estate"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/logansulliv",
+        "https://forward.loans/loan-officer/logan-sullivan/"
+      ]
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+  <!-- Skip Link for Accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="header">
+    <div class="wrap">
+      <div class="nav">
+        <a class="brand" href="./index.html" aria-label="Logan Loans home">
+          <img src="./assets/img/logo.svg" alt="Logan Loans" class="brandLogo" width="140" height="40">
+        </a>
+
+        <nav class="navLinks desktopOnly" aria-label="Primary">
+          <a href="./programs.html">Programs</a>
+          <a href="./faq.html">FAQ</a>
+          <a href="./meet-logan.html">Meet Logan</a>
+          <a href="./contact.html">Contact</a>
+        </nav>
+
+        <div class="navCta desktopOnly">
+          <a class="btn btnPrimary" href="./apply.html">Get Pre-Approved</a>
+          <a class="btn btnSecondary" href="tel:+14808037763">Call (480) 803-7763</a>
+        </div>
+
+        <button class="navToggle mobileOnly" type="button" aria-label="Open menu" aria-expanded="false" data-nav-toggle>
+          <span class="burger" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="drawer" data-drawer aria-hidden="true" inert>
+      <div class="drawerInner">
+        <div class="drawerTop">
+          <p class="drawerTitle">Menu</p>
+          <button class="drawerClose" type="button" aria-label="Close menu" data-drawer-close>&#x2715;</button>
+        </div>
+        <a class="drawerLink" href="./programs.html">Programs</a>
+        <a class="drawerLink" href="./faq.html">FAQ</a>
+        <a class="drawerLink" href="./meet-logan.html">Meet Logan</a>
+        <a class="drawerLink" href="./contact.html">Contact</a>
+
+        <div class="drawerCtas">
+          <a class="btn btnPrimary" href="./apply.html">Get Pre-Approved</a>
+          <a class="btn btnSecondary" href="tel:+14808037763">Call (480) 803-7763</a>
+        </div>
+
+        <p class="drawerNote">Arizona &#x2022; Southern California</p>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- Breadcrumb nav -->
+    <nav aria-label="Breadcrumb" style="padding:14px 0 0;">
+      <div class="wrap">
+        <ol style="margin:0;padding:0;list-style:none;display:flex;gap:8px;font-size:14px;color:var(--muted);">
+          <li><a href="./index.html" class="uLink">Home</a></li>
+          <li aria-hidden="true" style="color:var(--border);">/</li>
+          <li aria-current="page" style="color:var(--ink);font-weight:600;">Press &amp; Media</li>
+        </ol>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="wrap">
+        <div class="door">
+          <div class="heroInner">
+            <div class="heroContent">
+              <div class="stack-lg">
+                <p class="kicker">Media &amp; press</p>
+                <h1 class="h1">Coverage, commentary, and media resources.</h1>
+                <p class="p">Logan Sullivan is available for interviews, podcast appearances, and expert commentary on Arizona real estate, mortgage lending trends, and the home buying process.</p>
+
+                <div class="row">
+                  <a class="btn btnPrimary" href="mailto:logan@forward.loans">Media Inquiry</a>
+                  <a class="btn btnSecondary" href="tel:+14808037763">Call (480) 803-7763</a>
+                </div>
+
+                <aside class="trust" aria-label="Press credential highlights">
+                  <div class="trustItem"><strong>NMLS 2466872:</strong> licensed mortgage advisor, Arizona &amp; Southern California.</div>
+                  <div class="trustItem"><strong>5-star Google rating:</strong> recognized for plain-language mortgage education.</div>
+                  <div class="trustItem"><strong>Forward Loans, LLC NMLS 2006640:</strong> full-service mortgage lender.</div>
+                  <div class="trustItem"><strong>Based in Phoenix, AZ:</strong> deep local market knowledge.</div>
+                </aside>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BIO + PHOTO LAYOUT -->
+    <section class="section" data-observe>
+      <div class="wrap">
+        <div class="threshold" aria-hidden="true"></div>
+        <p class="kicker">About Logan</p>
+        <h2 class="h2">Bio &amp; media resources.</h2>
+
+        <div class="pressLayout">
+          <!-- Left: bio and expertise -->
+          <div class="stack-lg" style="gap:28px;">
+            <div>
+              <h3 class="h3" style="margin-bottom:16px;">Short bio</h3>
+              <p class="p">Logan Sullivan is a licensed mortgage advisor (NMLS 2466872) with Forward Loans, LLC (NMLS 2006640), serving home buyers and investors across Arizona and Southern California. He focuses on translating complex mortgage concepts into plain language &#x2014; a philosophy that has earned him a 5-star Google rating. He is based in Phoenix, Arizona.</p>
+            </div>
+
+            <hr class="hr" />
+
+            <div>
+              <h3 class="h3" style="margin-bottom:16px;">Expertise topics</h3>
+              <p class="p" style="font-size:17px;margin-bottom:16px;">Logan is available for comment and interview on the following topics:</p>
+              <div class="chipGrid" role="list" aria-label="Areas of expertise">
+                <span class="chip" role="listitem">Arizona Housing Market</span>
+                <span class="chip" role="listitem">Mortgage Rate Trends</span>
+                <span class="chip" role="listitem">First-Time Homebuyer Programs</span>
+                <span class="chip" role="listitem">Jumbo &amp; Luxury Lending</span>
+                <span class="chip" role="listitem">DSCR Investor Loans</span>
+                <span class="chip" role="listitem">FHA &amp; VA Programs</span>
+                <span class="chip" role="listitem">Real Estate Market Cycles</span>
+                <span class="chip" role="listitem">Phoenix &amp; Scottsdale Real Estate</span>
+              </div>
+            </div>
+
+            <hr class="hr" />
+
+            <!-- Pull quote -->
+            <figure class="pullQuote" aria-label="Quote from Logan Sullivan">
+              <blockquote class="pullQuoteText">
+                &#x201C;I&#x2019;ve always thought that the mortgage industry&#x2019;s reputation for opacity is self-inflicted. Most people aren&#x2019;t confused because mortgages are complicated &#x2014; they&#x2019;re confused because the industry benefits from confusion. My job is to change that one conversation at a time.&#x201D;
+              </blockquote>
+              <figcaption class="pullQuoteAttr">&#x2014; Logan Sullivan, NMLS 2466872</figcaption>
+            </figure>
+          </div>
+
+          <!-- Right: photo + download info -->
+          <div class="pressSidebar">
+            <div class="pressPhotoWrap">
+              <img
+                src="./assets/img/logan-main.webp"
+                alt="Logan Sullivan, Mortgage Advisor — NMLS 2466872, Forward Loans, LLC"
+                class="pressPhoto"
+                width="500"
+                height="620"
+                loading="eager"
+                fetchpriority="high"
+              />
+            </div>
+
+            <div class="pressInfoBox">
+              <p class="cardTitle" style="margin-bottom:16px;">Media contact</p>
+
+              <div class="pressInfoRow">
+                <span class="pressLabel">Name</span>
+                <span class="pressValue">Logan Sullivan</span>
+              </div>
+              <div class="pressInfoRow">
+                <span class="pressLabel">Title</span>
+                <span class="pressValue">Mortgage Advisor, NMLS 2466872</span>
+              </div>
+              <div class="pressInfoRow">
+                <span class="pressLabel">Company</span>
+                <span class="pressValue">Forward Loans, LLC (NMLS 2006640)</span>
+              </div>
+              <div class="pressInfoRow">
+                <span class="pressLabel">Email</span>
+                <span class="pressValue"><a href="mailto:logan@forward.loans" class="uLink">logan@forward.loans</a></span>
+              </div>
+              <div class="pressInfoRow">
+                <span class="pressLabel">Phone</span>
+                <span class="pressValue"><a href="tel:+14808037763" class="uLink">(480) 803-7763</a></span>
+              </div>
+              <div class="pressInfoRow">
+                <span class="pressLabel">Location</span>
+                <span class="pressValue">Phoenix, Arizona</span>
+              </div>
+            </div>
+
+            <div class="pressInfoBox">
+              <p class="cardTitle" style="margin-bottom:12px;">High-res assets</p>
+              <p class="cardText">Logo SVG available at <code style="font-size:13px;background:rgba(207,231,215,0.3);padding:2px 6px;border-radius:4px;">/assets/img/logo.svg</code>. High-resolution headshots are available upon request &#x2014; email <a href="mailto:logan@forward.loans" class="uLink">logan@forward.loans</a> with your publication and deadline.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RECENT COVERAGE -->
+    <section class="section" data-observe>
+      <div class="wrap">
+        <div class="threshold" aria-hidden="true"></div>
+        <p class="kicker">Coverage</p>
+        <h2 class="h2">Recent &amp; available appearances.</h2>
+        <p class="p">Logan is actively available for media inquiries. Reach out directly to coordinate an interview, panel, or expert quote.</p>
+
+        <div class="grid3" role="list" aria-label="Media coverage opportunities">
+          <div class="card coverageCard" role="listitem">
+            <span class="coverageType">Feature</span>
+            <p class="coverageTitle">Feature Opportunity Available</p>
+            <p class="coverageDesc">Logan is available for in-depth feature stories on Arizona real estate trends, the first-time buyer market, and mortgage accessibility. Contact for scheduling and additional background materials.</p>
+            <a class="btn btnSecondary" href="mailto:logan@forward.loans" style="align-self:flex-start;font-size:15px;padding:10px 20px;min-height:auto;">Request Feature</a>
+          </div>
+
+          <div class="card coverageCard" role="listitem">
+            <span class="coverageType">Podcast</span>
+            <p class="coverageTitle">Podcast Guest &#x2014; Available</p>
+            <p class="coverageDesc">Logan is a clear, engaging guest on topics including mortgage lending, investor strategies, and the Phoenix housing market. Comfortable with long-form conversation and technical follow-up questions.</p>
+            <a class="btn btnSecondary" href="mailto:logan@forward.loans" style="align-self:flex-start;font-size:15px;padding:10px 20px;min-height:auto;">Book Logan</a>
+          </div>
+
+          <div class="card coverageCard" role="listitem">
+            <span class="coverageType">Expert Commentary</span>
+            <p class="coverageTitle">Expert Commentary &#x2014; Available</p>
+            <p class="coverageDesc">Available for on-record commentary on mortgage rate shifts, housing affordability, Federal Reserve impacts, and buyer sentiment in Arizona and Southern California markets.</p>
+            <a class="btn btnSecondary" href="mailto:logan@forward.loans" style="align-self:flex-start;font-size:15px;padding:10px 20px;min-height:auto;">Get a Quote</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORCH CTA -->
+    <section class="section" data-observe>
+      <div class="wrap">
+        <div class="threshold" aria-hidden="true"></div>
+        <div class="porch" aria-label="Media contact call to action">
+          <div class="stack">
+            <p class="cardTitle" style="margin:0;">Ready to connect?</p>
+            <p class="small muted" style="margin:0;">Email <a class="uLink" href="mailto:logan@forward.loans">logan@forward.loans</a> or call <a class="uLink" href="tel:+14808037763">(480) 803-7763</a> &#x2014; Logan responds quickly to press inquiries.</p>
+          </div>
+          <div class="row">
+            <a class="btn btnPrimary" href="mailto:logan@forward.loans">Send Media Inquiry</a>
+            <a class="btn btnSecondary" href="tel:+14808037763">Call Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footerSimple">
+        <div class="footerMain">
+          <img src="./assets/img/logo.svg" alt="Logan Loans" class="footerLogo" width="160" height="45">
+          <p class="footerTagline">Arizona mortgages, explained like a human.</p>
+        </div>
+
+        <div class="footerContact">
+          <p class="footTitle">Contact</p>
+          <p><a href="tel:+14808037763" class="uLink">(480) 803-7763</a></p>
+          <p><a href="mailto:logan@forward.loans" class="uLink">logan@forward.loans</a></p>
+          <p class="small muted">Mon&#x2013;Fri 9am&#x2013;6pm, Sat 10am&#x2013;4pm</p>
+        </div>
+
+        <div class="footerSocial">
+          <p class="footTitle">Connect</p>
+          <div class="socialLinks">
+            <a href="https://www.instagram.com/logan.loans" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+            <a href="https://www.linkedin.com/in/logansulliv" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+            <a href="https://www.google.com/search?q=Logan+Sullivan+Mortgage+Advisor" target="_blank" rel="noopener" aria-label="Google Reviews">Reviews</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footerBottom">
+        <p class="footerLicense">
+          <strong>NMLS</strong> 2466872 (Logan Sullivan) &#x2022; <strong>Forward Loans</strong> NMLS 2006640<br>
+          <a href="https://forward.loans/loan-officer/logan-sullivan/" target="_blank" rel="noopener">Official Profile</a> &#x2022;
+          <a href="./privacy.html">Privacy</a> &#x2022;
+          <a href="./disclosures.html">Disclosures</a> &#x2022;
+          <a href="./terms.html">Terms</a>
+        </p>
+        <p class="small muted">All loans subject to credit approval. Same-day pre-approval depends on timing and completeness of information.</p>
+        <p class="small muted" style="margin-top:8px;">&#x24C1; Equal Housing Lender</p>
+      </div>
+
+      <div class="footerEnd">
+        Designed, Hosted and Cared For By <a href="https://littlefightnyc.com" target="_blank" rel="noopener">LittleFightNYC.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="mobileBar mobileOnly" role="region" aria-label="Quick actions">
+    <a class="btn btnSecondary mobileBarBtn" href="tel:+14808037763" aria-label="Call Logan Loans">&#x1F4DE; Call</a>
+    <a class="btn btnPrimary mobileBarBtn" href="./apply.html" aria-label="Get pre-approved">Get Pre-Approved</a>
+  </div>
+
+<link rel="stylesheet" href="./styles.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="./styles.css"></noscript>
+<script src="./app.js" defer></script>
+</body>
+</html>

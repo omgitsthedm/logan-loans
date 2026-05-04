@@ -77,23 +77,20 @@
   <meta property="og:description" content="Arizona mortgages explained like a human. Clear guidance, quick pre-approvals, and a calm 3-step process for first-time buyers." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.logan.loans/" />
-  <meta property="og:image" content="https://www.logan.loans/og-image.jpg" />
+  <meta property="og:image" content="https://www.logan.loans/assets/img/logan-main.webp" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Logan Loans | Arizona Mortgage Lender" />
   <meta name="twitter:description" content="Arizona mortgages explained like a human. Clear guidance, quick pre-approvals, and a calm 3-step process for first-time buyers." />
-  <meta name="twitter:image" content="https://www.logan.loans/og-image.jpg" />
+  <meta name="twitter:image" content="https://www.logan.loans/assets/img/logan-main.webp" />
 
-  <!-- Google Analytics 4 - Placeholder: GA4 Measurement ID needed (G-XXXXXXXXXX) -->
   <!--
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
-  </script>
+    TRACKING SETUP REQUIRED — provide Logan with these IDs:
+    1. GA4 Measurement ID (format: G-XXXXXXXXXX)
+    2. GTM Container ID (format: GTM-XXXXXXX)
+    3. Google Ads Conversion IDs (3 values for form submits)
+    Once received, uncomment and replace placeholders in app.js trackingConfig block.
   -->
 
 
@@ -102,35 +99,150 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Organization",
+      "@id": "https://www.logan.loans/#organization",
+      "name": "Logan Loans",
+      "url": "https://www.logan.loans/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.logan.loans/assets/img/logo.svg",
+        "width": 160,
+        "height": 45
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+14808037763",
+        "contactType": "customer service",
+        "areaServed": ["AZ", "CA"],
+        "availableLanguage": "English"
+      },
+      "sameAs": [
+        "https://www.instagram.com/logan.loans",
+        "https://www.linkedin.com/in/logansulliv",
+        "https://linktr.ee/Logan.loans"
+      ]
+    },
+    {
       "@type": "WebSite",
       "@id": "https://www.logan.loans/#website",
       "url": "https://www.logan.loans/",
       "name": "Logan Loans",
       "description": "Phoenix-area mortgages explained like a human. Clear guidance, quick pre-approvals, and a calm 3-step process.",
-      "inLanguage": "en-US"
+      "inLanguage": "en-US",
+      "publisher": { "@id": "https://www.logan.loans/#organization" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://www.logan.loans/faq.html?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
     },
     {
-      "@type": "LocalBusiness",
+      "@type": "Person",
+      "@id": "https://www.logan.loans/#logan-sullivan",
+      "name": "Logan Sullivan",
+      "jobTitle": "Mortgage Advisor",
+      "worksFor": { "@id": "https://www.logan.loans/#organization" },
+      "url": "https://www.logan.loans/meet-logan.html",
+      "image": "https://www.logan.loans/assets/img/logan-main.webp",
+      "telephone": "+14808037763",
+      "email": "logan@forward.loans",
+      "identifier": {
+        "@type": "PropertyValue",
+        "name": "NMLS",
+        "value": "2466872"
+      },
+      "knowsAbout": ["Conventional Loans", "FHA Loans", "VA Loans", "Jumbo Loans", "DSCR Loans", "Arizona Mortgages", "Pre-Approval", "Home Purchase", "Refinancing"],
+      "sameAs": [
+        "https://www.linkedin.com/in/logansulliv",
+        "https://forward.loans/loan-officer/logan-sullivan/"
+      ]
+    },
+    {
+      "@type": ["FinancialService", "LocalBusiness"],
       "@id": "https://www.logan.loans/#localbusiness",
       "name": "Logan Loans",
       "url": "https://www.logan.loans/",
       "telephone": "+14808037763",
-      "address": {"@type":"PostalAddress","streetAddress":"11201 N Tatum Blvd #300","addressLocality":"Phoenix","addressRegion":"AZ","postalCode":"85028","addressCountry":"US"},
-      "areaServed": ["Arizona", "California", "Southern California", "Paradise Valley", "Scottsdale", "Beverly Hills", "Newport Beach", "La Jolla"],
+      "email": "logan@forward.loans",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "11201 N Tatum Blvd #300",
+        "addressLocality": "Phoenix",
+        "addressRegion": "AZ",
+        "postalCode": "85028",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 33.6373,
+        "longitude": -111.9770
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "10:00",
+          "closes": "16:00"
+        }
+      ],
+      "areaServed": [
+        {"@type": "State", "name": "Arizona"},
+        {"@type": "State", "name": "California"},
+        {"@type": "City", "name": "Phoenix"},
+        {"@type": "City", "name": "Scottsdale"},
+        {"@type": "City", "name": "Paradise Valley"},
+        {"@type": "City", "name": "Beverly Hills"},
+        {"@type": "City", "name": "Newport Beach"},
+        {"@type": "City", "name": "La Jolla"}
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Mortgage Products",
+        "itemListElement": [
+          {"@type": "Offer", "itemOffered": {"@type": "FinancialProduct", "name": "Conventional Purchase Loan", "category": "Mortgage"}},
+          {"@type": "Offer", "itemOffered": {"@type": "FinancialProduct", "name": "FHA Loan", "category": "Mortgage"}},
+          {"@type": "Offer", "itemOffered": {"@type": "FinancialProduct", "name": "VA Loan", "category": "Mortgage"}},
+          {"@type": "Offer", "itemOffered": {"@type": "FinancialProduct", "name": "Jumbo Loan", "category": "Mortgage"}},
+          {"@type": "Offer", "itemOffered": {"@type": "FinancialProduct", "name": "DSCR Investor Loan", "category": "Mortgage"}},
+          {"@type": "Offer", "itemOffered": {"@type": "FinancialProduct", "name": "Refinance", "category": "Mortgage"}}
+        ]
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "47",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "priceRange": "$$",
+      "currenciesAccepted": "USD",
+      "paymentAccepted": "All major financing programs",
       "sameAs": [
         "https://www.instagram.com/logan.loans",
         "https://www.linkedin.com/in/logansulliv",
         "https://linktr.ee/Logan.loans"
-      ],
-      "priceRange": "$$"
+      ]
     },
     {
       "@type": "WebPage",
       "@id": "https://www.logan.loans/#webpage",
       "url": "https://www.logan.loans/",
-      "name": "Home",
-      "isPartOf": {
-        "@id": "https://www.logan.loans/#website"
+      "name": "Arizona Mortgages | Same-Day Pre-Approval | Logan Loans",
+      "description": "Warm, clear mortgage guidance for Arizona and Southern California. Same-day pre-approval, competitive rates, and a calm process from start to keys.",
+      "isPartOf": { "@id": "https://www.logan.loans/#website" },
+      "about": { "@id": "https://www.logan.loans/#localbusiness" },
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".h1", ".h2", ".heroContent .p", ".kicker"]
       }
     }
   ]
@@ -206,7 +318,7 @@
         </nav>
 
         <div class="navCta desktopOnly">
-          <a class="btn btnPrimary" href="./contact.html#intake">Get Pre-Approved</a>
+          <a class="btn btnPrimary" href="./apply.html">Get Pre-Approved</a>
           <a class="btn btnSecondary" href="tel:+14808037763">Call (480) 803-7763</a>
         </div>
 
@@ -228,7 +340,7 @@
         <a class="drawerLink" href="./contact.html">Contact</a>
 
         <div class="drawerCtas">
-          <a class="btn btnPrimary" href="./contact.html#intake">Get Pre-Approved</a>
+          <a class="btn btnPrimary" href="./apply.html">Get Pre-Approved</a>
           <a class="btn btnSecondary" href="tel:+14808037763">Call (480) 803-7763</a>
         </div>
 
@@ -251,7 +363,7 @@
                 <p class="p">Clear guidance, same-day pre-approval available, and a lender who explains your options like a human. 🤝</p>
 
                 <div class="row">
-                  <a class="btn btnPrimary" href="./contact.html#intake">Start the Form ✍️</a>
+                  <a class="btn btnPrimary" href="./apply.html">Start the Form ✍️</a>
                   <a class="btn btnSecondary" href="tel:+14808037763">Call 📞</a>
                   <span class="presence"><span class="dot" aria-hidden="true"></span>Usually responds quickly</span>
                 </div>
@@ -406,7 +518,7 @@
 
           <div class="row" style="margin-top:24px;">
             <a class="btn btnPrimary" href="./investor-loans.html">Explore Investor Programs →</a>
-            <a class="btn btnSecondary" href="./contact.html#intake">Talk to Logan</a>
+            <a class="btn btnSecondary" href="./apply.html">Talk to Logan</a>
           </div>
         </div>
       </div>
@@ -584,7 +696,7 @@
             <p class="small muted" style="margin:0;">A quick conversation can save you weeks of uncertainty.</p>
           </div>
           <div class="row">
-            <a class="btn btnPrimary" href="./contact.html#intake">Start the Form ✍️</a>
+            <a class="btn btnPrimary" href="./apply.html">Start the Form ✍️</a>
             <a class="btn btnSecondary" href="./contact.html">Ask a Question</a>
           </div>
         </div>
@@ -682,7 +794,7 @@
 
 <div class="mobileBar mobileOnly" role="region" aria-label="Quick actions">
   <a class="btn btnSecondary mobileBarBtn" href="tel:+14808037763" aria-label="Call Logan Loans">📞 Call</a>
-  <a class="btn btnPrimary mobileBarBtn" href="./contact.html#intake" aria-label="Get pre-approved">✅ Pre-Approve</a>
+  <a class="btn btnPrimary mobileBarBtn" href="./apply.html" aria-label="Get pre-approved">✅ Pre-Approve</a>
 </div>
 
 <link rel="stylesheet" href="./styles.css" media="print" onload="this.media='all'">
