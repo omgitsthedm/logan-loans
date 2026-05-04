@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <title>Should You Buy Down Your Mortgage Rate? Here's the Break-Even Math | Logan Loans</title>
+  <meta name="description" content="Mortgage points let you pay cash upfront to permanently lower your rate. Whether it's worth it depends on one calculation. Here's the exact math, with real numbers." />
+  <link rel="canonical" href="https://www.logan.loans/blog-mortgage-points-arizona.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Should You Buy Down Your Mortgage Rate? Here's the Break-Even Math | Logan Loans" />
+  <meta property="og:description" content="Mortgage points let you pay cash upfront to permanently lower your rate. Whether it's worth it depends on one calculation. Here's the exact math, with real numbers." />
+  <meta property="og:url" content="https://www.logan.loans/blog-mortgage-points-arizona.html" />
+  <meta property="og:image" content="https://www.logan.loans/assets/img/logan-main.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Should You Buy Down Your Mortgage Rate? Here's the Break-Even Math | Logan Loans" />
+  <meta name="twitter:description" content="Mortgage points let you pay cash upfront to permanently lower your rate. Whether it's worth it depends on one calculation. Here's the exact math, with real numbers." />
+  <style>
+    :root{--bg:#FBF7EF;--surface:#FFFFFF;--ink:#1F2933;--muted:#52616B;--primary:#165A3F;--sage:#CFE7D7;--border:#E7E0D6;--apricot:#F3B27A;--mint:#2FAF7A;--glow:rgba(243,178,122,0.35);--max:1120px;--padX:20px;--sectionY:80px;--rDoor:22px;--rCard:16px;--rPill:999px;--fontBody:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;--fontHead:Georgia,'Times New Roman',serif;--ease:cubic-bezier(.2,.8,.2,1);--easeOut:cubic-bezier(0,0,0.2,1);--easeBounce:cubic-bezier(0.34,1.56,0.64,1);--tFast:160ms;--tMed:420ms;--shadow:0 16px 40px rgba(22,90,63,0.12);--focus:0 0 0 4px rgba(47,175,122,0.25)}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:var(--fontBody);background:var(--bg);color:var(--ink);line-height:1.7;font-size:19px;-webkit-font-smoothing:antialiased}img{max-width:100%;display:block;height:auto}a{color:inherit;text-decoration:none}button,input{font:inherit}
+    .skip-link{position:absolute;top:-100px;left:50%;transform:translateX(-50%);background:var(--primary);color:var(--bg);padding:12px 24px;border-radius:var(--rPill);font-weight:700;z-index:10000;transition:top var(--tFast)}.skip-link:focus{top:12px}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--padX)}
+    .kicker{display:inline-block;font-size:14px;letter-spacing:0.16em;text-transform:uppercase;color:var(--primary);margin:0 0 14px 0;font-weight:700}
+    .h1{font-family:var(--fontHead);font-size:clamp(30px,4vw,52px);line-height:1.1;margin:0;letter-spacing:-0.5px;font-weight:700}
+    .h2{font-family:var(--fontHead);font-size:clamp(24px,3vw,36px);margin:0 0 16px 0;line-height:1.2;font-weight:700}
+    .h3{font-family:var(--fontHead);font-size:clamp(20px,2.5vw,26px);margin:0 0 12px 0;font-weight:700}
+    .p{margin:0;font-size:19px;color:var(--muted);line-height:1.75}
+    .muted{color:var(--muted)}
+    .header{position:sticky;top:0;z-index:100;background:rgba(251,247,239,0.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:16px}
+    .brand{display:flex;align-items:center}.brandLogo{height:40px;width:auto}
+    .navLinks{display:flex;align-items:center;gap:6px}.navLinks a{color:var(--muted);font-weight:600;font-size:16px;padding:10px 14px;border-radius:10px}
+    .navCta{display:flex;gap:10px;align-items:center}
+    .btn{display:inline-flex;align-items:center;justify-content:center;border-radius:var(--rPill);padding:14px 26px;font-weight:700;font-size:16px;border:2px solid transparent;cursor:pointer;transition:all var(--tFast) var(--easeBounce);white-space:nowrap;min-height:50px}
+    .btnPrimary{background:linear-gradient(135deg,var(--primary) 0%,#1e7a54 100%);color:var(--bg);box-shadow:0 8px 24px rgba(22,90,63,0.22)}
+    .btnSecondary{background:var(--surface);color:var(--primary);border-color:rgba(22,90,63,0.2)}
+    .navToggle{border:1px solid rgba(22,90,63,0.18);border-radius:12px;padding:10px 12px;background:rgba(251,247,239,0.95);color:var(--primary);cursor:pointer}
+    .burger{display:block;width:22px;height:2px;background:var(--primary);position:relative;border-radius:2px}.burger::before,.burger::after{content:"";position:absolute;left:0;width:22px;height:2px;background:var(--primary);border-radius:2px}.burger::before{top:-7px}.burger::after{top:7px}
+    .drawer{position:fixed;inset:0;background:rgba(31,41,51,0.5);opacity:0;pointer-events:none;transition:opacity var(--tMed);z-index:200}.drawer.is-open{opacity:1;pointer-events:auto}
+    .drawerInner{position:absolute;right:12px;left:12px;top:12px;border-radius:var(--rDoor);background:rgba(251,247,239,0.98);border:1px solid var(--border);box-shadow:var(--shadow);padding:18px;transform:translateY(-10px) scale(0.98);transition:all var(--tMed) var(--easeBounce)}.drawer.is-open .drawerInner{transform:translateY(0) scale(1)}
+    .drawerTop{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}.drawerTitle{margin:0;font-weight:900;font-size:17px}.drawerClose{width:40px;height:40px;border:1px solid rgba(22,90,63,0.15);border-radius:12px;background:rgba(251,247,239,0.95);cursor:pointer;display:grid;place-items:center;font-size:18px}
+    .drawerLink{display:block;padding:14px 16px;border-radius:12px;font-weight:700;color:var(--ink)}.drawerCtas{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.drawerNote{margin:14px 0 0 0;font-size:13px;color:var(--muted);text-align:center}
+    .mobileBar{position:fixed;left:12px;right:12px;bottom:12px;display:flex;gap:10px;padding:12px;border-radius:var(--rDoor);background:rgba(251,247,239,0.95);border:1px solid var(--border);box-shadow:0 -8px 32px rgba(22,90,63,0.15);z-index:50;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}.mobileBarBtn{flex:1;padding:14px 16px}
+    body{padding-bottom:100px}
+    .desktopOnly{display:flex}.mobileOnly{display:none}
+    .section{padding:80px 0}
+    .threshold{height:2px;background:linear-gradient(90deg,var(--primary),var(--mint),var(--apricot));transform-origin:left;transform:scaleX(0);transition:transform 800ms var(--easeOut);margin-bottom:20px;border-radius:2px}
+    .card{border:1px solid var(--border);border-radius:var(--rCard);padding:24px;background:rgba(255,255,255,0.65)}
+    .uLink{text-decoration:underline;text-underline-offset:3px;color:var(--primary);font-weight:700}
+    .chip{display:inline-flex;align-items:center;padding:8px 14px;border-radius:999px;border:1px solid rgba(22,90,63,0.15);background:rgba(207,231,215,0.2);color:var(--ink);font-weight:700;font-size:13px;text-decoration:none;cursor:pointer;transition:background var(--tFast)}
+    .chip:hover{background:rgba(207,231,215,0.45)}
+    .chipGrid{display:flex;flex-wrap:wrap;gap:10px}
+    .porch{border:1px solid var(--border);border-radius:var(--rDoor);background:linear-gradient(135deg,rgba(207,231,215,0.4) 0%,rgba(255,255,255,0.6) 50%,rgba(243,178,122,0.15) 100%);box-shadow:var(--shadow);padding:28px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+    .footer{border-top:1px solid var(--border);padding:48px 0 40px}.footerSimple{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;margin-bottom:32px}.footerMain{display:flex;flex-direction:column;gap:12px}.footerLogo{height:45px;width:auto}.footerTagline{font-size:18px;color:var(--muted);margin:0}.footerContact p{margin:0 0 8px 0;font-size:17px}.footTitle{font-weight:800;margin:0 0 14px 0;font-size:18px}.socialLinks{display:flex;gap:20px}.socialLinks a{font-weight:600;font-size:16px;color:var(--primary);text-decoration:underline}.footerBottom{padding-top:24px;border-top:1px dashed rgba(22,90,63,0.15)}.footerLicense{font-size:15px;color:var(--muted);margin:0 0 8px 0}.footerLicense a{color:var(--primary);text-decoration:underline}.footerEnd{margin-top:24px;font-size:16px;font-weight:800;color:#ff7a1a}.footerEnd a{color:#ff7a1a;text-decoration:underline}
+    /* BLOG POST SPECIFIC */
+    .blogHero{padding:60px 0 48px}
+    .blogMeta{display:flex;align-items:center;gap:16px;margin-bottom:24px;flex-wrap:wrap}
+    .blogDate{font-size:15px;color:var(--muted);font-weight:600}
+    .blogCat{display:inline-block;padding:6px 14px;border-radius:999px;background:rgba(207,231,215,0.4);color:var(--primary);font-size:13px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase}
+    .postBody{max-width:740px;margin:0 auto;padding:0 20px}
+    .postBody h2{font-family:var(--fontHead);font-size:clamp(22px,2.5vw,30px);margin:48px 0 16px 0;color:var(--ink)}
+    .postBody h3{font-family:var(--fontHead);font-size:clamp(18px,2vw,24px);margin:36px 0 12px 0;color:var(--ink)}
+    .postBody p{font-size:19px;line-height:1.8;color:var(--muted);margin:0 0 20px 0}
+    .postBody ul,.postBody ol{padding-left:20px;margin:0 0 20px 0}
+    .postBody li{font-size:18px;line-height:1.7;color:var(--muted);margin-bottom:10px}
+    .postBody strong{color:var(--ink)}
+    .postBody .callout{background:rgba(207,231,215,0.3);border-left:4px solid var(--primary);border-radius:0 var(--rCard) var(--rCard) 0;padding:20px 24px;margin:28px 0}
+    .postBody .callout p{margin:0;color:var(--ink);font-weight:600}
+    .postBody table{width:100%;border-collapse:collapse;margin:24px 0;font-size:17px}
+    .postBody th{background:var(--sage);color:var(--primary);padding:12px 16px;text-align:left;font-weight:700}
+    .postBody td{padding:12px 16px;border-bottom:1px solid var(--border)}
+    .postBody a{color:var(--primary);text-decoration:underline;text-underline-offset:3px}
+    .authorBox{border:1px solid var(--border);border-radius:var(--rDoor);padding:24px;display:flex;gap:20px;align-items:center;margin:48px 0 0 0;background:rgba(255,255,255,0.6)}
+    .authorImg{width:64px;height:64px;border-radius:999px;object-fit:cover;flex-shrink:0}
+    .authorName{font-weight:800;font-size:18px;margin:0 0 4px 0}
+    .authorBio{font-size:15px;color:var(--muted);margin:0}
+    .relatedSection{padding:48px 0}
+    .relatedTitle{font-family:var(--fontHead);font-size:22px;font-weight:700;margin:0 0 20px 0;color:var(--ink)}
+    .mathBox{background:rgba(22,90,63,0.05);border:1px solid rgba(22,90,63,0.12);border-radius:var(--rCard);padding:28px;margin:28px 0}
+    .mathBox .mathTitle{font-family:var(--fontHead);font-size:18px;font-weight:700;color:var(--primary);margin:0 0 16px 0}
+    .mathRow{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(22,90,63,0.1);font-size:17px}
+    .mathRow:last-child{border-bottom:none;padding-top:14px;font-weight:700;color:var(--ink);font-size:18px}
+    .mathLabel{color:var(--muted)}
+    .mathValue{color:var(--ink);font-weight:600}
+    @media(max-width:768px){.desktopOnly{display:none}.mobileOnly{display:flex}.footerSimple{grid-template-columns:1fr}.postBody{padding:0 16px}.mathRow{flex-direction:column;align-items:flex-start;gap:4px}}
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "Should You Buy Down Your Mortgage Rate? Here's the Break-Even Math",
+        "description": "Mortgage points let you pay cash upfront to permanently lower your rate. Whether it's worth it depends on one calculation. Here's the exact math, with real numbers.",
+        "datePublished": "2026-05-01",
+        "dateModified": "2026-05-01",
+        "author": {
+          "@type": "Person",
+          "name": "Logan Sullivan",
+          "jobTitle": "Mortgage Advisor",
+          "url": "https://www.logan.loans/meet-logan.html"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Logan Loans",
+          "url": "https://www.logan.loans",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.logan.loans/assets/img/logo.svg"
+          }
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://www.logan.loans/blog-mortgage-points-arizona.html"
+        },
+        "image": "https://www.logan.loans/assets/img/logan-main.webp"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.logan.loans/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://www.logan.loans/blog.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Should You Buy Down Your Mortgage Rate?",
+            "item": "https://www.logan.loans/blog-mortgage-points-arizona.html"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How much does one mortgage point cost?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "One mortgage point equals 1% of your loan amount. On a $450,000 loan, one point costs $4,500. On a $600,000 loan, one point costs $6,000. Points are paid at closing and added to your total cash-to-close. You can buy fractional points — for example, 0.5 points on a $450,000 loan would cost $2,250."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are mortgage points tax deductible?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Points paid on a home purchase are generally fully deductible in the year you pay them, assuming you meet IRS requirements (the loan is for your primary home, the points are normal practice in your area, and you're using the cash method of accounting). Points paid on a refinance must be spread out and deducted over the life of the loan. The tax benefit can meaningfully shift the break-even calculation in your favor for a purchase — talk to your CPA about your specific situation."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What's the difference between buying points and just making a larger down payment?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Both reduce your monthly payment, but differently. A larger down payment reduces your loan balance permanently — every dollar pays down principal. Points buy a lower interest rate — every dollar buys a rate reduction applied to the original loan balance. Buying points makes more sense when you plan to stay long-term and have already hit the point where PMI is no longer an issue (i.e., you're at 20% down). If you're weighing points versus extra down payment to eliminate PMI, eliminating PMI usually wins."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <header class="header">
+    <div class="wrap">
+      <div class="nav">
+        <a class="brand" href="./index.html" aria-label="Logan Loans home">
+          <img src="./assets/img/logo.svg" alt="Logan Loans" class="brandLogo" width="140" height="40">
+        </a>
+        <nav class="navLinks desktopOnly" aria-label="Primary">
+          <a href="./programs.html">Programs</a>
+          <a href="./tools.html">Tools</a>
+          <a href="./faq.html">FAQ</a>
+          <a href="./meet-logan.html">Meet Logan</a>
+          <a href="./contact.html">Contact</a>
+        </nav>
+        <div class="navCta desktopOnly">
+          <a class="btn btnPrimary" href="./apply.html">Get Pre-Approved</a>
+          <a class="btn btnSecondary" href="tel:+14808037763">Call (480) 803-7763</a>
+        </div>
+        <button class="navToggle mobileOnly" type="button" aria-label="Open menu" aria-expanded="false" data-nav-toggle>
+          <span class="burger" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+    <div class="drawer" data-drawer aria-hidden="true" inert>
+      <div class="drawerInner">
+        <div class="drawerTop">
+          <p class="drawerTitle">Menu</p>
+          <button class="drawerClose" type="button" aria-label="Close menu" data-drawer-close>&#x2715;</button>
+        </div>
+        <a class="drawerLink" href="./programs.html">Programs</a>
+        <a class="drawerLink" href="./tools.html">Tools</a>
+        <a class="drawerLink" href="./faq.html">FAQ</a>
+        <a class="drawerLink" href="./meet-logan.html">Meet Logan</a>
+        <a class="drawerLink" href="./contact.html">Contact</a>
+        <div class="drawerCtas">
+          <a class="btn btnPrimary" href="./apply.html">Get Pre-Approved</a>
+          <a class="btn btnSecondary" href="tel:+14808037763">Call (480) 803-7763</a>
+        </div>
+        <p class="drawerNote">Arizona &bull; Southern California</p>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- BLOG HERO -->
+    <section class="blogHero">
+      <div class="wrap">
+        <div style="max-width:740px;margin:0 auto;padding:0 20px;">
+          <div class="blogMeta">
+            <span class="blogCat">Rate Strategy</span>
+            <span class="blogDate">May 1, 2026</span>
+            <span class="blogDate">7 min read</span>
+          </div>
+          <h1 class="h1" style="margin-bottom:20px;">Should You Buy Down Your Mortgage Rate? Here's the Break-Even Math</h1>
+          <p class="p" style="font-size:21px;line-height:1.7;margin-bottom:32px;">This question comes up in nearly every pre-approval conversation I have. Mortgage points — also called discount points — let you pay cash upfront at closing to permanently lower your interest rate. Whether it makes financial sense depends on a single number: your break-even month. Here's how to find it.</p>
+          <div style="display:flex;align-items:center;gap:16px;padding:20px;border:1px solid var(--border);border-radius:var(--rCard);background:rgba(255,255,255,0.5);">
+            <img src="./assets/img/logan-main.webp" alt="Logan Sullivan, Mortgage Advisor" style="width:52px;height:52px;border-radius:999px;object-fit:cover;flex-shrink:0;">
+            <div>
+              <p style="margin:0;font-weight:700;font-size:16px;color:var(--ink);">Logan Sullivan</p>
+              <p style="margin:0;font-size:14px;color:var(--muted);">Mortgage Advisor, NMLS 2466872 &bull; Forward Loans LLC</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- POST BODY -->
+    <article class="postBody">
+
+      <h2>What Are Mortgage Points?</h2>
+
+      <p>A mortgage point — sometimes called a discount point — is prepaid interest. You pay the lender a lump sum at closing in exchange for a reduced interest rate on your loan. The rate reduction is permanent; it applies for the life of the loan.</p>
+
+      <ul>
+        <li><strong>1 point = 1% of the loan amount.</strong> On a $500,000 loan, 1 point costs $5,000. On a $350,000 loan, it costs $3,500.</li>
+        <li><strong>Each point typically lowers your rate by approximately 0.25%</strong>, though this varies significantly by lender and by market conditions. Sometimes the reduction is 0.125%; sometimes it's 0.375%. Always ask for the exact rate-to-cost schedule from your lender.</li>
+        <li><strong>Points are paid at closing</strong> — they're added to your cash-to-close alongside the down payment, appraisal fee, title insurance, and other closing costs. They don't come out of your loan balance.</li>
+      </ul>
+
+      <p>You can also pay fractional points — 0.5 points, 1.5 points, whatever the lender's pricing grid allows. Some lenders will also offer negative points, where they pay you a credit toward closing costs in exchange for a higher rate. That's the opposite of buying down your rate.</p>
+
+      <h2>The Break-Even Formula</h2>
+
+      <p>The break-even calculation is straightforward. It answers one question: how many months does it take for the monthly savings to equal the upfront cost?</p>
+
+      <p style="text-align:center;font-family:var(--fontHead);font-size:20px;font-weight:700;color:var(--primary);padding:16px 0;">Break-Even Months = Upfront Point Cost &divide; Monthly Payment Savings</p>
+
+      <p>If you plan to own the home past that month, buying the point pays off. If you sell or refinance before then, you've lost money on the transaction.</p>
+
+      <h3>A real example with the exact math</h3>
+
+      <p>Let's use a $450,000 loan on a 30-year fixed rate.</p>
+
+      <div class="mathBox">
+        <p class="mathTitle">Scenario: 1 Point on a $450,000 Loan</p>
+        <div class="mathRow">
+          <span class="mathLabel">Loan amount</span>
+          <span class="mathValue">$450,000</span>
+        </div>
+        <div class="mathRow">
+          <span class="mathLabel">Rate without points</span>
+          <span class="mathValue">7.25%</span>
+        </div>
+        <div class="mathRow">
+          <span class="mathLabel">Monthly payment at 7.25%</span>
+          <span class="mathValue">$3,071/month</span>
+        </div>
+        <div class="mathRow">
+          <span class="mathLabel">Cost of 1 point</span>
+          <span class="mathValue">$4,500</span>
+        </div>
+        <div class="mathRow">
+          <span class="mathLabel">Rate with 1 point</span>
+          <span class="mathValue">7.00%</span>
+        </div>
+        <div class="mathRow">
+          <span class="mathLabel">Monthly payment at 7.00%</span>
+          <span class="mathValue">$2,995/month</span>
+        </div>
+        <div class="mathRow">
+          <span class="mathLabel">Monthly savings</span>
+          <span class="mathValue">$76/month</span>
+        </div>
+        <div class="mathRow">
+          <span class="mathLabel">Break-even point</span>
+          <span class="mathValue">$4,500 &divide; $76 = <strong>59 months</strong> (just under 5 years)</span>
+        </div>
+      </div>
+
+      <p>In this scenario, if you stay in the home past month 59 — just under five years — buying the point was the right call. Every month after that, you're ahead by $76. Over a 30-year mortgage, buying that one point saves you just over $22,800 in total interest paid, at a cost of $4,500 upfront. The math works clearly if you're a long-term owner.</p>
+
+      <p>If you sell at year 3, you've paid $4,500 upfront and recovered only $2,736 in savings — a net loss of $1,764 on the point purchase.</p>
+
+      <h2>When Buying Points IS Worth It</h2>
+
+      <p>There's no universal answer, but these situations generally point toward buying points:</p>
+
+      <ul>
+        <li><strong>You plan to stay 7+ years</strong> — or you're buying a forever home and have no realistic expectation of selling. The longer your horizon, the more the math tilts in favor of buying down.</li>
+        <li><strong>You have cash reserves after the purchase.</strong> This is important. Buying points should never drain your savings account. If buying 1 point means you'll have nothing left for a plumbing emergency in month two, don't do it.</li>
+        <li><strong>The rate reduction is meaningful.</strong> If 1 point gets you 0.375% off your rate, that's worth running the math carefully. If 1 point gets you 0.125%, it's probably not worth it — the break-even period stretches to 15+ years.</li>
+        <li><strong>You're in a higher-rate environment and want certainty.</strong> When rates are elevated and you expect to hold the property long-term, locking a lower rate permanently insulates you from the monthly payment uncertainty. Even if rates fall and you refinance later, you're not worse off — the break-even just resets.</li>
+      </ul>
+
+      <h2>When Buying Points Is NOT Worth It</h2>
+
+      <p>Points are frequently presented by lenders in a way that makes them sound like a no-brainer. They're not always that. Here's when to skip them:</p>
+
+      <ul>
+        <li><strong>You might sell or refinance within 3–5 years.</strong> The Arizona market moves, life changes, jobs relocate. If there's meaningful uncertainty about how long you'll stay, your break-even math needs a realistic ownership horizon — not an optimistic one.</li>
+        <li><strong>Cash is tight.</strong> Every dollar spent on points is a dollar not in your emergency fund, not earning interest in a savings account, and not available for home repairs. A $4,500 point purchase might save you $76/month, but that $4,500 sitting in a high-yield savings account earns you something too.</li>
+        <li><strong>You're a real estate investor.</strong> If you're buying a rental property with a DSCR loan, the opportunity cost of deploying that capital elsewhere — into another down payment, a renovation, or a different investment — is often higher than the rate savings. Investors tend to think in terms of cash-on-cash return, and tying up capital in points rarely wins that comparison.</li>
+        <li><strong>The rate spread per point is thin.</strong> If your lender's pricing grid gives you less than 0.20% per point, the break-even math stretches out significantly. Always ask what you get per point before assuming the standard 0.25%.</li>
+      </ul>
+
+      <h2>The Tax Angle</h2>
+
+      <p>Points paid on a home <strong>purchase</strong> are generally fully deductible in the year you pay them, under IRS guidelines, if the loan is secured by your primary residence and the points don't exceed what's normal in your area. This changes the break-even math.</p>
+
+      <p>If you buy a point and deduct $4,500 in the tax year you close, the after-tax cost of the point is lower than $4,500. At a 22% marginal tax rate, your effective cost drops to roughly $3,510 — and your break-even shortens from 59 months to around 46 months.</p>
+
+      <p>Points paid on a <strong>refinance</strong> are different. They must be deducted over the life of the loan — so on a 30-year refinance, you deduct 1/360th of the point cost each month. Less impactful in year 1.</p>
+
+      <p>Consult your CPA before making assumptions about deductibility. The rules have nuances, and your situation may differ from the general case. But if the deduction applies, factor it into your analysis.</p>
+
+      <h2>A Better Question to Ask Your Lender</h2>
+
+      <p>Most buyers ask lenders, "Should I buy points?" That's the wrong starting question, because the lender doesn't know your plans. The better approach is to ask for information and then decide yourself.</p>
+
+      <p>Here's what to request:</p>
+
+      <ul>
+        <li>"What's my rate and payment with <strong>zero points</strong>?"</li>
+        <li>"What does it cost to get to a rate of X% — exactly how many points and exactly how many dollars?"</li>
+        <li>"What's the rate for 0.5 points? 1 point? 2 points?" (The rate improvement often isn't linear — the first half-point sometimes buys more than the second half.)</li>
+      </ul>
+
+      <p>Once you have those numbers, the break-even calculation is simple arithmetic. It takes five minutes with a calculator, and it tells you definitively whether the purchase makes sense for your situation. Don't let a lender frame this decision for you — run the numbers yourself.</p>
+
+      <p>I walk through this on every pre-approval call I do. We pull up the rate sheet together, compare the scenarios side by side, and you make the decision based on actual numbers. If it makes sense for your situation, great. If it doesn't, I'll tell you that directly.</p>
+
+      <div class="callout">
+        <p>On your pre-approval call, Logan will run this exact calculation for your loan — so you're deciding with real numbers from a real rate sheet, not guessing based on general advice. <a href="./apply.html">Get started here</a> or call <a href="tel:+14808037763">(480) 803-7763</a>.</p>
+      </div>
+
+      <!-- AUTHOR BOX -->
+      <div class="authorBox">
+        <img src="./assets/img/logan-main.webp" alt="Logan Sullivan, Mortgage Advisor" class="authorImg">
+        <div>
+          <p class="authorName">Logan Sullivan</p>
+          <p class="authorBio">Mortgage Advisor, NMLS 2466872 &bull; Forward Loans LLC NMLS 2006640. Serving Arizona and Southern California. Reach Logan at <a href="tel:+14808037763" style="color:var(--primary);">(480) 803-7763</a> or <a href="mailto:logan@forward.loans" style="color:var(--primary);">logan@forward.loans</a>.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- CTA PORCH -->
+    <section style="padding:48px 0;" data-observe>
+      <div class="wrap">
+        <div class="porch">
+          <div>
+            <p style="font-family:var(--fontHead);font-size:clamp(20px,2.5vw,28px);font-weight:700;margin:0 0 8px 0;color:var(--ink);">Get Your Personalized Rate Analysis</p>
+            <p style="margin:0;color:var(--muted);font-size:17px;">Logan runs the break-even math on every call. No pressure — just real numbers for your situation.</p>
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;">
+            <a class="btn btnPrimary" href="./apply.html">Start Your Pre-Approval</a>
+            <a class="btn btnSecondary" href="tel:+14808037763">Call (480) 803-7763</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RELATED POSTS -->
+    <section class="relatedSection">
+      <div class="wrap">
+        <div style="max-width:740px;margin:0 auto;padding:0 20px;">
+          <p class="relatedTitle">Keep Reading</p>
+          <div class="chipGrid">
+            <a class="chip" href="./blog-first-time-buyer-arizona.html">Arizona First-Time Homebuyer Guide</a>
+            <a class="chip" href="./blog-dscr-loans-arizona.html">DSCR Loans for Arizona Investors</a>
+            <a class="chip" href="./programs.html">All Loan Programs</a>
+            <a class="chip" href="./faq.html">Mortgage FAQ</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="wrap">
+        <div class="footerSimple">
+          <div class="footerMain">
+            <img src="./assets/img/logo.svg" alt="Logan Loans" class="footerLogo" width="160" height="45">
+            <p class="footerTagline">Arizona mortgages, explained like a human.</p>
+          </div>
+          <div class="footerContact">
+            <p class="footTitle">Contact</p>
+            <p><a href="tel:+14808037763" class="uLink">(480) 803-7763</a></p>
+            <p><a href="mailto:logan@forward.loans" class="uLink">logan@forward.loans</a></p>
+            <p class="small muted">Mon&ndash;Fri 9am&ndash;6pm, Sat 10am&ndash;4pm</p>
+          </div>
+          <div class="footerSocial">
+            <p class="footTitle">Connect</p>
+            <div class="socialLinks">
+              <a href="https://www.instagram.com/logan.loans" target="_blank" rel="noopener">Instagram</a>
+              <a href="https://www.linkedin.com/in/logansulliv" target="_blank" rel="noopener">LinkedIn</a>
+              <a href="https://www.google.com/search?q=Logan+Sullivan+Mortgage+Advisor" target="_blank" rel="noopener">Reviews</a>
+            </div>
+          </div>
+        </div>
+        <div class="footerBottom">
+          <p class="footerLicense">
+            <strong>NMLS</strong> 2466872 (Logan Sullivan) &bull; <strong>Forward Loans</strong> NMLS 2006640<br>
+            <a href="https://forward.loans/loan-officer/logan-sullivan/" target="_blank" rel="noopener">Official Profile</a> &bull;
+            <a href="./privacy.html">Privacy</a> &bull;
+            <a href="./disclosures.html">Disclosures</a>
+          </p>
+          <p class="small muted">All loans subject to credit approval. Same-day pre-approval depends on timing and completeness of information.</p>
+        </div>
+        <div class="footerEnd">
+          Designed, Hosted and Cared For By <a href="https://littlefightnyc.com" target="_blank" rel="noopener">LittleFightNYC.com</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <div class="mobileBar mobileOnly" role="region" aria-label="Quick actions">
+    <a class="btn btnSecondary mobileBarBtn" href="tel:+14808037763">Call</a>
+    <a class="btn btnPrimary mobileBarBtn" href="./apply.html">Get Pre-Approved</a>
+  </div>
+
+  <link rel="stylesheet" href="./styles.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="./styles.css"></noscript>
+  <script src="./app.js" defer></script>
+</body>
+</html>

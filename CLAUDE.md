@@ -139,3 +139,8 @@
 | 2026-05-03 | partners.html built | Broker/agent referral page with Netlify form (name=partner-referral), 6 value props, 3-step process, 3 FAQ, all 8 UTM inputs, BreadcrumbList+FAQPage schema |
 | 2026-05-03 | press.html built | Media kit page with Person schema, two-column bio+photo layout, expertise chip grid, pull quote, 3 coverage placeholder cards |
 | 2026-05-03 | terms.html built | Legal prose page, max-width 780px centered, 10 sections dated 2026-05-01, Equal Housing statement, BreadcrumbList schema |
+| 2026-05-03 | OG image fixed site-wide | og-image.jpg → /assets/img/logan-main.webp across all 32 pages |
+| 2026-05-03 | Nav CTAs fixed site-wide | contact.html#intake → apply.html across all pages |
+| 2026-05-03 | BreadcrumbList added to 9 pages | programs, first-time-buyer, refinance, investor-loans, relocation, premium-markets, how-it-works, faq, meet-logan |
+| 2026-05-04 | Homepage full redesign | Dark forest green hero, Logan photo above fold, real review cards, numbered path cards, dark split bio panel, zero emojis. Beats cream-on-cream monotony of competitors. |
+| 2026-05-04 | .door.heroDark specificity fix | styles.css .door (specificity 010) was overriding .heroDark (010). Fixed with .door.heroDark (020). |

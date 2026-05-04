@@ -1,0 +1,773 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <title>Arizona Mortgage Calculator | Estimate Your Monthly Payment | Logan Loans</title>
+  <meta name="description" content="Free Arizona mortgage calculator. Estimate your monthly payment with property taxes, insurance, PMI, and HOA. Compare loan terms instantly. Built for Phoenix and Scottsdale buyers." />
+  <link rel="canonical" href="https://www.logan.loans/calculator.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Arizona Mortgage Calculator | Logan Loans" />
+  <meta property="og:description" content="Estimate your monthly mortgage payment in seconds. Includes Arizona property taxes, insurance, PMI, and HOA. No email required." />
+  <meta property="og:url" content="https://www.logan.loans/calculator.html" />
+  <meta property="og:image" content="https://www.logan.loans/assets/img/logan-main.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Arizona Mortgage Calculator | Logan Loans" />
+  <meta name="twitter:description" content="Estimate your monthly mortgage payment in seconds. Includes Arizona property taxes, insurance, PMI, and HOA." />
+  <meta name="twitter:image" content="https://www.logan.loans/assets/img/logan-main.webp" />
+
+  <style>
+    :root{--bg:#FBF7EF;--surface:#FFFFFF;--ink:#1F2933;--muted:#52616B;--primary:#165A3F;--sage:#CFE7D7;--border:#E7E0D6;--apricot:#F3B27A;--mint:#2FAF7A;--glow:rgba(243,178,122,0.35);--max:1120px;--padX:20px;--sectionY:80px;--rDoor:22px;--rCard:16px;--rPill:999px;--fontBody:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;--fontHead:Georgia,'Times New Roman',serif;--ease:cubic-bezier(.2,.8,.2,1);--easeOut:cubic-bezier(0,0,0.2,1);--easeBounce:cubic-bezier(0.34,1.56,0.64,1);--tFast:160ms;--tMed:420ms;--shadow:0 16px 40px rgba(22,90,63,0.12);--shadowCard:0 14px 28px rgba(22,90,63,0.10);--focus:0 0 0 4px rgba(47,175,122,0.25)}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:var(--fontBody);background:var(--bg);color:var(--ink);line-height:1.7;font-size:19px;-webkit-font-smoothing:antialiased}img{max-width:100%;display:block;height:auto}a{color:inherit;text-decoration:none}button,input,select{font:inherit}
+    .skip-link{position:absolute;top:-100px;left:50%;transform:translateX(-50%);background:var(--primary);color:var(--bg);padding:12px 24px;border-radius:var(--rPill);font-weight:700;z-index:10000;transition:top var(--tFast)}.skip-link:focus{top:12px}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--padX)}
+    .kicker{display:inline-block;font-size:14px;letter-spacing:0.16em;text-transform:uppercase;color:var(--primary);margin:0 0 14px 0;font-weight:700}
+    .h1{font-family:var(--fontHead);font-size:clamp(34px,4.5vw,56px);line-height:1.05;margin:0;letter-spacing:-0.5px;font-weight:700}
+    .h2{font-family:var(--fontHead);font-size:clamp(26px,3vw,38px);margin:0 0 16px 0;line-height:1.2;font-weight:700}
+    .h3{font-family:var(--fontHead);font-size:clamp(22px,2.5vw,28px);margin:0 0 12px 0;font-weight:700}
+    .p{margin:0;font-size:19px;color:var(--muted);line-height:1.75;max-width:65ch}
+    .muted{color:var(--muted)}.small{font-size:16px}
+    .header{position:sticky;top:0;z-index:100;background:rgba(251,247,239,0.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:16px}
+    .brand{display:flex;align-items:center}.brandLogo{height:40px;width:auto}
+    .navLinks{display:flex;align-items:center;gap:6px}.navLinks a{color:var(--muted);font-weight:600;font-size:16px;padding:10px 14px;border-radius:10px}
+    .navCta{display:flex;gap:10px;align-items:center}
+    .btn{display:inline-flex;align-items:center;justify-content:center;border-radius:var(--rPill);padding:14px 26px;font-weight:700;font-size:16px;border:2px solid transparent;cursor:pointer;transition:all var(--tFast) var(--easeBounce);white-space:nowrap;min-height:50px}
+    .btnPrimary{background:linear-gradient(135deg,var(--primary) 0%,#1e7a54 100%);color:var(--bg);box-shadow:0 8px 24px rgba(22,90,63,0.22)}
+    .btnSecondary{background:var(--surface);color:var(--primary);border-color:rgba(22,90,63,0.2)}
+    .navToggle{border:1px solid rgba(22,90,63,0.18);border-radius:12px;padding:10px 12px;background:rgba(251,247,239,0.95);color:var(--primary);cursor:pointer}
+    .burger{display:block;width:22px;height:2px;background:var(--primary);position:relative;border-radius:2px}.burger::before,.burger::after{content:"";position:absolute;left:0;width:22px;height:2px;background:var(--primary);border-radius:2px}.burger::before{top:-7px}.burger::after{top:7px}
+    .drawer{position:fixed;inset:0;background:rgba(31,41,51,0.5);opacity:0;pointer-events:none;transition:opacity var(--tMed);z-index:200}.drawer.is-open{opacity:1;pointer-events:auto}
+    .drawerInner{position:absolute;right:12px;left:12px;top:12px;border-radius:var(--rDoor);background:rgba(251,247,239,0.98);border:1px solid var(--border);box-shadow:var(--shadow);padding:18px;transform:translateY(-10px) scale(0.98);transition:all var(--tMed) var(--easeBounce)}.drawer.is-open .drawerInner{transform:translateY(0) scale(1)}
+    .drawerTop{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}.drawerTitle{margin:0;font-weight:900;font-size:17px}.drawerClose{width:40px;height:40px;border:1px solid rgba(22,90,63,0.15);border-radius:12px;background:rgba(251,247,239,0.95);cursor:pointer;display:grid;place-items:center;font-size:18px}
+    .drawerLink{display:block;padding:14px 16px;border-radius:12px;font-weight:700;color:var(--ink)}.drawerCtas{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.drawerNote{margin:14px 0 0 0;font-size:13px;color:var(--muted);text-align:center}
+    .mobileBar{position:fixed;left:12px;right:12px;bottom:12px;display:flex;gap:10px;padding:12px;border-radius:var(--rDoor);background:rgba(251,247,239,0.95);border:1px solid var(--border);box-shadow:0 -8px 32px rgba(22,90,63,0.15);z-index:50;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}.mobileBarBtn{flex:1;padding:14px 16px}
+    body{padding-bottom:100px}
+    .desktopOnly{display:flex}.mobileOnly{display:none}
+    .section{padding:60px 0}
+    .threshold{height:2px;background:linear-gradient(90deg,var(--primary),var(--mint),var(--apricot));transform-origin:left;transform:scaleX(0);transition:transform 800ms var(--easeOut);margin-bottom:20px;border-radius:2px;animation:thresholdGrow 800ms var(--easeOut) forwards}
+    @keyframes thresholdGrow{to{transform:scaleX(1)}}
+    .uLink{text-decoration:underline;text-underline-offset:3px;color:var(--primary);font-weight:700}
+    .chip{display:inline-flex;align-items:center;padding:8px 14px;border-radius:999px;border:1px solid rgba(22,90,63,0.15);background:rgba(207,231,215,0.2);color:var(--ink);font-weight:700;font-size:13px;text-decoration:none}
+    .chipGrid{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .porch{border:1px solid var(--border);border-radius:var(--rDoor);background:linear-gradient(135deg,rgba(207,231,215,0.4) 0%,rgba(255,255,255,0.6) 50%,rgba(243,178,122,0.15) 100%);box-shadow:var(--shadow);padding:32px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+    .porchText{flex:1;min-width:240px}
+    .footer{border-top:1px solid var(--border);padding:48px 0 40px;margin-top:60px}.footerSimple{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;margin-bottom:32px}.footerMain{display:flex;flex-direction:column;gap:12px}.footerLogo{height:45px;width:auto}.footerTagline{font-size:18px;color:var(--muted);margin:0}.footerContact p{margin:0 0 8px 0;font-size:17px}.footTitle{font-weight:800;margin:0 0 14px 0;font-size:18px}.socialLinks{display:flex;gap:20px}.socialLinks a{font-weight:600;font-size:16px;color:var(--primary);text-decoration:underline;text-underline-offset:3px}.footerBottom{padding-top:24px;border-top:1px dashed rgba(22,90,63,0.15)}.footerLicense{font-size:15px;color:var(--muted);margin:0 0 8px 0}.footerLicense a{color:var(--primary);text-decoration:underline}.footerEnd{margin-top:24px;font-size:16px;font-weight:800;color:#ff7a1a}.footerEnd a{color:#ff7a1a;text-decoration:underline}
+
+    /* CALCULATOR-SPECIFIC */
+    .calcHero{padding:48px 0 32px}
+    .calcGrid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:24px;margin-top:32px}
+    .calcInputs,.calcOutput{border:1px solid var(--border);border-radius:var(--rDoor);background:var(--surface);padding:32px;box-shadow:var(--shadow)}
+    .calcOutput{background:linear-gradient(155deg,#0d3d2a 0%,#165A3F 65%,#1a6645 100%);color:#fff;border-color:transparent}
+    .calcGroup{margin-bottom:22px}
+    .calcGroup:last-child{margin-bottom:0}
+    .calcLabel{display:flex;justify-content:space-between;align-items:baseline;font-weight:700;font-size:15px;color:var(--ink);margin-bottom:8px;letter-spacing:0.01em}
+    .calcLabelValue{font-family:var(--fontHead);font-size:18px;color:var(--primary);font-weight:700}
+    input[type=range]{-webkit-appearance:none;width:100%;height:6px;background:var(--sage);border-radius:6px;outline:none;margin-top:6px}
+    input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:var(--primary);cursor:pointer;border:3px solid #fff;box-shadow:0 2px 8px rgba(22,90,63,0.3);transition:transform var(--tFast)}
+    input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15)}
+    input[type=range]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;background:var(--primary);cursor:pointer;border:3px solid #fff;box-shadow:0 2px 8px rgba(22,90,63,0.3)}
+    input[type=range]:focus-visible{box-shadow:var(--focus)}
+    .calcInput{width:100%;padding:14px 16px;border-radius:12px;border:2px solid rgba(22,90,63,0.12);background:#fff;font-size:18px;font-weight:600;color:var(--ink);transition:border-color var(--tFast)}
+    .calcInput:focus{outline:none;border-color:var(--primary);box-shadow:var(--focus)}
+    .termRow{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px}
+    .termBtn{padding:14px 16px;border-radius:12px;border:2px solid rgba(22,90,63,0.12);background:#fff;font-weight:700;font-size:16px;color:var(--ink);cursor:pointer;transition:all var(--tFast) var(--ease)}
+    .termBtn:hover{border-color:var(--primary)}
+    .termBtn.is-active{background:var(--primary);color:#fff;border-color:var(--primary)}
+    .typeRow{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:8px}
+    .typeBtn{padding:14px 16px;border-radius:12px;border:2px solid rgba(22,90,63,0.12);background:#fff;font-weight:700;font-size:14px;color:var(--ink);cursor:pointer;transition:all var(--tFast) var(--ease)}
+    .typeBtn:hover{border-color:var(--primary)}
+    .typeBtn.is-active{background:var(--primary);color:#fff;border-color:var(--primary)}
+    .toggleRow{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+    .toggleBtn{padding:10px 14px;border-radius:999px;border:1.5px solid rgba(22,90,63,0.12);background:#fff;font-weight:600;font-size:13px;color:var(--muted);cursor:pointer;transition:all var(--tFast)}
+    .toggleBtn.is-active{background:var(--primary);color:#fff;border-color:var(--primary)}
+    .calcOutput .outLabel{font-size:13px;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.12em;font-weight:600;margin-bottom:8px}
+    .calcOutput .outBig{font-family:var(--fontHead);font-size:clamp(40px,5.5vw,68px);font-weight:700;color:#fff;line-height:1;letter-spacing:-1.5px}
+    .calcOutput .outSmall{font-size:14px;color:rgba(255,255,255,0.55);margin-top:6px}
+    .breakdown{margin-top:30px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.12)}
+    .bdRow{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid rgba(255,255,255,0.07);font-size:16px}
+    .bdRow:last-child{border-bottom:none}
+    .bdLabel{display:flex;align-items:center;gap:10px;color:rgba(255,255,255,0.85);font-weight:500}
+    .bdSwatch{width:11px;height:11px;border-radius:3px;flex-shrink:0}
+    .bdValue{font-weight:700;color:#fff;font-family:var(--fontHead);font-size:18px}
+    .bdRow.bdTotal{padding-top:18px;margin-top:6px;border-top:1px solid rgba(255,255,255,0.18);border-bottom:none}
+    .bdRow.bdTotal .bdLabel{color:#fff;font-weight:700;font-size:18px}
+    .bdRow.bdTotal .bdValue{font-size:22px;color:var(--mint)}
+    .pieWrap{margin-top:24px;display:flex;align-items:center;gap:24px}
+    .pie{width:160px;height:160px;border-radius:50%;flex-shrink:0;background:conic-gradient(var(--mint) 0% 70%, var(--apricot) 70% 84%, #67c293 84% 92%, #a8d8c0 92% 100%);position:relative}
+    .pie::after{content:"";position:absolute;inset:30px;background:#0d3d2a;border-radius:50%}
+    .ctaBlock{margin-top:28px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.12);display:flex;flex-direction:column;gap:10px}
+    .btnMint{background:var(--mint);color:#fff;border:0;box-shadow:0 8px 28px rgba(47,175,122,0.32);width:100%;padding:18px}
+    .btnMint:hover{background:#26995f}
+    .btnGhost{background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.25);width:100%;padding:14px}
+    .btnGhost:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.5)}
+
+    /* AMORTIZATION TABLE */
+    .amortWrap{margin-top:40px;border:1px solid var(--border);border-radius:var(--rDoor);background:var(--surface);overflow:hidden}
+    .amortHead{padding:24px 28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;border-bottom:1px solid var(--border);background:rgba(207,231,215,0.15)}
+    .amortTitle{margin:0;font-family:var(--fontHead);font-size:22px;font-weight:700}
+    .amortSummary{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:24px 28px;border-bottom:1px solid var(--border)}
+    .amortStat{padding:0}
+    .amortStatLabel{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;font-weight:700;margin-bottom:6px}
+    .amortStatValue{font-family:var(--fontHead);font-size:24px;font-weight:700;color:var(--primary)}
+    .amortToggle{padding:14px 20px;background:transparent;border:0;font-weight:700;color:var(--primary);cursor:pointer;width:100%;text-align:center;font-size:15px;border-bottom:1px solid var(--border)}
+    .amortToggle:hover{background:rgba(207,231,215,0.2)}
+    .amortTable{width:100%;border-collapse:collapse;font-size:14px;display:none}
+    .amortTable.is-open{display:table}
+    .amortTable th{background:rgba(207,231,215,0.3);color:var(--primary);padding:12px 16px;text-align:right;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:0.05em;border-bottom:1px solid var(--border)}
+    .amortTable th:first-child{text-align:left}
+    .amortTable td{padding:10px 16px;text-align:right;border-bottom:1px solid var(--border);color:var(--muted)}
+    .amortTable td:first-child{text-align:left;font-weight:700;color:var(--ink)}
+    .amortTable tbody tr:hover{background:rgba(207,231,215,0.1)}
+
+    /* COMPARE TABLE */
+    .compareGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
+    .compareCard{border:1px solid var(--border);border-radius:var(--rCard);padding:24px;background:#fff;text-align:center}
+    .compareLabel{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;font-weight:700;margin-bottom:8px}
+    .compareValue{font-family:var(--fontHead);font-size:28px;font-weight:700;color:var(--primary);margin-bottom:6px;line-height:1}
+    .compareDesc{font-size:14px;color:var(--muted);margin:0}
+    .compareCard.recommended{border-color:var(--primary);background:linear-gradient(180deg,rgba(207,231,215,0.25) 0%,#fff 50%);position:relative}
+    .compareCard.recommended::before{content:"Best balance";position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--primary);color:#fff;padding:4px 12px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase}
+
+    /* FAQ */
+    .faq{margin-top:20px;border:1px solid var(--border);border-radius:var(--rDoor);overflow:hidden;background:rgba(255,255,255,0.6)}
+    .faqItem{border-top:1px solid var(--border)}.faqItem:first-child{border-top:0}
+    .faqBtn{width:100%;text-align:left;border:0;background:transparent;padding:20px;font-weight:700;font-size:16px;color:var(--ink);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}
+    .faqIcon{width:32px;height:32px;border-radius:10px;border:1px solid rgba(22,90,63,0.15);display:grid;place-items:center;color:var(--primary);background:rgba(251,247,239,0.9);flex:0 0 auto;font-size:18px}
+    .faqPanel{max-height:0;overflow:hidden;transition:max-height var(--tMed) var(--ease)}.faqPanelInner{padding:0 20px 20px 20px;color:var(--muted);font-size:16px;line-height:1.65}
+
+    @media(max-width:920px){
+      .calcGrid{grid-template-columns:1fr}
+      .compareGrid{grid-template-columns:1fr}
+      .amortSummary{grid-template-columns:1fr}
+      .calcInputs,.calcOutput{padding:24px}
+      .pieWrap{flex-direction:column;text-align:center}
+    }
+    @media(max-width:768px){
+      .desktopOnly{display:none}.mobileOnly{display:flex}
+      .footerSimple{grid-template-columns:1fr}
+      .calcHero{padding:32px 0 20px}
+      .section{padding:48px 0}
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://www.logan.loans/calculator.html#webapp",
+        "name": "Arizona Mortgage Calculator",
+        "url": "https://www.logan.loans/calculator.html",
+        "description": "Free mortgage payment calculator for Arizona homebuyers. Includes property taxes, homeowners insurance, PMI, and HOA estimates.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "offers": {"@type":"Offer","price":"0","priceCurrency":"USD"},
+        "provider": {"@id":"https://www.logan.loans/#org"}
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://www.logan.loans/#org",
+        "name": "Logan Loans",
+        "url": "https://www.logan.loans",
+        "logo": "https://www.logan.loans/assets/img/logo.svg",
+        "telephone": "+1-480-803-7763",
+        "email": "logan@forward.loans"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type":"ListItem","position":1,"name":"Home","item":"https://www.logan.loans/"},
+          {"@type":"ListItem","position":2,"name":"Mortgage Calculator","item":"https://www.logan.loans/calculator.html"}
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type":"Question","name":"How accurate is this Arizona mortgage calculator?","acceptedAnswer":{"@type":"Answer","text":"It uses standard amortization math (the same formula every lender uses) plus Arizona-specific defaults: 0.6% effective property tax, 0.35% annual insurance, and 0.8% annual PMI when down payment is below 20%. Your actual rate, taxes, and insurance will vary — but the estimate gets you within a few dollars of reality."}},
+          {"@type":"Question","name":"What is included in my monthly payment?","acceptedAnswer":{"@type":"Answer","text":"The calculator shows principal & interest, property taxes, homeowners insurance, PMI (if down payment is under 20%), and any HOA fees you enter. Together these are called PITI — or PITIA when HOA is included."}},
+          {"@type":"Question","name":"Why does Arizona property tax show as 0.6%?","acceptedAnswer":{"@type":"Answer","text":"Arizona has one of the lowest effective property tax rates in the country. The statewide average is about 0.6% of assessed value annually — substantially lower than the U.S. average of around 1.1%. Your actual rate varies by county and city."}},
+          {"@type":"Question","name":"How is PMI calculated?","acceptedAnswer":{"@type":"Answer","text":"Private mortgage insurance is required when your down payment is less than 20%. The calculator uses 0.8% of your loan amount annually, which is a typical mid-range rate. Actual PMI varies by credit score, loan-to-value, and the specific lender — Logan can quote your real PMI on a pre-approval call."}},
+          {"@type":"Question","name":"Can I drop PMI later?","acceptedAnswer":{"@type":"Answer","text":"Yes. On a conventional loan, you can request PMI removal once you hit 20% equity (either by paying down or by appreciation with a new appraisal). It drops automatically at 22% equity by federal law. FHA loans have different rules — MIP is typically permanent unless you refinance."}}
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="header">
+    <div class="wrap">
+      <div class="nav">
+        <a class="brand" href="./index.html" aria-label="Logan Loans home">
+          <img src="./assets/img/logo.svg" alt="Logan Loans" class="brandLogo" width="140" height="40">
+        </a>
+        <nav class="navLinks desktopOnly" aria-label="Primary">
+          <a href="./programs.html">Programs</a>
+          <a href="./tools.html">Tools</a>
+          <a href="./faq.html">FAQ</a>
+          <a href="./meet-logan.html">Meet Logan</a>
+          <a href="./contact.html">Contact</a>
+        </nav>
+        <div class="navCta desktopOnly">
+          <a class="btn btnPrimary" href="./apply.html">Get Pre-Approved</a>
+          <a class="btn btnSecondary" href="tel:+14808037763">Call (480) 803-7763</a>
+        </div>
+        <button class="navToggle mobileOnly" type="button" aria-label="Open menu" aria-expanded="false" data-nav-toggle>
+          <span class="burger" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+    <div class="drawer" data-drawer aria-hidden="true" inert>
+      <div class="drawerInner">
+        <div class="drawerTop">
+          <p class="drawerTitle">Menu</p>
+          <button class="drawerClose" type="button" aria-label="Close menu" data-drawer-close>✕</button>
+        </div>
+        <a class="drawerLink" href="./programs.html">Programs</a>
+        <a class="drawerLink" href="./tools.html">Tools</a>
+        <a class="drawerLink" href="./faq.html">FAQ</a>
+        <a class="drawerLink" href="./meet-logan.html">Meet Logan</a>
+        <a class="drawerLink" href="./contact.html">Contact</a>
+        <div class="drawerCtas">
+          <a class="btn btnPrimary" href="./apply.html">Get Pre-Approved</a>
+          <a class="btn btnSecondary" href="tel:+14808037763">Call (480) 803-7763</a>
+        </div>
+        <p class="drawerNote">Arizona • Southern California</p>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <section class="calcHero">
+      <div class="wrap">
+        <div class="threshold" aria-hidden="true"></div>
+        <p class="kicker">Free Tool · No Email Required</p>
+        <h1 class="h1">Arizona Mortgage Calculator</h1>
+        <p class="p" style="margin-top:14px">Estimate your monthly payment in seconds. Includes Arizona property taxes, homeowners insurance, PMI, and HOA — so the number you see is the number you'd actually pay.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="wrap">
+
+        <div class="calcGrid">
+
+          <div class="calcInputs">
+            <h2 class="h3" style="margin-bottom:24px">Your numbers</h2>
+
+            <div class="calcGroup">
+              <div class="calcLabel">
+                <span>Home price</span>
+                <span class="calcLabelValue" id="lblHomePrice">$500,000</span>
+              </div>
+              <input type="range" id="rngHomePrice" min="100000" max="3000000" step="5000" value="500000" aria-label="Home price slider">
+              <input class="calcInput" type="number" id="numHomePrice" min="50000" max="10000000" step="1000" value="500000" style="margin-top:10px" aria-label="Home price exact value">
+            </div>
+
+            <div class="calcGroup">
+              <div class="calcLabel">
+                <span>Down payment</span>
+                <span class="calcLabelValue"><span id="lblDownPct">20%</span> · <span id="lblDownAmt">$100,000</span></span>
+              </div>
+              <input type="range" id="rngDownPct" min="0" max="50" step="0.5" value="20" aria-label="Down payment percentage">
+              <div class="toggleRow" style="margin-top:10px">
+                <button type="button" class="toggleBtn" data-down="3.5">3.5% (FHA)</button>
+                <button type="button" class="toggleBtn" data-down="5">5%</button>
+                <button type="button" class="toggleBtn is-active" data-down="20">20%</button>
+                <button type="button" class="toggleBtn" data-down="25">25%</button>
+              </div>
+            </div>
+
+            <div class="calcGroup">
+              <div class="calcLabel">
+                <span>Interest rate</span>
+                <span class="calcLabelValue" id="lblRate">7.00%</span>
+              </div>
+              <input type="range" id="rngRate" min="3" max="12" step="0.05" value="7.0" aria-label="Interest rate">
+            </div>
+
+            <div class="calcGroup">
+              <div class="calcLabel">
+                <span>Loan term</span>
+                <span class="calcLabelValue" id="lblTerm">30-year fixed</span>
+              </div>
+              <div class="termRow">
+                <button type="button" class="termBtn" data-term="15">15 years</button>
+                <button type="button" class="termBtn" data-term="20">20 years</button>
+                <button type="button" class="termBtn is-active" data-term="30">30 years</button>
+              </div>
+            </div>
+
+            <div class="calcGroup">
+              <div class="calcLabel">
+                <span>Loan type</span>
+                <span class="calcLabelValue" id="lblType">Conventional</span>
+              </div>
+              <div class="typeRow">
+                <button type="button" class="typeBtn is-active" data-type="conv">Conventional</button>
+                <button type="button" class="typeBtn" data-type="fha">FHA</button>
+                <button type="button" class="typeBtn" data-type="va">VA (0% down)</button>
+                <button type="button" class="typeBtn" data-type="jumbo">Jumbo</button>
+              </div>
+            </div>
+
+            <div class="calcGroup">
+              <div class="calcLabel">
+                <span>Property tax (annual %)</span>
+                <span class="calcLabelValue" id="lblTaxPct">0.60%</span>
+              </div>
+              <input type="range" id="rngTaxPct" min="0" max="2.5" step="0.05" value="0.60" aria-label="Annual property tax percentage">
+              <p class="small muted" style="margin:6px 0 0 0;font-size:13px">Arizona average is 0.6%. Adjust for your county.</p>
+            </div>
+
+            <div class="calcGroup">
+              <div class="calcLabel">
+                <span>Homeowners insurance (annual)</span>
+                <span class="calcLabelValue" id="lblInsAnnual">$1,750</span>
+              </div>
+              <input type="range" id="rngInsAnnual" min="500" max="6000" step="50" value="1750" aria-label="Annual homeowners insurance">
+            </div>
+
+            <div class="calcGroup">
+              <div class="calcLabel">
+                <span>HOA (monthly)</span>
+                <span class="calcLabelValue" id="lblHoa">$0</span>
+              </div>
+              <input type="range" id="rngHoa" min="0" max="800" step="10" value="0" aria-label="Monthly HOA fee">
+              <p class="small muted" style="margin:6px 0 0 0;font-size:13px">Many Scottsdale and Chandler communities run $150–$600/mo.</p>
+            </div>
+          </div>
+
+          <div class="calcOutput" aria-live="polite">
+            <p class="outLabel">Estimated monthly payment</p>
+            <p class="outBig" id="outTotal">$2,996</p>
+            <p class="outSmall" id="outSubtitle">Principal, interest, taxes, insurance · 30 yr</p>
+
+            <div class="breakdown">
+              <div class="bdRow">
+                <span class="bdLabel"><span class="bdSwatch" style="background:var(--mint)"></span>Principal & Interest</span>
+                <span class="bdValue" id="outPI">$2,661</span>
+              </div>
+              <div class="bdRow">
+                <span class="bdLabel"><span class="bdSwatch" style="background:var(--apricot)"></span>Property Taxes</span>
+                <span class="bdValue" id="outTax">$250</span>
+              </div>
+              <div class="bdRow">
+                <span class="bdLabel"><span class="bdSwatch" style="background:#67c293"></span>Homeowners Insurance</span>
+                <span class="bdValue" id="outIns">$146</span>
+              </div>
+              <div class="bdRow" id="rowPMI" style="display:none">
+                <span class="bdLabel"><span class="bdSwatch" style="background:#ff7a59"></span>PMI</span>
+                <span class="bdValue" id="outPMI">$0</span>
+              </div>
+              <div class="bdRow" id="rowHOA" style="display:none">
+                <span class="bdLabel"><span class="bdSwatch" style="background:#a8d8c0"></span>HOA</span>
+                <span class="bdValue" id="outHoa">$0</span>
+              </div>
+              <div class="bdRow bdTotal">
+                <span class="bdLabel">Total monthly</span>
+                <span class="bdValue" id="outTotalSmall">$2,996</span>
+              </div>
+            </div>
+
+            <div class="ctaBlock">
+              <a class="btn btnMint" href="./apply.html">Lock in this payment — Get pre-approved</a>
+              <a class="btn btnGhost" href="tel:+14808037763">Or call Logan: (480) 803-7763</a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="amortWrap" id="amortWrap">
+          <div class="amortHead">
+            <h2 class="amortTitle">Loan summary</h2>
+            <p class="small muted" style="margin:0">Interest cost across the life of the loan.</p>
+          </div>
+          <div class="amortSummary">
+            <div class="amortStat">
+              <p class="amortStatLabel">Loan amount</p>
+              <p class="amortStatValue" id="sumLoan">$400,000</p>
+            </div>
+            <div class="amortStat">
+              <p class="amortStatLabel">Total interest paid</p>
+              <p class="amortStatValue" id="sumInterest">$558,036</p>
+            </div>
+            <div class="amortStat">
+              <p class="amortStatLabel">Total cost (P&I)</p>
+              <p class="amortStatValue" id="sumTotal">$958,036</p>
+            </div>
+          </div>
+          <button type="button" class="amortToggle" id="amortToggle">Show full amortization schedule (year by year) ↓</button>
+          <table class="amortTable" id="amortTable" aria-label="Annual amortization schedule">
+            <thead>
+              <tr>
+                <th>Year</th>
+                <th>Principal</th>
+                <th>Interest</th>
+                <th>Total Paid</th>
+                <th>Remaining Balance</th>
+              </tr>
+            </thead>
+            <tbody id="amortBody"></tbody>
+          </table>
+        </div>
+
+        <div style="margin-top:48px">
+          <p class="kicker">Compare scenarios</p>
+          <h2 class="h2">How down payment changes everything</h2>
+          <p class="p">Same home, same rate, three different down-payment strategies. The math doesn't lie.</p>
+
+          <div class="compareGrid" id="compareGrid">
+            <div class="compareCard">
+              <p class="compareLabel">5% Down</p>
+              <p class="compareValue" id="cmp5">$3,418</p>
+              <p class="compareDesc">$25,000 down · Includes PMI · Lowest cash to close</p>
+            </div>
+            <div class="compareCard recommended">
+              <p class="compareLabel">20% Down</p>
+              <p class="compareValue" id="cmp20">$2,996</p>
+              <p class="compareDesc">$100,000 down · No PMI · Strongest offer position</p>
+            </div>
+            <div class="compareCard">
+              <p class="compareLabel">25% Down</p>
+              <p class="compareValue" id="cmp25">$2,829</p>
+              <p class="compareDesc">$125,000 down · No PMI · Most cash committed</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <p class="kicker">How this calculator works</p>
+        <h2 class="h2">Built on the same math your lender uses.</h2>
+        <p class="p">Every mortgage calculator on the internet uses the same formula: M = P[r(1+r)^n] / [(1+r)^n − 1]. The difference is whether the defaults match the state you're buying in.</p>
+        <p class="p" style="margin-top:14px">This calculator uses Arizona-specific defaults: 0.6% effective property tax (vs. the national 1.1%), 0.35% annual homeowners insurance, and 0.8% annual PMI when down payment is below 20%. Adjust any of them — your actual numbers from the title company and insurance carrier will be close, but Logan can quote real numbers on a pre-approval call.</p>
+
+        <div style="margin-top:32px">
+          <h2 class="h2">Frequently asked questions</h2>
+          <div class="faq" aria-label="Calculator FAQs">
+
+            <div class="faqItem">
+              <button class="faqBtn" data-faq-btn aria-expanded="false" type="button">
+                How accurate is this calculator? <span class="faqIcon" aria-hidden="true">+</span>
+              </button>
+              <div class="faqPanel"><div class="faqPanelInner">
+                It uses the standard amortization formula every lender uses. The estimate is within a few dollars of reality on principal & interest. The escrow components — taxes, insurance, PMI — are estimates based on Arizona averages. Your actual escrow amounts come from the title company quote (taxes) and your chosen insurance carrier. Logan can give you real, lender-quoted numbers on a 15-minute pre-approval call.
+              </div></div>
+            </div>
+
+            <div class="faqItem">
+              <button class="faqBtn" data-faq-btn aria-expanded="false" type="button">
+                What's PITI vs PITIA? <span class="faqIcon" aria-hidden="true">+</span>
+              </button>
+              <div class="faqPanel"><div class="faqPanelInner">
+                PITI = Principal, Interest, Taxes, Insurance — the four pieces of a typical monthly mortgage payment. PITIA adds the "A" for HOA fees, which lenders include in your debt-to-income calculation even though HOAs aren't escrowed by the lender. The total monthly number above shows PITIA when you've entered an HOA amount.
+              </div></div>
+            </div>
+
+            <div class="faqItem">
+              <button class="faqBtn" data-faq-btn aria-expanded="false" type="button">
+                Why does PMI show on some down payments and not others? <span class="faqIcon" aria-hidden="true">+</span>
+              </button>
+              <div class="faqPanel"><div class="faqPanelInner">
+                Conventional loans require Private Mortgage Insurance (PMI) when your down payment is below 20% — that's the lender's protection if you default before you have meaningful equity. The calculator adds PMI at 0.8% of the loan amount annually whenever your down payment is below 20%. FHA loans use a different system called MIP, which is typically permanent unless you refinance. VA loans don't have monthly PMI — just a one-time funding fee at close.
+              </div></div>
+            </div>
+
+            <div class="faqItem">
+              <button class="faqBtn" data-faq-btn aria-expanded="false" type="button">
+                Why is Arizona property tax so low? <span class="faqIcon" aria-hidden="true">+</span>
+              </button>
+              <div class="faqPanel"><div class="faqPanelInner">
+                Arizona's effective property tax rate averages around 0.6% statewide — well below the national average of 1.1%. The exact rate varies by county, city, and school district, but most Maricopa County buyers see effective rates between 0.55% and 0.75%. If you're moving from California, Texas, Illinois, or New Jersey, your tax bill will likely be a pleasant surprise.
+              </div></div>
+            </div>
+
+            <div class="faqItem">
+              <button class="faqBtn" data-faq-btn aria-expanded="false" type="button">
+                Should I put more or less down? <span class="faqIcon" aria-hidden="true">+</span>
+              </button>
+              <div class="faqPanel"><div class="faqPanelInner">
+                Use the comparison cards above to see how different down payments change your monthly. The bigger question is what you do with the cash you'd save by putting less down — if you'd invest it for higher return, less down can be the smarter move. If you'd just hold it in checking, more down saves you on PMI and interest. Logan walks through this trade-off on every pre-approval call with your actual numbers.
+              </div></div>
+            </div>
+
+            <div class="faqItem">
+              <button class="faqBtn" data-faq-btn aria-expanded="false" type="button">
+                What rate should I use if I don't have a quote yet? <span class="faqIcon" aria-hidden="true">+</span>
+              </button>
+              <div class="faqPanel"><div class="faqPanelInner">
+                Use a rate within 0.25% of current 30-year national averages, which you can check at any major lender's homepage. Your actual rate depends on credit score, loan-to-value, loan type, and lender — Logan can quote your real rate same-day after a quick credit pull during the pre-approval.
+              </div></div>
+            </div>
+
+            <div class="faqItem">
+              <button class="faqBtn" data-faq-btn aria-expanded="false" type="button">
+                Does this work for refinances? <span class="faqIcon" aria-hidden="true">+</span>
+              </button>
+              <div class="faqPanel"><div class="faqPanelInner">
+                Yes — enter your current home value and your existing loan balance as the "down payment" equivalent (so the loan amount lands at your new principal). For a true refinance breakeven (does it make sense to refi?), call Logan and we'll run it with closing costs included.
+              </div></div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="porch">
+          <div class="porchText">
+            <h2 class="h3" style="margin:0 0 6px 0">From estimate to actual rate in one call.</h2>
+            <p class="small muted" style="margin:0">Same-day pre-approval. No bots. No hand-offs. Just clear numbers from a real human lender.</p>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn btnPrimary" href="./apply.html">Get Pre-Approved</a>
+            <a class="btn btnSecondary" href="tel:+14808037763">Call (480) 803-7763</a>
+          </div>
+        </div>
+
+        <div class="chipGrid" style="margin-top:32px">
+          <a class="chip" href="./programs.html">Loan Programs</a>
+          <a class="chip" href="./first-time-buyer.html">First-Time Buyer</a>
+          <a class="chip" href="./refinance.html">Refinance</a>
+          <a class="chip" href="./investor-loans.html">DSCR / Investor</a>
+          <a class="chip" href="./how-it-works.html">How It Works</a>
+          <a class="chip" href="./faq.html">Mortgage FAQ</a>
+          <a class="chip" href="./glossary.html">Mortgage Glossary</a>
+          <a class="chip" href="./meet-logan.html">Meet Logan</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footerSimple">
+        <div class="footerMain">
+          <img src="./assets/img/logo.svg" alt="Logan Loans" class="footerLogo" width="160" height="45">
+          <p class="footerTagline">Arizona mortgages, explained like a human.</p>
+        </div>
+        <div class="footerContact">
+          <p class="footTitle">Contact</p>
+          <p><a href="tel:+14808037763" class="uLink">(480) 803-7763</a></p>
+          <p><a href="mailto:logan@forward.loans" class="uLink">logan@forward.loans</a></p>
+          <p class="small muted">Mon–Fri 9am–6pm, Sat 10am–4pm</p>
+        </div>
+        <div class="footerSocial">
+          <p class="footTitle">Connect</p>
+          <div class="socialLinks">
+            <a href="https://www.instagram.com/logan.loans" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://www.linkedin.com/in/logansulliv" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://www.google.com/search?q=Logan+Sullivan+Mortgage+Advisor" target="_blank" rel="noopener">Reviews</a>
+          </div>
+        </div>
+      </div>
+      <div class="footerBottom">
+        <p class="footerLicense">
+          <strong>NMLS</strong> 2466872 (Logan Sullivan) • <strong>Forward Loans</strong> NMLS 2006640<br>
+          <a href="https://forward.loans/loan-officer/logan-sullivan/" target="_blank" rel="noopener">Official Profile</a> •
+          <a href="./privacy.html">Privacy</a> •
+          <a href="./disclosures.html">Disclosures</a>
+        </p>
+        <p class="small muted">Calculator estimates are illustrative and not a loan offer. Actual terms depend on credit, property, program, and full underwriting review.</p>
+      </div>
+      <div class="footerEnd">
+        Designed, Hosted and Cared For By <a href="https://littlefightnyc.com" target="_blank" rel="noopener">LittleFightNYC.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="mobileBar mobileOnly" role="region" aria-label="Quick actions">
+    <a class="btn btnSecondary mobileBarBtn" href="tel:+14808037763">Call</a>
+    <a class="btn btnPrimary mobileBarBtn" href="./apply.html">Get Pre-Approved</a>
+  </div>
+
+  <script>
+  (function(){
+    const $ = (id) => document.getElementById(id);
+    const fmt = (n) => '$' + Math.round(n).toLocaleString('en-US');
+    const fmtPct = (n) => n.toFixed(2) + '%';
+
+    const state = {
+      homePrice: 500000,
+      downPct: 20,
+      rate: 7.0,
+      term: 30,
+      type: 'conv',
+      taxPct: 0.6,
+      insAnnual: 1750,
+      hoa: 0,
+    };
+
+    function calc(homePrice, downPct, rate, term, taxPct, insAnnual, hoa, type){
+      const down = homePrice * downPct / 100;
+      const loan = homePrice - down;
+      const r = rate / 100 / 12;
+      const n = term * 12;
+      let pi = 0;
+      if (loan > 0 && r > 0) {
+        pi = loan * (r * Math.pow(1+r, n)) / (Math.pow(1+r, n) - 1);
+      } else if (loan > 0 && r === 0) {
+        pi = loan / n;
+      }
+      const tax = homePrice * (taxPct/100) / 12;
+      const ins = insAnnual / 12;
+      let pmi = 0;
+      if (type === 'conv' && downPct < 20) pmi = loan * 0.008 / 12;
+      if (type === 'fha') pmi = loan * 0.0085 / 12; // FHA MIP approximation
+      if (type === 'jumbo' && downPct < 20) pmi = loan * 0.009 / 12;
+      // VA: no PMI
+      const total = pi + tax + ins + pmi + hoa;
+      return { down, loan, pi, tax, ins, pmi, hoa, total };
+    }
+
+    function render(){
+      const r = calc(state.homePrice, state.downPct, state.rate, state.term, state.taxPct, state.insAnnual, state.hoa, state.type);
+
+      $('lblHomePrice').textContent = fmt(state.homePrice);
+      $('lblDownPct').textContent = state.downPct + '%';
+      $('lblDownAmt').textContent = fmt(r.down);
+      $('lblRate').textContent = fmtPct(state.rate);
+      $('lblTerm').textContent = state.term + '-year fixed';
+      $('lblType').textContent = ({conv:'Conventional', fha:'FHA', va:'VA (0% down)', jumbo:'Jumbo'})[state.type];
+      $('lblTaxPct').textContent = state.taxPct.toFixed(2) + '%';
+      $('lblInsAnnual').textContent = fmt(state.insAnnual);
+      $('lblHoa').textContent = fmt(state.hoa);
+
+      $('outTotal').textContent = fmt(r.total);
+      $('outTotalSmall').textContent = fmt(r.total);
+      $('outPI').textContent = fmt(r.pi);
+      $('outTax').textContent = fmt(r.tax);
+      $('outIns').textContent = fmt(r.ins);
+      $('outSubtitle').textContent = 'Principal, interest, taxes, insurance · ' + state.term + ' yr · ' + state.type.toUpperCase();
+
+      if (r.pmi > 0) { $('rowPMI').style.display = 'flex'; $('outPMI').textContent = fmt(r.pmi); }
+      else { $('rowPMI').style.display = 'none'; }
+      if (r.hoa > 0) { $('rowHOA').style.display = 'flex'; $('outHoa').textContent = fmt(r.hoa); }
+      else { $('rowHOA').style.display = 'none'; }
+
+      // Loan summary
+      const totalPayments = r.pi * state.term * 12;
+      const totalInterest = totalPayments - r.loan;
+      $('sumLoan').textContent = fmt(r.loan);
+      $('sumInterest').textContent = fmt(totalInterest);
+      $('sumTotal').textContent = fmt(totalPayments);
+
+      // Comparison
+      const c5 = calc(state.homePrice, 5, state.rate, state.term, state.taxPct, state.insAnnual, state.hoa, state.type);
+      const c20 = calc(state.homePrice, 20, state.rate, state.term, state.taxPct, state.insAnnual, state.hoa, state.type);
+      const c25 = calc(state.homePrice, 25, state.rate, state.term, state.taxPct, state.insAnnual, state.hoa, state.type);
+      $('cmp5').textContent = fmt(c5.total);
+      $('cmp20').textContent = fmt(c20.total);
+      $('cmp25').textContent = fmt(c25.total);
+
+      // Amortization (yearly)
+      buildAmort(r.loan, state.rate, state.term);
+    }
+
+    function buildAmort(loan, rate, term){
+      const r = rate / 100 / 12;
+      const n = term * 12;
+      const pi = loan * (r * Math.pow(1+r,n)) / (Math.pow(1+r,n)-1);
+      let balance = loan;
+      const tbody = $('amortBody');
+      tbody.innerHTML = '';
+      for (let y = 1; y <= term; y++){
+        let yearPrincipal = 0, yearInterest = 0;
+        for (let m = 0; m < 12; m++){
+          const interest = balance * r;
+          const principal = pi - interest;
+          balance -= principal;
+          yearPrincipal += principal;
+          yearInterest += interest;
+        }
+        const tr = document.createElement('tr');
+        tr.innerHTML =
+          '<td>Year ' + y + '</td>' +
+          '<td>' + fmt(yearPrincipal) + '</td>' +
+          '<td>' + fmt(yearInterest) + '</td>' +
+          '<td>' + fmt(yearPrincipal + yearInterest) + '</td>' +
+          '<td>' + fmt(Math.max(balance, 0)) + '</td>';
+        tbody.appendChild(tr);
+      }
+    }
+
+    // Wire inputs
+    $('rngHomePrice').addEventListener('input', e => { state.homePrice = +e.target.value; $('numHomePrice').value = state.homePrice; render(); });
+    $('numHomePrice').addEventListener('input', e => { const v = +e.target.value; if (!isFinite(v) || v <= 0) return; state.homePrice = v; $('rngHomePrice').value = Math.min(v, 3000000); render(); });
+    $('rngDownPct').addEventListener('input', e => { state.downPct = +e.target.value; document.querySelectorAll('[data-down]').forEach(b => b.classList.remove('is-active')); render(); });
+    $('rngRate').addEventListener('input', e => { state.rate = +e.target.value; render(); });
+    $('rngTaxPct').addEventListener('input', e => { state.taxPct = +e.target.value; render(); });
+    $('rngInsAnnual').addEventListener('input', e => { state.insAnnual = +e.target.value; render(); });
+    $('rngHoa').addEventListener('input', e => { state.hoa = +e.target.value; render(); });
+
+    document.querySelectorAll('[data-down]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('[data-down]').forEach(b => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+        state.downPct = +btn.dataset.down;
+        $('rngDownPct').value = state.downPct;
+        render();
+      });
+    });
+
+    document.querySelectorAll('[data-term]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('[data-term]').forEach(b => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+        state.term = +btn.dataset.term;
+        render();
+      });
+    });
+
+    document.querySelectorAll('[data-type]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('[data-type]').forEach(b => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+        state.type = btn.dataset.type;
+        if (state.type === 'va') {
+          state.downPct = 0;
+          $('rngDownPct').value = 0;
+          document.querySelectorAll('[data-down]').forEach(b => b.classList.remove('is-active'));
+        }
+        render();
+      });
+    });
+
+    $('amortToggle').addEventListener('click', () => {
+      const t = $('amortTable');
+      const open = t.classList.toggle('is-open');
+      $('amortToggle').textContent = open
+        ? 'Hide amortization schedule ↑'
+        : 'Show full amortization schedule (year by year) ↓';
+    });
+
+    render();
+  })();
+  </script>
+
+  <link rel="stylesheet" href="./styles.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="./styles.css"></noscript>
+  <script src="./app.js" defer></script>
+</body>
+</html>
