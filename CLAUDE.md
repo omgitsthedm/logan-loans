@@ -139,6 +139,16 @@
 | 2026-05-03 | partners.html built | Broker/agent referral page with Netlify form (name=partner-referral), 6 value props, 3-step process, 3 FAQ, all 8 UTM inputs, BreadcrumbList+FAQPage schema |
 | 2026-05-03 | press.html built | Media kit page with Person schema, two-column bio+photo layout, expertise chip grid, pull quote, 3 coverage placeholder cards |
 | 2026-05-03 | terms.html built | Legal prose page, max-width 780px centered, 10 sections dated 2026-05-01, Equal Housing statement, BreadcrumbList schema |
+| 2026-05-04 | Homepage redesign — dark hero | Forest green gradient hero card with Logan headshot, white headline, stat strip (47+/5.0/Same-Day/AZ+CA), dark reviews band, numbered path cards, dark split bio panel, dark CTA band. Zero emojis. Beats cream-on-cream monotony. |
+| 2026-05-04 | calculator.html built | Live JS mortgage calculator with PMI auto-toggle (<20% down), term/type selectors, HOA/tax/insurance sliders, full annual amortization table, 3-scenario comparison cards, 7 FAQs. WebApplication + FAQPage + BreadcrumbList schema. Targets "Arizona mortgage calculator" — highest-volume daily-traffic page on the site. |
+| 2026-05-04 | glossary.html built | 90+ mortgage terms across 22 letter sections (A-Y) with live keyword search and sticky alphabet jump nav. DefinedTermSet + BreadcrumbList schema. Each term ranks for "what is X" long-tail queries. |
+| 2026-05-04 | faq.html expanded 8 → 52 Q&As | Categorized into 10 sections: Getting Started, Down Payment, Credit, Loan Programs, Investor/DSCR, Refinancing, Closing, Arizona-Specific, Self-Employed, After Closing. FAQPage schema with 52 entries. Chip-nav across categories at top. |
+| 2026-05-04 | 5 long-form blog posts written | blog-first-time-buyer-arizona, blog-how-much-house-phoenix, blog-preapproval-guide, blog-dscr-loans-arizona, blog-mortgage-points-arizona. Each 1,000-1,500 words with Article + BreadcrumbList + FAQPage schema. blog.html cards now link to real articles + 5th card added. |
+| 2026-05-04 | 9 city pages fully rewritten | paradise-valley, north-scottsdale, beverly-hills, arizona, arcadia-biltmore, north-phoenix, sedona, flagstaff, catalina-foothills. Each has stat row, real market content (median prices/zip codes/zoning quirks/STR rules), 3 FAQs, BreadcrumbList + FAQPage + LocalBusiness schema with serviceArea. |
+| 2026-05-04 | tools.html hub built | Connecting calculator/glossary/FAQ/how-it-works as the 4 main tools, plus 6 long-form guides as resources. CollectionPage + ItemList + BreadcrumbList schema. |
+| 2026-05-04 | Tools nav added site-wide | "Tools" link added to desktop nav and mobile drawer on all 45 HTML pages via perl one-liner. |
+| 2026-05-04 | Homepage Review schema | 3 individual Review entries added under existing AggregateRating (5.0/47) for richer Google rich results. |
+| 2026-05-04 | sitemap.xml rebuilt | 41 → 45 URLs with all new pages (calculator, glossary, tools, 5 blog posts, all 14 city pages updated). |
 | 2026-05-03 | OG image fixed site-wide | og-image.jpg → /assets/img/logan-main.webp across all 32 pages |
 | 2026-05-03 | Nav CTAs fixed site-wide | contact.html#intake → apply.html across all pages |
 | 2026-05-03 | BreadcrumbList added to 9 pages | programs, first-time-buyer, refinance, investor-loans, relocation, premium-markets, how-it-works, faq, meet-logan |
