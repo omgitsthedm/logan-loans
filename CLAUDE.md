@@ -149,6 +149,11 @@
 | 2026-05-04 | Tools nav added site-wide | "Tools" link added to desktop nav and mobile drawer on all 45 HTML pages via perl one-liner. |
 | 2026-05-04 | Homepage Review schema | 3 individual Review entries added under existing AggregateRating (5.0/47) for richer Google rich results. |
 | 2026-05-04 | sitemap.xml rebuilt | 41 → 45 URLs with all new pages (calculator, glossary, tools, 5 blog posts, all 14 city pages updated). |
+| 2026-05-04 | Search-dominance push v2 | Built 11 more pages: refinance-calculator (live break-even verdict), affordability-calculator (real DTI math), 3 comparison pages (FHA-vs-Conv, VA-vs-Conv, 15-vs-30), 6 Phoenix metro city pages (Tempe, Mesa, Chandler, Gilbert, Glendale, Peoria). Each comparison page has Article+FAQPage schema; metro pages have BreadcrumbList+FAQPage+LocalBusiness. |
+| 2026-05-04 | Schema E-E-A-T upgrade | HowTo schema on how-it-works (featured snippet eligible), Service+OfferCatalog with 10 loan products on programs.html, ItemList+Blog schema on blog.html, Person schema upgraded across 5 blog posts (NMLS identifier, sameAs, knowsAbout, worksFor), Speakable schema on FAQ/programs/how-it-works for voice search. |
+| 2026-05-04 | Outbound authority links | disclosures.html now links to NMLS Consumer Access, CFPB, HUD, Arizona DIFI, California DFPI, Arizona Home Plus, Fannie Mae loan limits — positive E-E-A-T signal. |
+| 2026-05-04 | sitemap.xml expanded again | 45 → 56 URLs. Added 6 metro pages, 3 comparisons, 2 calculators. |
+| 2026-05-04 | tools.html refresh | Now features all 6 tools (4 calculators + glossary + how-it-works) plus a comparison-pages section with 3 entries. |
 | 2026-05-03 | OG image fixed site-wide | og-image.jpg → /assets/img/logan-main.webp across all 32 pages |
 | 2026-05-03 | Nav CTAs fixed site-wide | contact.html#intake → apply.html across all pages |
 | 2026-05-03 | BreadcrumbList added to 9 pages | programs, first-time-buyer, refinance, investor-loans, relocation, premium-markets, how-it-works, faq, meet-logan |

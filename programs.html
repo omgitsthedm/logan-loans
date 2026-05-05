@@ -132,7 +132,8 @@
       "name": "Mortgage Loan Programs | FHA, VA, HELOC, Construction, Refinance | Logan Loans",
       "isPartOf": {
         "@id": "https://www.logan.loans/#website"
-      }
+      },
+      "speakable": {"@type":"SpeakableSpecification","cssSelector":[".h1",".h2",".kicker"]}
     },
     {
       "@type": "BreadcrumbList",
@@ -140,6 +141,33 @@
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.logan.loans/" },
         { "@type": "ListItem", "position": 2, "name": "Loan Programs", "item": "https://www.logan.loans/programs.html" }
       ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.logan.loans/programs.html#service",
+      "name": "Mortgage Origination Services",
+      "provider": {"@id":"https://www.logan.loans/#localbusiness"},
+      "serviceType": "Mortgage Lending",
+      "areaServed": [
+        {"@type":"State","name":"Arizona"},
+        {"@type":"State","name":"California"}
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Loan Programs",
+        "itemListElement": [
+          {"@type":"Offer","itemOffered":{"@type":"FinancialProduct","name":"Conventional Mortgage","description":"30-year and 15-year fixed-rate conventional loans, 3-5% down, conforming and high-balance.","category":"Mortgage","feesAndCommissionsSpecification":"Origination, appraisal, title, recording, and prepaid escrows disclosed on Loan Estimate."}},
+          {"@type":"Offer","itemOffered":{"@type":"FinancialProduct","name":"FHA Loan","description":"3.5% down with 580+ credit score, more flexible DTI, government-insured. Mortgage insurance (MIP) typically permanent.","category":"Mortgage"}},
+          {"@type":"Offer","itemOffered":{"@type":"FinancialProduct","name":"VA Loan","description":"0% down for eligible veterans, no monthly PMI, assumable, competitive rates.","category":"Mortgage"}},
+          {"@type":"Offer","itemOffered":{"@type":"FinancialProduct","name":"USDA Loan","description":"0% down for eligible rural Arizona properties, low MI, income limits apply.","category":"Mortgage"}},
+          {"@type":"Offer","itemOffered":{"@type":"FinancialProduct","name":"Jumbo Loan","description":"Loans above $806,500 conforming limit. 700+ credit, 10-20% down, full documentation.","category":"Mortgage"}},
+          {"@type":"Offer","itemOffered":{"@type":"FinancialProduct","name":"DSCR Investor Loan","description":"Qualifies on the property's rental income, not your W-2. LLC closings okay, no tax returns required.","category":"Mortgage"}},
+          {"@type":"Offer","itemOffered":{"@type":"FinancialProduct","name":"Bank Statement Loan","description":"For self-employed borrowers — qualifies on 12-24 months of bank deposits instead of tax returns.","category":"Mortgage"}},
+          {"@type":"Offer","itemOffered":{"@type":"FinancialProduct","name":"Asset Depletion Loan","description":"For high-net-worth borrowers — qualifies using liquid asset balances divided by 60-84 months.","category":"Mortgage"}},
+          {"@type":"Offer","itemOffered":{"@type":"FinancialProduct","name":"Refinance","description":"Rate-and-term and cash-out refinance. Same-day pre-approval, full break-even analysis.","category":"Mortgage"}},
+          {"@type":"Offer","itemOffered":{"@type":"FinancialProduct","name":"HELOC","description":"Home Equity Line of Credit. Variable rate, 10-year draw period, secured by your home equity.","category":"Mortgage"}}
+        ]
+      }
     }
   ]
 }

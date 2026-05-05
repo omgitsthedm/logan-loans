@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <title>Refinance Break-Even Calculator | When Should You Refi? | Logan Loans</title>
+  <meta name="description" content="Calculate your refinance break-even in seconds. Enter current loan, new rate, and closing costs — see monthly savings, total interest saved, and whether the refi makes sense." />
+  <link rel="canonical" href="https://www.logan.loans/refinance-calculator.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Refinance Break-Even Calculator | Logan Loans" />
+  <meta property="og:description" content="Free refinance break-even calculator. See your real savings, break-even month, and verdict in real time." />
+  <meta property="og:url" content="https://www.logan.loans/refinance-calculator.html" />
+  <meta property="og:image" content="https://www.logan.loans/assets/img/logan-main.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <style>
+    :root{--bg:#FBF7EF;--surface:#FFFFFF;--ink:#1F2933;--muted:#52616B;--primary:#165A3F;--sage:#CFE7D7;--border:#E7E0D6;--apricot:#F3B27A;--mint:#2FAF7A;--max:1120px;--padX:20px;--rDoor:22px;--rCard:16px;--rPill:999px;--fontBody:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;--fontHead:Georgia,'Times New Roman',serif;--ease:cubic-bezier(.2,.8,.2,1);--easeOut:cubic-bezier(0,0,0.2,1);--easeBounce:cubic-bezier(0.34,1.56,0.64,1);--tFast:160ms;--tMed:420ms;--shadow:0 16px 40px rgba(22,90,63,0.12);--focus:0 0 0 4px rgba(47,175,122,0.25)}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:var(--fontBody);background:var(--bg);color:var(--ink);line-height:1.7;font-size:19px;-webkit-font-smoothing:antialiased}img{max-width:100%;display:block;height:auto}a{color:inherit;text-decoration:none}button,input,select{font:inherit}
+    .skip-link{position:absolute;top:-100px;left:50%;transform:translateX(-50%);background:var(--primary);color:var(--bg);padding:12px 24px;border-radius:var(--rPill);font-weight:700;z-index:10000}.skip-link:focus{top:12px}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--padX)}
+    .kicker{display:inline-block;font-size:14px;letter-spacing:0.16em;text-transform:uppercase;color:var(--primary);margin:0 0 14px 0;font-weight:700}
+    .h1{font-family:var(--fontHead);font-size:clamp(34px,4.5vw,56px);line-height:1.05;margin:0;letter-spacing:-0.5px;font-weight:700}
+    .h2{font-family:var(--fontHead);font-size:clamp(26px,3vw,38px);margin:0 0 16px 0;line-height:1.2;font-weight:700}
+    .h3{font-family:var(--fontHead);font-size:clamp(22px,2.5vw,28px);margin:0 0 12px 0;font-weight:700}
+    .p{margin:0;font-size:19px;color:var(--muted);line-height:1.75;max-width:65ch}
+    .muted{color:var(--muted)}.small{font-size:16px}
+    .header{position:sticky;top:0;z-index:100;background:rgba(251,247,239,0.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:16px}
+    .brand{display:flex;align-items:center}.brandLogo{height:40px;width:auto}
+    .navLinks{display:flex;align-items:center;gap:6px}.navLinks a{color:var(--muted);font-weight:600;font-size:16px;padding:10px 14px;border-radius:10px}
+    .navCta{display:flex;gap:10px;align-items:center}
+    .btn{display:inline-flex;align-items:center;justify-content:center;border-radius:var(--rPill);padding:14px 26px;font-weight:700;font-size:16px;border:2px solid transparent;cursor:pointer;transition:all var(--tFast) var(--easeBounce);white-space:nowrap;min-height:50px}
+    .btnPrimary{background:linear-gradient(135deg,var(--primary) 0%,#1e7a54 100%);color:var(--bg);box-shadow:0 8px 24px rgba(22,90,63,0.22)}
+    .btnSecondary{background:var(--surface);color:var(--primary);border-color:rgba(22,90,63,0.2)}
+    .navToggle{border:1px solid rgba(22,90,63,0.18);border-radius:12px;padding:10px 12px;background:rgba(251,247,239,0.95);color:var(--primary);cursor:pointer}
+    .burger{display:block;width:22px;height:2px;background:var(--primary);position:relative;border-radius:2px}.burger::before,.burger::after{content:"";position:absolute;left:0;width:22px;height:2px;background:var(--primary);border-radius:2px}.burger::before{top:-7px}.burger::after{top:7px}
+    .drawer{position:fixed;inset:0;background:rgba(31,41,51,0.5);opacity:0;pointer-events:none;transition:opacity var(--tMed);z-index:200}.drawer.is-open{opacity:1;pointer-events:auto}
+    .drawerInner{position:absolute;right:12px;left:12px;top:12px;border-radius:var(--rDoor);background:rgba(251,247,239,0.98);border:1px solid var(--border);box-shadow:var(--shadow);padding:18px;transform:translateY(-10px) scale(0.98);transition:all var(--tMed) var(--easeBounce)}.drawer.is-open .drawerInner{transform:translateY(0) scale(1)}
+    .drawerTop{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}.drawerTitle{margin:0;font-weight:900;font-size:17px}.drawerClose{width:40px;height:40px;border:1px solid rgba(22,90,63,0.15);border-radius:12px;background:rgba(251,247,239,0.95);cursor:pointer;display:grid;place-items:center;font-size:18px}
+    .drawerLink{display:block;padding:14px 16px;border-radius:12px;font-weight:700;color:var(--ink)}.drawerCtas{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.drawerNote{margin:14px 0 0 0;font-size:13px;color:var(--muted);text-align:center}
+    .mobileBar{position:fixed;left:12px;right:12px;bottom:12px;display:flex;gap:10px;padding:12px;border-radius:var(--rDoor);background:rgba(251,247,239,0.95);border:1px solid var(--border);box-shadow:0 -8px 32px rgba(22,90,63,0.15);z-index:50}.mobileBarBtn{flex:1;padding:14px 16px}
+    body{padding-bottom:100px}
+    .desktopOnly{display:flex}.mobileOnly{display:none}
+    .threshold{height:2px;background:linear-gradient(90deg,var(--primary),var(--mint),var(--apricot));border-radius:2px;margin-bottom:20px;animation:tg 800ms var(--easeOut) forwards;transform-origin:left;transform:scaleX(0)}
+    @keyframes tg{to{transform:scaleX(1)}}
+    .uLink{text-decoration:underline;text-underline-offset:3px;color:var(--primary);font-weight:700}
+    .chip{display:inline-flex;align-items:center;padding:8px 14px;border-radius:999px;border:1px solid rgba(22,90,63,0.15);background:rgba(207,231,215,0.2);color:var(--ink);font-weight:700;font-size:13px;text-decoration:none}
+    .chipGrid{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .porch{border:1px solid var(--border);border-radius:var(--rDoor);background:linear-gradient(135deg,rgba(207,231,215,0.4) 0%,rgba(255,255,255,0.6) 50%,rgba(243,178,122,0.15) 100%);box-shadow:var(--shadow);padding:32px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+    .footer{border-top:1px solid var(--border);padding:48px 0 40px;margin-top:60px}.footerSimple{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;margin-bottom:32px}.footerMain{display:flex;flex-direction:column;gap:12px}.footerLogo{height:45px;width:auto}.footerTagline{font-size:18px;color:var(--muted);margin:0}.footerContact p{margin:0 0 8px 0;font-size:17px}.footTitle{font-weight:800;margin:0 0 14px 0;font-size:18px}.socialLinks{display:flex;gap:20px}.socialLinks a{font-weight:600;font-size:16px;color:var(--primary);text-decoration:underline}.footerBottom{padding-top:24px;border-top:1px dashed rgba(22,90,63,0.15)}.footerLicense{font-size:15px;color:var(--muted);margin:0 0 8px 0}.footerLicense a{color:var(--primary);text-decoration:underline}.footerEnd{margin-top:24px;font-size:16px;font-weight:800;color:#ff7a1a}.footerEnd a{color:#ff7a1a;text-decoration:underline}
+
+    .calcGrid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:24px;margin-top:32px}
+    .calcInputs,.calcOutput{border:1px solid var(--border);border-radius:var(--rDoor);background:var(--surface);padding:32px;box-shadow:var(--shadow)}
+    .calcOutput{background:linear-gradient(155deg,#0d3d2a 0%,#165A3F 65%,#1a6645 100%);color:#fff;border-color:transparent}
+    .calcGroup{margin-bottom:22px}
+    .calcGroup:last-child{margin-bottom:0}
+    .calcLabel{display:flex;justify-content:space-between;align-items:baseline;font-weight:700;font-size:15px;color:var(--ink);margin-bottom:8px}
+    .calcLabelValue{font-family:var(--fontHead);font-size:18px;color:var(--primary);font-weight:700}
+    input[type=range]{-webkit-appearance:none;width:100%;height:6px;background:var(--sage);border-radius:6px;outline:none;margin-top:6px}
+    input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:var(--primary);cursor:pointer;border:3px solid #fff;box-shadow:0 2px 8px rgba(22,90,63,0.3)}
+    input[type=range]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;background:var(--primary);cursor:pointer;border:3px solid #fff}
+    .calcInput{width:100%;padding:14px 16px;border-radius:12px;border:2px solid rgba(22,90,63,0.12);background:#fff;font-size:18px;font-weight:600;color:var(--ink);margin-top:8px}
+    .calcInput:focus{outline:none;border-color:var(--primary);box-shadow:var(--focus)}
+    .calcOutput .outLabel{font-size:13px;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.12em;font-weight:600;margin-bottom:8px}
+    .calcOutput .outBig{font-family:var(--fontHead);font-size:clamp(36px,5vw,56px);font-weight:700;color:#fff;line-height:1;letter-spacing:-1.5px}
+    .calcOutput .outSub{font-size:15px;color:rgba(255,255,255,0.55);margin-top:6px}
+    .breakdown{margin-top:30px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.12)}
+    .bdRow{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.07);font-size:16px}
+    .bdRow:last-child{border-bottom:none}
+    .bdLabel{color:rgba(255,255,255,0.85);font-weight:500}
+    .bdValue{font-weight:700;color:#fff;font-family:var(--fontHead);font-size:18px}
+    .verdictBox{margin-top:24px;padding:20px;border-radius:var(--rCard);border:2px solid var(--mint)}
+    .verdictBox.no{border-color:#ff7a59}
+    .verdictTag{display:inline-block;background:var(--mint);color:#fff;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:4px 12px;border-radius:999px;margin-bottom:8px}
+    .verdictBox.no .verdictTag{background:#ff7a59}
+    .verdictText{margin:0;color:#fff;font-weight:600;font-size:16px;line-height:1.55}
+    .ctaBlock{margin-top:24px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.12);display:flex;flex-direction:column;gap:10px}
+    .btnMint{background:var(--mint);color:#fff;border:0;box-shadow:0 8px 28px rgba(47,175,122,0.32);width:100%;padding:18px}
+    .btnGhost{background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.25);width:100%;padding:14px}
+    .calcHero{padding:60px 0 32px}
+    .section{padding:48px 0}
+
+    @media(max-width:920px){
+      .calcGrid{grid-template-columns:1fr}
+      .calcInputs,.calcOutput{padding:24px}
+    }
+    @media(max-width:768px){
+      .desktopOnly{display:none}.mobileOnly{display:flex}
+      .footerSimple{grid-template-columns:1fr}
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Refinance Break-Even Calculator",
+        "url": "https://www.logan.loans/refinance-calculator.html",
+        "description": "Calculate your refinance break-even point and total savings.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "offers": {"@type":"Offer","price":"0","priceCurrency":"USD"}
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type":"ListItem","position":1,"name":"Home","item":"https://www.logan.loans/"},
+          {"@type":"ListItem","position":2,"name":"Tools","item":"https://www.logan.loans/tools.html"},
+          {"@type":"ListItem","position":3,"name":"Refinance Calculator","item":"https://www.logan.loans/refinance-calculator.html"}
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="header">
+    <div class="wrap">
+      <div class="nav">
+        <a class="brand" href="./index.html"><img src="./assets/img/logo.svg" alt="Logan Loans" class="brandLogo" width="140" height="40"></a>
+        <nav class="navLinks desktopOnly" aria-label="Primary">
+          <a href="./programs.html">Programs</a>
+          <a href="./tools.html">Tools</a>
+          <a href="./faq.html">FAQ</a>
+          <a href="./meet-logan.html">Meet Logan</a>
+          <a href="./contact.html">Contact</a>
+        </nav>
+        <div class="navCta desktopOnly">
+          <a class="btn btnPrimary" href="./apply.html">Get Pre-Approved</a>
+          <a class="btn btnSecondary" href="tel:+14808037763">Call (480) 803-7763</a>
+        </div>
+        <button class="navToggle mobileOnly" type="button" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span class="burger" aria-hidden="true"></span></button>
+      </div>
+    </div>
+    <div class="drawer" data-drawer aria-hidden="true" inert>
+      <div class="drawerInner">
+        <div class="drawerTop"><p class="drawerTitle">Menu</p><button class="drawerClose" type="button" aria-label="Close menu" data-drawer-close>✕</button></div>
+        <a class="drawerLink" href="./programs.html">Programs</a>
+        <a class="drawerLink" href="./tools.html">Tools</a>
+        <a class="drawerLink" href="./faq.html">FAQ</a>
+        <a class="drawerLink" href="./meet-logan.html">Meet Logan</a>
+        <a class="drawerLink" href="./contact.html">Contact</a>
+        <div class="drawerCtas"><a class="btn btnPrimary" href="./apply.html">Get Pre-Approved</a><a class="btn btnSecondary" href="tel:+14808037763">Call (480) 803-7763</a></div>
+        <p class="drawerNote">Arizona • Southern California</p>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <section class="calcHero">
+      <div class="wrap">
+        <div class="threshold" aria-hidden="true"></div>
+        <p class="kicker">Free Tool · No Email Required</p>
+        <h1 class="h1">Refinance break-even calculator</h1>
+        <p class="p" style="margin-top:14px">Will the refi pay off? Enter your current loan, the new rate you're being quoted, and your closing costs. Get the break-even month and a clear verdict — no spreadsheet required.</p>
+      </div>
+    </section>
+
+    <section style="padding-top:0">
+      <div class="wrap">
+        <div class="calcGrid">
+
+          <div class="calcInputs">
+            <h2 class="h3" style="margin-bottom:24px">Your numbers</h2>
+
+            <div class="calcGroup">
+              <div class="calcLabel"><span>Current loan balance</span><span class="calcLabelValue" id="lblBalance">$400,000</span></div>
+              <input type="range" id="rngBalance" min="50000" max="2000000" step="5000" value="400000" aria-label="Current loan balance">
+              <input class="calcInput" type="number" id="numBalance" min="10000" max="10000000" step="1000" value="400000" aria-label="Current loan balance exact">
+            </div>
+
+            <div class="calcGroup">
+              <div class="calcLabel"><span>Current interest rate</span><span class="calcLabelValue" id="lblCurRate">7.50%</span></div>
+              <input type="range" id="rngCurRate" min="3" max="12" step="0.05" value="7.5" aria-label="Current interest rate">
+            </div>
+
+            <div class="calcGroup">
+              <div class="calcLabel"><span>Years remaining on current loan</span><span class="calcLabelValue" id="lblCurYears">28 years</span></div>
+              <input type="range" id="rngCurYears" min="1" max="30" step="1" value="28" aria-label="Years remaining">
+            </div>
+
+            <div class="calcGroup">
+              <div class="calcLabel"><span>New interest rate</span><span class="calcLabelValue" id="lblNewRate">6.50%</span></div>
+              <input type="range" id="rngNewRate" min="3" max="12" step="0.05" value="6.5" aria-label="New interest rate">
+            </div>
+
+            <div class="calcGroup">
+              <div class="calcLabel"><span>New loan term</span><span class="calcLabelValue" id="lblNewTerm">30 years</span></div>
+              <input type="range" id="rngNewTerm" min="5" max="30" step="1" value="30" aria-label="New loan term">
+            </div>
+
+            <div class="calcGroup">
+              <div class="calcLabel"><span>Refinance closing costs</span><span class="calcLabelValue" id="lblClosing">$4,500</span></div>
+              <input type="range" id="rngClosing" min="0" max="20000" step="100" value="4500" aria-label="Refinance closing costs">
+              <p class="small muted" style="margin:6px 0 0 0;font-size:13px">Typical refi costs run 2-3% of loan amount.</p>
+            </div>
+
+            <div class="calcGroup">
+              <div class="calcLabel"><span>Years you plan to stay</span><span class="calcLabelValue" id="lblStay">7 years</span></div>
+              <input type="range" id="rngStay" min="1" max="30" step="1" value="7" aria-label="Years you plan to stay">
+            </div>
+          </div>
+
+          <div class="calcOutput" aria-live="polite">
+            <p class="outLabel">Monthly savings</p>
+            <p class="outBig" id="outSavings">$273</p>
+            <p class="outSub" id="outSubText">After refinance, your new monthly P&I drops by this much.</p>
+
+            <div class="breakdown">
+              <div class="bdRow"><span class="bdLabel">Current monthly P&I</span><span class="bdValue" id="outCurPI">$2,832</span></div>
+              <div class="bdRow"><span class="bdLabel">New monthly P&I</span><span class="bdValue" id="outNewPI">$2,528</span></div>
+              <div class="bdRow"><span class="bdLabel">Closing costs</span><span class="bdValue" id="outClose">$4,500</span></div>
+              <div class="bdRow"><span class="bdLabel">Break-even month</span><span class="bdValue" id="outBE">Month 16</span></div>
+              <div class="bdRow"><span class="bdLabel">Net savings if you stay</span><span class="bdValue" id="outNet">$18,432</span></div>
+            </div>
+
+            <div class="verdictBox" id="verdictBox">
+              <span class="verdictTag" id="verdictTag">Refi makes sense</span>
+              <p class="verdictText" id="verdictText">You'll break even at month 16. Staying 7 years means net savings of about $18,000 after closing costs.</p>
+            </div>
+
+            <div class="ctaBlock">
+              <a class="btn btnMint" href="./apply.html">Lock these savings — Apply now</a>
+              <a class="btn btnGhost" href="tel:+14808037763">Call Logan: (480) 803-7763</a>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:48px">
+          <h2 class="h2">How break-even refinancing works</h2>
+          <p class="p">The refi math is simple: closing costs ÷ monthly savings = break-even months. If you'll own the home longer than break-even, the refinance saves you money. If not, it doesn't — full stop.</p>
+          <p class="p" style="margin-top:14px">Other reasons to refi that aren't covered by break-even alone: dropping PMI (extra savings beyond rate), shortening term to build equity faster, or pulling cash out for renovations or investments. Logan walks through your specific numbers in a 15-minute call before recommending anything.</p>
+        </div>
+
+        <div class="porch" style="margin-top:48px">
+          <div style="flex:1;min-width:240px">
+            <h2 class="h3" style="margin:0 0 6px 0">Real numbers, real lender, real fast.</h2>
+            <p class="small muted" style="margin:0">Same-day pre-approval. Refinance quotes done over the phone.</p>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn btnPrimary" href="./apply.html">Start Application</a>
+            <a class="btn btnSecondary" href="tel:+14808037763">Call (480) 803-7763</a>
+          </div>
+        </div>
+
+        <div class="chipGrid" style="margin-top:32px">
+          <a class="chip" href="./calculator.html">Mortgage Calculator</a>
+          <a class="chip" href="./affordability-calculator.html">Affordability Calculator</a>
+          <a class="chip" href="./refinance.html">Refinance Programs</a>
+          <a class="chip" href="./blog-mortgage-points-arizona.html">Should You Buy Down Your Rate?</a>
+          <a class="chip" href="./glossary.html">Mortgage Glossary</a>
+          <a class="chip" href="./faq.html">FAQ</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footerSimple">
+        <div class="footerMain"><img src="./assets/img/logo.svg" alt="Logan Loans" class="footerLogo" width="160" height="45"><p class="footerTagline">Arizona mortgages, explained like a human.</p></div>
+        <div class="footerContact"><p class="footTitle">Contact</p><p><a href="tel:+14808037763" class="uLink">(480) 803-7763</a></p><p><a href="mailto:logan@forward.loans" class="uLink">logan@forward.loans</a></p><p class="small muted">Mon–Fri 9am–6pm, Sat 10am–4pm</p></div>
+        <div class="footerSocial"><p class="footTitle">Connect</p><div class="socialLinks"><a href="https://www.instagram.com/logan.loans" target="_blank" rel="noopener">Instagram</a><a href="https://www.linkedin.com/in/logansulliv" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.google.com/search?q=Logan+Sullivan+Mortgage+Advisor" target="_blank" rel="noopener">Reviews</a></div></div>
+      </div>
+      <div class="footerBottom"><p class="footerLicense"><strong>NMLS</strong> 2466872 (Logan Sullivan) • <strong>Forward Loans</strong> NMLS 2006640<br><a href="https://forward.loans/loan-officer/logan-sullivan/" target="_blank" rel="noopener">Official Profile</a> • <a href="./privacy.html">Privacy</a> • <a href="./disclosures.html">Disclosures</a></p><p class="small muted">Calculator estimates are illustrative only — not a loan offer. Actual terms depend on credit, property, program, and full underwriting.</p></div>
+      <div class="footerEnd">Designed, Hosted and Cared For By <a href="https://littlefightnyc.com" target="_blank" rel="noopener">LittleFightNYC.com</a></div>
+    </div>
+  </footer>
+
+  <div class="mobileBar mobileOnly" role="region" aria-label="Quick actions"><a class="btn btnSecondary mobileBarBtn" href="tel:+14808037763">Call</a><a class="btn btnPrimary mobileBarBtn" href="./apply.html">Get Pre-Approved</a></div>
+
+  <script>
+  (function(){
+    const $ = id => document.getElementById(id);
+    const fmt = n => '$' + Math.round(n).toLocaleString('en-US');
+    function pi(loan, rate, years){
+      const r = rate/100/12, n = years*12;
+      if(loan<=0) return 0;
+      if(r===0) return loan/n;
+      return loan * (r * Math.pow(1+r,n)) / (Math.pow(1+r,n)-1);
+    }
+    function calc(){
+      const balance = +$('rngBalance').value;
+      const curRate = +$('rngCurRate').value;
+      const curYears = +$('rngCurYears').value;
+      const newRate = +$('rngNewRate').value;
+      const newTerm = +$('rngNewTerm').value;
+      const closing = +$('rngClosing').value;
+      const stay = +$('rngStay').value;
+
+      $('numBalance').value = balance;
+      $('lblBalance').textContent = fmt(balance);
+      $('lblCurRate').textContent = curRate.toFixed(2)+'%';
+      $('lblCurYears').textContent = curYears+' years';
+      $('lblNewRate').textContent = newRate.toFixed(2)+'%';
+      $('lblNewTerm').textContent = newTerm+' years';
+      $('lblClosing').textContent = fmt(closing);
+      $('lblStay').textContent = stay+' years';
+
+      const curPI = pi(balance, curRate, curYears);
+      const newPI = pi(balance, newRate, newTerm);
+      const savings = curPI - newPI;
+      const be = savings > 0 ? closing / savings : Infinity;
+      const totalSavings = (savings * stay * 12) - closing;
+
+      $('outCurPI').textContent = fmt(curPI);
+      $('outNewPI').textContent = fmt(newPI);
+      $('outClose').textContent = fmt(closing);
+      $('outSavings').textContent = fmt(savings);
+
+      if (be === Infinity || be > 360) {
+        $('outBE').textContent = 'Never';
+      } else {
+        $('outBE').textContent = 'Month ' + Math.ceil(be);
+      }
+      $('outNet').textContent = fmt(totalSavings);
+
+      const box = $('verdictBox');
+      const tag = $('verdictTag');
+      const txt = $('verdictText');
+      if (savings <= 0) {
+        box.className = 'verdictBox no';
+        tag.textContent = 'Refi does not save money';
+        txt.textContent = 'Your new monthly payment is higher than your current. The refi only makes sense if rates have dropped meaningfully or you need to pull cash out.';
+      } else if (be > stay * 12) {
+        box.className = 'verdictBox no';
+        tag.textContent = 'Refi does not pay off';
+        txt.textContent = 'Break-even is month ' + Math.ceil(be) + ', but you only plan to stay ' + (stay*12) + ' months. The closing costs will outweigh your savings unless you stay longer.';
+      } else if (be < stay * 6) {
+        box.className = 'verdictBox';
+        tag.textContent = 'Strong refi opportunity';
+        txt.textContent = 'You break even at month ' + Math.ceil(be) + ' and save about ' + fmt(totalSavings) + ' net over your planned ' + stay + '-year stay. The math is clearly in your favor.';
+      } else {
+        box.className = 'verdictBox';
+        tag.textContent = 'Refi makes sense';
+        txt.textContent = 'Break-even is month ' + Math.ceil(be) + '. Staying ' + stay + ' years means net savings of about ' + fmt(totalSavings) + ' after closing costs.';
+      }
+    }
+    ['rngBalance','rngCurRate','rngCurYears','rngNewRate','rngNewTerm','rngClosing','rngStay'].forEach(id => {
+      $(id).addEventListener('input', calc);
+    });
+    $('numBalance').addEventListener('input', e => {
+      const v = +e.target.value;
+      if (isFinite(v) && v > 0) {
+        $('rngBalance').value = Math.min(v, 2000000);
+        calc();
+      }
+    });
+    calc();
+  })();
+  </script>
+
+  <link rel="stylesheet" href="./styles.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="./styles.css"></noscript>
+  <script src="./app.js" defer></script>
+</body>
+</html>

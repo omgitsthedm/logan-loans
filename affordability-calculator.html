@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <title>Home Affordability Calculator | How Much House Can You Afford? | Logan Loans</title>
+  <meta name="description" content="Find out how much house you can afford in Arizona based on your income, debt, and down payment. Real DTI math, instant max purchase price." />
+  <link rel="canonical" href="https://www.logan.loans/affordability-calculator.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="How Much House Can You Afford? | Logan Loans" />
+  <meta property="og:description" content="Free affordability calculator. Enter income and debt — get your real maximum home price using DTI math." />
+  <meta property="og:url" content="https://www.logan.loans/affordability-calculator.html" />
+  <meta property="og:image" content="https://www.logan.loans/assets/img/logan-main.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <style>
+    :root{--bg:#FBF7EF;--surface:#FFFFFF;--ink:#1F2933;--muted:#52616B;--primary:#165A3F;--sage:#CFE7D7;--border:#E7E0D6;--apricot:#F3B27A;--mint:#2FAF7A;--max:1120px;--padX:20px;--rDoor:22px;--rCard:16px;--rPill:999px;--fontBody:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;--fontHead:Georgia,'Times New Roman',serif;--ease:cubic-bezier(.2,.8,.2,1);--easeOut:cubic-bezier(0,0,0.2,1);--easeBounce:cubic-bezier(0.34,1.56,0.64,1);--tFast:160ms;--tMed:420ms;--shadow:0 16px 40px rgba(22,90,63,0.12);--focus:0 0 0 4px rgba(47,175,122,0.25)}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:var(--fontBody);background:var(--bg);color:var(--ink);line-height:1.7;font-size:19px;-webkit-font-smoothing:antialiased}img{max-width:100%;display:block;height:auto}a{color:inherit;text-decoration:none}button,input,select{font:inherit}
+    .skip-link{position:absolute;top:-100px;left:50%;transform:translateX(-50%);background:var(--primary);color:var(--bg);padding:12px 24px;border-radius:var(--rPill);font-weight:700;z-index:10000}.skip-link:focus{top:12px}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--padX)}
+    .kicker{display:inline-block;font-size:14px;letter-spacing:0.16em;text-transform:uppercase;color:var(--primary);margin:0 0 14px 0;font-weight:700}
+    .h1{font-family:var(--fontHead);font-size:clamp(34px,4.5vw,56px);line-height:1.05;margin:0;letter-spacing:-0.5px;font-weight:700}
+    .h2{font-family:var(--fontHead);font-size:clamp(26px,3vw,38px);margin:0 0 16px 0;line-height:1.2;font-weight:700}
+    .h3{font-family:var(--fontHead);font-size:clamp(22px,2.5vw,28px);margin:0 0 12px 0;font-weight:700}
+    .p{margin:0;font-size:19px;color:var(--muted);line-height:1.75;max-width:65ch}
+    .muted{color:var(--muted)}.small{font-size:16px}
+    .header{position:sticky;top:0;z-index:100;background:rgba(251,247,239,0.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:16px}
+    .brand{display:flex;align-items:center}.brandLogo{height:40px;width:auto}
+    .navLinks{display:flex;align-items:center;gap:6px}.navLinks a{color:var(--muted);font-weight:600;font-size:16px;padding:10px 14px;border-radius:10px}
+    .navCta{display:flex;gap:10px;align-items:center}
+    .btn{display:inline-flex;align-items:center;justify-content:center;border-radius:var(--rPill);padding:14px 26px;font-weight:700;font-size:16px;border:2px solid transparent;cursor:pointer;transition:all var(--tFast) var(--easeBounce);white-space:nowrap;min-height:50px}
+    .btnPrimary{background:linear-gradient(135deg,var(--primary) 0%,#1e7a54 100%);color:var(--bg);box-shadow:0 8px 24px rgba(22,90,63,0.22)}
+    .btnSecondary{background:var(--surface);color:var(--primary);border-color:rgba(22,90,63,0.2)}
+    .navToggle{border:1px solid rgba(22,90,63,0.18);border-radius:12px;padding:10px 12px;background:rgba(251,247,239,0.95);color:var(--primary);cursor:pointer}
+    .burger{display:block;width:22px;height:2px;background:var(--primary);position:relative;border-radius:2px}.burger::before,.burger::after{content:"";position:absolute;left:0;width:22px;height:2px;background:var(--primary);border-radius:2px}.burger::before{top:-7px}.burger::after{top:7px}
+    .drawer{position:fixed;inset:0;background:rgba(31,41,51,0.5);opacity:0;pointer-events:none;transition:opacity var(--tMed);z-index:200}.drawer.is-open{opacity:1;pointer-events:auto}
+    .drawerInner{position:absolute;right:12px;left:12px;top:12px;border-radius:var(--rDoor);background:rgba(251,247,239,0.98);border:1px solid var(--border);box-shadow:var(--shadow);padding:18px;transform:translateY(-10px) scale(0.98);transition:all var(--tMed) var(--easeBounce)}.drawer.is-open .drawerInner{transform:translateY(0) scale(1)}
+    .drawerTop{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}.drawerTitle{margin:0;font-weight:900;font-size:17px}.drawerClose{width:40px;height:40px;border:1px solid rgba(22,90,63,0.15);border-radius:12px;background:rgba(251,247,239,0.95);cursor:pointer;display:grid;place-items:center;font-size:18px}
+    .drawerLink{display:block;padding:14px 16px;border-radius:12px;font-weight:700;color:var(--ink)}.drawerCtas{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.drawerNote{margin:14px 0 0 0;font-size:13px;color:var(--muted);text-align:center}
+    .mobileBar{position:fixed;left:12px;right:12px;bottom:12px;display:flex;gap:10px;padding:12px;border-radius:var(--rDoor);background:rgba(251,247,239,0.95);border:1px solid var(--border);box-shadow:0 -8px 32px rgba(22,90,63,0.15);z-index:50}.mobileBarBtn{flex:1;padding:14px 16px}
+    body{padding-bottom:100px}
+    .desktopOnly{display:flex}.mobileOnly{display:none}
+    .threshold{height:2px;background:linear-gradient(90deg,var(--primary),var(--mint),var(--apricot));border-radius:2px;margin-bottom:20px;animation:tg 800ms var(--easeOut) forwards;transform-origin:left;transform:scaleX(0)}
+    @keyframes tg{to{transform:scaleX(1)}}
+    .uLink{text-decoration:underline;text-underline-offset:3px;color:var(--primary);font-weight:700}
+    .chip{display:inline-flex;align-items:center;padding:8px 14px;border-radius:999px;border:1px solid rgba(22,90,63,0.15);background:rgba(207,231,215,0.2);color:var(--ink);font-weight:700;font-size:13px;text-decoration:none}
+    .chipGrid{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .porch{border:1px solid var(--border);border-radius:var(--rDoor);background:linear-gradient(135deg,rgba(207,231,215,0.4) 0%,rgba(255,255,255,0.6) 50%,rgba(243,178,122,0.15) 100%);box-shadow:var(--shadow);padding:32px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+    .footer{border-top:1px solid var(--border);padding:48px 0 40px;margin-top:60px}.footerSimple{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;margin-bottom:32px}.footerMain{display:flex;flex-direction:column;gap:12px}.footerLogo{height:45px;width:auto}.footerTagline{font-size:18px;color:var(--muted);margin:0}.footerContact p{margin:0 0 8px 0;font-size:17px}.footTitle{font-weight:800;margin:0 0 14px 0;font-size:18px}.socialLinks{display:flex;gap:20px}.socialLinks a{font-weight:600;font-size:16px;color:var(--primary);text-decoration:underline}.footerBottom{padding-top:24px;border-top:1px dashed rgba(22,90,63,0.15)}.footerLicense{font-size:15px;color:var(--muted);margin:0 0 8px 0}.footerLicense a{color:var(--primary);text-decoration:underline}.footerEnd{margin-top:24px;font-size:16px;font-weight:800;color:#ff7a1a}.footerEnd a{color:#ff7a1a;text-decoration:underline}
+
+    .calcGrid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:24px;margin-top:32px}
+    .calcInputs,.calcOutput{border:1px solid var(--border);border-radius:var(--rDoor);background:var(--surface);padding:32px;box-shadow:var(--shadow)}
+    .calcOutput{background:linear-gradient(155deg,#0d3d2a 0%,#165A3F 65%,#1a6645 100%);color:#fff;border-color:transparent}
+    .calcGroup{margin-bottom:22px}
+    .calcGroup:last-child{margin-bottom:0}
+    .calcLabel{display:flex;justify-content:space-between;align-items:baseline;font-weight:700;font-size:15px;color:var(--ink);margin-bottom:8px}
+    .calcLabelValue{font-family:var(--fontHead);font-size:18px;color:var(--primary);font-weight:700}
+    input[type=range]{-webkit-appearance:none;width:100%;height:6px;background:var(--sage);border-radius:6px;outline:none;margin-top:6px}
+    input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:var(--primary);cursor:pointer;border:3px solid #fff;box-shadow:0 2px 8px rgba(22,90,63,0.3)}
+    input[type=range]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;background:var(--primary);cursor:pointer;border:3px solid #fff}
+    .calcInput{width:100%;padding:14px 16px;border-radius:12px;border:2px solid rgba(22,90,63,0.12);background:#fff;font-size:18px;font-weight:600;color:var(--ink);margin-top:8px}
+    .calcInput:focus{outline:none;border-color:var(--primary);box-shadow:var(--focus)}
+    .calcOutput .outLabel{font-size:13px;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.12em;font-weight:600;margin-bottom:8px}
+    .calcOutput .outBig{font-family:var(--fontHead);font-size:clamp(40px,5.5vw,68px);font-weight:700;color:#fff;line-height:1;letter-spacing:-1.5px}
+    .calcOutput .outSub{font-size:15px;color:rgba(255,255,255,0.6);margin-top:6px}
+    .breakdown{margin-top:30px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.12)}
+    .bdRow{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.07);font-size:16px}
+    .bdRow:last-child{border-bottom:none}
+    .bdLabel{color:rgba(255,255,255,0.85);font-weight:500}
+    .bdValue{font-weight:700;color:#fff;font-family:var(--fontHead);font-size:18px}
+    .ctaBlock{margin-top:24px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.12);display:flex;flex-direction:column;gap:10px}
+    .btnMint{background:var(--mint);color:#fff;border:0;box-shadow:0 8px 28px rgba(47,175,122,0.32);width:100%;padding:18px}
+    .btnGhost{background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.25);width:100%;padding:14px}
+    .calcHero{padding:60px 0 32px}
+    .section{padding:48px 0}
+    .ratioRow{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+    .ratioBox{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:var(--rCard);padding:16px;text-align:center}
+    .ratioLabel{font-size:11px;color:rgba(255,255,255,0.55);text-transform:uppercase;letter-spacing:0.12em;font-weight:600;margin-bottom:4px}
+    .ratioValue{font-family:var(--fontHead);font-size:22px;font-weight:700;color:#fff;line-height:1}
+    .ratioStatus{font-size:12px;color:var(--mint);margin-top:4px;font-weight:600}
+    .ratioStatus.bad{color:#ff7a59}
+
+    @media(max-width:920px){.calcGrid{grid-template-columns:1fr}.calcInputs,.calcOutput{padding:24px}}
+    @media(max-width:768px){.desktopOnly{display:none}.mobileOnly{display:flex}.footerSimple{grid-template-columns:1fr}}
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {"@type":"WebApplication","name":"Home Affordability Calculator","url":"https://www.logan.loans/affordability-calculator.html","description":"Calculate how much house you can afford based on income, debt, and down payment.","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},
+      {"@type":"BreadcrumbList","itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Home","item":"https://www.logan.loans/"},
+        {"@type":"ListItem","position":2,"name":"Tools","item":"https://www.logan.loans/tools.html"},
+        {"@type":"ListItem","position":3,"name":"Affordability Calculator","item":"https://www.logan.loans/affordability-calculator.html"}
+      ]}
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="header">
+    <div class="wrap">
+      <div class="nav">
+        <a class="brand" href="./index.html"><img src="./assets/img/logo.svg" alt="Logan Loans" class="brandLogo" width="140" height="40"></a>
+        <nav class="navLinks desktopOnly" aria-label="Primary">
+          <a href="./programs.html">Programs</a>
+          <a href="./tools.html">Tools</a>
+          <a href="./faq.html">FAQ</a>
+          <a href="./meet-logan.html">Meet Logan</a>
+          <a href="./contact.html">Contact</a>
+        </nav>
+        <div class="navCta desktopOnly">
+          <a class="btn btnPrimary" href="./apply.html">Get Pre-Approved</a>
+          <a class="btn btnSecondary" href="tel:+14808037763">Call (480) 803-7763</a>
+        </div>
+        <button class="navToggle mobileOnly" type="button" aria-label="Open menu" aria-expanded="false" data-nav-toggle><span class="burger" aria-hidden="true"></span></button>
+      </div>
+    </div>
+    <div class="drawer" data-drawer aria-hidden="true" inert>
+      <div class="drawerInner">
+        <div class="drawerTop"><p class="drawerTitle">Menu</p><button class="drawerClose" type="button" aria-label="Close menu" data-drawer-close>✕</button></div>
+        <a class="drawerLink" href="./programs.html">Programs</a>
+        <a class="drawerLink" href="./tools.html">Tools</a>
+        <a class="drawerLink" href="./faq.html">FAQ</a>
+        <a class="drawerLink" href="./meet-logan.html">Meet Logan</a>
+        <a class="drawerLink" href="./contact.html">Contact</a>
+        <div class="drawerCtas"><a class="btn btnPrimary" href="./apply.html">Get Pre-Approved</a><a class="btn btnSecondary" href="tel:+14808037763">Call (480) 803-7763</a></div>
+        <p class="drawerNote">Arizona • Southern California</p>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <section class="calcHero">
+      <div class="wrap">
+        <div class="threshold" aria-hidden="true"></div>
+        <p class="kicker">Free Tool · No Email Required</p>
+        <h1 class="h1">How much house can you afford?</h1>
+        <p class="p" style="margin-top:14px">Enter your income, debts, and down payment. Get a real maximum home price using the same DTI math underwriters use — not the inflated "approval ceiling" most calculators show.</p>
+      </div>
+    </section>
+
+    <section style="padding-top:0">
+      <div class="wrap">
+        <div class="calcGrid">
+
+          <div class="calcInputs">
+            <h2 class="h3" style="margin-bottom:24px">Your numbers</h2>
+
+            <div class="calcGroup">
+              <div class="calcLabel"><span>Annual gross income (combined)</span><span class="calcLabelValue" id="lblIncome">$120,000</span></div>
+              <input type="range" id="rngIncome" min="30000" max="500000" step="2000" value="120000">
+              <input class="calcInput" type="number" id="numIncome" min="20000" max="2000000" step="1000" value="120000">
+            </div>
+
+            <div class="calcGroup">
+              <div class="calcLabel"><span>Monthly debt payments</span><span class="calcLabelValue" id="lblDebt">$500</span></div>
+              <input type="range" id="rngDebt" min="0" max="5000" step="25" value="500">
+              <p class="small muted" style="margin:6px 0 0 0;font-size:13px">Car loan, credit card minimums, student loans, child support — not rent or utilities.</p>
+            </div>
+
+            <div class="calcGroup">
+              <div class="calcLabel"><span>Down payment available</span><span class="calcLabelValue" id="lblDown">$60,000</span></div>
+              <input type="range" id="rngDown" min="0" max="500000" step="1000" value="60000">
+            </div>
+
+            <div class="calcGroup">
+              <div class="calcLabel"><span>Interest rate</span><span class="calcLabelValue" id="lblRate">7.00%</span></div>
+              <input type="range" id="rngRate" min="3" max="12" step="0.05" value="7.0">
+            </div>
+
+            <div class="calcGroup">
+              <div class="calcLabel"><span>Property tax (annual %)</span><span class="calcLabelValue" id="lblTax">0.60%</span></div>
+              <input type="range" id="rngTax" min="0" max="2.5" step="0.05" value="0.6">
+              <p class="small muted" style="margin:6px 0 0 0;font-size:13px">Arizona average is 0.6%.</p>
+            </div>
+
+            <div class="calcGroup">
+              <div class="calcLabel"><span>Insurance (annual)</span><span class="calcLabelValue" id="lblIns">$1,500</span></div>
+              <input type="range" id="rngIns" min="500" max="6000" step="50" value="1500">
+            </div>
+
+            <div class="calcGroup">
+              <div class="calcLabel"><span>Monthly HOA</span><span class="calcLabelValue" id="lblHoa">$0</span></div>
+              <input type="range" id="rngHoa" min="0" max="800" step="10" value="0">
+            </div>
+          </div>
+
+          <div class="calcOutput" aria-live="polite">
+            <p class="outLabel">Maximum home price</p>
+            <p class="outBig" id="outPrice">$485,000</p>
+            <p class="outSub" id="outSubText">Based on 43% back-end DTI, your income, and current rates.</p>
+
+            <div class="ratioRow">
+              <div class="ratioBox">
+                <p class="ratioLabel">Front-End DTI</p>
+                <p class="ratioValue" id="outFrontDTI">28%</p>
+                <p class="ratioStatus" id="outFrontStatus">Comfortable</p>
+              </div>
+              <div class="ratioBox">
+                <p class="ratioLabel">Back-End DTI</p>
+                <p class="ratioValue" id="outBackDTI">36%</p>
+                <p class="ratioStatus" id="outBackStatus">Strong</p>
+              </div>
+            </div>
+
+            <div class="breakdown">
+              <div class="bdRow"><span class="bdLabel">Loan amount</span><span class="bdValue" id="outLoan">$425,000</span></div>
+              <div class="bdRow"><span class="bdLabel">Max monthly housing</span><span class="bdValue" id="outMaxMonthly">$2,800</span></div>
+              <div class="bdRow"><span class="bdLabel">Estimated P&I</span><span class="bdValue" id="outPI">$2,827</span></div>
+              <div class="bdRow"><span class="bdLabel">Tax + Insurance + HOA</span><span class="bdValue" id="outEscrow">$367</span></div>
+              <div class="bdRow"><span class="bdLabel">Total monthly housing</span><span class="bdValue" id="outTotal">$3,194</span></div>
+            </div>
+
+            <div class="ctaBlock">
+              <a class="btn btnMint" href="./apply.html">Get pre-approved at this price</a>
+              <a class="btn btnGhost" href="tel:+14808037763">Call Logan: (480) 803-7763</a>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:48px">
+          <h2 class="h2">How this calculator works</h2>
+          <p class="p">Lenders use two ratios: <strong>front-end DTI</strong> (housing payment ÷ gross income) and <strong>back-end DTI</strong> (total monthly debt + housing ÷ gross income). Conventional loans typically cap back-end DTI at 43-50%; FHA can go higher.</p>
+          <p class="p" style="margin-top:14px">This calculator targets a 36% back-end DTI by default — the "comfortable" ceiling, not the maximum. Underwriting may approve you for more, but that doesn't mean you should buy at the absolute ceiling. Logan walks through your real numbers (and the trade-offs) on a 15-minute pre-approval call.</p>
+        </div>
+
+        <div class="porch" style="margin-top:48px">
+          <div style="flex:1;min-width:240px">
+            <h2 class="h3" style="margin:0 0 6px 0">Estimate is one number. Approval letter is another.</h2>
+            <p class="small muted" style="margin:0">Same-day pre-approval. Real lender, real numbers, no surprises.</p>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn btnPrimary" href="./apply.html">Get Pre-Approved</a>
+            <a class="btn btnSecondary" href="tel:+14808037763">Call (480) 803-7763</a>
+          </div>
+        </div>
+
+        <div class="chipGrid" style="margin-top:32px">
+          <a class="chip" href="./calculator.html">Mortgage Calculator</a>
+          <a class="chip" href="./refinance-calculator.html">Refinance Calculator</a>
+          <a class="chip" href="./first-time-buyer.html">First-Time Buyer</a>
+          <a class="chip" href="./blog-how-much-house-phoenix.html">How Much House in Phoenix?</a>
+          <a class="chip" href="./glossary.html">Mortgage Glossary</a>
+          <a class="chip" href="./faq.html">FAQ</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footerSimple">
+        <div class="footerMain"><img src="./assets/img/logo.svg" alt="Logan Loans" class="footerLogo" width="160" height="45"><p class="footerTagline">Arizona mortgages, explained like a human.</p></div>
+        <div class="footerContact"><p class="footTitle">Contact</p><p><a href="tel:+14808037763" class="uLink">(480) 803-7763</a></p><p><a href="mailto:logan@forward.loans" class="uLink">logan@forward.loans</a></p><p class="small muted">Mon–Fri 9am–6pm, Sat 10am–4pm</p></div>
+        <div class="footerSocial"><p class="footTitle">Connect</p><div class="socialLinks"><a href="https://www.instagram.com/logan.loans" target="_blank" rel="noopener">Instagram</a><a href="https://www.linkedin.com/in/logansulliv" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.google.com/search?q=Logan+Sullivan+Mortgage+Advisor" target="_blank" rel="noopener">Reviews</a></div></div>
+      </div>
+      <div class="footerBottom"><p class="footerLicense"><strong>NMLS</strong> 2466872 (Logan Sullivan) • <strong>Forward Loans</strong> NMLS 2006640<br><a href="https://forward.loans/loan-officer/logan-sullivan/" target="_blank" rel="noopener">Official Profile</a> • <a href="./privacy.html">Privacy</a> • <a href="./disclosures.html">Disclosures</a></p><p class="small muted">Calculator estimates are illustrative only — not a loan offer.</p></div>
+      <div class="footerEnd">Designed, Hosted and Cared For By <a href="https://littlefightnyc.com" target="_blank" rel="noopener">LittleFightNYC.com</a></div>
+    </div>
+  </footer>
+
+  <div class="mobileBar mobileOnly" role="region" aria-label="Quick actions"><a class="btn btnSecondary mobileBarBtn" href="tel:+14808037763">Call</a><a class="btn btnPrimary mobileBarBtn" href="./apply.html">Get Pre-Approved</a></div>
+
+  <script>
+  (function(){
+    const $ = id => document.getElementById(id);
+    const fmt = n => '$' + Math.round(n).toLocaleString('en-US');
+
+    function maxLoanAt(monthly, rate, years){
+      const r = rate/100/12, n = years*12;
+      if (monthly <= 0) return 0;
+      if (r === 0) return monthly * n;
+      return monthly * (Math.pow(1+r,n)-1) / (r * Math.pow(1+r,n));
+    }
+    function piPayment(loan, rate, years){
+      const r = rate/100/12, n = years*12;
+      if (loan <= 0) return 0;
+      if (r === 0) return loan/n;
+      return loan * (r * Math.pow(1+r,n)) / (Math.pow(1+r,n)-1);
+    }
+
+    function calc(){
+      const income = +$('rngIncome').value;
+      const debt = +$('rngDebt').value;
+      const down = +$('rngDown').value;
+      const rate = +$('rngRate').value;
+      const taxPct = +$('rngTax').value;
+      const insAnnual = +$('rngIns').value;
+      const hoa = +$('rngHoa').value;
+
+      $('numIncome').value = income;
+      $('lblIncome').textContent = fmt(income);
+      $('lblDebt').textContent = fmt(debt);
+      $('lblDown').textContent = fmt(down);
+      $('lblRate').textContent = rate.toFixed(2)+'%';
+      $('lblTax').textContent = taxPct.toFixed(2)+'%';
+      $('lblIns').textContent = fmt(insAnnual);
+      $('lblHoa').textContent = fmt(hoa);
+
+      const monthlyIncome = income / 12;
+      // Use 36% back-end DTI as comfortable target (43% is max conventional)
+      const maxBackEndDTI = 0.36;
+      const maxHousingFromBackEnd = (monthlyIncome * maxBackEndDTI) - debt;
+      const maxHousingFromFrontEnd = monthlyIncome * 0.28;
+      const maxHousing = Math.min(maxHousingFromBackEnd, maxHousingFromFrontEnd);
+
+      // Solve iteratively for max home price.
+      // Total housing = P&I + tax/12 + ins/12 + hoa + PMI(if applicable)
+      // tax = price * taxPct/100/12, ins = insAnnual/12 (assumed flat for simplicity)
+      // P&I depends on loan = price - down
+      // Iterate: pick price, compute total, adjust.
+      let price = 500000;
+      for (let i=0;i<50;i++){
+        const loan = Math.max(price - down, 0);
+        const pi = piPayment(loan, rate, 30);
+        const tax = price * (taxPct/100) / 12;
+        const ins = insAnnual / 12;
+        const downPct = price > 0 ? (down/price)*100 : 0;
+        const pmi = downPct < 20 ? loan * 0.008 / 12 : 0;
+        const total = pi + tax + ins + hoa + pmi;
+        // Adjust price proportionally
+        if (Math.abs(total - maxHousing) < 1) break;
+        if (total > maxHousing) price *= (maxHousing/total) * 0.98;
+        else price *= (maxHousing/total) * 1.005;
+        if (price < 0) price = 0;
+      }
+      const finalPrice = Math.max(0, Math.round(price/1000)*1000);
+      const finalLoan = Math.max(finalPrice - down, 0);
+      const finalPI = piPayment(finalLoan, rate, 30);
+      const finalTax = finalPrice * (taxPct/100) / 12;
+      const finalIns = insAnnual / 12;
+      const downPct = finalPrice > 0 ? (down/finalPrice)*100 : 0;
+      const finalPMI = downPct < 20 ? finalLoan * 0.008 / 12 : 0;
+      const finalEscrow = finalTax + finalIns + hoa + finalPMI;
+      const finalTotal = finalPI + finalEscrow;
+
+      $('outPrice').textContent = fmt(finalPrice);
+      $('outLoan').textContent = fmt(finalLoan);
+      $('outMaxMonthly').textContent = fmt(maxHousing);
+      $('outPI').textContent = fmt(finalPI);
+      $('outEscrow').textContent = fmt(finalEscrow);
+      $('outTotal').textContent = fmt(finalTotal);
+
+      const frontDTI = (finalTotal / monthlyIncome) * 100;
+      const backDTI = ((finalTotal + debt) / monthlyIncome) * 100;
+      $('outFrontDTI').textContent = frontDTI.toFixed(0)+'%';
+      $('outBackDTI').textContent = backDTI.toFixed(0)+'%';
+
+      const fStatus = $('outFrontStatus');
+      fStatus.textContent = frontDTI <= 28 ? 'Comfortable' : (frontDTI <= 35 ? 'Acceptable' : 'Tight');
+      fStatus.className = 'ratioStatus' + (frontDTI > 35 ? ' bad' : '');
+      const bStatus = $('outBackStatus');
+      bStatus.textContent = backDTI <= 36 ? 'Strong' : (backDTI <= 43 ? 'Within limits' : 'Over limit');
+      bStatus.className = 'ratioStatus' + (backDTI > 43 ? ' bad' : '');
+    }
+
+    ['rngIncome','rngDebt','rngDown','rngRate','rngTax','rngIns','rngHoa'].forEach(id => {
+      $(id).addEventListener('input', calc);
+    });
+    $('numIncome').addEventListener('input', e => {
+      const v = +e.target.value;
+      if (isFinite(v) && v > 0) {
+        $('rngIncome').value = Math.min(v, 500000);
+        calc();
+      }
+    });
+    calc();
+  })();
+  </script>
+
+  <link rel="stylesheet" href="./styles.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="./styles.css"></noscript>
+  <script src="./app.js" defer></script>
+</body>
+</html>
