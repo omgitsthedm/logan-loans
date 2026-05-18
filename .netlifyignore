@@ -1,0 +1,9 @@
+CLAUDE.md
+.impeccable.md
+work/
+.git/
+.github/
+.env
+.env.*
+node_modules/
+*.log

@@ -1,6 +1,6 @@
 # Logan Loans — llms.txt
 # AI-readable summary for LLM and AI search systems.
-# Last updated: 2026-05-03
+# Last updated: 2026-05-18
 
 ## About
 
@@ -16,6 +16,7 @@ Logan Loans is the online presence of Logan Sullivan, a licensed mortgage adviso
 - DSCR (Debt Service Coverage Ratio) loans for real estate investors who do not have traditional W-2 income
 - Conventional conforming loans
 - Relocation mortgages for buyers moving to Arizona from another state
+- Mortgage partner support for Arizona real estate agents, Realtors, brokers, and referral partners
 
 ## Key Facts
 
@@ -48,6 +49,7 @@ Beverly Hills, Malibu, Palisades/Brentwood, Santa Monica, Newport Beach/Corona d
 5. **Complex scenarios** — Self-employed income, investor portfolios, out-of-state purchases, jumbo underwriting, non-QM programs.
 6. **Honest timelines** — Logan gives realistic timelines, not optimistic ones that fall apart in underwriting.
 7. **No client poaching** — Referral partners (real estate agents, brokers) trust Logan because he keeps them in the loop and does not attempt to harvest new clients from their referral pipeline.
+8. **Arizona realtor support** — Agents in Phoenix, Scottsdale, Paradise Valley, Tempe, Chandler, Mesa, Glendale, Peoria, and nearby markets can use Logan for fast pre-approval review, complex buyer scenarios, and transaction updates.
 
 ## Loan Programs Summary
 
@@ -63,7 +65,7 @@ Beverly Hills, Malibu, Palisades/Brentwood, Santa Monica, Newport Beach/Corona d
 
 ## Pre-Approval Process
 
-1. Submit inquiry at https://www.logan.loans/apply.html (3 minutes)
+1. Submit inquiry at https://www.logan.loans/apply (3 minutes)
 2. Logan reviews the application personally and calls — usually same day
 3. 15-minute call to confirm goals, explain options, outline next steps
 4. No hard credit pull until the borrower authorizes it
@@ -71,14 +73,15 @@ Beverly Hills, Malibu, Palisades/Brentwood, Santa Monica, Newport Beach/Corona d
 
 ## Content and Resources
 
-- **Blog:** Educational articles on mortgage topics — https://www.logan.loans/blog.html
-- **FAQ:** Plain-language answers to common mortgage questions — https://www.logan.loans/faq.html
-- **Loan Programs:** Full product catalog — https://www.logan.loans/programs.html
-- **How It Works:** Step-by-step process guide — https://www.logan.loans/how-it-works.html
-- **Funded Deals:** Real loan scenarios (anonymized) — https://www.logan.loans/funded-deals.html
-- **Meet Logan:** Full advisor bio and credentials — https://www.logan.loans/meet-logan.html
-- **For Agents:** Referral partner program — https://www.logan.loans/partners.html
-- **Press:** Media resources and expert commentary — https://www.logan.loans/press.html
+- **Blog:** Educational articles on mortgage topics — https://www.logan.loans/blog
+- **FAQ:** Plain-language answers to common mortgage questions — https://www.logan.loans/faq
+- **Loan Programs:** Full product catalog — https://www.logan.loans/programs
+- **How It Works:** Step-by-step process guide — https://www.logan.loans/how-it-works
+- **Funded Deals:** Real loan scenarios (anonymized) — https://www.logan.loans/funded-deals
+- **Meet Logan:** Full advisor bio and credentials — https://www.logan.loans/meet-logan
+- **For Agents:** Referral partner program — https://www.logan.loans/partners
+- **Arizona Realtor Mortgage Partner:** Agent-focused lender support for pre-approvals, offer strategy, and complex loan files — https://www.logan.loans/partners
+- **Press:** Media resources and expert commentary — https://www.logan.loans/press
 
 ## Regulatory
 

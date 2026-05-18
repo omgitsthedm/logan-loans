@@ -2,6 +2,8 @@ User-agent: *
 Allow: /
 Disallow: /thanks.html
 Disallow: /thanks-contact.html
+Disallow: /thanks
+Disallow: /thanks-contact
 
 # AI search engines — allowed to index and cite
 User-agent: GPTBot

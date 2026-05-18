@@ -56,33 +56,72 @@
   status = 301
 
 [[redirects]]
+  from = "/CLAUDE.md"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/.impeccable.md"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/work/*"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/:page.html"
+  to = "/:page"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/apply-now"
-  to = "/apply.html"
+  to = "/apply"
   status = 301
 
 [[redirects]]
   from = "/pre-approval"
-  to = "/apply.html"
+  to = "/apply"
   status = 301
 
 [[redirects]]
   from = "/pre-approve"
-  to = "/apply.html"
+  to = "/apply"
   status = 301
 
 [[redirects]]
   from = "/about"
-  to = "/meet-logan.html"
+  to = "/meet-logan"
   status = 301
 
 [[redirects]]
   from = "/loans"
-  to = "/programs.html"
+  to = "/programs"
+  status = 301
+
+[[redirects]]
+  from = "/realtors"
+  to = "/partners"
+  status = 301
+
+[[redirects]]
+  from = "/arizona-realtor-mortgage-partner"
+  to = "/partners"
+  status = 301
+
+[[redirects]]
+  from = "/realtor-mortgage-partner"
+  to = "/partners"
   status = 301
 
 [[redirects]]
   from = "/blog/*"
-  to = "/blog.html"
+  to = "/blog"
   status = 301
 
 [build]

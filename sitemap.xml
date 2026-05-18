@@ -1,88 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Core pages -->
-  <url><loc>https://www.logan.loans/</loc><lastmod>2026-05-04</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://www.logan.loans/apply.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.95</priority></url>
-  <url><loc>https://www.logan.loans/contact.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://www.logan.loans/programs.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://www.logan.loans/meet-logan.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.logan.loans/</loc><lastmod>2026-05-18</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://www.logan.loans/apply</loc><lastmod>2026-05-18</lastmod><changefreq>monthly</changefreq><priority>0.95</priority></url>
+  <url><loc>https://www.logan.loans/contact</loc><lastmod>2026-05-18</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://www.logan.loans/programs</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://www.logan.loans/meet-logan</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
   <!-- Tools (high traffic potential) -->
-  <url><loc>https://www.logan.loans/calculator.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.logan.loans/refinance-calculator.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://www.logan.loans/affordability-calculator.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://www.logan.loans/glossary.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://www.logan.loans/tools.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.logan.loans/calculator</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.logan.loans/refinance-calculator</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://www.logan.loans/affordability-calculator</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://www.logan.loans/glossary</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://www.logan.loans/tools</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
   <!-- Loan products -->
-  <url><loc>https://www.logan.loans/first-time-buyer.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.logan.loans/refinance.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.logan.loans/investor-loans.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.logan.loans/relocation.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.logan.loans/premium-markets.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.logan.loans/first-time-buyer</loc><lastmod>2026-05-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.logan.loans/refinance</loc><lastmod>2026-05-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.logan.loans/investor-loans</loc><lastmod>2026-05-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.logan.loans/relocation</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.logan.loans/premium-markets</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
   <!-- Loan comparison pages (high commercial intent) -->
-  <url><loc>https://www.logan.loans/fha-vs-conventional.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.logan.loans/va-vs-conventional.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.logan.loans/fifteen-vs-thirty-year-mortgage.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.logan.loans/fha-vs-conventional</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.logan.loans/va-vs-conventional</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.logan.loans/fifteen-vs-thirty-year-mortgage</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
   <!-- Educational -->
-  <url><loc>https://www.logan.loans/how-it-works.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.logan.loans/faq.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://www.logan.loans/blog.html</loc><lastmod>2026-05-04</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.logan.loans/how-it-works</loc><lastmod>2026-05-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.logan.loans/faq</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://www.logan.loans/blog</loc><lastmod>2026-05-04</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
 
   <!-- Blog posts -->
-  <url><loc>https://www.logan.loans/blog-first-time-buyer-arizona.html</loc><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.logan.loans/blog-how-much-house-phoenix.html</loc><lastmod>2026-03-15</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.logan.loans/blog-preapproval-guide.html</loc><lastmod>2026-04-02</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.logan.loans/blog-dscr-loans-arizona.html</loc><lastmod>2026-04-18</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.logan.loans/blog-mortgage-points-arizona.html</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.logan.loans/blog-first-time-buyer-arizona</loc><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.logan.loans/blog-how-much-house-phoenix</loc><lastmod>2026-03-15</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.logan.loans/blog-preapproval-guide</loc><lastmod>2026-04-02</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.logan.loans/blog-dscr-loans-arizona</loc><lastmod>2026-04-18</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.logan.loans/blog-mortgage-points-arizona</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
 
   <!-- Social proof -->
-  <url><loc>https://www.logan.loans/funded-deals.html</loc><lastmod>2026-05-04</lastmod><changefreq>weekly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.logan.loans/funded-deals</loc><lastmod>2026-05-04</lastmod><changefreq>weekly</changefreq><priority>0.75</priority></url>
 
   <!-- Professional -->
-  <url><loc>https://www.logan.loans/partners.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://www.logan.loans/press.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
+  <url><loc>https://www.logan.loans/partners</loc><lastmod>2026-05-18</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.logan.loans/press</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
 
   <!-- Arizona statewide hub -->
-  <url><loc>https://www.logan.loans/arizona.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://www.logan.loans/service-areas.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.logan.loans/arizona</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://www.logan.loans/service-areas</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
   <!-- Phoenix metro city pages (high local search volume) -->
-  <url><loc>https://www.logan.loans/paradise-valley.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.logan.loans/north-scottsdale.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.logan.loans/arcadia-biltmore.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.logan.loans/north-phoenix.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.logan.loans/tempe.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.logan.loans/mesa.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.logan.loans/chandler.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.logan.loans/gilbert.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.logan.loans/glendale.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://www.logan.loans/peoria.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.logan.loans/paradise-valley</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.logan.loans/north-scottsdale</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.logan.loans/arcadia-biltmore</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.logan.loans/north-phoenix</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.logan.loans/tempe</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.logan.loans/mesa</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.logan.loans/chandler</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.logan.loans/gilbert</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.logan.loans/glendale</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://www.logan.loans/peoria</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
 
   <!-- Northern Arizona -->
-  <url><loc>https://www.logan.loans/sedona.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.logan.loans/flagstaff.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.logan.loans/sedona</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.logan.loans/flagstaff</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
   <!-- Tucson area -->
-  <url><loc>https://www.logan.loans/catalina-foothills.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.logan.loans/catalina-foothills</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
   <!-- Southern California -->
-  <url><loc>https://www.logan.loans/southern-california.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.logan.loans/beverly-hills.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.logan.loans/palisades-brentwood.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.logan.loans/santa-monica.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.logan.loans/malibu.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.logan.loans/newport-corona.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.logan.loans/la-jolla-del-mar.html</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-
-  <!-- Conversion / utility -->
-  <url><loc>https://www.logan.loans/thanks.html</loc><lastmod>2026-05-04</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://www.logan.loans/thanks-contact.html</loc><lastmod>2026-05-04</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://www.logan.loans/southern-california</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.logan.loans/beverly-hills</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.logan.loans/palisades-brentwood</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.logan.loans/santa-monica</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.logan.loans/malibu</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.logan.loans/newport-corona</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.logan.loans/la-jolla-del-mar</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
   <!-- Legal / compliance -->
-  <url><loc>https://www.logan.loans/privacy.html</loc><lastmod>2026-05-04</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://www.logan.loans/disclosures.html</loc><lastmod>2026-05-04</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://www.logan.loans/terms.html</loc><lastmod>2026-05-04</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://www.logan.loans/privacy</loc><lastmod>2026-05-04</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://www.logan.loans/disclosures</loc><lastmod>2026-05-04</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://www.logan.loans/terms</loc><lastmod>2026-05-04</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
 </urlset>

@@ -91,7 +91,7 @@ function buildConsentBanner() {
   banner.setAttribute('aria-label', 'Cookie preferences');
   banner.innerHTML = `
     <div class="consentInner">
-      <p class="consentText">We use cookies to understand how visitors use our site and improve your experience. <a href="./privacy.html" class="uLink">Privacy Policy</a></p>
+      <p class="consentText">We use cookies to understand how visitors use our site and improve your experience. <a href="./privacy" class="uLink">Privacy Policy</a></p>
       <div class="consentActions">
         <button type="button" class="btn btnSecondary consentBtn" id="consentDeny" style="padding:10px 20px;font-size:15px;">Decline</button>
         <button type="button" class="btn btnPrimary consentBtn" id="consentAccept" style="padding:10px 20px;font-size:15px;">Accept</button>
@@ -134,7 +134,6 @@ const drawerClose = document.querySelector('[data-drawer-close]');
 function openDrawer() {
   if (!drawer) return;
   drawer.classList.add('is-open');
-  drawer.setAttribute('aria-hidden', 'false');
   drawer.removeAttribute('inert');
   navToggle?.setAttribute('aria-expanded', 'true');
   document.body.style.overflow = 'hidden';
@@ -144,7 +143,6 @@ function openDrawer() {
 function closeDrawer() {
   if (!drawer) return;
   drawer.classList.remove('is-open');
-  drawer.setAttribute('aria-hidden', 'true');
   drawer.setAttribute('inert', '');
   navToggle?.setAttribute('aria-expanded', 'false');
   document.body.style.overflow = '';
@@ -335,7 +333,11 @@ function setupForm(formId, statusId, opts = {}) {
 
     const submitBtn = form.querySelector('button[type="submit"]');
     const originalText = submitBtn?.textContent || "Send";
-    if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = "Sending…"; }
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.setAttribute('aria-busy', 'true');
+      submitBtn.textContent = "Sending...";
+    }
 
     const formData = new FormData(form);
     fetch('/', {
@@ -350,7 +352,11 @@ function setupForm(formId, statusId, opts = {}) {
         throw new Error('Network response was not ok');
       }
     }).catch(() => {
-      if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalText; }
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.removeAttribute('aria-busy');
+        submitBtn.textContent = originalText;
+      }
       updateStatus(false, "Something went wrong. Please try calling (480) 803-7763 directly.");
     });
   });

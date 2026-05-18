@@ -103,6 +103,8 @@
 | Pre-approval (contact.html) | preapproval | preapproval |
 | General contact (contact.html) | general-contact | general-contact |
 | Apply form (apply.html) | apply | apply |
+| Realtor partner referral (partners.html) | partner-referral | partner-referral |
+| Newsletter / market updates (blog.html) | newsletter | newsletter |
 
 ## Tracking (pending client input)
 
@@ -159,3 +161,6 @@
 | 2026-05-03 | BreadcrumbList added to 9 pages | programs, first-time-buyer, refinance, investor-loans, relocation, premium-markets, how-it-works, faq, meet-logan |
 | 2026-05-04 | Homepage full redesign | Dark forest green hero, Logan photo above fold, real review cards, numbered path cards, dark split bio panel, zero emojis. Beats cream-on-cream monotony of competitors. |
 | 2026-05-04 | .door.heroDark specificity fix | styles.css .door (specificity 010) was overriding .heroDark (010). Fixed with .door.heroDark (020). |
+| 2026-05-18 | Ultra-premium Arizona Realtor pass | Homepage and partners page repositioned around Arizona Realtor partnerships, Phoenix/Scottsdale/East Valley market language, stronger partner workflow copy, premium visual polish, and quieter motion. |
+| 2026-05-18 | Extensionless URL cleanup | Canonicals, sitemap, llms.txt, internal links, form redirects, and Netlify redirects now consolidate around extensionless https://www.logan.loans paths, with legacy top-level .html URLs redirected. |
+| 2026-05-18 | Accessibility and crawl-quality cleanup | Drawer focus handling, close-button naming, calculator labels, honeypot fields, visible link text, priority page depth, and oversized Arizona images were cleaned up after audit review. |

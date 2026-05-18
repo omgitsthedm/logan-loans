@@ -1,0 +1,14 @@
+2026-05-18 04:36 MST - Ultra-premium UI, motion, SEO, and AI-search readiness pass.
+
+- Added project design context in .impeccable.md for a calm, premium Arizona mortgage brand focused on buyers, investors, and Realtor partners.
+- Expanded the homepage and partners page with Arizona Realtor partner positioning, market language, stronger calls to action, and structured data aligned with visible content.
+- Standardized canonical, Open Graph, sitemap, llms.txt, internal links, form redirects, and Netlify redirect URLs around extensionless www.logan.loans paths ahead of the DNS update.
+- Added a Netlify redirect rule to consolidate legacy top-level .html URLs into their matching extensionless pages.
+- Added .netlifyignore and 404 guard redirects so internal project notes and QA artifacts are not served as public site files.
+- Added For Realtors navigation site-wide and adjusted desktop/tablet header behavior to prevent wrapping or overflow.
+- Reworked motion and hover treatment to feel restrained and premium, replacing bouncy effects with quieter transitions and stronger focus states.
+- Fixed accessibility issues around drawer focus handling, close-button naming, calculator labels, honeypot fields, and mismatched visible link text.
+- Added crawlable depth to priority pages including Contact, First-Time Buyer, How It Works, Investor Loans, and Refinance.
+- Optimized oversized Arizona imagery and verified JSON-LD parsing, sitemap XML validity, layout screenshots, and local audit improvements.
+- Updated CLAUDE.md with the new form inventory entries and the 2026-05-18 implementation decisions.
+- No GitHub push or Netlify deploy was performed.
