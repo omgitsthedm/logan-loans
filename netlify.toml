@@ -74,12 +74,6 @@
   force = true
 
 [[redirects]]
-  from = "/:page.html"
-  to = "/:page"
-  status = 301
-  force = true
-
-[[redirects]]
   from = "/apply-now"
   to = "/apply"
   status = 301
@@ -123,6 +117,348 @@
   from = "/blog/*"
   to = "/blog"
   status = 301
+
+[[redirects]]
+  from = "/404.html"
+  to = "/404"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/affordability-calculator.html"
+  to = "/affordability-calculator"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/apply.html"
+  to = "/apply"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/arcadia-biltmore.html"
+  to = "/arcadia-biltmore"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/arizona.html"
+  to = "/arizona"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/beverly-hills.html"
+  to = "/beverly-hills"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog-dscr-loans-arizona.html"
+  to = "/blog-dscr-loans-arizona"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog-first-time-buyer-arizona.html"
+  to = "/blog-first-time-buyer-arizona"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog-how-much-house-phoenix.html"
+  to = "/blog-how-much-house-phoenix"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog-mortgage-points-arizona.html"
+  to = "/blog-mortgage-points-arizona"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog-preapproval-guide.html"
+  to = "/blog-preapproval-guide"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog.html"
+  to = "/blog"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/calculator.html"
+  to = "/calculator"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/catalina-foothills.html"
+  to = "/catalina-foothills"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/chandler.html"
+  to = "/chandler"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/contact.html"
+  to = "/contact"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/disclosures.html"
+  to = "/disclosures"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/faq.html"
+  to = "/faq"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/fha-vs-conventional.html"
+  to = "/fha-vs-conventional"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/fifteen-vs-thirty-year-mortgage.html"
+  to = "/fifteen-vs-thirty-year-mortgage"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/first-time-buyer.html"
+  to = "/first-time-buyer"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/flagstaff.html"
+  to = "/flagstaff"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/funded-deals.html"
+  to = "/funded-deals"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/gilbert.html"
+  to = "/gilbert"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/glendale.html"
+  to = "/glendale"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/glossary.html"
+  to = "/glossary"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/how-it-works.html"
+  to = "/how-it-works"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/investor-loans.html"
+  to = "/investor-loans"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/la-jolla-del-mar.html"
+  to = "/la-jolla-del-mar"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/malibu.html"
+  to = "/malibu"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/meet-logan.html"
+  to = "/meet-logan"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/mesa.html"
+  to = "/mesa"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/newport-corona.html"
+  to = "/newport-corona"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/north-phoenix.html"
+  to = "/north-phoenix"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/north-scottsdale.html"
+  to = "/north-scottsdale"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/palisades-brentwood.html"
+  to = "/palisades-brentwood"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/paradise-valley.html"
+  to = "/paradise-valley"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/partners.html"
+  to = "/partners"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/peoria.html"
+  to = "/peoria"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/premium-markets.html"
+  to = "/premium-markets"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/press.html"
+  to = "/press"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/privacy.html"
+  to = "/privacy"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/programs.html"
+  to = "/programs"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/refinance-calculator.html"
+  to = "/refinance-calculator"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/refinance.html"
+  to = "/refinance"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/relocation.html"
+  to = "/relocation"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/santa-monica.html"
+  to = "/santa-monica"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/sedona.html"
+  to = "/sedona"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/service-areas.html"
+  to = "/service-areas"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/southern-california.html"
+  to = "/southern-california"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/tempe.html"
+  to = "/tempe"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/terms.html"
+  to = "/terms"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/thanks-contact.html"
+  to = "/thanks-contact"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/thanks.html"
+  to = "/thanks"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/tools.html"
+  to = "/tools"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/va-vs-conventional.html"
+  to = "/va-vs-conventional"
+  status = 301
+  force = true
 
 [build]
   publish = "."
