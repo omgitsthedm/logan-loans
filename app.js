@@ -346,7 +346,7 @@ function setupForm(formId, statusId, opts = {}) {
       body: new URLSearchParams(formData).toString(),
     }).then(response => {
       if (response.ok) {
-        const redirect = opts.redirect || './thanks-contact.html';
+        const redirect = opts.redirect || './thanks-contact';
         window.location.href = redirect;
       } else {
         throw new Error('Network response was not ok');
@@ -362,10 +362,20 @@ function setupForm(formId, statusId, opts = {}) {
   });
 }
 
-setupForm('#contactForm', '#formStatus', { redirect: './thanks-contact.html' });
-setupForm('#applyForm', '#applyStatus', { redirect: './thanks.html' });
+setupForm('#contactForm', '#formStatus', { redirect: './thanks-contact' });
+setupForm('#applyForm', '#applyStatus', { redirect: './thanks' });
 
 // ─── Instagram Feed ─────────────────────────────────────────────────────────
+function escapeHTML(value) {
+  return String(value || '').replace(/[&<>"']/g, (char) => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;',
+  })[char]);
+}
+
 async function renderInstagram() {
   const root = document.getElementById('instagram');
   if (!root) return;
@@ -377,7 +387,14 @@ async function renderInstagram() {
     if (!items.length) throw new Error('empty');
     root.innerHTML = items.map((it) => {
       const href = it.url || data.profile_url || 'https://www.instagram.com/logan.loans';
-      return `<a class="instaCard" href="${href}" target="_blank" rel="noopener" aria-label="${it.alt || 'Instagram post'}"><img src="${it.image}" alt="${it.alt || 'Logan Loans Instagram'}" loading="lazy" decoding="async"/></a>`;
+      return `
+        <a class="instaCard instaPreview" href="${escapeHTML(href)}" target="_blank" rel="noopener" aria-label="${escapeHTML(it.alt || 'Instagram post')}">
+          <span class="instaKicker">${escapeHTML(it.kicker || 'Logan Loans')}</span>
+          <span class="instaTitle">${escapeHTML(it.title || '@logan.loans')}</span>
+          <span class="instaText">${escapeHTML(it.body || 'Mortgage tips, Arizona market notes, and deal momentum from Logan Sullivan.')}</span>
+          <span class="instaHandle">@logan.loans</span>
+        </a>
+      `;
     }).join('');
   } catch {
     root.innerHTML = `<div class="card" style="grid-column:1/-1"><p class="cardText">Follow <a class="uLink" href="https://www.instagram.com/logan.loans" target="_blank" rel="noopener">@logan.loans</a> on Instagram for deal updates and Arizona market insights.</p></div>`;

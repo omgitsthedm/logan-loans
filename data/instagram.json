@@ -3,32 +3,44 @@
   "items": [
     {
       "url": "https://www.instagram.com/logan.loans",
-      "image": "./assets/insta1.svg",
+      "kicker": "Rate clarity",
+      "title": "What buyers should ask before they lock",
+      "body": "Short, plain-English guidance on rate quotes, points, APR, and what actually changes your payment.",
       "alt": "Logan Sullivan breaking down mortgage rates for Arizona buyers — follow @logan.loans"
     },
     {
       "url": "https://www.instagram.com/logan.loans",
-      "image": "./assets/insta2.svg",
+      "kicker": "Investor files",
+      "title": "DSCR without W-2 noise",
+      "body": "Arizona investor loan notes for rental income, entity vesting, reserve requirements, and clean underwriting paths.",
       "alt": "Phoenix real estate tip: how DSCR loans help investors qualify without W-2 income"
     },
     {
       "url": "https://www.instagram.com/logan.loans",
-      "image": "./assets/insta3.svg",
+      "kicker": "First-time buyer",
+      "title": "Pre-approval that holds up",
+      "body": "What Logan checks before you tour, write, or ask your agent to put reputation behind an offer.",
       "alt": "First-time buyer in Arizona? Logan explains what a pre-approval actually means"
     },
     {
       "url": "https://www.instagram.com/logan.loans",
-      "image": "./assets/insta4.svg",
+      "kicker": "Jumbo strategy",
+      "title": "Paradise Valley files need sequencing",
+      "body": "Liquidity, appraisal timing, asset documentation, and lender fit matter more on premium Arizona purchases.",
       "alt": "Jumbo loan closed in Paradise Valley — Logan Sullivan, mortgage advisor NMLS 2466872"
     },
     {
       "url": "https://www.instagram.com/logan.loans",
-      "image": "./assets/insta5.svg",
+      "kicker": "Refinance math",
+      "title": "Do the break-even before the pitch",
+      "body": "A practical way to compare monthly savings, closing costs, cash-out goals, and how long you expect to keep the loan.",
       "alt": "Should you refinance right now? Logan walks through the break-even math"
     },
     {
       "url": "https://www.instagram.com/logan.loans",
-      "image": "./assets/insta6.svg",
+      "kicker": "Relocation",
+      "title": "Scottsdale before the house-hunt",
+      "body": "How relocating buyers can get documents, payment range, and offer strategy ready before flying into Arizona.",
       "alt": "Relocating to Scottsdale? How to get pre-approved before your house-hunting trip"
     }
   ]

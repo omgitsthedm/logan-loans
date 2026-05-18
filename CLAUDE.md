@@ -164,3 +164,4 @@
 | 2026-05-18 | Ultra-premium Arizona Realtor pass | Homepage and partners page repositioned around Arizona Realtor partnerships, Phoenix/Scottsdale/East Valley market language, stronger partner workflow copy, premium visual polish, and quieter motion. |
 | 2026-05-18 | Extensionless URL cleanup | Canonicals, sitemap, llms.txt, internal links, form redirects, and Netlify redirects now consolidate around extensionless https://www.logan.loans paths, with legacy top-level .html URLs redirected. |
 | 2026-05-18 | Accessibility and crawl-quality cleanup | Drawer focus handling, close-button naming, calculator labels, honeypot fields, visible link text, priority page depth, and oversized Arizona images were cleaned up after audit review. |
+| 2026-05-18 | Instagram section hotfix | Homepage Instagram feature now uses branded static social preview cards linking to @logan.loans instead of pale placeholder SVGs or a brittle third-party Instagram embed. |

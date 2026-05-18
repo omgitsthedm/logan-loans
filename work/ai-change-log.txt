@@ -6,6 +6,12 @@
 - Added a Netlify redirect rule to consolidate legacy top-level .html URLs into their matching extensionless pages.
 - Added .netlifyignore and 404 guard redirects so internal project notes and QA artifacts are not served as public site files.
 - Replaced the broad legacy .html redirect with explicit per-page redirects after live smoke testing exposed incorrect Netlify placeholder behavior.
+
+2026-05-18 04:57 MST - Instagram section hotfix.
+
+- Replaced the homepage Instagram placeholder image grid with six branded, text-forward social preview cards linking to https://www.instagram.com/logan.loans.
+- Removed unused insta1.svg through insta6.svg placeholder assets so blank-looking local placeholders cannot reappear.
+- Kept the feature local/static because Instagram does not provide a reliable anonymous public feed without an approved API/widget token, and third-party widgets would add privacy, CSP, and performance risk.
 - Added For Realtors navigation site-wide and adjusted desktop/tablet header behavior to prevent wrapping or overflow.
 - Reworked motion and hover treatment to feel restrained and premium, replacing bouncy effects with quieter transitions and stronger focus states.
 - Fixed accessibility issues around drawer focus handling, close-button naming, calculator labels, honeypot fields, and mismatched visible link text.
