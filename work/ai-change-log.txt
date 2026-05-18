@@ -12,6 +12,11 @@
 - Replaced the homepage Instagram placeholder image grid with six branded, text-forward social preview cards linking to https://www.instagram.com/logan.loans.
 - Removed unused insta1.svg through insta6.svg placeholder assets so blank-looking local placeholders cannot reappear.
 - Kept the feature local/static because Instagram does not provide a reliable anonymous public feed without an approved API/widget token, and third-party widgets would add privacy, CSP, and performance risk.
+
+2026-05-18 05:08 MST - Header navigation hotfix.
+
+- Added Home as the first primary navigation item across the desktop header and mobile drawer on all static pages.
+- Marked the homepage Home nav item as the current page for screen readers.
 - Added For Realtors navigation site-wide and adjusted desktop/tablet header behavior to prevent wrapping or overflow.
 - Reworked motion and hover treatment to feel restrained and premium, replacing bouncy effects with quieter transitions and stronger focus states.
 - Fixed accessibility issues around drawer focus handling, close-button naming, calculator labels, honeypot fields, and mismatched visible link text.
