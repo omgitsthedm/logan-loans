@@ -32,5 +32,6 @@
 - Added a real about.html page and restored /about as an indexable E-E-A-T/company page instead of redirecting to /meet-logan.
 - Added /about to sitemap.xml and llms.txt for crawler and AI-answer discovery.
 - Repaired blog.html BlogPosting structured data with image, publisher logo/name, dateModified, actual article URLs, and the missing first-time buyer article schema.
+- Tightened Organization logo values to URL strings for the site validator and added missing LocalBusiness address objects to priority city pages.
 - Fixed small audit issues: clearer premium-market CTA text, h2 before tools card headings, and explicit author image dimensions on three blog posts.
 - Added work/logan-seo-aeo-intake.md with the assets and account access Logan needs to provide for serious Google Search and AI-search performance.
