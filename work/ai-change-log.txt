@@ -24,3 +24,13 @@
 - Optimized oversized Arizona imagery and verified JSON-LD parsing, sitemap XML validity, layout screenshots, and local audit improvements.
 - Updated CLAUDE.md with the new form inventory entries and the 2026-05-18 implementation decisions.
 - No GitHub push or Netlify deploy was performed.
+
+2026-05-19 00:12 MST - SEO/AEO production cleanup and form-routing verification.
+
+- Verified Netlify Forms are registered for apply, preapproval, general-contact, partner-referral, and newsletter.
+- Updated the Netlify submission notification hook to route form emails to logan@forward.loans.
+- Added a real about.html page and restored /about as an indexable E-E-A-T/company page instead of redirecting to /meet-logan.
+- Added /about to sitemap.xml and llms.txt for crawler and AI-answer discovery.
+- Repaired blog.html BlogPosting structured data with image, publisher logo/name, dateModified, actual article URLs, and the missing first-time buyer article schema.
+- Fixed small audit issues: clearer premium-market CTA text, h2 before tools card headings, and explicit author image dimensions on three blog posts.
+- Added work/logan-seo-aeo-intake.md with the assets and account access Logan needs to provide for serious Google Search and AI-search performance.

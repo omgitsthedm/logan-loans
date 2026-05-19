@@ -89,11 +89,6 @@
   status = 301
 
 [[redirects]]
-  from = "/about"
-  to = "/meet-logan"
-  status = 301
-
-[[redirects]]
   from = "/loans"
   to = "/programs"
   status = 301
@@ -133,6 +128,12 @@
 [[redirects]]
   from = "/apply.html"
   to = "/apply"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/about.html"
+  to = "/about"
   status = 301
   force = true
 

@@ -67,7 +67,8 @@
 | programs.html | Loan product catalog |
 | apply.html | Pre-approval form (primary conversion) |
 | contact.html | General contact + intake form |
-| about.html → meet-logan.html | Founder story |
+| about.html | About Logan Loans / E-E-A-T company page |
+| meet-logan.html | Founder story and advisor bio |
 | faq.html | FAQ with FAQPage schema |
 | blog.html | Content hub |
 | funded-deals.html | Deal showcase / social proof |
@@ -166,3 +167,5 @@
 | 2026-05-18 | Accessibility and crawl-quality cleanup | Drawer focus handling, close-button naming, calculator labels, honeypot fields, visible link text, priority page depth, and oversized Arizona images were cleaned up after audit review. |
 | 2026-05-18 | Instagram section hotfix | Homepage Instagram feature now uses branded static social preview cards linking to @logan.loans instead of pale placeholder SVGs or a brittle third-party Instagram embed. |
 | 2026-05-18 | Home nav item added | Home now appears first in the desktop primary nav and mobile drawer across the static site, with aria-current on the homepage. |
+| 2026-05-19 | SEO/AEO production cleanup | Added a real /about page, restored /about from redirect to indexable page, added /about to sitemap and llms.txt, repaired blog hub BlogPosting schema with images/publisher/dateModified, added missing post schema, fixed minor audit warnings on tools, premium-markets, and blog author images, and documented Logan's SEO/AEO intake requirements. |
+| 2026-05-19 | Netlify form notification verified | Netlify Forms are registered for apply, preapproval, general-contact, partner-referral, and newsletter. Production submission hook now sends to logan@forward.loans. |
