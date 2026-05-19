@@ -30,6 +30,7 @@
 - Verified Netlify Forms are registered for apply, preapproval, general-contact, partner-referral, and newsletter.
 - Updated the Netlify submission notification hook to route form emails to logan@forward.loans.
 - Added a real about.html page and restored /about as an indexable E-E-A-T/company page instead of redirecting to /meet-logan.
+- Linked /about from the homepage footer so crawlers can discover the About page from the root URL even before the www DNS/canonical alignment is finished.
 - Added /about to sitemap.xml and llms.txt for crawler and AI-answer discovery.
 - Repaired blog.html BlogPosting structured data with image, publisher logo/name, dateModified, actual article URLs, and the missing first-time buyer article schema.
 - Tightened Organization logo values to URL strings for the site validator and added missing LocalBusiness address objects to priority city pages.
