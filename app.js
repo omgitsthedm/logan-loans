@@ -38,6 +38,23 @@ function getConsent() {
   return localStorage.getItem(CONSENT_KEY);
 }
 
+function ensureGoogleConsentLayer() {
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = window.gtag || function gtag() { window.dataLayer.push(arguments); };
+  return window.gtag;
+}
+
+function updateGoogleConsent(granted) {
+  const gtag = ensureGoogleConsentLayer();
+  const state = granted ? 'granted' : 'denied';
+  gtag('consent', 'update', {
+    ad_storage: state,
+    ad_user_data: state,
+    ad_personalization: state,
+    analytics_storage: state,
+  });
+}
+
 function setConsent(granted) {
   localStorage.setItem(CONSENT_KEY, granted ? 'granted' : 'denied');
   const banner = document.getElementById('consentBanner');
@@ -46,11 +63,13 @@ function setConsent(granted) {
     banner.style.transform = 'translateY(120%)';
     setTimeout(() => banner.remove(), 400);
   }
+  updateGoogleConsent(granted);
   if (granted) loadTracking();
 }
 
 function loadTracking() {
   if (!TRACKING.ga4 || typeof window.__trackingLoaded !== 'undefined') return;
+  updateGoogleConsent(true);
   window.__trackingLoaded = true;
 
   if (TRACKING.gtm) {
@@ -63,10 +82,7 @@ function loadTracking() {
       f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', TRACKING.gtm);
   } else if (TRACKING.ga4) {
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    window.gtag = gtag;
-    gtag('consent', 'update', { analytics_storage: 'granted', ad_storage: 'granted' });
+    const gtag = ensureGoogleConsentLayer();
     var s = document.createElement('script');
     s.async = true;
     s.src = 'https://www.googletagmanager.com/gtag/js?id=' + TRACKING.ga4;
@@ -80,8 +96,10 @@ function loadTracking() {
 
 function buildConsentBanner() {
   if (navigator.webdriver) return; // skip in Lighthouse
-  if (getConsent() !== null) {
-    if (getConsent() === 'granted') loadTracking();
+  const storedConsent = getConsent();
+  if (storedConsent !== null) {
+    updateGoogleConsent(storedConsent === 'granted');
+    if (storedConsent === 'granted') loadTracking();
     return;
   }
 
