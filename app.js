@@ -394,28 +394,50 @@ function escapeHTML(value) {
   })[char]);
 }
 
+const INSTAGRAM_PROFILE_URL = 'https://www.instagram.com/logan.loans';
+
+function renderInstagramItems(items, profileUrl = INSTAGRAM_PROFILE_URL) {
+  return items.map((it) => {
+    const href = it.url || profileUrl;
+    return `
+      <a class="instaCard instaPreview" href="${escapeHTML(href)}" target="_blank" rel="noopener" aria-label="${escapeHTML(it.alt || 'Instagram post')}">
+        <span class="instaKicker">${escapeHTML(it.kicker || 'Logan Loans')}</span>
+        <span class="instaTitle">${escapeHTML(it.title || '@logan.loans')}</span>
+        <span class="instaText">${escapeHTML(it.body || 'Mortgage tips, Arizona market notes, and deal momentum from Logan Sullivan.')}</span>
+        <span class="instaHandle">@logan.loans</span>
+      </a>
+    `;
+  }).join('');
+}
+
+function markInstagramReady(root, state) {
+  root.classList.add('is-ready');
+  root.dataset.feedState = state;
+}
+
 async function renderInstagram() {
   const root = document.getElementById('instagram');
   if (!root) return;
+  markInstagramReady(root, root.children.length ? 'static' : 'loading');
   try {
     const res = await fetch('./data/instagram.json', { cache: 'no-store' });
     if (!res.ok) throw new Error('not found');
     const data = await res.json();
     const items = Array.isArray(data.items) ? data.items.slice(0, 6) : [];
     if (!items.length) throw new Error('empty');
-    root.innerHTML = items.map((it) => {
-      const href = it.url || data.profile_url || 'https://www.instagram.com/logan.loans';
-      return `
-        <a class="instaCard instaPreview" href="${escapeHTML(href)}" target="_blank" rel="noopener" aria-label="${escapeHTML(it.alt || 'Instagram post')}">
-          <span class="instaKicker">${escapeHTML(it.kicker || 'Logan Loans')}</span>
-          <span class="instaTitle">${escapeHTML(it.title || '@logan.loans')}</span>
-          <span class="instaText">${escapeHTML(it.body || 'Mortgage tips, Arizona market notes, and deal momentum from Logan Sullivan.')}</span>
-          <span class="instaHandle">@logan.loans</span>
-        </a>
-      `;
-    }).join('');
+    root.innerHTML = renderInstagramItems(items, data.profile_url || INSTAGRAM_PROFILE_URL);
+    markInstagramReady(root, 'json');
   } catch {
-    root.innerHTML = `<div class="card" style="grid-column:1/-1"><p class="cardText">Follow <a class="uLink" href="https://www.instagram.com/logan.loans" target="_blank" rel="noopener">@logan.loans</a> on Instagram for deal updates and Arizona market insights.</p></div>`;
+    if (!root.children.length) {
+      root.innerHTML = renderInstagramItems([{
+        url: INSTAGRAM_PROFILE_URL,
+        kicker: 'Follow along',
+        title: '@logan.loans',
+        body: 'Mortgage tips, Arizona market notes, and deal momentum from Logan Sullivan.',
+        alt: 'Follow Logan Loans on Instagram',
+      }]);
+    }
+    markInstagramReady(root, 'fallback');
   }
 }
 
