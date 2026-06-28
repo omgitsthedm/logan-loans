@@ -61,6 +61,19 @@
   status = 404
   force = true
 
+# AI-Ops: keep internal docs private (publish = ".")
+[[redirects]]
+  from = "/.ai/*"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/AGENTS.md"
+  to = "/404"
+  status = 404
+  force = true
+
 [[redirects]]
   from = "/.impeccable.md"
   to = "/404"

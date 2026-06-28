@@ -1,4 +1,6 @@
 # Logan Loans — CLAUDE.md
+> AI-Ops onboarded 2026-06-28 — read `.ai/RULES.md` + `.ai/STATE.md` first (authoritative, generated).
+> `git push` to `master` = production deploy (gated). Compliance-sensitive NMLS/rate/disclosure copy — do not change without approval.
 
 ## Client Config
 
