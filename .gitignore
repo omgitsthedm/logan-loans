@@ -1,7 +1,26 @@
-.DS_Store
-.netlify/
-node_modules/
-.env
-.env.local
-*.log
+
+!.env.example
+!.env.sample
+.cache/
 .claude/
+.DS_Store
+.env
+.env.*
+.env.local
+.netlify/
+.next/
+.vercel/
+*.env
+*.log
+*.zip
+# --- dependencies / build output ---
+# --- local cruft ---
+# --- secrets (NEVER commit) ---
+backup/
+build/
+coverage/
+dist-*/
+dist/
+node_modules/
+out/
+tmp/
