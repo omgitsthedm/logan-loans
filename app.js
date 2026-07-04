@@ -1,12 +1,12 @@
 // Logan Loans — app.js
-// Replace TRACKING_GA4_ID and TRACKING_GTM_ID with real values when Logan provides them.
+// Tracking is active. GA4 is direct-loaded after consent; GTM container is prepared for a later switch if needed.
 
 // ─── Tracking Config ───────────────────────────────────────────────────────
 const TRACKING = {
-  ga4: '',        // e.g. 'G-XXXXXXXXXX' — replace when Logan provides
-  gtm: '',        // e.g. 'GTM-XXXXXXX'  — replace when Logan provides
-  adsApply: '',   // Google Ads conversion ID for apply form submit
-  adsContact: '', // Google Ads conversion ID for contact form submit
+  ga4: 'G-VP8CWM9B50', // Little Fight-managed Logan Loans GA4
+  gtm: '',             // GTM-MTWF64T2 is ready, but direct GA4 is active to avoid duplicate firing
+  adsApply: '',        // Google Ads conversion ID for apply form submit
+  adsContact: '',      // Google Ads conversion ID for contact form submit
 };
 
 // ─── UTM Capture ───────────────────────────────────────────────────────────
@@ -65,6 +65,15 @@ function setConsent(granted) {
   }
   updateGoogleConsent(granted);
   if (granted) loadTracking();
+}
+
+function trackEvent(eventName, params = {}) {
+  const safeParams = Object.assign({
+    page_path: window.location.pathname,
+    event_category: 'lead_engagement',
+  }, params);
+  const gtag = ensureGoogleConsentLayer();
+  gtag('event', eventName, safeParams);
 }
 
 function loadTracking() {
@@ -143,6 +152,27 @@ function buildConsentBanner() {
 }
 
 document.addEventListener('DOMContentLoaded', buildConsentBanner);
+
+function setupConversionClickTracking() {
+  document.addEventListener('click', (event) => {
+    const link = event.target.closest && event.target.closest('a[href]');
+    if (!link) return;
+    const href = link.getAttribute('href') || '';
+    const label = (link.innerText || link.getAttribute('aria-label') || '').trim().slice(0, 80);
+    const combined = (href + ' ' + label).toLowerCase();
+
+    if (href.startsWith('tel:')) return trackEvent('phone_click', { link_url: href });
+    if (href.startsWith('mailto:')) return trackEvent('email_click', { link_url: href });
+    if (/\/apply|pre.?approved|pre.?approval|loan application/.test(combined)) {
+      return trackEvent('loan_apply_start', { link_url: href });
+    }
+    if (/contact|consult|quote|question|talk to logan/.test(combined)) {
+      return trackEvent('contact_click', { link_url: href });
+    }
+  }, true);
+}
+
+document.addEventListener('DOMContentLoaded', setupConversionClickTracking);
 
 // ─── Drawer Navigation ─────────────────────────────────────────────────────
 const navToggle = document.querySelector('[data-nav-toggle]');
@@ -365,7 +395,18 @@ function setupForm(formId, statusId, opts = {}) {
     }).then(response => {
       if (response.ok) {
         const redirect = opts.redirect || './thanks-contact';
-        window.location.href = redirect;
+        let didRedirect = false;
+        const go = () => {
+          if (didRedirect) return;
+          didRedirect = true;
+          window.location.href = redirect;
+        };
+        trackEvent(opts.eventName || 'form_submit', {
+          form_id: form.id || 'form',
+          event_callback: go,
+          event_timeout: 600,
+        });
+        setTimeout(go, 700);
       } else {
         throw new Error('Network response was not ok');
       }
@@ -380,8 +421,8 @@ function setupForm(formId, statusId, opts = {}) {
   });
 }
 
-setupForm('#contactForm', '#formStatus', { redirect: './thanks-contact' });
-setupForm('#applyForm', '#applyStatus', { redirect: './thanks' });
+setupForm('#contactForm', '#formStatus', { redirect: './thanks-contact', eventName: 'contact_form_submit' });
+setupForm('#applyForm', '#applyStatus', { redirect: './thanks', eventName: 'loan_form_submit' });
 
 // ─── Instagram Feed ─────────────────────────────────────────────────────────
 function escapeHTML(value) {

@@ -12,7 +12,7 @@ Last updated: 2026-05-19
    - Needed to submit `https://www.logan.loans/sitemap.xml`, inspect priority URLs, monitor indexing, and track queries that already have impressions.
 
 3. GA4 measurement ID
-   - The site has GA4 placeholders only. Provide the measurement ID in the format `G-XXXXXXXXXX`.
+   - The site now has Little Fight-managed GA4 measurement ID `G-VP8CWM9B50`; GTM container `GTM-MTWF64T2` is ready, while direct GA4 is active in source.
    - Needed for conversion tracking across apply, contact, partner-referral, newsletter, and phone-click events.
 
 4. Google Business Profile access

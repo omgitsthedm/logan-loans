@@ -111,10 +111,10 @@
 
 ## Tracking (pending client input)
 
-- GA4 Measurement ID: **NEEDED from Logan** (format: G-XXXXXXXXXX)
-- GTM Container ID: **NEEDED from Logan** (format: GTM-XXXXXXX)
+- GA4 Measurement ID: **G-VP8CWM9B50**
+- GTM Container ID: **GTM-MTWF64T2** created, not installed directly in source yet
 - Google Ads Conversion IDs: **NEEDED from Logan**
-- Once received, replace placeholders in `<head>` of all pages
+- Tracking is centralized in `app.js`; avoid re-adding per-page placeholder snippets.
 
 ## Performance Targets
 
