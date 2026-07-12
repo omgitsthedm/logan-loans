@@ -47,7 +47,7 @@
 
 - `.env`/secrets; NMLS/license/rate/APR/disclosure copy without approval.
 - The forced `→ 404` redirects (keep internal docs private); CSP iframe allowlist.
-- `git push` to `master` (= production deploy) without `APPROVE LIVE CHANGE`.
+- `git push` to `master` (= production deploy) without clear, scoped confirmation from David.
 
 ## Proposed Changes / Inbox
 

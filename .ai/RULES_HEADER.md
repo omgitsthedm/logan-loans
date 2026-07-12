@@ -45,7 +45,7 @@ Static HTML/CSS/JS (~70 pages: scenario/location/blog/tools). No framework, no b
 - Dev / preview: serve the folder statically (e.g. `npx serve .` or Netlify dev); no build needed.
 - Build: none (`publish = "."`, static).
 - Lint/format: none defined.
-- Deploy: `git push origin master` → Netlify auto-publishes (push = production deploy → gated by `APPROVE LIVE CHANGE`).
+- Deploy: `git push origin master` → Netlify auto-publishes (push = production deploy → gated by clear, scoped confirmation from David).
 
 ## Locked Rules
 
