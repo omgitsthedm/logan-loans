@@ -210,7 +210,7 @@
         <form name="preapproval" method="POST" data-netlify="true" netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="preapproval" />
           <p class="visually-hidden">
-            <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+            <label>Don't fill this out if you're human: <input type="text" name="bot-field" tabindex="-1" autocomplete="off" /></label>
           </p>
 
           <div class="formGrid">
@@ -319,7 +319,7 @@
       <form name="general-contact" method="POST" data-netlify="true" netlify-honeypot="bot-field-2">
         <input type="hidden" name="form-name" value="general-contact" />
         <p class="visually-hidden">
-          <label>Don't fill this out if you're human: <input name="bot-field-2" /></label>
+          <label>Don't fill this out if you're human: <input type="text" name="bot-field-2" tabindex="-1" autocomplete="off" /></label>
         </p>
 
         <div class="formGrid">
@@ -396,8 +396,8 @@
   <a class="btn btnPrimary mobileBarBtn" href="./apply" aria-label="Get pre-approved">Pre-Approve</a>
 </div>
 
-<link rel="stylesheet" href="./styles.css" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="./styles.css"></noscript>
-<script src="./app.js?v=20260704-tracking" defer></script>
+<link rel="stylesheet" href="./styles.css?v=20260720-polish" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="./styles.css?v=20260720-polish"></noscript>
+<script src="./app.js?v=20260720-polish" defer></script>
 </body>
 </html>

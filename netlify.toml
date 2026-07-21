@@ -75,6 +75,18 @@
   force = true
 
 [[redirects]]
+  from = "/SOURCE_OF_TRUTH.md"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/Logan Loans Content Media/*"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
   from = "/.impeccable.md"
   to = "/404"
   status = 404
@@ -475,4 +487,5 @@
   force = true
 
 [build]
-  publish = "."
+  command = "bash scripts/build-site.sh"
+  publish = "dist"

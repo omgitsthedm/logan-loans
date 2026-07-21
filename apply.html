@@ -166,7 +166,7 @@
 
               <form id="applyForm" name="apply" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="./thanks">
                 <input type="hidden" name="form-name" value="apply" />
-                <p class="visually-hidden"><label>Don't fill this out: <input name="bot-field" tabindex="-1" /></label></p>
+                <p class="visually-hidden"><label>Don't fill this out: <input type="text" name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
 
                 <!-- UTM hidden inputs -->
                 <input type="hidden" name="utm_source" />
@@ -408,8 +408,8 @@
     <a class="btn btnPrimary mobileBarBtn" href="#applyForm">Apply Now</a>
   </div>
 
-  <link rel="stylesheet" href="./styles.css" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="./styles.css"></noscript>
-  <script src="./app.js?v=20260704-tracking" defer></script>
+  <link rel="stylesheet" href="./styles.css?v=20260720-polish" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="./styles.css?v=20260720-polish"></noscript>
+  <script src="./app.js?v=20260720-polish" defer></script>
 </body>
 </html>

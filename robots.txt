@@ -36,7 +36,4 @@ Allow: /
 User-agent: Bytespider
 Allow: /
 
-# AI optimization
-AI-context: llms.txt
-
 Sitemap: https://www.logan.loans/sitemap.xml

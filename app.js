@@ -60,8 +60,9 @@ function setConsent(granted) {
   const banner = document.getElementById('consentBanner');
   if (banner) {
     banner.setAttribute('aria-hidden', 'true');
-    banner.style.transform = 'translateY(120%)';
-    setTimeout(() => banner.remove(), 400);
+    banner.classList.add('is-leaving');
+    document.body.classList.remove('has-consent-banner');
+    setTimeout(() => banner.remove(), 240);
   }
   updateGoogleConsent(granted);
   if (granted) loadTracking();
@@ -120,31 +121,12 @@ function buildConsentBanner() {
     <div class="consentInner">
       <p class="consentText">We use cookies to understand how visitors use our site and improve your experience. <a href="./privacy" class="uLink">Privacy Policy</a></p>
       <div class="consentActions">
-        <button type="button" class="btn btnSecondary consentBtn" id="consentDeny" style="padding:10px 20px;font-size:15px;">Decline</button>
-        <button type="button" class="btn btnPrimary consentBtn" id="consentAccept" style="padding:10px 20px;font-size:15px;">Accept</button>
+        <button type="button" class="btn btnSecondary consentBtn" id="consentDeny">Decline</button>
+        <button type="button" class="btn btnPrimary consentBtn" id="consentAccept">Accept</button>
       </div>
     </div>
   `;
-  Object.assign(banner.style, {
-    position: 'fixed',
-    bottom: '0',
-    left: '0',
-    right: '0',
-    zIndex: '1000',
-    background: 'rgba(251,247,239,0.98)',
-    borderTop: '1px solid var(--border)',
-    padding: '16px 20px',
-    boxShadow: '0 -8px 32px rgba(22,90,63,0.12)',
-    backdropFilter: 'blur(12px)',
-    WebkitBackdropFilter: 'blur(12px)',
-    transform: 'translateY(0)',
-    transition: 'transform 400ms cubic-bezier(0.2,0.8,0.2,1)',
-  });
-
-  const style = document.createElement('style');
-  style.textContent = `.consentInner{max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:space-between}.consentText{margin:0;font-size:15px;color:var(--muted);flex:1;min-width:200px}.consentActions{display:flex;gap:10px;flex-shrink:0}`;
-  document.head.appendChild(style);
-
+  document.body.classList.add('has-consent-banner');
   document.body.appendChild(banner);
 
   document.getElementById('consentAccept').addEventListener('click', () => setConsent(true));
@@ -184,6 +166,7 @@ function openDrawer() {
   drawer.classList.add('is-open');
   drawer.removeAttribute('inert');
   navToggle?.setAttribute('aria-expanded', 'true');
+  document.body.classList.add('drawer-open');
   document.body.style.overflow = 'hidden';
   drawerClose?.focus();
 }
@@ -193,6 +176,7 @@ function closeDrawer() {
   drawer.classList.remove('is-open');
   drawer.setAttribute('inert', '');
   navToggle?.setAttribute('aria-expanded', 'false');
+  document.body.classList.remove('drawer-open');
   document.body.style.overflow = '';
   navToggle?.focus();
 }
@@ -213,7 +197,14 @@ document.addEventListener('keydown', (e) => {
 
 // ─── Section Reveal ────────────────────────────────────────────────────────
 const sections = document.querySelectorAll('[data-observe]');
-if (sections.length && 'IntersectionObserver' in window) {
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (sections.length && 'IntersectionObserver' in window && !reducedMotion) {
+  sections.forEach((section) => {
+    if (section.getBoundingClientRect().top < window.innerHeight * 1.15) {
+      section.classList.add('is-visible');
+    }
+  });
+  document.documentElement.classList.add('motion-ready');
   const io = new IntersectionObserver((entries) => {
     for (const e of entries) {
       if (e.isIntersecting) {
@@ -222,7 +213,11 @@ if (sections.length && 'IntersectionObserver' in window) {
       }
     }
   }, { threshold: 0.12 });
-  sections.forEach(s => io.observe(s));
+  sections.forEach((section) => {
+    if (!section.classList.contains('is-visible')) io.observe(section);
+  });
+} else {
+  sections.forEach((section) => section.classList.add('is-visible'));
 }
 
 // ─── Animated Counters ─────────────────────────────────────────────────────
@@ -441,7 +436,7 @@ function renderInstagramItems(items, profileUrl = INSTAGRAM_PROFILE_URL) {
   return items.map((it) => {
     const href = it.url || profileUrl;
     return `
-      <a class="instaCard instaPreview" href="${escapeHTML(href)}" target="_blank" rel="noopener" aria-label="${escapeHTML(it.alt || 'Instagram post')}">
+      <a class="instaCard instaPreview" href="${escapeHTML(href)}" target="_blank" rel="noopener">
         <span class="instaKicker">${escapeHTML(it.kicker || 'Logan Loans')}</span>
         <span class="instaTitle">${escapeHTML(it.title || '@logan.loans')}</span>
         <span class="instaText">${escapeHTML(it.body || 'Mortgage tips, Arizona market notes, and deal momentum from Logan Sullivan.')}</span>

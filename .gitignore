@@ -8,6 +8,7 @@
 .env.*
 .env.local
 .netlify/
+.playwright-cli/
 .next/
 .vercel/
 *.env
