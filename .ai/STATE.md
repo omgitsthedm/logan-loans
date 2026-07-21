@@ -28,13 +28,14 @@
 - Live URL: `https://www.logan.loans` (canonical). Netlify primary `https://logan.loans`; project `loganloans`; site id `a9776112-531e-4ca2-ba17-9338b8eef423`.
 - Netlify is not Git-linked: provider/repo/production-branch/build settings are unreported/null and recent production deploys are manual. Git push and production deploy are separate release steps.
 - Safe publish rail: `bash scripts/build-site.sh` creates ignored `dist/`; Netlify builds and publishes `dist`, not the repository root. Raw client media and internal operational docs are absent from the artifact and protected paths return 404.
-- Ready deploy preview: `6a5ef3d04c2899b3815dcc0b` (`state=ready`, `context=deploy-preview`). Homepage/CSS/JS hashes match the reviewed local files.
+- Production deploy: `6a5ef4b9f002f06bbb509158` (`state=ready`, `context=production`, published 2026-07-21T04:25:32Z). Homepage/CSS/JS hashes match release commit `7a6919a`.
+- Validated deploy preview: `6a5ef3d04c2899b3815dcc0b` (`state=ready`, `context=deploy-preview`). The earlier unsafe preview `6a5ef2dd4187934abfb8f9a1` was deleted and its URL now returns 404.
 - Netlify Forms registered: `apply`, `preapproval`, `general-contact`, `partner-referral`, and legacy `newsletter`. No test lead was submitted.
-- Production QA status: preview passed; authorized production publish and live verification remain in `QA-PENDING` until executed.
+- Production QA status: passed. Live homepage Lighthouse: 100 performance / 100 accessibility / 100 best practices / 100 SEO; live refinance calculator: 100 accessibility / 100 SEO. Core routes, forms registry, protected paths, raw-media path, headers, responsive layouts, reveal completion, application validation, and calculator interaction verified.
 
 ## Repo State
 
-- Release work is on `chore/plain-language-live-confirmation-20260711`, based two commits ahead of `master`; it includes the previously unpublished plain-language agent-rule updates plus the audited site release.
+- `master` and `origin/master` include the previously unpublished plain-language agent-rule updates and audited site release at `7a6919a`; release branch `chore/plain-language-live-confirmation-20260711` points to the same release commit.
 - BankingBridge calculator iframes + Forward Loans homepage frame allowed in CSP (netlify.toml).
 - Site remains static HTML/CSS/JavaScript: 58 HTML pages, shared `styles.css`/`app.js`, safe allowlisted publish script, no package manager dependency.
 
@@ -45,9 +46,8 @@
 
 ## QA-PENDING
 
-- Publish the validated commit to GitHub `master`, run the manual Netlify production deploy, and confirm the live deploy is `ready` with reviewed HTML/CSS/JS hashes.
-- Verify live protected paths, raw media path, key routes, cache headers, forms registry, console, mobile/desktop layout, and Lighthouse after production publish.
 - `disclosures.html` still contains client-supplied placeholder text for the AZ Mortgage Banker License and CA-DFPI License numbers. Do not invent or remove it; obtain the actual client/compliance-approved values before changing disclosure copy.
+- Regenerate the stale generated AI-Ops rule after its source header is corrected to describe safe `dist` publishing and manual Netlify release mechanics.
 
 ## Do Not Touch
 
@@ -61,13 +61,12 @@
 
 ## Next Steps Queue
 
-- Complete production release and live verification.
 - Obtain compliance-approved AZ and CA license values for the two disclosure placeholders.
 - Regenerate the generated AI-Ops rules after the source header is corrected.
 
 ## Recent Session History
 
-- 2026-07-20: Codex completed a full Logan Loans code/UI/UX/design/accessibility/performance/publishing audit and implementation pass. Fixed no-JS/reduced-motion blank-content risk, mobile hero ordering, consent/mobile-CTA and drawer collisions, CTA/verdict contrast, dead anchors, Instagram accessible names, missing blog headshots, robots validity, logo crop, honeypot markup, raw-media exposure, and cache versioning across 57 customer-facing HTML documents. Structural audit: 58 HTML files, zero broken links/anchors/duplicate IDs/missing assets. Local Lighthouse homepage 99/100/100/100 (performance/accessibility/best practices/SEO); apply/contact/calculator/affordability 100 accessibility/SEO; refinance corrected to 100/100 on the safe preview except expected preview-level noindex. No real form submission.
+- 2026-07-20: Codex completed a full Logan Loans code/UI/UX/design/accessibility/performance/publishing audit and implementation pass. Fixed no-JS/reduced-motion blank-content risk, mobile hero ordering, consent/mobile-CTA and drawer collisions, CTA/verdict contrast, dead anchors, Instagram accessible names, missing blog headshots, robots validity, logo crop, honeypot markup, raw-media exposure, and cache versioning across 57 customer-facing HTML documents. Structural audit: 58 HTML files, zero broken links/anchors/duplicate IDs/missing assets. Production deploy `6a5ef4b9f002f06bbb509158` is ready and byte-matches release `7a6919a`; live Lighthouse homepage 100/100/100/100, live refinance 100 accessibility/SEO. No real form submission.
 - 2026-06-28: Claude onboarded Logan Loans to AI-Ops (handoff-ready). Created `.ai/{LOCK,RULES_HEADER,RULES,STATE}.md` + AGENTS pointer; prepended AI-Ops pointer to existing CLAUDE.md; added forced `/.ai/*` + `/AGENTS.md` → 404 redirects to netlify.toml (`/CLAUDE.md` already blocked). No source/content change. Static site, branch `master`.
 
 ## Next Agent Directive
