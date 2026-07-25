@@ -2291,6 +2291,730 @@ body{ padding-bottom: 100px; }
 }
 
 /* ============================================
+   2026 PRESERVE-MODE EXPERIENCE SYSTEM
+   Calm, useful motion with content always visible.
+   ============================================ */
+
+/* Essential content is never hidden while JS, CSS, or an observer catches up. */
+.motion-ready .section:not(.is-visible) .card,
+.motion-ready .section:not(.is-visible) .step,
+.motion-ready .section:not(.is-visible) .quote,
+.motion-ready .section:not(.is-visible) .reviewCard,
+.motion-ready .section:not(.is-visible) .pathCard,
+.motion-ready .section:not(.is-visible) .investorCard,
+.motion-ready .section:not(.is-visible) .arizonaItem,
+.motion-ready .section:not(.is-visible) .instaCard,
+.motion-ready .section:not(.is-visible) .formCard,
+.motion-ready .section:not(.is-visible) .investorSection,
+.motion-ready .section:not(.is-visible) .investorBlock,
+.motion-ready .section:not(.is-visible) .loganSplit,
+.motion-ready .section:not(.is-visible) .ctaBand,
+.motion-ready .section:not(.is-visible) .porch {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes llReveal {
+  from { opacity: 0.72; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.section.is-visible .card,
+.section.is-visible .step,
+.section.is-visible .quote,
+.section.is-visible .reviewCard,
+.section.is-visible .pathCard,
+.section.is-visible .investorCard,
+.section.is-visible .arizonaItem,
+.section.is-visible .instaCard,
+.section.is-visible .formCard,
+.section.is-visible .investorSection,
+.section.is-visible .investorBlock,
+.section.is-visible .loganSplit,
+.section.is-visible .ctaBand,
+.section.is-visible .porch {
+  animation: llReveal 520ms var(--easePremium) both;
+}
+
+.section.is-visible :is(
+  .card,
+  .step,
+  .quote,
+  .reviewCard,
+  .pathCard,
+  .investorCard,
+  .arizonaItem,
+  .instaCard
+):nth-child(2) { animation-delay: 55ms; }
+
+.section.is-visible :is(
+  .card,
+  .step,
+  .quote,
+  .reviewCard,
+  .pathCard,
+  .investorCard,
+  .arizonaItem,
+  .instaCard
+):nth-child(3) { animation-delay: 110ms; }
+
+.section.is-visible :is(
+  .card,
+  .pathCard,
+  .arizonaItem,
+  .instaCard
+):nth-child(n+4) { animation-delay: 165ms; }
+
+/* Remove competing ambient loops. The presence dot remains the one live signal. */
+.doorSheen,
+.pathLine,
+.pathDot,
+.porchPulse,
+.btnPrimary:hover::after {
+  animation: none;
+}
+.doorSheen {
+  opacity: 0.16;
+  transform: translateX(18%) rotate(0.001deg);
+}
+.pathLine { stroke-dashoffset: 0; }
+
+/* Headings and controls should settle once, not animate in several directions. */
+.section.is-visible .kicker,
+.section.is-visible .h1,
+.section.is-visible .h2,
+.section.is-visible .stepNum,
+.section.is-visible .arizonaItem img,
+.section.is-visible .chip {
+  opacity: 1;
+  transform: none;
+  animation: none;
+}
+
+.btn,
+.chip,
+.pathCard,
+.toolCard,
+.answerCard,
+.faqBtn,
+.navLinks a,
+.drawerLink,
+.navToggle {
+  transition:
+    transform var(--tFast) var(--easePremium),
+    box-shadow var(--tFast) var(--easePremium),
+    border-color var(--tFast) var(--ease),
+    background-color var(--tFast) var(--ease),
+    color var(--tFast) var(--ease);
+}
+
+.btn:active,
+.chip:active,
+.pathCard:active,
+.toolCard:active,
+.answerCard:active {
+  transform: translateY(1px) scale(0.985);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .pathCard:hover,
+  .toolCard:hover,
+  .answerCard:hover {
+    transform: translateY(-4px);
+    border-color: rgba(22,90,63,0.36);
+    box-shadow: var(--shadowHover);
+  }
+}
+
+/* The home page stays editorial, but reaches the next decision faster. */
+.home-page .section {
+  padding-top: 68px;
+  padding-bottom: 68px;
+}
+.home-page .section + .section {
+  border-top: 1px solid rgba(22,90,63,0.055);
+}
+.home-page .darkBand + .section,
+.home-page .section:has(.ctaBand) + .section {
+  border-top: 0;
+}
+
+.decisionNote {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: 15px;
+}
+.decisionNote::before {
+  content: "";
+  width: 24px;
+  height: 1px;
+  background: var(--mint);
+}
+
+/* A one-time mortgage flight path: orientation without dashboard theater. */
+.processJourney {
+  position: relative;
+  isolation: isolate;
+  padding-top: 28px;
+}
+.processJourney::before,
+.processJourney::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 8%;
+  right: 8%;
+  top: 52px;
+  height: 3px;
+  border-radius: 99px;
+}
+.processJourney::before {
+  background: rgba(22,90,63,0.12);
+}
+.processJourney::after {
+  background: linear-gradient(90deg, var(--mint), var(--primary), var(--apricot));
+  transform: scaleX(0);
+  transform-origin: left;
+}
+.section.is-visible .processJourney::after {
+  animation: llPathDraw 900ms var(--easePremium) 120ms forwards;
+}
+@keyframes llPathDraw {
+  to { transform: scaleX(1); }
+}
+.processJourney .step {
+  background: rgba(255,253,248,0.96);
+  box-shadow: 0 10px 28px rgba(22,90,63,0.08);
+}
+.processJourney .stepNum {
+  border-radius: 50%;
+  box-shadow: 0 0 0 8px var(--bg);
+}
+.stepStatus {
+  display: block;
+  margin-top: 16px;
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Useful first-party tools replace the fragile third-party embed on the homepage. */
+.toolDeck {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr 1fr;
+  gap: 16px;
+  margin-top: 28px;
+}
+.toolCard {
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 28px;
+  border: 1px solid rgba(22,90,63,0.13);
+  border-radius: var(--rDoor);
+  background: rgba(255,255,255,0.82);
+  box-shadow: 0 12px 32px rgba(22,90,63,0.08);
+}
+.toolCardFeatured {
+  color: #fff;
+  background:
+    radial-gradient(circle at 90% 10%, rgba(243,178,122,0.28), transparent 32%),
+    linear-gradient(145deg, #165a3f, #0f3f2d);
+  border-color: rgba(255,255,255,0.15);
+}
+.toolKicker {
+  display: block;
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.toolCardFeatured .toolKicker { color: #8ce6b9; }
+.toolTitle {
+  display: block;
+  max-width: 18ch;
+  margin-top: 8px;
+  font-family: var(--fontHead);
+  font-size: clamp(24px, 2.6vw, 34px);
+  font-weight: 700;
+  line-height: 1.08;
+}
+.toolText {
+  display: block;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.55;
+}
+.toolCardFeatured .toolText { color: rgba(255,255,255,0.74); }
+.toolAction {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--primary);
+  font-size: 15px;
+  font-weight: 800;
+}
+.toolCardFeatured .toolAction { color: #fff; }
+.toolAction::after {
+  content: "→";
+  transition: transform var(--tFast) var(--easePremium);
+}
+.toolCard:hover .toolAction::after,
+.answerCard:hover .answerAction::after {
+  transform: translateX(4px);
+}
+
+/* Internal answers keep visitors learning without sending them off-site. */
+.answerGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+.answerCard {
+  display: flex;
+  min-height: 250px;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: var(--rCard);
+  background: var(--paper);
+  box-shadow: 0 10px 26px rgba(22,90,63,0.07);
+}
+.answerCard:nth-child(2) { background: rgba(207,231,215,0.28); }
+.answerCard:nth-child(3) { background: rgba(243,178,122,0.12); }
+.answerTitle {
+  display: block;
+  margin-top: 10px;
+  font-family: var(--fontHead);
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 1.15;
+}
+.answerText {
+  display: block;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+.answerAction {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--primary);
+  font-size: 15px;
+  font-weight: 800;
+}
+.answerAction::after {
+  content: "→";
+  transition: transform var(--tFast) var(--easePremium);
+}
+
+/* Find-an-answer is a real UI and makes the WebSite SearchAction truthful. */
+.faqSearch {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  max-width: 780px;
+  margin: 28px 0 8px;
+  padding: 8px;
+  border: 1px solid rgba(22,90,63,0.16);
+  border-radius: 18px;
+  background: rgba(255,255,255,0.9);
+  box-shadow: 0 12px 30px rgba(22,90,63,0.08);
+}
+.faqSearch input[type="search"] {
+  width: 100%;
+  min-height: 52px;
+  padding: 12px 14px;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  outline: none;
+}
+.faqSearch input[type="search"]::placeholder { color: #6a767d; }
+.faqSearch:focus-within {
+  border-color: var(--mint);
+  box-shadow: var(--focus), 0 14px 34px rgba(22,90,63,0.1);
+}
+.faqClear {
+  align-self: center;
+  min-height: 44px;
+  padding: 9px 16px;
+  border: 1px solid rgba(22,90,63,0.16);
+  border-radius: var(--rPill);
+  background: var(--bg);
+  color: var(--primary);
+  cursor: pointer;
+  font-weight: 800;
+}
+.faqResult {
+  min-height: 24px;
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+}
+.faqItem[hidden],
+.faq[hidden],
+h2[hidden],
+.faqCatNav[hidden] {
+  display: none !important;
+}
+.faqIcon {
+  transition:
+    transform var(--tFast) var(--easePremium),
+    background-color var(--tFast) var(--ease),
+    color var(--tFast) var(--ease);
+}
+.faqBtn[aria-expanded="true"] .faqIcon {
+  animation: none;
+  transform: scale(1.04);
+  background: var(--primary);
+  color: #fff;
+}
+.faq-page .faq {
+  display: grid;
+  gap: 10px;
+}
+.faq-page .faqItem {
+  border: 1px solid rgba(22,90,63,0.12);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.64);
+  overflow: hidden;
+}
+.faq-page .faqBtn {
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+.faq-page .faqPanel {
+  max-height: none;
+}
+.faq-page .faqPanelInner {
+  padding-top: 0;
+  color: var(--muted);
+}
+
+/* Small-screen resilience for forms, calculators, tables, and long values. */
+main,
+section,
+.wrap,
+.applyWrap,
+.formWrap,
+.formGrid,
+.calcGrid,
+.calcInputs,
+.calcOutput,
+.calcGroup,
+.realtorSignal,
+.realtorLead,
+.realtorProof {
+  min-width: 0;
+}
+.formGrid > *,
+.applyWrap > *,
+.calcGrid > * {
+  min-width: 0;
+  max-width: 100%;
+}
+input,
+select,
+textarea,
+button,
+input[type="range"],
+.calcInput {
+  max-width: 100%;
+}
+.calcLabel {
+  min-width: 0;
+  gap: 10px;
+}
+.calcLabel > :first-child {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.calcLabelValue {
+  flex: 0 1 auto;
+  min-width: 0;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.optionalDetails {
+  margin: 2px 0 18px;
+  border: 1px solid rgba(22,90,63,0.14);
+  border-radius: 14px;
+  background: rgba(207,231,215,0.16);
+  overflow: clip;
+}
+.optionalDetails summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 16px 18px;
+  color: var(--primary);
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 800;
+}
+.optionalDetails summary span {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+.optionalDetails[open] summary {
+  border-bottom: 1px solid rgba(22,90,63,0.12);
+  background: rgba(255,255,255,0.6);
+}
+.optionalDetails > .help {
+  margin: 16px 18px 0;
+}
+.optionalGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 16px 18px 2px;
+}
+
+.tableWrap:focus-visible {
+  outline: none;
+  box-shadow: var(--focusStrong);
+}
+
+/* Compact mobile rhythm and a calmer sticky action entrance. */
+.mobileBar {
+  opacity: 1;
+  transform: none;
+  animation: none;
+  min-height: 64px;
+  max-height: calc(76px + env(safe-area-inset-bottom));
+  padding: 7px;
+  padding-bottom: calc(7px + env(safe-area-inset-bottom));
+  border-radius: 18px;
+}
+.mobileBar .btn {
+  min-height: 48px;
+  padding: 10px 12px;
+  font-size: 14px;
+}
+.navToggle {
+  display: grid;
+  min-width: 48px;
+  min-height: 44px;
+  place-items: center;
+}
+.footerEnd {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 650;
+  opacity: 0.78;
+}
+.footerEnd a {
+  color: var(--primary);
+  text-decoration-thickness: 1px;
+}
+.loganSplitBio .kicker { color: #b7f2d2; }
+.loganNMLS { color: rgba(255,255,255,0.74); }
+
+@media (max-width: 900px) {
+  .mobileBar.mobileOnly { display: flex !important; }
+  .navToggle.mobileOnly { display: grid !important; }
+  .home-page .section {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .toolDeck,
+  .answerGrid {
+    grid-template-columns: 1fr;
+  }
+  .toolCard,
+  .answerCard {
+    min-height: 0;
+  }
+  .processJourney {
+    padding-top: 12px;
+    padding-left: 20px;
+  }
+  .processJourney::before,
+  .processJourney::after {
+    left: 0;
+    right: auto;
+    top: 34px;
+    bottom: 34px;
+    width: 3px;
+    height: auto;
+  }
+  .processJourney::after {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  .section.is-visible .processJourney::after {
+    animation-name: llPathDrawMobile;
+  }
+  @keyframes llPathDrawMobile {
+    to { transform: scaleY(1); }
+  }
+  .processJourney .stepNum {
+    box-shadow: 0 0 0 6px var(--bg);
+  }
+}
+
+@media (max-width: 480px) {
+  :root { --padX: 16px; }
+  body {
+    padding-bottom: calc(92px + env(safe-area-inset-bottom));
+  }
+  .heroInner { padding-left: 20px; padding-right: 20px; }
+  .h1 { font-size: clamp(34px, 11vw, 48px); }
+  .pathGrid { grid-template-columns: 1fr; }
+  .faqSearch { grid-template-columns: 1fr; }
+  .faqClear { width: 100%; }
+  .toolCard,
+  .answerCard,
+  .formCard,
+  .calcInputs,
+  .calcOutput {
+    padding: 20px;
+  }
+  .optionalGrid {
+    grid-template-columns: 1fr;
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+  .optionalDetails summary {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 2px;
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+  .calcLabel {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .calcLabelValue {
+    text-align: left;
+  }
+  .home-page .heroInner {
+    position: relative;
+    display: block;
+    min-height: 0;
+    padding-top: 28px;
+    padding-bottom: 28px;
+    overflow: hidden;
+  }
+  .home-page .heroContent {
+    position: relative;
+    z-index: 2;
+  }
+  .home-page .heroVisual {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: -24px;
+    bottom: 0;
+    width: 58%;
+    max-height: none;
+    opacity: 0.3;
+    pointer-events: none;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 42%, #000 100%);
+    mask-image: linear-gradient(90deg, transparent 0%, #000 42%, #000 100%);
+  }
+  .home-page .heroVisual::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 58%, rgba(13,61,42,0.9));
+  }
+  .home-page .heroImg {
+    width: 100%;
+    height: 100%;
+    max-height: none;
+    object-fit: cover;
+    object-position: 58% top;
+  }
+  .home-page .heroContent .p {
+    max-width: 28ch;
+  }
+  .home-page .heroDark .presence {
+    color: rgba(255,255,255,0.72);
+  }
+  .home-page .pathGrid {
+    gap: 12px;
+  }
+  .home-page .pathCard {
+    display: grid;
+    grid-template-columns: 44px 1fr 32px;
+    grid-template-areas:
+      "number title arrow"
+      "text text text";
+    align-items: center;
+    gap: 10px 14px;
+    padding: 20px;
+  }
+  .home-page .pathNum { grid-area: number; }
+  .home-page .pathTitle { grid-area: title; }
+  .home-page .pathText { grid-area: text; }
+  .home-page .pathArrow {
+    grid-area: arrow;
+    align-self: center;
+  }
+  .home-page .arizonaGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .home-page .arizonaLarge {
+    grid-column: 1 / -1;
+  }
+  .home-page .arizonaItem:nth-child(n+4) {
+    display: none;
+  }
+  .home-page .arizonaItem img,
+  .home-page .arizonaLarge img {
+    width: 100%;
+    min-height: 150px;
+    max-height: 220px;
+    object-fit: cover;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section.is-visible :is(
+    .card,
+    .step,
+    .quote,
+    .reviewCard,
+    .pathCard,
+    .investorCard,
+    .arizonaItem,
+    .instaCard,
+    .formCard,
+    .investorSection,
+    .investorBlock,
+    .loganSplit,
+    .ctaBand,
+    .porch
+  ),
+  .section.is-visible .processJourney::after {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ============================================
    PRINT STYLES
    ============================================ */
 @media print {

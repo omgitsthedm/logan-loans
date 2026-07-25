@@ -1,22 +1,23 @@
 # Logan Loans SEO/AEO Intake
 
-Last updated: 2026-05-19
+Last updated: 2026-07-24
 
 ## Immediate blockers
 
-1. DNS records for `www.logan.loans`
-   - Needed to align the live domain with canonicals, sitemap URLs, social metadata, and Search Console property setup.
-   - Current technical target remains `https://www.logan.loans/`.
+1. Google Search Console access
+   - Needed to submit `https://logan.loans/sitemap.xml`, inspect priority URLs, monitor indexing, and track queries that already have impressions.
+   - Canonicals, social metadata, structured data, robots, and sitemap now consistently use the live apex host.
 
-2. Google Search Console access
-   - Needed to submit `https://www.logan.loans/sitemap.xml`, inspect priority URLs, monitor indexing, and track queries that already have impressions.
-
-3. GA4 measurement ID
+2. GA4 and conversion configuration
    - The site now has Little Fight-managed GA4 measurement ID `G-VP8CWM9B50`; GTM container `GTM-MTWF64T2` is ready, while direct GA4 is active in source.
    - Needed for conversion tracking across apply, contact, partner-referral, newsletter, and phone-click events.
 
-4. Google Business Profile access
+3. Google Business Profile access
    - Needed to align name, address, phone, service areas, hours, website URL, categories, photos, services, posts, and review links.
+
+4. Compliance-approved 2026 program matrix
+   - Needed to correct current conforming, FHA, and Arizona Home Plus values and eligibility language without guessing regulated claims.
+   - Must include approved AZ and CA license identifiers for the public disclosure page.
 
 ## Trust and proof assets Logan should provide
 

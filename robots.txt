@@ -5,7 +5,10 @@ Disallow: /thanks-contact.html
 Disallow: /thanks
 Disallow: /thanks-contact
 
-# AI search engines — allowed to index and cite
+# AI discovery and user-requested retrieval
+User-agent: OAI-SearchBot
+Allow: /
+
 User-agent: GPTBot
 Allow: /
 
@@ -24,7 +27,7 @@ Allow: /
 User-agent: ClaudeBot
 Allow: /
 
-User-agent: GoogleExtendedBot
+User-agent: Google-Extended
 Allow: /
 
 User-agent: Applebot-Extended
@@ -36,4 +39,4 @@ Allow: /
 User-agent: Bytespider
 Allow: /
 
-Sitemap: https://www.logan.loans/sitemap.xml
+Sitemap: https://logan.loans/sitemap.xml

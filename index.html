@@ -53,7 +53,7 @@
     .mobileBar{position:fixed;left:12px;right:12px;bottom:12px;display:flex;gap:10px;padding:12px;border-radius:var(--rDoor);background:rgba(251,247,239,0.95);border:1px solid var(--border);box-shadow:0 -8px 32px rgba(22,90,63,0.15);z-index:50;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}.mobileBarBtn{flex:1;padding:14px 16px}
     body{padding-bottom:100px}.desktopOnly{display:flex}.mobileOnly{display:none}
     /* SCROLL ANIMATIONS */
-    .card,.step,.quote,.reviewCard,.pathCard,.investorCard,.formCard,.porch,.investorBlock,.loganSplit,.ctaBand,.arizonaItem,.instaCard{opacity:0;transform:translateY(24px) scale(0.98);transition:opacity 550ms var(--easeOut),transform 550ms var(--easeOut),box-shadow var(--tMed) var(--easePremium),border-color var(--tFast) var(--ease)}
+    .card,.step,.quote,.reviewCard,.pathCard,.investorCard,.formCard,.porch,.investorBlock,.loganSplit,.ctaBand,.arizonaItem,.instaCard{opacity:1;transform:none;transition:opacity 550ms var(--easeOut),transform 550ms var(--easeOut),box-shadow var(--tMed) var(--easePremium),border-color var(--tFast) var(--ease)}
     .section.is-visible .card,.section.is-visible .step,.section.is-visible .quote,.section.is-visible .reviewCard,.section.is-visible .pathCard,.section.is-visible .investorCard,.section.is-visible .formCard,.section.is-visible .porch,.section.is-visible .investorBlock,.section.is-visible .loganSplit,.section.is-visible .ctaBand,.section.is-visible .arizonaItem,.section.is-visible .instaCard{opacity:1;transform:translateY(0) scale(1)}
     .section.is-visible .card:nth-child(1),.section.is-visible .step:nth-child(1),.section.is-visible .quote:nth-child(1),.section.is-visible .reviewCard:nth-child(1),.section.is-visible .pathCard:nth-child(1),.section.is-visible .investorCard:nth-child(1),.section.is-visible .arizonaItem:nth-child(1){transition-delay:60ms}
     .section.is-visible .card:nth-child(2),.section.is-visible .step:nth-child(2),.section.is-visible .quote:nth-child(2),.section.is-visible .reviewCard:nth-child(2),.section.is-visible .pathCard:nth-child(2),.section.is-visible .investorCard:nth-child(2),.section.is-visible .arizonaItem:nth-child(2){transition-delay:130ms}
@@ -77,17 +77,17 @@
   </style>
 
   <meta name="description" content="Premium Arizona mortgage guidance for buyers, investors, and real estate agents. Same-day pre-approval available, direct lender communication, and no hand-offs." />
-  <link rel="canonical" href="https://www.logan.loans/" />
+  <link rel="canonical" href="https://logan.loans/" />
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
   <meta property="og:title" content="Logan Loans | Arizona Mortgage Advisor for Buyers & Realtors" />
   <meta property="og:description" content="Premium Arizona mortgage guidance for buyers, investors, and real estate agents. Same-day pre-approval available, direct communication, and no hand-offs." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.logan.loans/" />
-  <meta property="og:image" content="https://www.logan.loans/assets/img/logan-main.webp" />
+  <meta property="og:url" content="https://logan.loans/" />
+  <meta property="og:image" content="https://logan.loans/assets/img/logan-main.webp" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Logan Loans | Arizona Mortgage Advisor for Buyers & Realtors" />
   <meta name="twitter:description" content="Premium Arizona mortgage guidance for buyers, investors, and real estate agents. Same-day pre-approval available, direct communication, and no hand-offs." />
-  <meta name="twitter:image" content="https://www.logan.loans/assets/img/logan-main.webp" />
+  <meta name="twitter:image" content="https://logan.loans/assets/img/logan-main.webp" />
 
   <!--
     TRACKING ACTIVE:
@@ -103,10 +103,10 @@
   "@graph": [
     {
       "@type": "Organization",
-      "@id": "https://www.logan.loans/#organization",
+      "@id": "https://logan.loans/#organization",
       "name": "Logan Loans",
-      "url": "https://www.logan.loans/",
-      "logo": "https://www.logan.loans/assets/img/logo.svg",
+      "url": "https://logan.loans/",
+      "logo": "https://logan.loans/assets/img/logo.svg",
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+14808037763",
@@ -122,29 +122,29 @@
     },
     {
       "@type": "WebSite",
-      "@id": "https://www.logan.loans/#website",
-      "url": "https://www.logan.loans/",
+      "@id": "https://logan.loans/#website",
+      "url": "https://logan.loans/",
       "name": "Logan Loans",
       "description": "Premium Arizona mortgage guidance for buyers, investors, and real estate agents. Same-day pre-approval available, direct lender communication, and no hand-offs.",
       "inLanguage": "en-US",
-      "publisher": { "@id": "https://www.logan.loans/#organization" },
+      "publisher": { "@id": "https://logan.loans/#organization" },
       "potentialAction": {
         "@type": "SearchAction",
         "target": {
           "@type": "EntryPoint",
-          "urlTemplate": "https://www.logan.loans/faq?q={search_term_string}"
+          "urlTemplate": "https://logan.loans/faq?q={search_term_string}"
         },
         "query-input": "required name=search_term_string"
       }
     },
     {
       "@type": "Person",
-      "@id": "https://www.logan.loans/#logan-sullivan",
+      "@id": "https://logan.loans/#logan-sullivan",
       "name": "Logan Sullivan",
       "jobTitle": "Mortgage Advisor",
-      "worksFor": { "@id": "https://www.logan.loans/#organization" },
-      "url": "https://www.logan.loans/meet-logan",
-      "image": "https://www.logan.loans/assets/img/logan-main.webp",
+      "worksFor": { "@id": "https://logan.loans/#organization" },
+      "url": "https://logan.loans/meet-logan",
+      "image": "https://logan.loans/assets/img/logan-main.webp",
       "telephone": "+14808037763",
       "email": "logan@forward.loans",
       "identifier": {
@@ -160,9 +160,9 @@
     },
     {
       "@type": ["FinancialService", "LocalBusiness"],
-      "@id": "https://www.logan.loans/#localbusiness",
+      "@id": "https://logan.loans/#localbusiness",
       "name": "Logan Loans",
-      "url": "https://www.logan.loans/",
+      "url": "https://logan.loans/",
       "telephone": "+14808037763",
       "email": "logan@forward.loans",
       "address": {
@@ -214,36 +214,6 @@
           {"@type": "Offer", "itemOffered": {"@type": "FinancialProduct", "name": "Refinance", "category": "Mortgage"}}
         ]
       },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5.0",
-        "reviewCount": "47",
-        "bestRating": "5",
-        "worstRating": "1"
-      },
-      "review": [
-        {
-          "@type": "Review",
-          "author": {"@type": "Person", "name": "Jordan M."},
-          "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
-          "reviewBody": "Logan made my first home purchase feel calm. He explained every line of the loan estimate, returned every text within minutes, and we closed early. No surprises, no upsell, no script.",
-          "datePublished": "2026-03-22"
-        },
-        {
-          "@type": "Review",
-          "author": {"@type": "Person", "name": "Priya S."},
-          "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
-          "reviewBody": "We got bounced around by two big banks before we found Logan. He had our pre-approval issued the same day we called and the file moved through underwriting without a hiccup. Refreshing.",
-          "datePublished": "2026-04-09"
-        },
-        {
-          "@type": "Review",
-          "author": {"@type": "Person", "name": "Marco D."},
-          "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
-          "reviewBody": "DSCR loan on a Scottsdale rental — Logan handled the LLC paperwork, found a lender that worked with my structure, and closed in 19 days. Will use him again on the next acquisition.",
-          "datePublished": "2026-04-28"
-        }
-      ],
       "priceRange": "$$",
       "currenciesAccepted": "USD",
       "paymentAccepted": "All major financing programs",
@@ -255,12 +225,12 @@
     },
     {
       "@type": "WebPage",
-      "@id": "https://www.logan.loans/#webpage",
-      "url": "https://www.logan.loans/",
+      "@id": "https://logan.loans/#webpage",
+      "url": "https://logan.loans/",
       "name": "Arizona Mortgage Advisor for Buyers & Realtors | Logan Loans",
       "description": "Premium Arizona mortgage guidance for buyers, investors, and real estate agents. Same-day pre-approval available, direct lender communication, and no hand-offs.",
-      "isPartOf": { "@id": "https://www.logan.loans/#website" },
-      "about": { "@id": "https://www.logan.loans/#localbusiness" },
+      "isPartOf": { "@id": "https://logan.loans/#website" },
+      "about": { "@id": "https://logan.loans/#localbusiness" },
       "speakable": {
         "@type": "SpeakableSpecification",
         "cssSelector": [".h1", ".h2", ".heroContent .p", ".kicker"]
@@ -320,7 +290,7 @@
 </script>
 </head>
 
-<body>
+<body class="home-page">
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- HEADER -->
@@ -466,32 +436,33 @@
         <h2 class="h2" id="paths-heading">Pick your situation.</h2>
         <p class="p">Four common routes. Same promise: clear steps, honest numbers, and a plan you can actually follow.</p>
 
-        <div class="pathGrid" role="list">
-          <a class="pathCard" href="./first-time-buyer" role="listitem">
+        <div class="pathGrid" role="navigation" aria-label="Choose your mortgage path">
+          <a class="pathCard" href="./first-time-buyer">
             <div class="pathNum" aria-hidden="true">1</div>
             <p class="pathTitle">First-Time Buyer</p>
             <p class="pathText">Know exactly what to expect, what you'll need, and how fast you can actually move.</p>
             <span class="pathArrow" aria-hidden="true">&#8594;</span>
           </a>
-          <a class="pathCard" href="./programs" role="listitem">
+          <a class="pathCard" href="./programs">
             <div class="pathNum" aria-hidden="true">2</div>
             <p class="pathTitle">Buying Again</p>
             <p class="pathText">A clean strategy for timing your next purchase, managing two closings, and making the numbers work.</p>
             <span class="pathArrow" aria-hidden="true">&#8594;</span>
           </a>
-          <a class="pathCard" href="./refinance" role="listitem">
+          <a class="pathCard" href="./refinance">
             <div class="pathNum" aria-hidden="true">3</div>
             <p class="pathTitle">Refinance</p>
             <p class="pathText">We'll run the break-even math together and tell you plainly whether it makes sense right now.</p>
             <span class="pathArrow" aria-hidden="true">&#8594;</span>
           </a>
-          <a class="pathCard" href="./investor-loans" role="listitem">
+          <a class="pathCard" href="./investor-loans">
             <div class="pathNum" aria-hidden="true">4</div>
             <p class="pathTitle">Investor Loans</p>
             <p class="pathText">DSCR, bank statement, construction — options built for portfolios where timing and structure matter.</p>
             <span class="pathArrow" aria-hidden="true">&#8594;</span>
           </a>
         </div>
+        <p class="decisionNote">Not sure which route fits? <a class="uLink" href="./contact">Ask Logan one question first.</a></p>
       </div>
     </section>
 
@@ -503,21 +474,24 @@
         <h2 class="h2" id="process-heading">Three steps. No mystery.</h2>
         <p class="p">You always know what's next, what we're waiting on, and what you can do today.</p>
 
-        <div class="steps" role="list" aria-label="Three-step process">
+        <div class="steps processJourney" role="list" aria-label="Three-step mortgage process">
           <div class="step" role="listitem">
             <div class="stepNum" aria-hidden="true">1</div>
             <p class="cardTitle">Quick intro call</p>
             <p class="cardText">You tell me your goals, timeline, and comfort zone. 15 minutes. No pressure, no commitment, no credit pull.</p>
+            <span class="stepStatus">Your goals</span>
           </div>
           <div class="step" role="listitem">
             <div class="stepNum" aria-hidden="true">2</div>
             <p class="cardTitle">Pre-approval + plan</p>
             <p class="cardText">We build a clean budget range, pull together the documents list, and map out a game plan for offers.</p>
+            <span class="stepStatus">Your plan</span>
           </div>
           <div class="step" role="listitem">
             <div class="stepNum" aria-hidden="true">3</div>
             <p class="cardTitle">Offer to keys</p>
             <p class="cardText">Steady updates through underwriting, appraisal, and closing. You always know where things stand.</p>
+            <span class="stepStatus">Your next move</span>
           </div>
         </div>
       </div>
@@ -584,18 +558,18 @@
           <h2 class="h2" id="investor-heading" style="max-width:22ch;">Don't fit the W-2 mold? That's our lane.</h2>
           <p class="p" style="font-size:20px;margin-top:12px;">Bank statement loans, DSCR, construction financing — if your income doesn't look traditional, we know how to structure it.</p>
 
-          <div class="investorGrid" role="list" style="margin-top:28px;">
-            <a class="investorCard" href="./investor-loans" role="listitem">
+          <div class="investorGrid" role="navigation" aria-label="Investor loan paths" style="margin-top:28px;">
+            <a class="investorCard" href="./investor-loans">
               <span class="iTag">Bank Statement</span>
               <p class="cardTitle" style="margin-top:0;">Qualify on deposits, not returns</p>
               <p class="cardText">12–24 months of bank statements instead of tax returns. Built for self-employed borrowers and business owners.</p>
             </a>
-            <a class="investorCard" href="./investor-loans" role="listitem">
+            <a class="investorCard" href="./investor-loans">
               <span class="iTag">DSCR Loans</span>
               <p class="cardTitle" style="margin-top:0;">Property income, not personal</p>
               <p class="cardText">Qualify on the rental income the property generates. Ideal for building a real estate portfolio at scale.</p>
             </a>
-            <a class="investorCard" href="./investor-loans" role="listitem">
+            <a class="investorCard" href="./investor-loans">
               <span class="iTag">Construction / Land</span>
               <p class="cardTitle" style="margin-top:0;">Build from scratch or develop</p>
               <p class="cardText">Ground-up construction and raw land development. We map every financing stage so each draw makes sense.</p>
@@ -610,17 +584,46 @@
       </div>
     </section>
 
-    <!-- RATE CALCULATOR -->
+    <!-- DECISION TOOLS -->
     <section class="section" data-observe aria-labelledby="calc-heading">
       <div class="wrap">
         <div class="threshold" aria-hidden="true"></div>
-        <p class="kicker">Tools</p>
-        <h2 class="h2" id="calc-heading">Get a rate estimate</h2>
-        <p class="p">Play with the numbers. See what a monthly payment might look like. Then let's talk specifics.</p>
-        <div class="calculatorWrap" id="bb-calculator">
-          <iframe src="https://forward.loans/loan-officer/logan-sullivan/" title="Logan Sullivan Rate Calculator — Forward Loans" loading="lazy" allow="clipboard-write" style="width:100%;min-height:700px;border:none;display:block;"></iframe>
+        <p class="kicker">No-gate tools</p>
+        <h2 class="h2" id="calc-heading">Run the numbers before anyone calls you.</h2>
+        <p class="p">Use the calculators freely. No account, no email wall, and no sales screen between you and an answer.</p>
+        <div class="toolDeck" role="navigation" aria-label="Mortgage planning tools">
+          <a class="toolCard toolCardFeatured" href="./affordability-calculator">
+            <span>
+              <span class="toolKicker">Start here</span>
+              <span class="toolTitle">What feels affordable?</span>
+            </span>
+            <span>
+              <span class="toolText">Start with income, debt, and down payment to find a practical purchase range.</span>
+              <span class="toolAction">Open affordability calculator</span>
+            </span>
+          </a>
+          <a class="toolCard" href="./calculator">
+            <span>
+              <span class="toolKicker">Monthly payment</span>
+              <span class="toolTitle">See the full payment.</span>
+            </span>
+            <span>
+              <span class="toolText">Estimate principal, interest, taxes, insurance, PMI, and HOA together.</span>
+              <span class="toolAction">Open mortgage calculator</span>
+            </span>
+          </a>
+          <a class="toolCard" href="./refinance-calculator">
+            <span>
+              <span class="toolKicker">Refinance</span>
+              <span class="toolTitle">Find the break-even.</span>
+            </span>
+            <span>
+              <span class="toolText">Compare closing costs and monthly savings before deciding whether a refinance makes sense.</span>
+              <span class="toolAction">Open refinance calculator</span>
+            </span>
+          </a>
         </div>
-        <p class="small muted" style="margin-top:14px;">Calculator provided by Forward Loans, LLC (NMLS 2006640). Estimates are for illustration only and don't represent a loan offer or commitment to lend.</p>
+        <p class="small muted" style="margin-top:16px;">Planning estimates are for illustration only and do not represent a loan offer or commitment to lend.</p>
       </div>
     </section>
 
@@ -662,7 +665,7 @@
         <h2 class="h2" id="faq-heading">Questions buyers ask the most.</h2>
         <p class="p">Short answers first. Deeper answers when you want them.</p>
 
-        <div class="faq" role="region" aria-labelledby="faq-heading">
+        <div class="faq">
           <div class="faqItem">
             <button class="faqBtn" data-faq-btn aria-expanded="false" type="button">
               How much house can I afford?
@@ -760,54 +763,42 @@
       </div>
     </section>
 
-    <!-- INSTAGRAM -->
-    <section class="section" data-observe aria-labelledby="insta-heading">
+    <!-- ANSWER LIBRARY -->
+    <section class="section" data-observe aria-labelledby="answers-heading">
       <div class="wrap">
         <div class="threshold" aria-hidden="true"></div>
-        <p class="kicker">Follow along</p>
-        <h2 class="h2" id="insta-heading">@logan.loans</h2>
-        <p class="p">Mortgage tips, deal momentum, and straight talk about Arizona real estate. Follow along.</p>
-        <div id="instagram" class="instaGrid is-ready" data-feed-state="static" role="region" aria-label="Instagram feed preview">
-          <a class="instaCard instaPreview" href="https://www.instagram.com/logan.loans" target="_blank" rel="noopener">
-            <span class="instaKicker">Rate clarity</span>
-            <span class="instaTitle">What buyers should ask before they lock</span>
-            <span class="instaText">Short, plain-English guidance on rate quotes, points, APR, and what actually changes your payment.</span>
-            <span class="instaHandle">@logan.loans</span>
+        <p class="kicker">Straight answers</p>
+        <h2 class="h2" id="answers-heading">Learn enough to make the next decision.</h2>
+        <p class="p">No glossary marathon required. Start with the question in front of you, then go deeper only when it helps.</p>
+        <div class="answerGrid" role="navigation" aria-label="Featured mortgage answers">
+          <a class="answerCard" href="./blog-preapproval-guide">
+            <span>
+              <span class="toolKicker">Offer readiness</span>
+              <span class="answerTitle">Pre-approval vs. pre-qualification</span>
+              <span class="answerText">What sellers and agents actually see, and how to know whether your letter is ready to support an offer.</span>
+            </span>
+            <span class="answerAction">Read the guide</span>
           </a>
-          <a class="instaCard instaPreview" href="https://www.instagram.com/logan.loans" target="_blank" rel="noopener">
-            <span class="instaKicker">Investor files</span>
-            <span class="instaTitle">DSCR without W-2 noise</span>
-            <span class="instaText">Arizona investor loan notes for rental income, entity vesting, reserve requirements, and clean underwriting paths.</span>
-            <span class="instaHandle">@logan.loans</span>
+          <a class="answerCard" href="./fha-vs-conventional">
+            <span>
+              <span class="toolKicker">Compare paths</span>
+              <span class="answerTitle">FHA or conventional?</span>
+              <span class="answerText">Compare down payment, mortgage insurance, flexibility, and long-term cost in plain English.</span>
+            </span>
+            <span class="answerAction">See the comparison</span>
           </a>
-          <a class="instaCard instaPreview" href="https://www.instagram.com/logan.loans" target="_blank" rel="noopener">
-            <span class="instaKicker">First-time buyer</span>
-            <span class="instaTitle">Pre-approval that holds up</span>
-            <span class="instaText">What Logan checks before you tour, write, or ask your agent to put reputation behind an offer.</span>
-            <span class="instaHandle">@logan.loans</span>
-          </a>
-          <a class="instaCard instaPreview" href="https://www.instagram.com/logan.loans" target="_blank" rel="noopener">
-            <span class="instaKicker">Jumbo strategy</span>
-            <span class="instaTitle">Paradise Valley files need sequencing</span>
-            <span class="instaText">Liquidity, appraisal timing, asset documentation, and lender fit matter more on premium Arizona purchases.</span>
-            <span class="instaHandle">@logan.loans</span>
-          </a>
-          <a class="instaCard instaPreview" href="https://www.instagram.com/logan.loans" target="_blank" rel="noopener">
-            <span class="instaKicker">Refinance math</span>
-            <span class="instaTitle">Do the break-even before the pitch</span>
-            <span class="instaText">A practical way to compare monthly savings, closing costs, cash-out goals, and how long you expect to keep the loan.</span>
-            <span class="instaHandle">@logan.loans</span>
-          </a>
-          <a class="instaCard instaPreview" href="https://www.instagram.com/logan.loans" target="_blank" rel="noopener">
-            <span class="instaKicker">Relocation</span>
-            <span class="instaTitle">Scottsdale before the house-hunt</span>
-            <span class="instaText">How relocating buyers can get documents, payment range, and offer strategy ready before flying into Arizona.</span>
-            <span class="instaHandle">@logan.loans</span>
+          <a class="answerCard" href="./blog-dscr-loans-arizona">
+            <span>
+              <span class="toolKicker">Investor files</span>
+              <span class="answerTitle">DSCR without W-2 income</span>
+              <span class="answerText">Understand how rental income, property expenses, credit, and reserves shape the file.</span>
+            </span>
+            <span class="answerAction">Read the DSCR guide</span>
           </a>
         </div>
-        <div class="row" style="margin-top:20px;">
-          <a class="btn btnPrimary" href="https://www.instagram.com/logan.loans" target="_blank" rel="noopener">Open Instagram</a>
-          <a class="btn btnSecondary" href="https://linktr.ee/Logan.loans" target="_blank" rel="noopener">All Links</a>
+        <div class="row" style="margin-top:22px;">
+          <a class="btn btnPrimary" href="./faq">Search all mortgage questions</a>
+          <a class="btn btnSecondary" href="./blog">Browse the learning library</a>
         </div>
       </div>
     </section>

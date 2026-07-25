@@ -160,9 +160,18 @@ document.addEventListener('DOMContentLoaded', setupConversionClickTracking);
 const navToggle = document.querySelector('[data-nav-toggle]');
 const drawer = document.querySelector('[data-drawer]');
 const drawerClose = document.querySelector('[data-drawer-close]');
+let drawerReturnFocus = null;
+
+function getDrawerFocusables() {
+  if (!drawer) return [];
+  return Array.from(drawer.querySelectorAll(
+    'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+  )).filter((element) => !element.hidden && element.getClientRects().length);
+}
 
 function openDrawer() {
   if (!drawer) return;
+  drawerReturnFocus = document.activeElement;
   drawer.classList.add('is-open');
   drawer.removeAttribute('inert');
   navToggle?.setAttribute('aria-expanded', 'true');
@@ -178,7 +187,9 @@ function closeDrawer() {
   navToggle?.setAttribute('aria-expanded', 'false');
   document.body.classList.remove('drawer-open');
   document.body.style.overflow = '';
-  navToggle?.focus();
+  const returnTarget = drawerReturnFocus instanceof HTMLElement ? drawerReturnFocus : navToggle;
+  returnTarget?.focus();
+  drawerReturnFocus = null;
 }
 
 if (drawer) drawer.setAttribute('inert', '');
@@ -192,7 +203,30 @@ drawer?.addEventListener('click', (e) => {
   if (e.target === drawer) closeDrawer();
 });
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeDrawer();
+  if (!drawer?.classList.contains('is-open')) return;
+  if (e.key === 'Escape') {
+    e.preventDefault();
+    closeDrawer();
+    return;
+  }
+  if (e.key !== 'Tab') return;
+  const focusables = getDrawerFocusables();
+  if (!focusables.length) return;
+  const first = focusables[0];
+  const last = focusables[focusables.length - 1];
+  if (e.shiftKey && document.activeElement === first) {
+    e.preventDefault();
+    last.focus();
+  } else if (!e.shiftKey && document.activeElement === last) {
+    e.preventDefault();
+    first.focus();
+  }
+});
+drawer?.querySelectorAll('a[href]').forEach((link) => {
+  link.addEventListener('click', () => {
+    document.body.classList.remove('drawer-open');
+    document.body.style.overflow = '';
+  });
 });
 
 // ─── Section Reveal ────────────────────────────────────────────────────────
@@ -212,7 +246,7 @@ if (sections.length && 'IntersectionObserver' in window && !reducedMotion) {
         io.unobserve(e.target);
       }
     }
-  }, { threshold: 0.12 });
+  }, { threshold: 0.08, rootMargin: '0px 0px -6% 0px' });
   sections.forEach((section) => {
     if (!section.classList.contains('is-visible')) io.observe(section);
   });
@@ -229,6 +263,10 @@ function animateCounters(root) {
     const suffix = el.getAttribute('data-suffix') || '';
     const prefix = el.getAttribute('data-prefix') || '';
     const decimals = el.getAttribute('data-decimals') ? parseInt(el.getAttribute('data-decimals')) : 0;
+    if (reducedMotion) {
+      el.textContent = prefix + target.toFixed(decimals) + suffix;
+      return;
+    }
     const duration = 1400;
     const start = performance.now();
     function tick(now) {
@@ -297,34 +335,118 @@ btnTerms?.addEventListener('click', () => setMode("terms"));
 document.querySelector('[data-next-pair]')?.addEventListener('click', () => { idx++; setText(mode); });
 setMode("plain");
 
-// ─── FAQ Accordion ─────────────────────────────────────────────────────────
-document.querySelectorAll('[data-faq-btn]').forEach((btn) => {
-  btn.addEventListener('click', () => {
-    const item = btn.closest('.faqItem');
-    const panel = item.querySelector('.faqPanel');
-    const icon = item.querySelector('.faqIcon');
-    const expanded = btn.getAttribute('aria-expanded') === 'true';
+// ─── FAQ Accordion + Find-an-Answer ────────────────────────────────────────
+const faqItems = Array.from(document.querySelectorAll('.faqItem'));
+const isFAQAnswerLibrary = document.body.classList.contains('faq-page');
 
-    document.querySelectorAll('.faqItem').forEach((other) => {
-      if (other !== item) {
-        other.querySelector('[data-faq-btn]')?.setAttribute('aria-expanded', 'false');
-        const p = other.querySelector('.faqPanel');
-        const i = other.querySelector('.faqIcon');
-        if (p) p.style.maxHeight = '0px';
-        if (i) i.textContent = '+';
+function closeFAQ(item) {
+  const button = item?.querySelector('[data-faq-btn]');
+  const panel = item?.querySelector('.faqPanel');
+  const icon = item?.querySelector('.faqIcon');
+  button?.setAttribute('aria-expanded', 'false');
+  if (panel) {
+    panel.style.maxHeight = '0px';
+    panel.setAttribute('aria-hidden', 'true');
+  }
+  if (icon) icon.textContent = '+';
+}
+
+function openFAQ(item, { exclusive = true } = {}) {
+  if (!item) return;
+  if (exclusive) faqItems.forEach((other) => {
+    if (other !== item) closeFAQ(other);
+  });
+  const button = item.querySelector('[data-faq-btn]');
+  const panel = item.querySelector('.faqPanel');
+  const icon = item.querySelector('.faqIcon');
+  button?.setAttribute('aria-expanded', 'true');
+  if (panel) {
+    panel.setAttribute('aria-hidden', 'false');
+    panel.style.maxHeight = isFAQAnswerLibrary ? 'none' : panel.scrollHeight + 'px';
+  }
+  if (icon) icon.textContent = '−';
+}
+
+faqItems.forEach((item) => {
+  const button = item.querySelector('[data-faq-btn]');
+  const panel = item.querySelector('.faqPanel');
+  if (button && panel) {
+    const panelId = panel.id || `faq-answer-${faqItems.indexOf(item) + 1}`;
+    panel.id = panelId;
+    button.setAttribute('aria-controls', panelId);
+  }
+  if (isFAQAnswerLibrary) {
+    openFAQ(item, { exclusive: false });
+  } else {
+    closeFAQ(item);
+  }
+  button?.addEventListener('click', () => {
+    const expanded = button.getAttribute('aria-expanded') === 'true';
+    expanded ? closeFAQ(item) : openFAQ(item);
+  });
+});
+
+function setupFAQSearch() {
+  const search = document.querySelector('[data-faq-search]');
+  if (!search || !faqItems.length) return;
+  const result = document.querySelector('[data-faq-result]');
+  const clear = document.querySelector('[data-faq-clear]');
+  const categoryNav = document.querySelector('[data-faq-categories]');
+  const groups = Array.from(document.querySelectorAll('.faq'));
+  const normalise = (value) => String(value || '').toLowerCase().replace(/[^\p{L}\p{N}\s]/gu, ' ').replace(/\s+/g, ' ').trim();
+
+  function filterFAQ(value, { openFirst = false } = {}) {
+    const query = normalise(value);
+    const terms = query.split(' ').filter(Boolean);
+    let matches = 0;
+    let firstMatch = null;
+
+    faqItems.forEach((item) => {
+      const haystack = normalise(item.textContent);
+      const matched = !terms.length || terms.every((term) => haystack.includes(term));
+      item.hidden = !matched;
+      if (matched) {
+        matches += 1;
+        if (!firstMatch) firstMatch = item;
+        if (isFAQAnswerLibrary) openFAQ(item, { exclusive: false });
+      } else {
+        closeFAQ(item);
       }
     });
 
-    btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-    if (!expanded) {
-      panel.style.maxHeight = panel.scrollHeight + 'px';
-      if (icon) icon.textContent = '–';
-    } else {
-      panel.style.maxHeight = '0px';
-      if (icon) icon.textContent = '+';
+    groups.forEach((group) => {
+      const visibleItems = Array.from(group.querySelectorAll('.faqItem')).some((item) => !item.hidden);
+      group.hidden = !visibleItems;
+      const heading = group.previousElementSibling;
+      if (heading?.matches('h2')) heading.hidden = !visibleItems;
+    });
+
+    if (categoryNav) categoryNav.hidden = Boolean(terms.length);
+    if (clear) clear.hidden = !terms.length;
+    if (result) {
+      result.textContent = terms.length
+        ? (matches === 1 ? '1 answer found.' : `${matches} answers found.`)
+        : `${faqItems.length} plain-English answers.`;
     }
+    if (openFirst && firstMatch) openFAQ(firstMatch, { exclusive: !isFAQAnswerLibrary });
+  }
+
+  search.addEventListener('input', () => filterFAQ(search.value));
+  clear?.addEventListener('click', () => {
+    search.value = '';
+    const url = new URL(window.location.href);
+    url.searchParams.delete('q');
+    window.history.replaceState({}, '', url.pathname + url.search + url.hash);
+    filterFAQ('');
+    search.focus();
   });
-});
+
+  const initialQuery = new URLSearchParams(window.location.search).get('q') || '';
+  search.value = initialQuery;
+  filterFAQ(initialQuery, { openFirst: Boolean(initialQuery) });
+}
+
+document.addEventListener('DOMContentLoaded', setupFAQSearch);
 
 // ─── Form Handling ─────────────────────────────────────────────────────────
 // Safe submit handler — scoped to a specific form, never uses global click handlers.
@@ -418,6 +540,32 @@ function setupForm(formId, statusId, opts = {}) {
 
 setupForm('#contactForm', '#formStatus', { redirect: './thanks-contact', eventName: 'contact_form_submit' });
 setupForm('#applyForm', '#applyStatus', { redirect: './thanks', eventName: 'loan_form_submit' });
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('form').forEach(fillUTMInputs);
+});
+
+function setupContactTopic() {
+  const topic = new URLSearchParams(window.location.search).get('topic');
+  const topicCopy = {
+    'home-equity': {
+      heading: 'Ask about home equity.',
+      message: 'I want to ask about a HELOC or home equity option.',
+    },
+    construction: {
+      heading: 'Ask about construction financing.',
+      message: 'I want to ask about a construction loan.',
+    },
+  }[topic];
+  if (!topicCopy) return;
+
+  const form = document.querySelector('form[name="general-contact"]');
+  const message = form?.querySelector('[name="message"]');
+  const heading = document.querySelector('[data-topic-heading]');
+  if (message && !message.value.trim()) message.value = topicCopy.message;
+  if (heading) heading.textContent = topicCopy.heading;
+}
+
+document.addEventListener('DOMContentLoaded', setupContactTopic);
 
 // ─── Instagram Feed ─────────────────────────────────────────────────────────
 function escapeHTML(value) {

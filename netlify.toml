@@ -51,6 +51,12 @@
     Cache-Control = "public, max-age=31536000, immutable"
 
 [[redirects]]
+  from = "https://loganloans.netlify.app/*"
+  to = "https://logan.loans/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/home"
   to = "/"
   status = 301
@@ -61,7 +67,7 @@
   status = 404
   force = true
 
-# AI-Ops: keep internal docs private (publish = ".")
+# Defense in depth: keep internal docs private even though only allowlisted dist/ is published.
 [[redirects]]
   from = "/.ai/*"
   to = "/404"

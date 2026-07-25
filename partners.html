@@ -30,7 +30,7 @@
     body{padding-bottom:100px}
     .desktopOnly{display:flex}.mobileOnly{display:none}
     .card{border:1px solid var(--border);border-radius:var(--rCard);padding:22px;background:rgba(255,255,255,0.65);position:relative}
-    .card,.step,.quote,.arizonaItem,.instaCard,.formCard,.investorSection,.porch{opacity:0;transform:translateY(28px) scale(0.97)}.section.is-visible .card,.section.is-visible .step,.section.is-visible .quote,.section.is-visible .arizonaItem,.section.is-visible .instaCard,.section.is-visible .formCard,.section.is-visible .investorSection,.section.is-visible .porch,.hero .card,.hero .porch{opacity:1;transform:translateY(0) scale(1)}.trust{opacity:0;transform:translateX(-20px)}.door .trust{opacity:1;transform:translateX(0)}.mobileBar{opacity:0;transform:translateY(100px)}
+    .card,.step,.quote,.arizonaItem,.instaCard,.formCard,.investorSection,.porch{opacity:1;transform:none}.section.is-visible .card,.section.is-visible .step,.section.is-visible .quote,.section.is-visible .arizonaItem,.section.is-visible .instaCard,.section.is-visible .formCard,.section.is-visible .investorSection,.section.is-visible .porch,.hero .card,.hero .porch{opacity:1;transform:translateY(0) scale(1)}.trust{opacity:0;transform:translateX(-20px)}.door .trust{opacity:1;transform:translateX(0)}.mobileBar{opacity:1;transform:none}
     .cardTitle{font-weight:800;margin:0 0 10px 0;font-size:20px;position:relative}.cardText{color:var(--muted);margin:0;font-size:17px;line-height:1.6;position:relative}
     .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:20px}
     .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}.step{border:1px solid var(--border);border-radius:var(--rCard);padding:24px;background:rgba(251,247,239,0.6);position:relative}.stepNum{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--sage) 0%,rgba(207,231,215,0.6) 100%);color:var(--primary);font-weight:900;font-size:18px;border:1px solid rgba(22,90,63,0.1);margin-bottom:14px}
@@ -55,21 +55,21 @@
   </style>
 
   <meta name="description" content="Arizona Realtors and real estate agents: partner with Logan Sullivan, NMLS 2466872, for fast pre-approvals, direct updates, complex lending, and zero client poaching." />
-  <link rel="canonical" href="https://www.logan.loans/partners" />
+  <link rel="canonical" href="https://logan.loans/partners" />
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Arizona Realtor Mortgage Partner | Logan Loans" />
   <meta property="og:description" content="Arizona Realtors and real estate agents: fast pre-approvals, direct lender updates, complex lending, and zero client poaching." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.logan.loans/partners" />
-  <meta property="og:image" content="https://www.logan.loans/assets/img/logan-main.webp" />
+  <meta property="og:url" content="https://logan.loans/partners" />
+  <meta property="og:image" content="https://logan.loans/assets/img/logan-main.webp" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Arizona Realtor Mortgage Partner | Logan Loans" />
   <meta name="twitter:description" content="Arizona Realtors and real estate agents: fast pre-approvals, direct lender updates, complex lending, and zero client poaching." />
-  <meta name="twitter:image" content="https://www.logan.loans/assets/img/logan-main.webp" />
+  <meta name="twitter:image" content="https://logan.loans/assets/img/logan-main.webp" />
 
 <script type="application/ld+json">
 {
@@ -77,18 +77,18 @@
   "@graph": [
     {
       "@type": "WebSite",
-      "@id": "https://www.logan.loans/#website",
-      "url": "https://www.logan.loans/",
+      "@id": "https://logan.loans/#website",
+      "url": "https://logan.loans/",
       "name": "Logan Loans",
       "inLanguage": "en-US"
     },
     {
       "@type": "WebPage",
-      "@id": "https://www.logan.loans/partners#webpage",
-      "url": "https://www.logan.loans/partners",
+      "@id": "https://logan.loans/partners#webpage",
+      "url": "https://logan.loans/partners",
       "name": "Arizona Realtor Mortgage Partner | Logan Loans",
       "description": "Arizona Realtors and real estate agents: partner with Logan Sullivan, NMLS 2466872, for fast pre-approvals, direct updates, complex lending, and zero client poaching.",
-      "isPartOf": { "@id": "https://www.logan.loans/#website" },
+      "isPartOf": { "@id": "https://logan.loans/#website" },
       "audience": {
         "@type": "Audience",
         "audienceType": "Arizona Realtors, real estate agents, brokers, and referral partners"
@@ -97,7 +97,7 @@
     },
     {
       "@type": "Service",
-      "@id": "https://www.logan.loans/partners#realtor-mortgage-partner-service",
+      "@id": "https://logan.loans/partners#realtor-mortgage-partner-service",
       "name": "Mortgage partner for Arizona Realtors",
       "serviceType": "Mortgage pre-approval and lending support for real estate agents",
       "provider": {
@@ -130,13 +130,13 @@
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://www.logan.loans/"
+          "item": "https://logan.loans/"
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Partner Program",
-          "item": "https://www.logan.loans/partners"
+          "item": "https://logan.loans/partners"
         }
       ]
     },
@@ -441,6 +441,7 @@
             method="POST"
             action="./thanks-contact"
             data-netlify="true"
+            data-utm-form
             netlify-honeypot="bot-field"
           >
             <input type="hidden" name="form-name" value="partner-referral" />

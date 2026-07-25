@@ -12,17 +12,17 @@
 
   <title>Arizona Mortgage Calculator | Estimate Your Monthly Payment | Logan Loans</title>
   <meta name="description" content="Free Arizona mortgage calculator. Estimate your monthly payment with property taxes, insurance, PMI, and HOA. Compare loan terms instantly. Built for Phoenix and Scottsdale buyers." />
-  <link rel="canonical" href="https://www.logan.loans/calculator" />
+  <link rel="canonical" href="https://logan.loans/calculator" />
 
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Arizona Mortgage Calculator | Logan Loans" />
   <meta property="og:description" content="Estimate your monthly mortgage payment in seconds. Includes Arizona property taxes, insurance, PMI, and HOA. No email required." />
-  <meta property="og:url" content="https://www.logan.loans/calculator" />
-  <meta property="og:image" content="https://www.logan.loans/assets/img/logan-main.webp" />
+  <meta property="og:url" content="https://logan.loans/calculator" />
+  <meta property="og:image" content="https://logan.loans/assets/img/logan-main.webp" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Arizona Mortgage Calculator | Logan Loans" />
   <meta name="twitter:description" content="Estimate your monthly mortgage payment in seconds. Includes Arizona property taxes, insurance, PMI, and HOA." />
-  <meta name="twitter:image" content="https://www.logan.loans/assets/img/logan-main.webp" />
+  <meta name="twitter:image" content="https://logan.loans/assets/img/logan-main.webp" />
 
   <style>
     :root{--bg:#FBF7EF;--surface:#FFFFFF;--ink:#1F2933;--muted:#52616B;--primary:#165A3F;--sage:#CFE7D7;--border:#E7E0D6;--apricot:#F3B27A;--mint:#2FAF7A;--glow:rgba(243,178,122,0.35);--max:1120px;--padX:20px;--sectionY:80px;--rDoor:22px;--rCard:16px;--rPill:999px;--fontBody:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;--fontHead:Georgia,'Times New Roman',serif;--ease:cubic-bezier(.2,.8,.2,1);--easeOut:cubic-bezier(0,0,0.2,1);--easePremium:cubic-bezier(0.22,1,0.36,1);--tFast:160ms;--tMed:420ms;--shadow:0 16px 40px rgba(22,90,63,0.12);--shadowCard:0 14px 28px rgba(22,90,63,0.10);--focus:0 0 0 4px rgba(47,175,122,0.25)}
@@ -158,6 +158,12 @@
       .calcHero{padding:32px 0 20px}
       .section{padding:48px 0}
     }
+    @media(max-width:480px){
+      :root{--padX:16px}
+      .calcInputs,.calcOutput{padding:20px}
+      .calcLabel{align-items:flex-start;flex-direction:column;gap:2px}
+      .calcLabelValue{text-align:left}
+    }
   </style>
 
   <script type="application/ld+json">
@@ -166,29 +172,29 @@
     "@graph": [
       {
         "@type": "WebApplication",
-        "@id": "https://www.logan.loans/calculator#webapp",
+        "@id": "https://logan.loans/calculator#webapp",
         "name": "Arizona Mortgage Calculator",
-        "url": "https://www.logan.loans/calculator",
+        "url": "https://logan.loans/calculator",
         "description": "Free mortgage payment calculator for Arizona homebuyers. Includes property taxes, homeowners insurance, PMI, and HOA estimates.",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Any",
         "offers": {"@type":"Offer","price":"0","priceCurrency":"USD"},
-        "provider": {"@id":"https://www.logan.loans/#org"}
+        "provider": {"@id":"https://logan.loans/#org"}
       },
       {
         "@type": "Organization",
-        "@id": "https://www.logan.loans/#org",
+        "@id": "https://logan.loans/#org",
         "name": "Logan Loans",
-        "url": "https://www.logan.loans",
-        "logo": "https://www.logan.loans/assets/img/logo.svg",
+        "url": "https://logan.loans",
+        "logo": "https://logan.loans/assets/img/logo.svg",
         "telephone": "+1-480-803-7763",
         "email": "logan@forward.loans"
       },
       {
         "@type": "BreadcrumbList",
         "itemListElement": [
-          {"@type":"ListItem","position":1,"name":"Home","item":"https://www.logan.loans/"},
-          {"@type":"ListItem","position":2,"name":"Mortgage Calculator","item":"https://www.logan.loans/calculator"}
+          {"@type":"ListItem","position":1,"name":"Home","item":"https://logan.loans/"},
+          {"@type":"ListItem","position":2,"name":"Mortgage Calculator","item":"https://logan.loans/calculator"}
         ]
       },
       {
@@ -591,7 +597,8 @@
           <strong>NMLS</strong> 2466872 (Logan Sullivan) • <strong>Forward Loans</strong> NMLS 2006640<br>
           <a href="https://forward.loans/loan-officer/logan-sullivan/" target="_blank" rel="noopener">Official Profile</a> •
           <a href="./privacy">Privacy</a> •
-          <a href="./disclosures">Disclosures</a>
+          <a href="./disclosures">Disclosures</a> •
+        <a href="./terms">Terms</a>
         </p>
         <p class="small muted">Calculator estimates are illustrative and not a loan offer. Actual terms depend on credit, property, program, and full underwriting review.</p>
       </div>

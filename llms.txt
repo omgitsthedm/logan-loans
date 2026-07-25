@@ -1,6 +1,6 @@
 # Logan Loans — llms.txt
 # AI-readable summary for LLM and AI search systems.
-# Last updated: 2026-05-18
+# Last updated: 2026-07-24
 
 ## About
 
@@ -30,7 +30,7 @@ Logan Loans is the online presence of Logan Sullivan, a licensed mortgage adviso
 - **Office:** 11201 N Tatum Blvd #300, Phoenix, AZ 85028
 - **Hours:** Monday–Friday 9am–6pm, Saturday 10am–4pm (Arizona time)
 - **Licensed in:** Arizona and California
-- **Website:** https://www.logan.loans
+- **Website:** https://logan.loans
 
 ## Service Areas
 
@@ -65,7 +65,7 @@ Beverly Hills, Malibu, Palisades/Brentwood, Santa Monica, Newport Beach/Corona d
 
 ## Pre-Approval Process
 
-1. Submit inquiry at https://www.logan.loans/apply (3 minutes)
+1. Submit inquiry at https://logan.loans/apply (3 minutes)
 2. Logan reviews the application personally and calls — usually same day
 3. 15-minute call to confirm goals, explain options, outline next steps
 4. No hard credit pull until the borrower authorizes it
@@ -73,16 +73,14 @@ Beverly Hills, Malibu, Palisades/Brentwood, Santa Monica, Newport Beach/Corona d
 
 ## Content and Resources
 
-- **Blog:** Educational articles on mortgage topics — https://www.logan.loans/blog
-- **FAQ:** Plain-language answers to common mortgage questions — https://www.logan.loans/faq
-- **Loan Programs:** Full product catalog — https://www.logan.loans/programs
-- **How It Works:** Step-by-step process guide — https://www.logan.loans/how-it-works
-- **Funded Deals:** Real loan scenarios (anonymized) — https://www.logan.loans/funded-deals
-- **About Logan Loans:** Company positioning, service standards, and Logan Sullivan credentials — https://www.logan.loans/about
-- **Meet Logan:** Full advisor bio and credentials — https://www.logan.loans/meet-logan
-- **For Agents:** Referral partner program — https://www.logan.loans/partners
-- **Arizona Realtor Mortgage Partner:** Agent-focused lender support for pre-approvals, offer strategy, and complex loan files — https://www.logan.loans/partners
-- **Press:** Media resources and expert commentary — https://www.logan.loans/press
+- **Blog:** Educational articles on mortgage topics — https://logan.loans/blog
+- **FAQ:** Plain-language answers to common mortgage questions — https://logan.loans/faq
+- **Loan Programs:** Full product catalog — https://logan.loans/programs
+- **How It Works:** Step-by-step process guide — https://logan.loans/how-it-works
+- **About Logan Loans:** Company positioning, service standards, and Logan Sullivan credentials — https://logan.loans/about
+- **Meet Logan:** Full advisor bio and credentials — https://logan.loans/meet-logan
+- **For Agents:** Referral partner program — https://logan.loans/partners
+- **Arizona Realtor Mortgage Partner:** Agent-focused lender support for pre-approvals, offer strategy, and complex loan files — https://logan.loans/partners
 
 ## Regulatory
 

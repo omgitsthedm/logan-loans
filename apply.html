@@ -26,7 +26,7 @@
     .desktopOnly{display:flex}.mobileOnly{display:none}
     .section{padding:var(--sectionY) 0}
     .threshold{height:2px;background:linear-gradient(90deg,var(--primary),var(--mint),var(--apricot));transform-origin:left;transform:scaleX(0);transition:transform 800ms var(--easeOut);margin-bottom:20px;border-radius:2px}
-    .card,.trustPill,.step{opacity:0;transform:translateY(24px) scale(0.98)}.section.is-visible .card,.section.is-visible .trustPill,.section.is-visible .step{opacity:1;transform:translateY(0) scale(1)}
+    .card,.trustPill,.step{opacity:1;transform:none}.section.is-visible .card,.section.is-visible .trustPill,.section.is-visible .step{opacity:1;transform:translateY(0) scale(1)}
     .card{border:1px solid var(--border);border-radius:var(--rCard);padding:22px;background:rgba(255,255,255,0.65)}
     .porch{border:1px solid var(--border);border-radius:var(--rDoor);background:linear-gradient(135deg,rgba(207,231,215,0.4) 0%,rgba(255,255,255,0.6) 50%,rgba(243,178,122,0.15) 100%);box-shadow:var(--shadow);padding:28px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;position:relative;overflow:hidden}
     .uLink{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:2px;color:var(--primary);font-weight:700}
@@ -56,18 +56,18 @@
   </style>
 
   <meta name="description" content="Start your Arizona mortgage pre-approval in minutes. Logan Sullivan (NMLS 2466872) reviews your application personally. Same-day responses, no obligation." />
-  <link rel="canonical" href="https://www.logan.loans/apply" />
+  <link rel="canonical" href="https://logan.loans/apply" />
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
 
   <meta property="og:title" content="Get Pre-Approved | Logan Loans" />
   <meta property="og:description" content="Start your Arizona mortgage pre-approval in minutes. Personal review by Logan Sullivan, NMLS 2466872." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.logan.loans/apply" />
-  <meta property="og:image" content="https://www.logan.loans/assets/img/logan-main.webp" />
+  <meta property="og:url" content="https://logan.loans/apply" />
+  <meta property="og:image" content="https://logan.loans/assets/img/logan-main.webp" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Get Pre-Approved | Logan Loans" />
   <meta name="twitter:description" content="Start your Arizona mortgage pre-approval in minutes." />
-  <meta name="twitter:image" content="https://www.logan.loans/assets/img/logan-main.webp" />
+  <meta name="twitter:image" content="https://logan.loans/assets/img/logan-main.webp" />
 
 <script type="application/ld+json">
 {
@@ -76,18 +76,18 @@
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        {"@type":"ListItem","position":1,"name":"Home","item":"https://www.logan.loans/"},
-        {"@type":"ListItem","position":2,"name":"Get Pre-Approved","item":"https://www.logan.loans/apply"}
+        {"@type":"ListItem","position":1,"name":"Home","item":"https://logan.loans/"},
+        {"@type":"ListItem","position":2,"name":"Get Pre-Approved","item":"https://logan.loans/apply"}
       ]
     },
     {
       "@type": "WebPage",
-      "@id": "https://www.logan.loans/apply#webpage",
-      "url": "https://www.logan.loans/apply",
+      "@id": "https://logan.loans/apply#webpage",
+      "url": "https://logan.loans/apply",
       "name": "Get Pre-Approved | Logan Loans",
       "description": "Start your Arizona mortgage pre-approval with Logan Sullivan, NMLS 2466872.",
-      "isPartOf": {"@id": "https://www.logan.loans/#website"},
-      "breadcrumb": {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.logan.loans/"},{"@type":"ListItem","position":2,"name":"Get Pre-Approved","item":"https://www.logan.loans/apply"}]}
+      "isPartOf": {"@id": "https://logan.loans/#website"},
+      "breadcrumb": {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://logan.loans/"},{"@type":"ListItem","position":2,"name":"Get Pre-Approved","item":"https://logan.loans/apply"}]}
     }
   ]
 }
@@ -162,9 +162,9 @@
             <div class="threshold" aria-hidden="true"></div>
             <div class="formCard">
               <h2 class="h2" style="font-size:clamp(22px,2.5vw,30px);margin-bottom:6px;">Pre-Approval Request</h2>
-              <p class="small muted" style="margin:0 0 24px 0;">Takes about 3 minutes. Logan will reach out to confirm next steps.</p>
+              <p class="small muted" style="margin:0 0 24px 0;"><strong>Name and email are enough to start.</strong> Everything else is optional and simply helps Logan prepare for the conversation.</p>
 
-              <form id="applyForm" name="apply" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="./thanks">
+              <form id="applyForm" name="apply" method="POST" data-netlify="true" data-utm-form netlify-honeypot="bot-field" action="./thanks">
                 <input type="hidden" name="form-name" value="apply" />
                 <p class="visually-hidden"><label>Don't fill this out: <input type="text" name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
 
@@ -191,7 +191,7 @@
                     <label for="apply-email">Email address <span aria-hidden="true">*</span></label>
                     <input type="email" id="apply-email" name="email" autocomplete="email" required placeholder="you@example.com" />
                   </div>
-                  <div class="field">
+                  <div class="field fieldFull">
                     <label for="apply-goal">What's your goal?</label>
                     <select id="apply-goal" name="goal">
                       <option value="">Select one…</option>
@@ -204,49 +204,55 @@
                       <option value="not-sure">Not sure yet — just exploring</option>
                     </select>
                   </div>
-                  <div class="field">
-                    <label for="apply-timeline">Timeline</label>
-                    <select id="apply-timeline" name="timeline">
-                      <option value="">Select one…</option>
-                      <option value="asap">ASAP — I have an offer in</option>
-                      <option value="1-3months">1–3 months</option>
-                      <option value="3-6months">3–6 months</option>
-                      <option value="6plus">6+ months</option>
-                      <option value="exploring">Just exploring options</option>
-                    </select>
-                  </div>
-                  <div class="field">
-                    <label for="apply-price">Estimated purchase price</label>
-                    <select id="apply-price" name="price_range">
-                      <option value="">Select range…</option>
-                      <option value="under-300k">Under $300,000</option>
-                      <option value="300-500k">$300,000 – $500,000</option>
-                      <option value="500-750k">$500,000 – $750,000</option>
-                      <option value="750k-1m">$750,000 – $1,000,000</option>
-                      <option value="1m-2m">$1M – $2M</option>
-                      <option value="over-2m">Over $2M</option>
-                      <option value="not-sure">Not sure yet</option>
-                    </select>
-                  </div>
-                  <div class="field">
-                    <label for="apply-location">Where are you buying?</label>
-                    <select id="apply-location" name="location">
-                      <option value="">Select area…</option>
-                      <option value="phoenix">Phoenix / Metro</option>
-                      <option value="scottsdale">Scottsdale</option>
-                      <option value="paradise-valley">Paradise Valley</option>
-                      <option value="north-scottsdale">North Scottsdale</option>
-                      <option value="flagstaff">Flagstaff / Sedona</option>
-                      <option value="tucson">Tucson</option>
-                      <option value="la">Los Angeles / Beverly Hills</option>
-                      <option value="socal-coast">Southern California Coast</option>
-                      <option value="other">Other / Not sure</option>
-                    </select>
-                  </div>
-                  <div class="field fieldFull">
-                    <label for="apply-message">Anything else Logan should know? <span class="tiny muted">(optional)</span></label>
-                    <textarea id="apply-message" name="message" rows="3" placeholder="Credit situation, unique income, second home, investment scenario — anything that helps us prepare the right conversation."></textarea>
-                  </div>
+                  <details class="optionalDetails fieldFull">
+                    <summary>Help Logan prepare <span>Optional details</span></summary>
+                    <p class="help">Share what you know. “Not sure” is a perfectly useful answer.</p>
+                    <div class="optionalGrid">
+                      <div class="field">
+                        <label for="apply-timeline">Timeline</label>
+                        <select id="apply-timeline" name="timeline">
+                          <option value="">Select one…</option>
+                          <option value="asap">ASAP — I have an offer in</option>
+                          <option value="1-3months">1–3 months</option>
+                          <option value="3-6months">3–6 months</option>
+                          <option value="6plus">6+ months</option>
+                          <option value="exploring">Just exploring options</option>
+                        </select>
+                      </div>
+                      <div class="field">
+                        <label for="apply-price">Estimated purchase price</label>
+                        <select id="apply-price" name="price_range">
+                          <option value="">Select range…</option>
+                          <option value="under-300k">Under $300,000</option>
+                          <option value="300-500k">$300,000 – $500,000</option>
+                          <option value="500-750k">$500,000 – $750,000</option>
+                          <option value="750k-1m">$750,000 – $1,000,000</option>
+                          <option value="1m-2m">$1M – $2M</option>
+                          <option value="over-2m">Over $2M</option>
+                          <option value="not-sure">Not sure yet</option>
+                        </select>
+                      </div>
+                      <div class="field fieldFull">
+                        <label for="apply-location">Where are you buying?</label>
+                        <select id="apply-location" name="location">
+                          <option value="">Select area…</option>
+                          <option value="phoenix">Phoenix / Metro</option>
+                          <option value="scottsdale">Scottsdale</option>
+                          <option value="paradise-valley">Paradise Valley</option>
+                          <option value="north-scottsdale">North Scottsdale</option>
+                          <option value="flagstaff">Flagstaff / Sedona</option>
+                          <option value="tucson">Tucson</option>
+                          <option value="la">Los Angeles / Beverly Hills</option>
+                          <option value="socal-coast">Southern California Coast</option>
+                          <option value="other">Other / Not sure</option>
+                        </select>
+                      </div>
+                      <div class="field fieldFull">
+                        <label for="apply-message">Anything else Logan should know?</label>
+                        <textarea id="apply-message" name="message" rows="3" placeholder="Credit situation, unique income, second home, investment scenario — anything that helps us prepare the right conversation."></textarea>
+                      </div>
+                    </div>
+                  </details>
                 </div>
 
                 <div id="applyStatus" class="formStatus" role="status" aria-live="polite">
@@ -254,7 +260,7 @@
                 </div>
 
                 <button type="submit" class="btn btnPrimary" style="width:100%;margin-top:16px;font-size:18px;padding:18px 28px;">
-                  Send My Pre-Approval Request
+                  Send My Request
                 </button>
 
                 <p class="tiny muted" style="text-align:center;margin-top:12px;">By submitting, you agree to be contacted by Logan Sullivan (NMLS 2466872) regarding your mortgage inquiry. No spam. Unsubscribe any time. See <a class="uLink" href="./privacy">Privacy Policy</a>.</p>
@@ -405,7 +411,7 @@
 
   <div class="mobileBar mobileOnly" role="region" aria-label="Quick actions">
     <a class="btn btnSecondary mobileBarBtn" href="tel:+14808037763" aria-label="Call Logan Loans"> Call</a>
-    <a class="btn btnPrimary mobileBarBtn" href="#applyForm">Apply Now</a>
+    <a class="btn btnPrimary mobileBarBtn" href="#applyForm" aria-label="Go to pre-approval form">Start Here</a>
   </div>
 
   <link rel="stylesheet" href="./styles.css?v=20260720-polish" media="print" onload="this.media='all'">

@@ -1,12 +1,12 @@
 # Logan Loans — CLAUDE.md
 > AI-Ops onboarded 2026-06-28 — read `.ai/RULES.md` + `.ai/STATE.md` first (authoritative, generated).
-> `git push` to `master` = production deploy (gated). Compliance-sensitive NMLS/rate/disclosure copy — do not change without approval.
+> Git push and Netlify production deploy are separate gated actions. Build with `bash scripts/build-site.sh`; deploy only `dist`. Compliance-sensitive NMLS/rate/disclosure copy — do not change without approval.
 
 ## Client Config
 
 - **Client:** Logan Sullivan, Mortgage Advisor
 - **Company:** Forward Loans, LLC
-- **Site URL:** https://www.logan.loans
+- **Site URL:** https://logan.loans
 - **Primary Email:** logan@forward.loans
 - **Phone:** (480) 803-7763
 - **NMLS (Logan):** 2466872
@@ -133,9 +133,9 @@
 
 | Date | Decision | Reason |
 |------|----------|--------|
-| 2026-03-01 | Static HTML/CSS/JS, no build step | Max performance, zero build complexity, Netlify-native |
+| 2026-03-01 | Static HTML/CSS/JS, originally without a build step | Historical architecture; safe `dist` publishing superseded root publishing in July 2026 |
 | 2026-03-01 | System fonts (no self-hosted) | Eliminates FOUT, reduces bytes, matches device aesthetics |
-| 2026-03-01 | BankingBridge rate calculator embedded | Logan's existing partner, pre-authorized |
+| 2026-03-01 | BankingBridge rate calculator embedded | Historical implementation; homepage now links to first-party tools while the approved CSP frame allowlist remains |
 | 2026-03-01 | Cream (#FBF7EF) background, not white | Warmer feel, lower eye strain, differentiates from sterile bank sites |
 | 2026-05-03 | Full schema stack added | All 3 audited competitors have thin/no schema — competitive SEO advantage |
 | 2026-05-03 | netlify.toml security headers | Site had zero headers — F on security scan, now A+ |
@@ -165,9 +165,10 @@
 | 2026-05-04 | Homepage full redesign | Dark forest green hero, Logan photo above fold, real review cards, numbered path cards, dark split bio panel, zero emojis. Beats cream-on-cream monotony of competitors. |
 | 2026-05-04 | .door.heroDark specificity fix | styles.css .door (specificity 010) was overriding .heroDark (010). Fixed with .door.heroDark (020). |
 | 2026-05-18 | Ultra-premium Arizona Realtor pass | Homepage and partners page repositioned around Arizona Realtor partnerships, Phoenix/Scottsdale/East Valley market language, stronger partner workflow copy, premium visual polish, and quieter motion. |
-| 2026-05-18 | Extensionless URL cleanup | Canonicals, sitemap, llms.txt, internal links, form redirects, and Netlify redirects now consolidate around extensionless https://www.logan.loans paths, with legacy top-level .html URLs redirected. |
+| 2026-05-18 | Extensionless URL cleanup | Extensionless routes established; canonical host was later normalized to the Netlify-primary apex `https://logan.loans`. |
 | 2026-05-18 | Accessibility and crawl-quality cleanup | Drawer focus handling, close-button naming, calculator labels, honeypot fields, visible link text, priority page depth, and oversized Arizona images were cleaned up after audit review. |
 | 2026-05-18 | Instagram section hotfix | Homepage Instagram feature now uses branded static social preview cards linking to @logan.loans instead of pale placeholder SVGs or a brittle third-party Instagram embed. |
 | 2026-05-18 | Home nav item added | Home now appears first in the desktop primary nav and mobile drawer across the static site, with aria-current on the homepage. |
 | 2026-05-19 | SEO/AEO production cleanup | Added a real /about page, restored /about from redirect to indexable page, linked /about from homepage and Meet Logan footers, added /about to sitemap and llms.txt, repaired blog hub BlogPosting schema with images/publisher/dateModified, added missing post schema, added missing LocalBusiness addresses on priority city pages, fixed minor audit warnings on tools, premium-markets, and blog author images, and documented Logan's SEO/AEO intake requirements. |
 | 2026-05-19 | Netlify form notification verified | Netlify Forms are registered for apply, preapproval, general-contact, partner-referral, and newsletter. Production submission hook now sends to logan@forward.loans. |
+| 2026-07-24 | Preserve-mode UX and search release | Kept the evergreen/cream/Georgia/real-photo identity; reduced motion and mobile friction; made FAQ search and specialty-program routing functional; normalized apex canonicals; added a safe `dist` build and sitewide release audit; quarantined unapproved proof pages from indexing. |

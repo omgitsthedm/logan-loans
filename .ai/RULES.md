@@ -1,11 +1,11 @@
 # AI-Ops Project Rules
 
-Rules Version: 2026-06-27-aiops-foundation-v1
-Generated date/time: 2026-06-28T02:27:53-0700
+Rules Version: 2026-07-24-logan-safe-publish-v2
+Generated date/time: 2026-07-24T00:00:00-0700
 Source Base: /Users/davidmarsh/AI-OPS/TEMPLATES/RULES_BASE.md
-Source Header: /Users/davidmarsh/Desktop/LiFi NYC/Clients/Logan Loans/logan-loans/.ai/RULES_HEADER.md
+Source Header: /Users/davidmarsh/Code/LiFi NYC/Clients/Logan Loans/logan-loans/.ai/RULES_HEADER.md
 <!-- AI-OPS-GENERATED: edit RULES_HEADER.md or RULES_BASE.md, then rerun generate-rules. -->
-<!-- AI-OPS-CONTENT-CHECKSUM: 339254483:9428 -->
+<!-- AI-OPS-CONTENT-CHECKSUM: 4112388334:9995 -->
 
 <!-- AI-OPS-CONTENT-BEGIN -->
 ## Project Rules Header
@@ -30,11 +30,11 @@ Tier 2 — live lead-gen site for an NMLS-licensed mortgage advisor (regulated)
 
 Risk:
 
-Medium — regulated mortgage / real-estate lending site. NMLS licensing, a real `/apply` Netlify lead form, and BankingBridge mortgage-calculator iframes. Copy is compliance-sensitive — treat like Grand Funding.
+Medium — regulated mortgage / real-estate lending site. NMLS licensing and real Netlify lead forms are active. Copy is compliance-sensitive — treat like Grand Funding.
 
 Canonical Path:
 
-/Users/davidmarsh/Desktop/LiFi NYC/Clients/Logan Loans/logan-loans
+/Users/davidmarsh/Code/LiFi NYC/Clients/Logan Loans/logan-loans
 
 Remote:
 
@@ -42,22 +42,23 @@ https://github.com/omgitsthedm/logan-loans.git  (default branch: `master`)
 
 Host:
 
-Netlify — project `loganloans`. **Static site, `publish = "."`** (whole repo root), no build. Netlify Forms enabled. Internal files are blocked from public serving via forced `/CLAUDE.md`, `/AGENTS.md`, `/.ai/*` → 404 redirects (so `.ai/`, `CLAUDE.md`, `AGENTS.md` are NOT public).
+Netlify — project `loganloans`, site id `a9776112-531e-4ca2-ba17-9338b8eef423`. Static source is built with `bash scripts/build-site.sh` into an ignored, allowlisted `dist/`, and Netlify publishes only `dist`. Netlify Forms are enabled. The site is not Git-linked, so Git push and production deploy are separate release steps. Internal files are excluded from `dist` and also blocked via forced `/CLAUDE.md`, `/AGENTS.md`, `/.ai/*` → 404 redirects.
 
 Live URL:
 
-`https://www.logan.loans` (canonical; Netlify primary `https://logan.loans`)
+`https://logan.loans` (canonical and Netlify primary)
 
 Stack:
 
-Static HTML/CSS/JS (~70 pages: scenario/location/blog/tools). No framework, no build step, no `package.json`. BankingBridge calculator iframes; Forward Loans, LLC (NMLS #2006640) homepage frame allowed in CSP. Logan MLO NMLS #2466872.
+Static HTML/CSS/JS (58 pages: scenarios, locations, articles, and first-party tools). No framework or `package.json`. The build script copies a safe allowlist, stamps shared assets, and runs the sitewide release audit. The CSP retains the approved BankingBridge and Forward Loans frame allowlist, although the homepage now uses first-party calculator links instead of an iframe. Logan MLO NMLS #2466872; Forward Loans, LLC NMLS #2006640.
 
 ## Commands
 
-- Dev / preview: serve the folder statically (e.g. `npx serve .` or Netlify dev); no build needed.
-- Build: none (`publish = "."`, static).
-- Lint/format: none defined.
-- Deploy: `git push origin master` → Netlify auto-publishes (push = production deploy → gated by clear, scoped confirmation from David).
+- Dev: serve the repository root for source inspection, or run `bash scripts/build-site.sh` and serve `dist/` for release QA.
+- Build: `bash scripts/build-site.sh`.
+- Audit: `node scripts/audit-site.mjs .` for source or `node scripts/audit-site.mjs dist` for the publish artifact.
+- Preview deploy: `netlify deploy --dir=dist`.
+- Production deploy: commit and push reviewed source to `master`, then run `netlify deploy --prod --dir=dist`. Production deploy remains gated by clear, scoped confirmation from David.
 
 ## Locked Rules
 
@@ -68,12 +69,12 @@ Static HTML/CSS/JS (~70 pages: scenario/location/blog/tools). No framework, no b
 - **Never publish prices/rates** as fixed claims — keep to approved, disclosure-backed language only.
 - Images `.webp` + explicit `width`/`height` + lazy-load below fold.
 - Mobile-first, WCAG AA contrast, body text 16px+, respect `prefers-reduced-motion`.
-- `git push` (to `master`) = production deploy → gated. `.env`/secrets never read.
+- Git push and Netlify production deploy are separate actions; each must stay within the user's approved scope. `.env`/secrets are never read.
 - `.ai/`, `CLAUDE.md`, `AGENTS.md` stay private via the forced `→ 404` redirects — do not remove them.
 
 ## Logan Loans QA Harness Map
 
-Observational (agent may run): `git status/log`, read source/config, static local serve, public GET to www.logan.loans, read-only Netlify deploy metadata.
+Observational (agent may run): `git status/log`, read source/config, local release build/serve, public GET to `logan.loans`, read-only Netlify deploy metadata.
 
 Transactional/gated (David/Logan-run or approved): `git push`/Netlify deploy; real `/apply` lead submissions; any change to NMLS/license/rate/APR/disclosure copy; DNS/domain/env changes; CSP/iframe-allowlist changes.
 

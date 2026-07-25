@@ -32,7 +32,7 @@
     body{padding-bottom:100px}
     .desktopOnly{display:flex}.mobileOnly{display:none}
     .card{border:1px solid var(--border);border-radius:var(--rCard);padding:22px;background:rgba(255,255,255,0.65);position:relative}
-    .card,.step,.quote,.arizonaItem,.instaCard,.formCard,.investorSection,.porch{opacity:0;transform:translateY(28px) scale(0.97)}.section.is-visible .card,.section.is-visible .step,.section.is-visible .quote,.section.is-visible .arizonaItem,.section.is-visible .instaCard,.section.is-visible .formCard,.section.is-visible .investorSection,.section.is-visible .porch,.hero .card,.hero .porch{opacity:1;transform:translateY(0) scale(1)}.trust{opacity:0;transform:translateX(-20px)}.door .trust{opacity:1;transform:translateX(0)}.mobileBar{opacity:0;transform:translateY(100px)}
+    .card,.step,.quote,.arizonaItem,.instaCard,.formCard,.investorSection,.porch{opacity:1;transform:none}.section.is-visible .card,.section.is-visible .step,.section.is-visible .quote,.section.is-visible .arizonaItem,.section.is-visible .instaCard,.section.is-visible .formCard,.section.is-visible .investorSection,.section.is-visible .porch,.hero .card,.hero .porch{opacity:1;transform:translateY(0) scale(1)}.trust{opacity:0;transform:translateX(-20px)}.door .trust{opacity:1;transform:translateX(0)}.mobileBar{opacity:1;transform:none}
     .cardTitle{font-weight:800;margin:0 0 10px 0;font-size:20px;position:relative}.cardText{color:var(--muted);margin:0;font-size:17px;line-height:1.6;position:relative}
     .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:20px}
     .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}.step{border:1px solid var(--border);border-radius:var(--rCard);padding:24px;background:rgba(251,247,239,0.6);position:relative}.stepNum{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--sage) 0%,rgba(207,231,215,0.6) 100%);color:var(--primary);font-weight:900;font-size:18px;border:1px solid rgba(22,90,63,0.1);margin-bottom:14px}
@@ -71,7 +71,7 @@
   </style>
 
   <meta name="description" content="Mortgage FAQs for Phoenix-area buyers. Clear, short answers designed for Google and real people." />
-  <link rel="canonical" href="https://www.logan.loans/faq" />
+  <link rel="canonical" href="https://logan.loans/faq" />
 
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
 
@@ -79,14 +79,14 @@
   <meta property="og:title" content="Mortgage FAQ | Logan Loans (Phoenix)" />
   <meta property="og:description" content="Mortgage FAQs for Phoenix-area buyers. Clear, short answers designed for Google and real people." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.logan.loans/faq" />
-  <meta property="og:image" content="https://www.logan.loans/assets/img/logan-main.webp" />
+  <meta property="og:url" content="https://logan.loans/faq" />
+  <meta property="og:image" content="https://logan.loans/assets/img/logan-main.webp" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Mortgage FAQ | Logan Loans (Phoenix)" />
   <meta name="twitter:description" content="Mortgage FAQs for Phoenix-area buyers. Clear, short answers designed for Google and real people." />
-  <meta name="twitter:image" content="https://www.logan.loans/assets/img/logan-main.webp" />
+  <meta name="twitter:image" content="https://logan.loans/assets/img/logan-main.webp" />
 
 <script type="application/ld+json">
 {
@@ -94,17 +94,17 @@
   "@graph": [
     {
       "@type": "WebSite",
-      "@id": "https://www.logan.loans/#website",
-      "url": "https://www.logan.loans/",
+      "@id": "https://logan.loans/#website",
+      "url": "https://logan.loans/",
       "name": "Logan Loans",
       "description": "Phoenix-area mortgages explained like a human. Clear guidance, quick pre-approvals, and a calm 3-step process.",
       "inLanguage": "en-US"
     },
     {
       "@type": "LocalBusiness",
-      "@id": "https://www.logan.loans/#localbusiness",
+      "@id": "https://logan.loans/#localbusiness",
       "name": "Logan Loans",
-      "url": "https://www.logan.loans/",
+      "url": "https://logan.loans/",
       "telephone": "+14808037763",
       "address": {"@type":"PostalAddress","streetAddress":"11201 N Tatum Blvd #300","addressLocality":"Phoenix","addressRegion":"AZ","postalCode":"85028","addressCountry":"US"},
       "areaServed": ["Arizona", "California", "Southern California", "Paradise Valley", "Scottsdale", "Beverly Hills", "Newport Beach", "La Jolla"],
@@ -113,19 +113,19 @@
     },
     {
       "@type": "WebPage",
-      "@id": "https://www.logan.loans/faq#webpage",
-      "url": "https://www.logan.loans/faq",
+      "@id": "https://logan.loans/faq#webpage",
+      "url": "https://logan.loans/faq",
       "name": "Mortgage FAQ | Logan Loans (Phoenix)",
       "isPartOf": {
-        "@id": "https://www.logan.loans/#website"
+        "@id": "https://logan.loans/#website"
       },
       "speakable": {"@type":"SpeakableSpecification","cssSelector":[".h1",".h2",".kicker"]}
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.logan.loans/" },
-        { "@type": "ListItem", "position": 2, "name": "FAQ", "item": "https://www.logan.loans/faq" }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://logan.loans/" },
+        { "@type": "ListItem", "position": 2, "name": "FAQ", "item": "https://logan.loans/faq" }
       ]
     }
   ]
@@ -180,7 +180,7 @@
     {"@type":"Question","name":"What is the Arizona Home Plus program?","acceptedAnswer":{"@type":"Answer","text":"Arizona Home Plus provides down payment assistance up to 5% of the loan amount for low- and moderate-income buyers. Available statewide for primary residences only. Must use an approved lender (we are one) and meet income limits. The assistance is structured as a forgivable second lien."}},
     {"@type":"Question","name":"Are HOA fees included in my mortgage payment?","acceptedAnswer":{"@type":"Answer","text":"Not in your escrow — but yes in your DTI calculation. HOA dues are paid directly by you to the HOA, not collected by the lender. However, lenders include HOA in your debt-to-income, which means a $400/month HOA reduces your purchasing power by roughly $60-75k."}},
     {"@type":"Question","name":"Does monsoon season affect homeowners insurance in Arizona?","acceptedAnswer":{"@type":"Answer","text":"Some — flooding, wind damage, and hail can drive insurance pricing in specific zip codes. Most of metro Phoenix is in low flood-risk zones, so flood insurance isn't typically required. If your property is in or near a wash, you'll want to verify the FEMA flood zone before close."}},
-    {"@type":"Question","name":"Can I buy a home in Sedona to use as a vacation rental?","acceptedAnswer":{"@type":"Answer","text":"Yes — but check the rules. Inside Sedona city limits, short-term rentals are restricted to grandfathered properties. Outside city limits (Big Park, Village of Oak Creek), short-term rentals are widely permitted. DSCR loans work well for STR purchases — some lenders use AirDNA projections for qualifying income."}},
+    {"@type":"Question","name":"Can I buy a home in Sedona to use as a vacation rental?","acceptedAnswer":{"@type":"Answer","text":"Potentially. The City of Sedona allows qualifying dwelling types to operate as short-term rentals with a transaction privilege tax license and city permit, and the city does not currently cap the number of permits. HOA rules and property eligibility can still restrict use, so confirm the parcel, HOA documents, and permit path before relying on rental income."}},
     {"@type":"Question","name":"How do I qualify for a mortgage if I'm self-employed?","acceptedAnswer":{"@type":"Answer","text":"Conventional path: 2 years of personal and business tax returns, plus YTD P&L and business bank statements. Lenders calculate qualifying income from your net (after deductions) — which often understates your real cash flow. Bank statement loans solve this by qualifying on 12-24 months of deposits instead of returns."}},
     {"@type":"Question","name":"What is a bank statement loan?","acceptedAnswer":{"@type":"Answer","text":"A non-QM loan that uses 12 or 24 months of business or personal bank statements as proof of income, instead of tax returns. Built for self-employed borrowers, business owners, and 1099 earners with strong cash flow but heavy write-offs. Typical rate premium: 0.5-1.5% above conventional."}},
     {"@type":"Question","name":"Do I need 2 years of self-employment to qualify?","acceptedAnswer":{"@type":"Answer","text":"For conventional and FHA: typically yes, with limited exceptions. Some lenders accept 1 year of self-employment if you have a 2-year history in the same field as a W-2 employee before going self-employed. Bank statement loans often accept just 1-2 years of self-employment."}},
@@ -192,7 +192,7 @@
 }
 </script>
 </head>
-<body>
+<body class="faq-page">
 
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
@@ -255,9 +255,23 @@
     <div class="threshold" aria-hidden="true"></div>
     <p class="kicker">FAQ</p>
     <h1 class="h1" style="font-size:clamp(30px,4vw,48px)">Mortgage FAQs for Phoenix-area buyers.</h1>
-    <p class="p">AEO-style answers: short, clear, and designed for real questions people type into Google.</p>
+    <p class="p">Short answers first. Search the exact question on your mind, or browse by topic.</p>
 
-    <div class="faqCatNav" style="display:flex;gap:8px;flex-wrap:wrap;margin:24px 0 8px 0">
+    <div class="faqSearch" role="search">
+      <label class="visually-hidden" for="faq-search">Search mortgage questions</label>
+      <input
+        id="faq-search"
+        type="search"
+        inputmode="search"
+        autocomplete="off"
+        placeholder="Try “down payment,” “DSCR,” or “pre-approval”"
+        data-faq-search
+      >
+      <button class="faqClear" type="button" data-faq-clear hidden>Clear search</button>
+    </div>
+    <p class="faqResult" role="status" aria-live="polite" data-faq-result>Plain-English mortgage answers.</p>
+
+    <div class="faqCatNav" data-faq-categories style="display:flex;gap:8px;flex-wrap:wrap;margin:24px 0 8px 0">
       <a class="chip" href="#cat-getting-started">Getting Started</a>
       <a class="chip" href="#cat-down-payment">Down Payment</a>
       <a class="chip" href="#cat-credit">Credit & Qualifying</a>
@@ -344,7 +358,7 @@
       <div class="faqItem"><button class="faqBtn" data-faq-btn aria-expanded="false" type="button">What is the Arizona Home Plus program? <span class="faqIcon" aria-hidden="true">+</span></button><div class="faqPanel"><div class="faqPanelInner">Arizona Home Plus provides down payment assistance up to 5% of the loan amount for low- and moderate-income buyers. Available statewide for primary residences only. Must use an approved lender (we are one) and meet income limits. The assistance is structured as a forgivable second lien.</div></div></div>
       <div class="faqItem"><button class="faqBtn" data-faq-btn aria-expanded="false" type="button">Are HOA fees included in my mortgage payment? <span class="faqIcon" aria-hidden="true">+</span></button><div class="faqPanel"><div class="faqPanelInner">Not in your escrow — but yes in your DTI calculation. HOA dues are paid directly by you to the HOA, not collected by the lender. However, lenders include HOA in your debt-to-income, which means a $400/month HOA reduces your purchasing power by roughly $60-75k.</div></div></div>
       <div class="faqItem"><button class="faqBtn" data-faq-btn aria-expanded="false" type="button">Does monsoon season affect homeowners insurance in Arizona? <span class="faqIcon" aria-hidden="true">+</span></button><div class="faqPanel"><div class="faqPanelInner">Some — flooding, wind damage, and hail can drive insurance pricing in specific zip codes. Most of metro Phoenix is in low flood-risk zones, so flood insurance isn't typically required. If your property is in or near a wash, you'll want to verify the FEMA flood zone before close.</div></div></div>
-      <div class="faqItem"><button class="faqBtn" data-faq-btn aria-expanded="false" type="button">Can I buy a home in Sedona to use as a vacation rental? <span class="faqIcon" aria-hidden="true">+</span></button><div class="faqPanel"><div class="faqPanelInner">Yes — but check the rules. Inside Sedona city limits, short-term rentals are restricted to grandfathered properties. Outside city limits (Big Park, Village of Oak Creek), short-term rentals are widely permitted. DSCR loans work well for STR purchases — some lenders use AirDNA projections for qualifying income.</div></div></div>
+      <div class="faqItem"><button class="faqBtn" data-faq-btn aria-expanded="false" type="button">Can I buy a home in Sedona to use as a vacation rental? <span class="faqIcon" aria-hidden="true">+</span></button><div class="faqPanel"><div class="faqPanelInner">Potentially. The City of Sedona allows qualifying dwelling types to operate as short-term rentals with a transaction privilege tax license and city permit, and the city does not currently cap the number of permits. HOA rules and property eligibility can still restrict use, so confirm the parcel, HOA documents, and permit path before relying on rental income.</div></div></div>
     </div>
 
     <h2 class="h2" id="cat-self-employed" style="margin-top:48px;font-size:clamp(24px,2.5vw,32px)">Self-employed</h2>
@@ -419,7 +433,8 @@
         <strong>NMLS</strong> 2466872 (Logan Sullivan) • <strong>Forward Loans</strong> NMLS 2006640<br>
         <a href="https://forward.loans/loan-officer/logan-sullivan/" target="_blank" rel="noopener">Official Profile</a> •
         <a href="./privacy">Privacy</a> •
-        <a href="./disclosures">Disclosures</a>
+        <a href="./disclosures">Disclosures</a> •
+        <a href="./terms">Terms</a>
       </p>
       <p class="small muted">All loans subject to credit approval. Same-day pre-approval depends on timing and completeness of information.</p>
     </div>

@@ -30,7 +30,7 @@
     body{padding-bottom:100px}
     .desktopOnly{display:flex}.mobileOnly{display:none}
     .card{border:1px solid var(--border);border-radius:var(--rCard);padding:22px;background:rgba(255,255,255,0.65);position:relative}
-    .card,.step,.quote,.arizonaItem,.instaCard,.formCard,.investorSection,.porch{opacity:0;transform:translateY(28px) scale(0.97)}.section.is-visible .card,.section.is-visible .step,.section.is-visible .quote,.section.is-visible .arizonaItem,.section.is-visible .instaCard,.section.is-visible .formCard,.section.is-visible .investorSection,.section.is-visible .porch,.hero .card,.hero .porch{opacity:1;transform:translateY(0) scale(1)}.trust{opacity:0;transform:translateX(-20px)}.door .trust{opacity:1;transform:translateX(0)}.mobileBar{opacity:0;transform:translateY(100px)}
+    .card,.step,.quote,.arizonaItem,.instaCard,.formCard,.investorSection,.porch{opacity:1;transform:none}.section.is-visible .card,.section.is-visible .step,.section.is-visible .quote,.section.is-visible .arizonaItem,.section.is-visible .instaCard,.section.is-visible .formCard,.section.is-visible .investorSection,.section.is-visible .porch,.hero .card,.hero .porch{opacity:1;transform:translateY(0) scale(1)}.trust{opacity:0;transform:translateX(-20px)}.door .trust{opacity:1;transform:translateX(0)}.mobileBar{opacity:1;transform:none}
     .cardTitle{font-weight:800;margin:0 0 10px 0;font-size:20px;position:relative}.cardText{color:var(--muted);margin:0;font-size:17px;line-height:1.6;position:relative}
     .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:20px}
     .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}.step{border:1px solid var(--border);border-radius:var(--rCard);padding:24px;background:rgba(251,247,239,0.6);position:relative}.stepNum{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--sage) 0%,rgba(207,231,215,0.6) 100%);color:var(--primary);font-weight:900;font-size:18px;border:1px solid rgba(22,90,63,0.1);margin-bottom:14px}
@@ -69,21 +69,21 @@
   </style>
 
   <meta name="description" content="Contact Logan Loans for mortgage pre-approval in Arizona. Quick intake, clear steps, no pressure." />
-  <link rel="canonical" href="https://www.logan.loans/contact" />
+  <link rel="canonical" href="https://logan.loans/contact" />
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Contact | Logan Loans (Arizona Mortgage Pre-Approval)" />
   <meta property="og:description" content="Contact Logan Loans for mortgage pre-approval in Arizona. Quick intake, clear steps, no pressure." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.logan.loans/contact" />
-  <meta property="og:image" content="https://www.logan.loans/assets/img/logan-main.webp" />
+  <meta property="og:url" content="https://logan.loans/contact" />
+  <meta property="og:image" content="https://logan.loans/assets/img/logan-main.webp" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Contact | Logan Loans (Arizona Mortgage Pre-Approval)" />
   <meta name="twitter:description" content="Contact Logan Loans for mortgage pre-approval in Arizona. Quick intake, clear steps, no pressure." />
-  <meta name="twitter:image" content="https://www.logan.loans/assets/img/logan-main.webp" />
+  <meta name="twitter:image" content="https://logan.loans/assets/img/logan-main.webp" />
 
 <script type="application/ld+json">
 {
@@ -91,17 +91,17 @@
   "@graph": [
     {
       "@type": "WebSite",
-      "@id": "https://www.logan.loans/#website",
-      "url": "https://www.logan.loans/",
+      "@id": "https://logan.loans/#website",
+      "url": "https://logan.loans/",
       "name": "Logan Loans",
       "description": "Arizona mortgages explained like a human. Clear guidance, quick pre-approvals, and a calm 3-step process.",
       "inLanguage": "en-US"
     },
     {
       "@type": "LocalBusiness",
-      "@id": "https://www.logan.loans/#localbusiness",
+      "@id": "https://logan.loans/#localbusiness",
       "name": "Logan Loans",
-      "url": "https://www.logan.loans/",
+      "url": "https://logan.loans/",
       "telephone": "+14808037763",
       "email": "logan@forward.loans",
       "address": {"@type":"PostalAddress","streetAddress":"11201 N Tatum Blvd #300","addressLocality":"Phoenix","addressRegion":"AZ","postalCode":"85028","addressCountry":"US"},
@@ -111,11 +111,11 @@
     },
     {
       "@type": "WebPage",
-      "@id": "https://www.logan.loans/contact#webpage",
-      "url": "https://www.logan.loans/contact",
+      "@id": "https://logan.loans/contact#webpage",
+      "url": "https://logan.loans/contact",
       "name": "Contact | Logan Loans (Arizona Mortgage Pre-Approval)",
       "isPartOf": {
-        "@id": "https://www.logan.loans/#website"
+        "@id": "https://logan.loans/#website"
       }
     }
   ]
@@ -312,8 +312,8 @@
     </div>
 
     <!-- GENERAL CONTACT FORM -->
-    <div class="card" style="margin-top:24px;">
-      <p class="cardTitle">Have a question?</p>
+    <div class="card" id="question" style="margin-top:24px;">
+      <p class="cardTitle" data-topic-heading>Have a question?</p>
       <p class="cardText" style="margin-bottom:14px;">Not ready for pre-approval yet? Just ask anything.</p>
 
       <form name="general-contact" method="POST" data-netlify="true" netlify-honeypot="bot-field-2">
@@ -378,7 +378,8 @@
         <strong>NMLS</strong> 2466872 (Logan Sullivan) • <strong>Forward Loans</strong> NMLS 2006640<br>
         <a href="https://forward.loans/loan-officer/logan-sullivan/" target="_blank" rel="noopener">Official Profile</a> •
         <a href="./privacy">Privacy</a> •
-        <a href="./disclosures">Disclosures</a>
+        <a href="./disclosures">Disclosures</a> •
+        <a href="./terms">Terms</a>
       </p>
       <p class="small muted">All loans subject to credit approval. Same-day pre-approval depends on timing and completeness of information.</p>
     </div>
