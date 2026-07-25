@@ -3,7 +3,7 @@
 Release date: 2026-07-24  
 Live site: https://logan.loans  
 Source commit: `764cb76`  
-Production deploy: `6a645d29791e1b616ae2de12`  
+Production deploy: `6a645e5fbe43e385760235aa`
 Validated preview: `6a645c8d0f70c23e5aa9cd94`
 
 ## Objective

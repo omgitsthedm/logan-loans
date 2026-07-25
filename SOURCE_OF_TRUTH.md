@@ -24,7 +24,7 @@ Last verified: 2026-07-24 by Codex against the resolved checkout, Git/GitHub sta
 
 - Verified Netlify authority: project `loganloans` · id `a9776112-531e-4ca2-ba17-9338b8eef423` · primary and canonical https://logan.loans.
 - Netlify provider/repository/production-branch fields are null/unreported. Production deploys are manual CLI/API deploys; pushing GitHub does not currently publish the site.
-- Production deploy `6a645d29791e1b616ae2de12` is `ready` and serves release source commit `764cb76`; validated preview `6a645c8d0f70c23e5aa9cd94` carries the same asset hashes. Internal docs and the raw-media path return 404 on live production.
+- Production deploy `6a645e5fbe43e385760235aa` is `ready` and was promoted from clean repository HEAD `0990296`; its published site asset fingerprints match release source commit `764cb76`. Validated preview `6a645c8d0f70c23e5aa9cd94` carries the same hashes. Internal docs and the raw-media path return 404 on live production.
 - Netlify Forms registry includes `apply`, `preapproval`, `general-contact`, `partner-referral`, and legacy `newsletter`.
 
 ## Secrets and data
