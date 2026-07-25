@@ -24,7 +24,7 @@ Last verified: 2026-07-24 by Codex against the resolved checkout, Git/GitHub sta
 
 - Verified Netlify authority: project `loganloans` · id `a9776112-531e-4ca2-ba17-9338b8eef423` · primary and canonical https://logan.loans.
 - Netlify provider/repository/production-branch fields are null/unreported. Production deploys are manual CLI/API deploys; pushing GitHub does not currently publish the site.
-- Production deploy `6a5ef4b9f002f06bbb509158` is `ready`; its homepage/CSS/JS hashes match release commit `7a6919a`. Safe preview `6a5ef3d04c2899b3815dcc0b` remains available. Internal docs and the raw-media path return 404 on live production.
+- Production deploy `6a645d29791e1b616ae2de12` is `ready` and serves release source commit `764cb76`; validated preview `6a645c8d0f70c23e5aa9cd94` carries the same asset hashes. Internal docs and the raw-media path return 404 on live production.
 - Netlify Forms registry includes `apply`, `preapproval`, `general-contact`, `partner-referral`, and legacy `newsletter`.
 
 ## Secrets and data
@@ -44,3 +44,4 @@ Last verified: 2026-07-24 by Codex against the resolved checkout, Git/GitHub sta
 - `disclosures.html` contains unresolved AZ Mortgage Banker License and CA-DFPI License placeholders. Those values require client/compliance approval; do not invent, hide, or remove them.
 - Current conforming/FHA/Home Plus figures and related eligibility language need a compliance-approved 2026 program-matrix correction. The release audit warns rather than rewriting regulated claims.
 - `funded-deals.html` and `press.html` are retained for owner review but are `noindex,follow` and excluded from sitemap/AI manifest discovery until reviews, deal examples, and proof claims are approved.
+- The five near-template Southern California locality pages are also `noindex,follow` and excluded from the sitemap until each has distinct first-party local proof. `southern-california.html` remains the indexable regional authority page.

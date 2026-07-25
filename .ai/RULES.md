@@ -1,7 +1,7 @@
 # AI-Ops Project Rules
 
 Rules Version: 2026-07-24-logan-safe-publish-v2
-Generated date/time: 2026-07-24T00:00:00-0700
+Generated date/time: 2026-07-24T23:54:17-0700
 Source Base: /Users/davidmarsh/AI-OPS/TEMPLATES/RULES_BASE.md
 Source Header: /Users/davidmarsh/Code/LiFi NYC/Clients/Logan Loans/logan-loans/.ai/RULES_HEADER.md
 <!-- AI-OPS-GENERATED: edit RULES_HEADER.md or RULES_BASE.md, then rerun generate-rules. -->
