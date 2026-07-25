@@ -10,6 +10,12 @@ Validated preview: `6a645c8d0f70c23e5aa9cd94`
 
 Keep the recognizable Logan Loans character while reducing mobile and conversion friction, replacing generic motion with purposeful feedback, and strengthening the technical SEO/AEO foundation without inventing lending claims.
 
+## Unreleased visual narrative follow-up — 2026-07-25
+
+The local working tree now carries a property-led visual system that has not been pushed or deployed. Seven human-free property and business environments are supplied as responsive WebP sets; 39 mapped pages receive static, crawlable story frames during the safe `dist` build; and the homepage now tells a shorter visual story through buyer situations, process, Realtor/investor paths, place, answers, and one final action.
+
+The follow-up also hides the mobile action bar during first-page introductions, forms, and calculator work; removes the duplicated homepage FAQ chapter; corrects objective gallery alt text; and fixes calculator CTA wrapping and contrast. The 58-page build audit passes with protected form fingerprints unchanged. Local 320px full-scroll QA found zero horizontal overflow, broken images, page errors, console errors, or document reloads. Production remains the release identified above until this follow-up receives separate push and deploy authorization.
+
 ## Design decision
 
 The existing identity remains the source of truth: evergreen `#165A3F`, warm cream `#FBF7EF`, Georgia headings, threshold/door motifs, real Logan photography, Arizona business imagery, and plain-English copy. The release uses one signature mortgage flight-path animation plus restrained hover, press, reveal, calculator, FAQ, and form feedback. Core content never depends on animation to become visible.

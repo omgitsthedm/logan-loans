@@ -4,11 +4,14 @@ import { createHash } from 'node:crypto';
 import { readdir, readFile, realpath, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import process from 'node:process';
+import { fileURLToPath } from 'node:url';
 
+const repositoryRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const requestedDirectory = path.resolve(process.argv[2] || 'dist');
 const publishDirectory = await realpath(requestedDirectory);
+const expectedPublishDirectory = await realpath(path.join(repositoryRoot, 'dist'));
 
-if (path.basename(publishDirectory) !== 'dist') {
+if (publishDirectory !== expectedPublishDirectory) {
   throw new Error(`Refusing to stamp unexpected directory: ${publishDirectory}`);
 }
 

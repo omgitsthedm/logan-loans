@@ -1,0 +1,94 @@
+{
+  "expectedPageCount": 39,
+  "assets": {
+    "buyer": {
+      "base": "story-home-arizona-20260725",
+      "alt": "A single-story Arizona home with desert landscaping and a clear path to the front door at first light.",
+      "title": "Start with the payment.",
+      "caption": "Then work backward to the home, cash-to-close, and offer plan."
+    },
+    "move-up": {
+      "base": "story-move-up-20260725",
+      "alt": "Moving boxes in a sunlit Arizona living room beside an open door to a desert-landscaped patio.",
+      "title": "Plan the whole move.",
+      "caption": "Make the sale, purchase, and two closing dates work as one decision."
+    },
+    "refinance": {
+      "base": "story-refinance-20260725",
+      "alt": "A calculator, house key, and plain folder on the shaded porch of a well-maintained Arizona home.",
+      "title": "Keep the home. Check the math.",
+      "caption": "A refinance only helps when the break-even and long-term cost make sense."
+    },
+    "investor": {
+      "base": "story-investor-duplex-20260725",
+      "alt": "A modest two-unit Phoenix-area duplex with two entrances, desert landscaping, and covered parking.",
+      "title": "Read the property first.",
+      "caption": "Income, expenses, reserves, and the exit plan shape the financing path."
+    },
+    "realtor": {
+      "base": "story-realtor-entry-20260725",
+      "alt": "An open front door with a key lockbox and a prepared kitchen visible inside an Arizona home.",
+      "title": "One introduction. Clear updates.",
+      "caption": "Keep the client and agent aligned from pre-approval through closing."
+    },
+    "process": {
+      "base": "story-realtor-entry-20260725",
+      "alt": "An open front door with a key lockbox and a prepared kitchen visible inside an Arizona home.",
+      "title": "Know what happens next.",
+      "caption": "Move from the first conversation to closing with visible milestones and a clear next step."
+    },
+    "high-desert": {
+      "base": "story-high-desert-20260725",
+      "alt": "A high-desert home surrounded by natural stone, juniper, and red-rock terrain.",
+      "title": "The property changes the plan.",
+      "caption": "Use, appraisal, insurance, access, and location all affect the file."
+    },
+    "southern-california": {
+      "base": "story-southern-california-20260725",
+      "alt": "A well-kept mid-century Southern California bungalow on a green hillside street.",
+      "title": "Start with the home and timeline.",
+      "caption": "Then compare the financing structure that fits the property and the move."
+    }
+  },
+  "pages": {
+    "arcadia-biltmore.html": "buyer",
+    "arizona.html": "buyer",
+    "beverly-hills.html": "southern-california",
+    "blog-dscr-loans-arizona.html": "investor",
+    "blog-first-time-buyer-arizona.html": "buyer",
+    "blog-how-much-house-phoenix.html": "buyer",
+    "blog-mortgage-points-arizona.html": "refinance",
+    "blog-preapproval-guide.html": "buyer",
+    "blog.html": "buyer",
+    "catalina-foothills.html": "buyer",
+    "chandler.html": "buyer",
+    "fha-vs-conventional.html": "buyer",
+    "fifteen-vs-thirty-year-mortgage.html": "buyer",
+    "first-time-buyer.html": "buyer",
+    "flagstaff.html": "buyer",
+    "gilbert.html": "buyer",
+    "glendale.html": "buyer",
+    "how-it-works.html": "process",
+    "investor-loans.html": "investor",
+    "la-jolla-del-mar.html": "southern-california",
+    "malibu.html": "southern-california",
+    "mesa.html": "buyer",
+    "newport-corona.html": "southern-california",
+    "north-phoenix.html": "buyer",
+    "north-scottsdale.html": "buyer",
+    "palisades-brentwood.html": "southern-california",
+    "paradise-valley.html": "buyer",
+    "partners.html": "realtor",
+    "peoria.html": "buyer",
+    "premium-markets.html": "buyer",
+    "programs.html": "buyer",
+    "refinance.html": "refinance",
+    "relocation.html": "move-up",
+    "santa-monica.html": "southern-california",
+    "sedona.html": "high-desert",
+    "service-areas.html": "buyer",
+    "southern-california.html": "southern-california",
+    "tempe.html": "buyer",
+    "va-vs-conventional.html": "buyer"
+  }
+}

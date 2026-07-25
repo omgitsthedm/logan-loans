@@ -32,6 +32,7 @@ done
 cp -R "$REPO_ROOT/assets" "$PUBLISH_DIR/assets"
 cp -R "$REPO_ROOT/data" "$PUBLISH_DIR/data"
 
+node "$REPO_ROOT/scripts/render-narratives.mjs" "$PUBLISH_DIR"
 node "$REPO_ROOT/scripts/stamp-assets.mjs" "$PUBLISH_DIR"
 node "$REPO_ROOT/scripts/audit-site.mjs" "$PUBLISH_DIR"
 

@@ -156,6 +156,58 @@ function setupConversionClickTracking() {
 
 document.addEventListener('DOMContentLoaded', setupConversionClickTracking);
 
+// ─── Context-aware Mobile Actions ─────────────────────────────────────────
+// Keep the global action bar available between tasks, but move it out of the
+// way while someone is completing a form or working inside a calculator.
+function setupMobileBarSuppression() {
+  const bar = document.querySelector('.mobileBar');
+  const zones = Array.from(document.querySelectorAll('[data-mobile-bar-suppress]'));
+  const intro = document.querySelector(
+    '.home-page .hero, .storyFrame, .calcHero, .toolsHero',
+  );
+  if (!bar || (!zones.length && !intro)) return;
+
+  const focusIsInsideZone = () => (
+    document.activeElement instanceof Element
+    && Boolean(document.activeElement.closest('[data-mobile-bar-suppress]'))
+  );
+  const zoneIsVisible = (zone) => {
+    const rect = zone.getBoundingClientRect();
+    return rect.bottom > 0 && rect.top < window.innerHeight - 88;
+  };
+  const syncBar = () => {
+    const introHasNotPassed = Boolean(
+      intro && intro.getBoundingClientRect().bottom > 0,
+    );
+    const shouldHide = (
+      introHasNotPassed
+      || zones.some(zoneIsVisible)
+      || focusIsInsideZone()
+    );
+    bar.classList.toggle('is-context-hidden', shouldHide);
+    bar.toggleAttribute('inert', shouldHide);
+  };
+  let syncQueued = false;
+  const queueSync = () => {
+    if (syncQueued) return;
+    syncQueued = true;
+    window.requestAnimationFrame(() => {
+      syncQueued = false;
+      syncBar();
+    });
+  };
+
+  syncBar();
+  window.addEventListener('scroll', queueSync, { passive: true });
+  window.addEventListener('resize', queueSync);
+  document.addEventListener('focusin', syncBar);
+  document.addEventListener('focusout', () => {
+    window.setTimeout(queueSync, 0);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', setupMobileBarSuppression);
+
 // ─── Drawer Navigation ─────────────────────────────────────────────────────
 const navToggle = document.querySelector('[data-nav-toggle]');
 const drawer = document.querySelector('[data-drawer]');
@@ -554,6 +606,10 @@ function setupContactTopic() {
     construction: {
       heading: 'Ask about construction financing.',
       message: 'I want to ask about a construction loan.',
+    },
+    'move-up': {
+      heading: 'Plan the move before the dates get tight.',
+      message: 'I am buying again and want to coordinate my current home, next purchase, and closing timeline.',
     },
   }[topic];
   if (!topicCopy) return;

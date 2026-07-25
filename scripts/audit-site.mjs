@@ -24,6 +24,11 @@ const excludedFromIndex = new Set([
   'thanks-contact.html',
 ]);
 const canonicalHost = 'https://logan.loans';
+const narrativeManifest = JSON.parse(
+  await readFile(path.join(repositoryRoot, 'content', 'image-narratives.json'), 'utf8'),
+);
+const narrativePageCount = Object.keys(narrativeManifest.pages).length;
+const isPublishArtifact = path.basename(targetRoot) === 'dist';
 
 const fail = (message) => errors.push(message);
 const warn = (message) => warnings.push(message);
@@ -57,6 +62,11 @@ function resolveInternalReference(file, reference) {
 }
 
 if (htmlFiles.length !== 58) fail(`Expected 58 HTML pages, found ${htmlFiles.length}.`);
+if (narrativePageCount !== narrativeManifest.expectedPageCount) {
+  fail(
+    `Narrative manifest contains ${narrativePageCount} pages; expected ${narrativeManifest.expectedPageCount}.`,
+  );
+}
 
 const indexableFiles = [];
 const allIdsByFile = new Map();
@@ -143,6 +153,48 @@ for (const file of htmlFiles) {
     }
   }
 
+  const srcsetReferences = occurrences(source, /\ssrcset=["']([^"']+)["']/gi)
+    .flatMap((match) => match[1].split(','))
+    .map((candidate) => candidate.trim().split(/\s+/, 1)[0])
+    .filter((reference) => (
+      reference &&
+      !/^(?:https?:|data:|blob:)/i.test(reference)
+    ));
+
+  for (const reference of srcsetReferences) {
+    const resolved = resolveInternalReference(file, reference);
+    if (resolved && !(await exists(resolved))) {
+      fail(`${file}: missing srcset candidate ${reference}.`);
+    }
+  }
+
+  if (isPublishArtifact && narrativeManifest.pages[file]) {
+    const expectedStory = narrativeManifest.pages[file];
+    if (!source.includes(`data-ll-story="${expectedStory}"`)) {
+      fail(`${file}: expected rendered "${expectedStory}" narrative.`);
+    }
+    const storyImage = source.match(/<img\b[^>]*class=["'][^"']*\bstoryImage\b[^"']*["'][^>]*>/i)?.[0] || '';
+    if (!storyImage) {
+      fail(`${file}: rendered narrative is missing its story image.`);
+    } else {
+      if (!/\balt=["'][^"']+["']/i.test(storyImage)) fail(`${file}: story image needs objective alt text.`);
+      if (!/\bwidth=["']\d+["']/i.test(storyImage) || !/\bheight=["']\d+["']/i.test(storyImage)) {
+        fail(`${file}: story image needs intrinsic width and height.`);
+      }
+      if (!/\bloading=["']eager["']/i.test(storyImage)) fail(`${file}: above-fold story image must load eagerly.`);
+      if (!/\bdecoding=["']async["']/i.test(storyImage)) fail(`${file}: story image must decode asynchronously.`);
+      if (!/\bfetchpriority=["']high["']/i.test(storyImage)) fail(`${file}: above-fold story image needs high fetch priority.`);
+    }
+    const storyPicture = source.match(/<picture>[\s\S]*?<img\b[^>]*class=["'][^"']*\bstoryImage\b[^"']*["'][^>]*>[\s\S]*?<\/picture>/i)?.[0] || '';
+    if (!/\bsrcset=["'][^"']+["']/i.test(storyPicture) || !/\bsizes=["'][^"']+["']/i.test(storyPicture)) {
+      fail(`${file}: story picture needs responsive srcset and sizes.`);
+    }
+  }
+
+  if (isPublishArtifact && /data-ll-narrative=/.test(source)) {
+    fail(`${file}: unresolved narrative placeholder remains in the publish artifact.`);
+  }
+
   const samePageAnchors = occurrences(source, /\shref=["']#([^"']+)["']/gi).map((match) => match[1]);
   samePageAnchors.forEach((id) => {
     if (!allIdsByFile.get(file).has(id)) fail(`${file}: missing same-page anchor #${id}.`);
@@ -150,6 +202,12 @@ for (const file of htmlFiles) {
 }
 
 if (sharedPages.length !== 57) fail(`Expected 57 shared-shell pages, found ${sharedPages.length}.`);
+
+if (isPublishArtifact) {
+  for (const file of Object.keys(narrativeManifest.pages)) {
+    if (!htmlFiles.includes(file)) fail(`Narrative manifest references missing page ${file}.`);
+  }
+}
 
 const indexSource = await readFile(path.join(targetRoot, 'index.html'), 'utf8');
 if (/"aggregateRating"\s*:/.test(indexSource) || /"review"\s*:/.test(indexSource)) {
@@ -239,7 +297,15 @@ if (!/User-agent:\s*Google-Extended[\s\S]*?Allow:\s*\//i.test(robots)) fail('rob
 if (!robots.includes(`Sitemap: ${canonicalHost}/sitemap.xml`)) fail('robots.txt: sitemap host is inconsistent.');
 
 const appSource = await readFile(path.join(targetRoot, 'app.js'), 'utf8');
-if (/addEventListener\(\s*['"]scroll['"]/.test(appSource)) fail('app.js: scroll listeners are prohibited for motion.');
+if (/addEventListener\(\s*['"]scroll['"]/.test(appSource)) {
+  const hasPassiveFunctionalListener = (
+    /addEventListener\(\s*['"]scroll['"]\s*,\s*queueSync\s*,\s*\{\s*passive:\s*true\s*\}\s*\)/.test(appSource)
+    && /requestAnimationFrame\(/.test(appSource)
+  );
+  if (!hasPassiveFunctionalListener) {
+    fail('app.js: scroll listeners must be passive, frame-throttled, and reserved for functional state.');
+  }
+}
 
 if (await exists(path.join(targetRoot, 'netlify.toml'))) {
   const netlify = await readFile(path.join(targetRoot, 'netlify.toml'), 'utf8');

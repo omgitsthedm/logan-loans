@@ -10,9 +10,9 @@
 
 ## Current Stamp
 
-- Updated: 2026-07-24
+- Updated: 2026-07-25
 - Updated By: Codex
-- Basis: preserve-mode design implementation, sitewide source audit, 320px browser QA, accessibility, performance, SEO/AEO, safe publishing boundary, Netlify preview, and verified production release.
+- Basis: verified preserve-mode production truth plus an unreleased local property-led narrative implementation, safe-build audit, and 320px browser QA.
 - Release source commit: 764cb76
 
 ## Rules Version
@@ -36,6 +36,7 @@
 ## Repo State
 
 - `master` and `origin/master` include the preserve-mode UX/search release at `764cb76`; Git and Netlify deployment remain separate operations.
+- The current local working tree adds a reusable, build-time visual narrative system, seven responsive property/business environments, a shorter visual homepage story, context-aware mobile actions, and objective gallery alt text. This follow-up is locally validated but is not pushed or deployed.
 - The homepage uses first-party calculator links. The previously approved BankingBridge and Forward Loans frame origins remain in CSP for compatibility.
 - Site remains static HTML/CSS/JavaScript: 58 HTML pages, shared `styles.css`/`app.js`, safe allowlisted publish script, no package manager dependency.
 
@@ -68,6 +69,7 @@
 
 ## Recent Session History
 
+- 2026-07-25: Codex completed a local-only property-led narrative follow-up after visual-density feedback. Added seven generated, human-free property/business scenes with responsive WebP variants; distributed static story frames across 39 mapped pages at build time; consolidated the homepage Realtor/investor material into two direct visual paths; removed duplicated homepage FAQ friction; made mobile actions hide over first-page introductions, forms, and calculators; corrected gallery alt text and calculator CTA clipping/contrast; and pinned renderer/audit safety. The allowlisted build passes all 58 pages, 48 indexable URLs, 57 shared-shell pages, and unchanged protected form contracts. A 320px full scroll retained one document, zero page/console errors, zero broken images, and zero horizontal overflow. Not pushed or deployed.
 - 2026-07-24: Codex completed and released the Logan Loans preserve-mode reinvention. Kept the evergreen/cream/Georgia/real-photo identity; rebuilt the homepage journey; made FAQ search and specialty-program routing functional; reduced animation and mobile friction; fixed 320px overflow, focus trapping, and table containment; normalized the apex host; added a safe `dist` build and sitewide release audit; corrected current Sedona STR guidance; and quarantined unapproved proof/doorway pages. Release source `764cb76`; final production promotion `6a645e5fbe43e385760235aa`; live Lighthouse 98–100 performance and 100 accessibility/best practices/SEO on representative routes. No real form submission.
 - 2026-07-20: Codex completed a full Logan Loans code/UI/UX/design/accessibility/performance/publishing audit and implementation pass. Fixed no-JS/reduced-motion blank-content risk, mobile hero ordering, consent/mobile-CTA and drawer collisions, CTA/verdict contrast, dead anchors, Instagram accessible names, missing blog headshots, robots validity, logo crop, honeypot markup, raw-media exposure, and cache versioning across 57 customer-facing HTML documents. Structural audit: 58 HTML files, zero broken links/anchors/duplicate IDs/missing assets. Production deploy `6a5ef4b9f002f06bbb509158` is ready and byte-matches release `7a6919a`; live Lighthouse homepage 100/100/100/100, live refinance 100 accessibility/SEO. No real form submission.
 - 2026-06-28: Claude onboarded Logan Loans to AI-Ops (handoff-ready). Created `.ai/{LOCK,RULES_HEADER,RULES,STATE}.md` + AGENTS pointer; prepended AI-Ops pointer to existing CLAUDE.md; added forced `/.ai/*` + `/AGENTS.md` → 404 redirects to netlify.toml (`/CLAUDE.md` already blocked). No source/content change. Static site, branch `master`.
