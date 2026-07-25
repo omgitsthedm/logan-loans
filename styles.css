@@ -2824,8 +2824,79 @@ input[type="range"],
   color: var(--primary);
   text-decoration-thickness: 1px;
 }
-.loganSplitBio .kicker { color: #b7f2d2; }
-.loganNMLS { color: rgba(255,255,255,0.74); }
+/* Accountable owner profile: one composed identity card at every width. */
+.ownerSection .threshold {
+  width: min(100%, 900px);
+  margin-inline: auto;
+}
+.loganSplit {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  width: min(100%, 900px);
+  margin-inline: auto;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--rDoor);
+  background: #165a3f;
+  box-shadow: 0 24px 58px rgba(13,61,42,0.18);
+}
+.loganSplitPhoto {
+  display: grid;
+  min-height: 0;
+  place-items: end center;
+  padding: clamp(28px, 4vw, 42px) clamp(24px, 5vw, 52px) 0;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px),
+    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+    radial-gradient(circle at 50% 35%, rgba(207,231,215,0.18), transparent 42%),
+    linear-gradient(145deg, #0d3d2a, #165a3f);
+  background-size: 32px 32px, 32px 32px, auto, auto;
+}
+.loganPortraitFrame {
+  width: min(100%, 360px);
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-bottom: 0;
+  border-radius: 20px 20px 0 0;
+  background: #c9d4c7;
+  box-shadow: 0 24px 54px rgba(0,0,0,0.26);
+}
+.loganSplitImg {
+  position: static;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+.loganSplitBio {
+  display: flex;
+  width: min(100%, 780px);
+  margin-inline: auto;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  padding: clamp(38px, 5vw, 54px) clamp(28px, 6vw, 58px) clamp(42px, 6vw, 60px);
+}
+.loganSplitBio .kicker {
+  margin-bottom: 0;
+  color: #b7f2d2;
+}
+.loganSplitBio .h2 {
+  color: #fff;
+  font-size: clamp(32px, 4vw, 46px);
+}
+.loganSplitBio .p {
+  color: rgba(255,255,255,0.78);
+  font-size: clamp(17px, 1.7vw, 19px);
+}
+.loganNMLS {
+  color: rgba(255,255,255,0.74);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
 
 @media (max-width: 900px) {
   .mobileBar.mobileOnly { display: flex !important; }
@@ -3617,6 +3688,70 @@ input[type="range"],
     margin-bottom: 10px;
     font-size: 15px;
     line-height: 1.5;
+  }
+  .loganSplitPhoto {
+    padding: 24px 20px 0;
+  }
+  .loganPortraitFrame {
+    width: min(100%, 330px);
+  }
+  .loganSplitBio {
+    gap: 18px;
+    padding: 34px 24px 38px;
+  }
+  .loganSplitBio .row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+  }
+  .loganSplitBio .btn {
+    width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
+}
+
+@media (max-width: 360px) {
+  .loganSplitBio .h2 {
+    font-size: 29px;
+  }
+}
+
+/* Tablet uses one steady two-column rhythm instead of breakpoint whiplash. */
+@media (min-width: 681px) and (max-width: 900px) {
+  .home-page .steps,
+  .home-page .toolDeck,
+  .home-page .reviewGrid,
+  .home-page .answerGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .home-page .steps > :last-child,
+  .home-page .toolDeck > :last-child,
+  .home-page .reviewGrid > :last-child,
+  .home-page .answerGrid > :last-child {
+    grid-column: 1 / -1;
+  }
+  .home-page .placeGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .home-page .placeCardWide {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+  .home-page .placeCardWide picture {
+    min-height: 0;
+    aspect-ratio: 2 / 1;
+  }
+  .home-page .processJourney {
+    padding-top: 0;
+    padding-left: 0;
+  }
+  .home-page .processJourney::before,
+  .home-page .processJourney::after {
+    display: none;
+  }
+  .home-page .processJourney .stepNum {
+    box-shadow: none;
   }
 }
 
