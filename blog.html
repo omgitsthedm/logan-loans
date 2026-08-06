@@ -436,10 +436,14 @@
             name="newsletter"
             method="POST"
             data-netlify="true"
+            netlify-honeypot="bot-field"
             action="./thanks-contact"
             aria-label="Newsletter signup"
           >
             <input type="hidden" name="form-name" value="newsletter" />
+            <p class="visually-hidden">
+              <label>Don't fill this out if you're human: <input type="text" name="bot-field" tabindex="-1" autocomplete="off" /></label>
+            </p>
             <div class="newsletterForm">
               <label for="newsletter-email" class="visually-hidden">Email address</label>
               <input
