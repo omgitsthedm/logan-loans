@@ -231,8 +231,8 @@ const expectedForms = new Map([
 ]);
 const expectedFormFingerprints = new Map([
   ['apply', 'a595d8201a6a68ca21853e24ea86e434d01bbdbd0f58cf341be92dd0e24e9726'],
-  ['preapproval', '341029ecda6ff458a51c3ec099431ce4b95547bd261b0eb5f1ec2a3e8e418f2b'],
-  ['general-contact', '96eb94d7551c7b851119adc6ecaa41e6bfbd19fe50ad8d71cf96f4d1c570332c'],
+  ['preapproval', 'cb923f813c42bf554d535899a65cf0c7e64ffce6e6bdb807d6ca504586f182d7'],
+  ['general-contact', 'c6d5d977c1a940e9f15771162bb08789bc9505b0242473179fc22c1d27faddbc'],
   ['partner-referral', 'fab26bb28ecd421aa2c10bbc7b641f42687d6f57651788202749a360626a898c'],
   ['newsletter', 'a5998f0d121ca2360ac82414f3a60937ee52464dba0470dd9416c5468f092aa6'],
 ]);
