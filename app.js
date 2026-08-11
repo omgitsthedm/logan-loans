@@ -69,12 +69,14 @@ function setConsent(granted) {
 }
 
 function trackEvent(eventName, params = {}) {
+  if (getConsent() !== 'granted') return false;
   const safeParams = Object.assign({
     page_path: window.location.pathname,
     event_category: 'lead_engagement',
   }, params);
   const gtag = ensureGoogleConsentLayer();
   gtag('event', eventName, safeParams);
+  return true;
 }
 
 function loadTracking() {
@@ -514,7 +516,10 @@ function setupForm(formId, statusId, opts = {}) {
   const phoneEl = form.querySelector('[name="phone"]');
 
   function isEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((v || '').trim()); }
-  function isPhone(v) { return (v || '').trim().length === 0 || /^[0-9\-\+\(\)\s\.]{7,}$/.test((v || '').trim()); }
+  function isPhone(v, required = false) {
+    const value = (v || '').trim();
+    return required ? /^[0-9\-\+\(\)\s\.]{7,}$/.test(value) : value.length === 0 || /^[0-9\-\+\(\)\s\.]{7,}$/.test(value);
+  }
 
   function updateStatus(ok, msg) {
     if (!statusEl) return;
@@ -527,7 +532,7 @@ function setupForm(formId, statusId, opts = {}) {
     if (!nameEl || !emailEl) return;
     const nameOk = nameEl.value.trim().length >= 2;
     const emailOk = isEmail(emailEl.value);
-    const phoneOk = phoneEl ? isPhone(phoneEl.value) : true;
+    const phoneOk = phoneEl ? isPhone(phoneEl.value, phoneEl.required) : true;
     if (nameOk && emailOk && phoneOk) {
       updateStatus(true, "Looks good. When you're ready, hit send.");
     } else {
@@ -540,9 +545,10 @@ function setupForm(formId, statusId, opts = {}) {
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
+    if (form.dataset.submitting === 'true') return;
     const nameOk = nameEl?.value.trim().length >= 2;
     const emailOk = isEmail(emailEl?.value || '');
-    const phoneOk = phoneEl ? isPhone(phoneEl.value) : true;
+    const phoneOk = phoneEl ? isPhone(phoneEl.value, phoneEl.required) : true;
 
     if (!nameOk) { nameEl?.focus(); updateStatus(false, "What should Logan call you?"); return; }
     if (!emailOk) { emailEl?.focus(); updateStatus(false, "That email looks a bit off. Try again?"); return; }
@@ -550,6 +556,7 @@ function setupForm(formId, statusId, opts = {}) {
 
     const submitBtn = form.querySelector('button[type="submit"]');
     const originalText = submitBtn?.textContent || "Send";
+    form.dataset.submitting = 'true';
     if (submitBtn) {
       submitBtn.disabled = true;
       submitBtn.setAttribute('aria-busy', 'true');
@@ -580,6 +587,7 @@ function setupForm(formId, statusId, opts = {}) {
         throw new Error('Network response was not ok');
       }
     }).catch(() => {
+      delete form.dataset.submitting;
       if (submitBtn) {
         submitBtn.disabled = false;
         submitBtn.removeAttribute('aria-busy');
@@ -592,6 +600,8 @@ function setupForm(formId, statusId, opts = {}) {
 
 setupForm('#contactForm', '#formStatus', { redirect: './thanks-contact', eventName: 'contact_form_submit' });
 setupForm('#applyForm', '#applyStatus', { redirect: './thanks', eventName: 'loan_form_submit' });
+setupForm('#preapprovalForm', null, { redirect: './thanks-contact', eventName: 'preapproval_intake_submit' });
+setupForm('#generalContactForm', null, { redirect: './thanks-contact', eventName: 'general_contact_submit' });
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('form').forEach(fillUTMInputs);
 });
