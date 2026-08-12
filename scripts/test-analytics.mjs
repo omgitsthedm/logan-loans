@@ -198,6 +198,59 @@ function runConsentUpdateScenario(granted) {
   return JSON.parse(JSON.stringify(Array.from(window.dataLayer.at(-1) || [])));
 }
 
+function runLeadClickScenario({ consent = 'granted', href, label }) {
+  const listeners = new Map();
+  const localStorage = createStorage({ ll_consent: consent });
+  const window = {
+    location: { href: 'https://logan.loans/', pathname: '/', search: '' },
+    dataLayer: [],
+    localStorage,
+    sessionStorage: createStorage(),
+    matchMedia: () => ({ matches: false }),
+  };
+  const document = {
+    body: { classList: { add() {}, remove() {}, contains() { return false; } }, append() {} },
+    querySelector: () => null,
+    querySelectorAll: () => [],
+    addEventListener(type, listener) {
+      listeners.set(type, [...(listeners.get(type) || []), listener]);
+    },
+    getElementById: () => null,
+    createElement: () => ({ setAttribute() {}, classList: { add() {} } }),
+    head: { appendChild() {} },
+  };
+  const context = {
+    window,
+    document,
+    localStorage,
+    sessionStorage: window.sessionStorage,
+    navigator: { webdriver: false },
+    URLSearchParams,
+    FormData: MockFormData,
+    Element: class {},
+    fetch: async () => ({ ok: true }),
+    setTimeout: () => 1,
+    clearTimeout() {},
+    console,
+  };
+  vm.runInNewContext(source, context, { filename: 'app.js' });
+  const link = {
+    innerText: label,
+    getAttribute(name) { return name === 'href' ? href : ''; },
+  };
+  for (const listener of listeners.get('DOMContentLoaded') || []) {
+    listener();
+  }
+  for (const listener of listeners.get('click') || []) {
+    listener({ target: { closest: () => link } });
+  }
+  const events = window.dataLayer
+    .map((entry) => Array.from(entry || []))
+    .filter(([command]) => command === 'event')
+    .map(([, eventName, payload]) => ({ eventName, payload }));
+  return JSON.parse(JSON.stringify(events));
+}
+
 for (const formName of ['preapproval', 'general-contact']) {
   const denied = await runFormScenario({ consent: 'denied', formName });
   assert.deepEqual(denied.events, [], `${formName}: no event before consent`);
@@ -226,4 +279,27 @@ assert.deepEqual(runConsentUpdateScenario(false), ['consent', 'update', {
   ad_personalization: 'denied',
   analytics_storage: 'denied',
 }], 'analytics decline denies analytics and every advertising signal');
+
+const leadClickCases = [
+  ['tel:+14808037763', 'Call Logan', 'phone_click', 'phone'],
+  ['mailto:logan@forward.loans', 'Email Logan', 'email_click', 'email'],
+  ['./apply', 'Get Pre-Approved', 'loan_apply_start', 'application'],
+  ['./contact', 'Talk to Logan', 'contact_click', 'contact'],
+];
+for (const [href, label, eventName, leadChannel] of leadClickCases) {
+  const events = runLeadClickScenario({ href, label });
+  assert.deepEqual(events, [{
+    eventName,
+    payload: {
+      page_path: '/',
+      event_category: 'lead_engagement',
+      lead_channel: leadChannel,
+    },
+  }], `${eventName}: consented lead CTA has a fixed, PII-free payload`);
+}
+assert.deepEqual(
+  runLeadClickScenario({ consent: 'denied', href: 'tel:+14808037763', label: 'Call Logan' }),
+  [],
+  'lead CTA clicks do not emit analytics before consent',
+);
 console.log('Analytics harness passed: consent signals, form failure/success/dedupe, and direct-thank-you paths.');

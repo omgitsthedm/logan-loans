@@ -145,13 +145,15 @@ function setupConversionClickTracking() {
     const label = (link.innerText || link.getAttribute('aria-label') || '').trim().slice(0, 80);
     const combined = (href + ' ' + label).toLowerCase();
 
-    if (href.startsWith('tel:')) return trackEvent('phone_click', { link_url: href });
-    if (href.startsWith('mailto:')) return trackEvent('email_click', { link_url: href });
+    // Keep lead measurements free of phone numbers, email addresses, and CTA copy.
+    // Event names and fixed categories are sufficient for GA4 key-event setup.
+    if (href.startsWith('tel:')) return trackEvent('phone_click', { lead_channel: 'phone' });
+    if (href.startsWith('mailto:')) return trackEvent('email_click', { lead_channel: 'email' });
     if (/\/apply|pre.?approved|pre.?approval|loan application/.test(combined)) {
-      return trackEvent('loan_apply_start', { link_url: href });
+      return trackEvent('loan_apply_start', { lead_channel: 'application' });
     }
     if (/contact|consult|quote|question|talk to logan/.test(combined)) {
-      return trackEvent('contact_click', { link_url: href });
+      return trackEvent('contact_click', { lead_channel: 'contact' });
     }
   }, true);
 }
