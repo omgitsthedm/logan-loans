@@ -10,7 +10,12 @@ const repositoryRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url))
 const targetRoot = path.resolve(process.argv[2] || repositoryRoot);
 const errors = [];
 const warnings = [];
-const htmlFiles = (await readdir(targetRoot)).filter((file) => file.endsWith('.html')).sort();
+const siteVerificationFiles = new Map([
+  ['google9dd9990931be8b22.html', 'google-site-verification: google9dd9990931be8b22.html'],
+]);
+const htmlFiles = (await readdir(targetRoot))
+  .filter((file) => file.endsWith('.html') && !siteVerificationFiles.has(file))
+  .sort();
 const excludedFromIndex = new Set([
   '404.html',
   'funded-deals.html',
@@ -62,6 +67,20 @@ function resolveInternalReference(file, reference) {
 }
 
 if (htmlFiles.length !== 58) fail(`Expected 58 HTML pages, found ${htmlFiles.length}.`);
+for (const [file, expectedBody] of siteVerificationFiles) {
+  const verificationPath = path.join(targetRoot, file);
+  if (!(await exists(verificationPath))) {
+    fail(`${file}: required Google Search Console verification file is missing.`);
+    continue;
+  }
+  const verificationSource = await readFile(verificationPath, 'utf8');
+  if (verificationSource.trim() !== expectedBody) {
+    fail(`${file}: Google Search Console verification content is not exact.`);
+  }
+  if (/<[^>]+>/.test(verificationSource)) {
+    fail(`${file}: Google Search Console verification file must not contain HTML markup.`);
+  }
+}
 if (narrativePageCount !== narrativeManifest.expectedPageCount) {
   fail(
     `Narrative manifest contains ${narrativePageCount} pages; expected ${narrativeManifest.expectedPageCount}.`,
