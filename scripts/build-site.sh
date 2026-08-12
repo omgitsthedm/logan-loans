@@ -34,6 +34,8 @@ cp -R "$REPO_ROOT/data" "$PUBLISH_DIR/data"
 
 node "$REPO_ROOT/scripts/render-narratives.mjs" "$PUBLISH_DIR"
 node "$REPO_ROOT/scripts/stamp-assets.mjs" "$PUBLISH_DIR"
+node "$REPO_ROOT/scripts/test-lifi-care-bar.mjs"
+node --input-type=module -e "import { injectLifiCareBar } from '$REPO_ROOT/scripts/inject-lifi-care-bar.mjs'; const result = await injectLifiCareBar('$PUBLISH_DIR'); console.log(\`Installed Little Fight care bar on \${result.pages} pages.\`);"
 node "$REPO_ROOT/scripts/audit-site.mjs" "$PUBLISH_DIR"
 
 echo "Prepared safe publish directory: $PUBLISH_DIR"
