@@ -1,10 +1,9 @@
 // Logan Loans — app.js
-// Tracking is active. GA4 is direct-loaded after consent; GTM container is prepared for a later switch if needed.
+// Tracking loads through GTM only after analytics consent.
 
 // ─── Tracking Config ───────────────────────────────────────────────────────
 const TRACKING = {
-  ga4: 'G-VP8CWM9B50', // Little Fight-managed Logan Loans GA4
-  gtm: '',             // GTM-MTWF64T2 is ready, but direct GA4 is active to avoid duplicate firing
+  gtm: 'GTM-MTWF64T2', // Little Fight-managed Logan Loans GTM container
   adsApply: '',        // Google Ads conversion ID for apply form submit
   adsContact: '',      // Google Ads conversion ID for contact form submit
 };
@@ -80,30 +79,18 @@ function trackEvent(eventName, params = {}) {
 }
 
 function loadTracking() {
-  if (!TRACKING.ga4 || typeof window.__trackingLoaded !== 'undefined') return;
+  if (!TRACKING.gtm || getConsent() !== 'granted' || typeof window.__trackingLoaded !== 'undefined') return;
   updateGoogleConsent(true);
   window.__trackingLoaded = true;
 
-  if (TRACKING.gtm) {
-    (function(w, d, s, l, i) {
-      w[l] = w[l] || [];
-      w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
-      var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l !== 'dataLayer' ? '&l=' + l : '';
-      j.async = true;
-      j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-      f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', TRACKING.gtm);
-  } else if (TRACKING.ga4) {
-    const gtag = ensureGoogleConsentLayer();
-    var s = document.createElement('script');
-    s.async = true;
-    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + TRACKING.ga4;
-    document.head.appendChild(s);
-    s.onload = function() {
-      gtag('js', new Date());
-      gtag('config', TRACKING.ga4, { anonymize_ip: true });
-    };
-  }
+  (function(w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+    var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l !== 'dataLayer' ? '&l=' + l : '';
+    j.async = true;
+    j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+    f.parentNode.insertBefore(j, f);
+  })(window, document, 'script', 'dataLayer', TRACKING.gtm);
 }
 
 function buildConsentBanner() {

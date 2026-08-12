@@ -9,7 +9,7 @@ Last updated: 2026-07-24
    - Canonicals, social metadata, structured data, robots, and sitemap now consistently use the live apex host.
 
 2. GA4 and conversion configuration
-   - The site now has Little Fight-managed GA4 measurement ID `G-VP8CWM9B50`; GTM container `GTM-MTWF64T2` is ready, while direct GA4 is active in source.
+   - The site uses Little Fight-managed GTM container `GTM-MTWF64T2`, loaded only after analytics consent.
    - Needed for conversion tracking across apply, contact, partner-referral, newsletter, and phone-click events.
 
 3. Google Business Profile access
