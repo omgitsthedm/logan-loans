@@ -226,6 +226,18 @@ if (isPublishArtifact) {
   for (const file of Object.keys(narrativeManifest.pages)) {
     if (!htmlFiles.includes(file)) fail(`Narrative manifest references missing page ${file}.`);
   }
+
+  for (const file of sharedPages) {
+    const source = await readFile(path.join(targetRoot, file), 'utf8');
+    if (!source.includes('class="lf-care-bar"')) fail(`${file}: Little Fight care bar is missing.`);
+    if (!source.includes('Designed, Built and Cared For By')) fail(`${file}: Little Fight care-bar copy is missing.`);
+    if (!source.includes('https://littlefightnyc.com/')) fail(`${file}: Little Fight care-bar link is incorrect.`);
+    if (!source.includes('/assets/lifi/mark-orange.svg')) fail(`${file}: Little Fight tugboat asset is missing.`);
+    if (/Designed,\s*Hosted\s*and\s*Cared\s*For\s*By/i.test(source)) fail(`${file}: legacy Little Fight care credit remains.`);
+  }
+  for (const asset of ['lifi-care.css', 'assets/lifi/mark-orange.svg', 'assets/lifi/oswald-latin-wght-normal.woff2', 'assets/lifi/jetbrains-mono-latin-500-normal.woff2']) {
+    if (!(await exists(path.join(targetRoot, asset)))) fail(`${asset}: required Little Fight care-bar asset is missing.`);
+  }
 }
 
 const indexSource = await readFile(path.join(targetRoot, 'index.html'), 'utf8');
@@ -246,14 +258,14 @@ const expectedForms = new Map([
   ['preapproval', ['bot-field', 'city', 'email', 'expected_home_price', 'form-name', 'loan_type', 'name', 'notes', 'phone', 'timeline']],
   ['general-contact', ['bot-field-2', 'email', 'form-name', 'message', 'name']],
   ['partner-referral', ['bot-field', 'brokerage', 'client_types', 'email', 'form-name', 'gbraid', 'gclid', 'name', 'phone', 'utm_campaign', 'utm_content', 'utm_medium', 'utm_source', 'utm_term', 'wbraid']],
-  ['newsletter', ['email', 'form-name']],
+  ['newsletter', ['bot-field', 'email', 'form-name']],
 ]);
 const expectedFormFingerprints = new Map([
   ['apply', 'a595d8201a6a68ca21853e24ea86e434d01bbdbd0f58cf341be92dd0e24e9726'],
   ['preapproval', 'cb923f813c42bf554d535899a65cf0c7e64ffce6e6bdb807d6ca504586f182d7'],
   ['general-contact', 'c6d5d977c1a940e9f15771162bb08789bc9505b0242473179fc22c1d27faddbc'],
   ['partner-referral', 'fab26bb28ecd421aa2c10bbc7b641f42687d6f57651788202749a360626a898c'],
-  ['newsletter', 'a5998f0d121ca2360ac82414f3a60937ee52464dba0470dd9416c5468f092aa6'],
+  ['newsletter', 'a22f34ee3179733d9b4b3c617dc7e156048dae35bca88c4eee58dfae3619fac7'],
 ]);
 const discoveredForms = new Map();
 const discoveredFormFingerprints = new Map();
