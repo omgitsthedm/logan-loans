@@ -46,12 +46,12 @@ function ensureGoogleConsentLayer() {
 
 function updateGoogleConsent(granted) {
   const gtag = ensureGoogleConsentLayer();
-  const state = granted ? 'granted' : 'denied';
+  const analyticsState = granted ? 'granted' : 'denied';
   gtag('consent', 'update', {
-    ad_storage: state,
-    ad_user_data: state,
-    ad_personalization: state,
-    analytics_storage: state,
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: analyticsState,
   });
 }
 

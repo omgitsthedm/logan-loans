@@ -159,6 +159,45 @@ function runDirectThankYouScenario() {
     .filter(([command]) => command === 'event');
 }
 
+function runConsentUpdateScenario(granted) {
+  const localStorage = createStorage();
+  const window = {
+    location: { href: 'https://logan.loans/', pathname: '/', search: '' },
+    dataLayer: [],
+    localStorage,
+    sessionStorage: createStorage(),
+    matchMedia: () => ({ matches: false }),
+  };
+  const context = {
+    window,
+    document: {
+      body: { classList: { add() {}, remove() {}, contains() { return false; } }, append() {} },
+      querySelector: () => null,
+      querySelectorAll: () => [],
+      addEventListener() {},
+      getElementById: () => null,
+      createElement: () => ({ setAttribute() {}, classList: { add() {} } }),
+      head: { appendChild() {} },
+    },
+    localStorage,
+    sessionStorage: window.sessionStorage,
+    navigator: { webdriver: false },
+    URLSearchParams,
+    FormData: MockFormData,
+    Element: class {},
+    fetch: async () => ({ ok: true }),
+    setTimeout: (callback) => {
+      callback();
+      return 1;
+    },
+    clearTimeout() {},
+    console,
+  };
+  vm.runInNewContext(source, context, { filename: 'app.js' });
+  context.updateGoogleConsent(granted);
+  return JSON.parse(JSON.stringify(Array.from(window.dataLayer.at(-1) || [])));
+}
+
 for (const formName of ['preapproval', 'general-contact']) {
   const denied = await runFormScenario({ consent: 'denied', formName });
   assert.deepEqual(denied.events, [], `${formName}: no event before consent`);
@@ -175,4 +214,16 @@ for (const formName of ['preapproval', 'general-contact']) {
 }
 
 assert.deepEqual(runDirectThankYouScenario(), [], 'direct thank-you visit emits no form-success event');
-console.log('Analytics form harness passed: consent, failure, success, dedupe, and direct-thank-you paths.');
+assert.deepEqual(runConsentUpdateScenario(true), ['consent', 'update', {
+  ad_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied',
+  analytics_storage: 'granted',
+}], 'analytics acceptance leaves every advertising signal denied');
+assert.deepEqual(runConsentUpdateScenario(false), ['consent', 'update', {
+  ad_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied',
+  analytics_storage: 'denied',
+}], 'analytics decline denies analytics and every advertising signal');
+console.log('Analytics harness passed: consent signals, form failure/success/dedupe, and direct-thank-you paths.');
