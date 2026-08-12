@@ -18,7 +18,10 @@ if (publishDirectory !== expectedPublishDirectory) {
 const digest = (contents) => createHash('sha256').update(contents).digest('hex').slice(0, 12);
 const cssVersion = digest(await readFile(path.join(publishDirectory, 'styles.css')));
 const jsVersion = digest(await readFile(path.join(publishDirectory, 'app.js')));
-const htmlFiles = (await readdir(publishDirectory)).filter((file) => file.endsWith('.html')).sort();
+const siteVerificationFiles = new Set(['google9dd9990931be8b22.html']);
+const htmlFiles = (await readdir(publishDirectory))
+  .filter((file) => file.endsWith('.html') && !siteVerificationFiles.has(file))
+  .sort();
 
 let cssReferences = 0;
 let jsReferences = 0;
