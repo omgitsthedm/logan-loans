@@ -1023,78 +1023,98 @@ button, input, textarea, select{
    ============================================ */
 .footer{
   border-top: 1px solid var(--border);
-  padding: 48px 0 40px;
+  padding: 40px 0 24px;
+  padding-bottom: calc(24px + env(safe-area-inset-bottom, 0px));
   background: linear-gradient(180deg, transparent 0%, rgba(207,231,215,0.1) 100%);
 }
-
-/* New simplified footer layout */
-.footerSimple{
-  display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr;
-  gap: 40px;
-  margin-bottom: 32px;
-}
+/* The fixed call bar owns the bottom of the viewport on phones — the footer
+   has to end above it, not behind it. */
 @media (max-width: 900px){
-  .footerSimple{
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 32px;
-  }
+  .footer{ padding-bottom: calc(104px + env(safe-area-inset-bottom, 0px)); }
 }
-.footerMain{
+
+.ftrTop{
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
+  padding-bottom: 22px;
 }
-.footerLogo{
-  height: 45px;
-  width: auto;
-}
-@media (max-width: 900px){
-  .footerLogo{ margin: 0 auto; }
-}
-.footerTagline{
-  font-size: 18px;
-  color: var(--muted);
+.ftrLogo{ align-self: flex-start; height: 40px; width: auto; max-width: 100%; }
+.ftrTag{
   margin: 0;
-}
-.footerContact p{
-  margin: 0 0 8px 0;
-  font-size: 17px;
-}
-.footerSocial .socialLinks{
-  display: flex;
-  gap: 20px;
-}
-@media (max-width: 900px){
-  .footerSocial .socialLinks{ justify-content: center; }
-}
-.footerSocial .socialLinks a{
-  font-weight: 600;
+  max-width: 34ch;
+  color: var(--muted);
   font-size: 16px;
+  line-height: 1.45;
+}
+
+.ftrGrid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 16px;
+  padding: 20px 0;
+  border-top: 1px solid rgba(22,90,63,0.12);
+}
+.ftrCol:first-child{ grid-column: 1 / -1; }
+.ftrTitle{
+  margin: 0 0 2px;
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.68;
+}
+.ftrLink{
+  display: flex;
+  min-height: 44px;
+  align-items: center;
+  color: var(--ink);
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.ftrLink:hover{
   color: var(--primary);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
-.footerSocial .socialLinks a:hover{
-  color: var(--ink);
-}
-.footerBottom{
-  padding-top: 24px;
-  border-top: 1px dashed rgba(22,90,63,0.15);
-}
-.footerLicense{
-  font-size: 15px;
+.ftrNote{
+  margin: 2px 0 0;
   color: var(--muted);
-  margin: 0 0 8px 0;
+  font-size: 14px;
 }
-.footerLicense a{
-  color: var(--primary);
-  text-decoration: underline;
-  text-underline-offset: 2px;
+
+.ftrFine{
+  margin: 0;
+  padding-top: 18px;
+  border-top: 1px solid rgba(22,90,63,0.12);
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
 }
-@media (max-width: 900px){
-  .footerBottom{ text-align: center; }
+.ftrFine strong{ color: var(--ink); font-weight: 700; }
+
+.ftrBase{
+  --lfc-size: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2px 16px;
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px dashed rgba(22,90,63,0.16);
+  color: var(--muted);
+}
+
+@media (min-width: 641px){
+  .footer{ padding-top: 48px; }
+  .ftrTop{ padding-bottom: 26px; }
+  .ftrGrid{ grid-template-columns: 1.5fr 1fr 1fr; gap: 24px 32px; padding: 24px 0; }
+  .ftrCol:first-child{ grid-column: auto; }
+  .ftrTag{ font-size: 17px; }
+  .ftrBase{ justify-content: flex-start; }
 }
 
 /* Legacy footer grid (for other pages) */
@@ -1153,22 +1173,6 @@ button, input, textarea, select{
   .footerLegal .footList{ justify-content: center; }
 }
 .footerLegal .footList li{ margin:0; }
-
-/* Footer credit - Orange per spec */
-.footerEnd{
-  margin-top: 24px;
-  font-size: 16px; /* Increased */
-  font-weight: 800;
-  color: #ff7a1a;
-}
-.footerEnd a{
-  color: #ff7a1a;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-.footerEnd a:hover{
-  color: #e86a0a;
-}
 
 /* ============================================
    MOBILE NAV - Drawer
@@ -2821,16 +2825,6 @@ input[type="range"],
   min-height: 44px;
   place-items: center;
 }
-.footerEnd {
-  color: var(--muted);
-  font-size: 13px;
-  font-weight: 650;
-  opacity: 0.78;
-}
-.footerEnd a {
-  color: var(--primary);
-  text-decoration-thickness: 1px;
-}
 /* Accountable owner profile: one composed identity card at every width. */
 .ownerSection .threshold {
   width: min(100%, 900px);
@@ -3812,4 +3806,176 @@ input[type="range"],
   .header, .mobileBar, .drawer { display: none !important; }
   body { padding: 0; }
   .door { box-shadow: none; border: 1px solid #ccc; }
+}
+
+/* ==========================================================================
+   Little Fight NYC — credit mark (animated tugboat)
+   Canonical source: agency-ops/templates/lifi-credit/
+   Drop-in, dependency-free, no JS. Inherits colour via currentColor so it
+   reverses on any ground. All motion stops under prefers-reduced-motion.
+   Every class is `lfc-` prefixed to guarantee no collision with host CSS.
+   ========================================================================== */
+
+.lfc {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7em;
+  min-height: 44px;
+  padding: 0.25em 0.15em;
+  color: inherit;
+  /* Host page may set --lfc-size (any length) to scale the whole mark. */
+  font-size: var(--lfc-size, 1em);
+  line-height: 1;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.lfc-boat {
+  position: relative;
+  display: block;
+  flex: none;
+  width: 3.1em;
+  height: 2.2em;
+}
+
+/* Hull + beacon bob together on the waterline. */
+.lfc-hull {
+  position: absolute;
+  bottom: 0.28em;
+  left: 50%;
+  width: 2.2em;
+  transform: translateX(-50%);
+  transform-origin: 50% 92%;
+  animation: lfc-bob 5.2s ease-in-out infinite;
+}
+
+.lfc-mark {
+  display: block;
+  width: 100%;
+  height: auto;
+  fill: currentColor;
+}
+
+/* The one signal: an orange running light. Brand law — the boat is neutral,
+   only the light is orange. */
+.lfc-beacon {
+  position: absolute;
+  top: -0.16em;
+  left: 0.64em;
+  width: 0.3em;
+  height: 0.3em;
+  border-radius: 50%;
+  background: var(--lfc-signal, #f97316);
+  box-shadow: 0 0 0.5em 0.06em rgb(249 115 22 / 0.55);
+  animation: lfc-beacon 2.6s ease-in-out infinite;
+}
+
+/* Two wave bands scrolling at different speeds — the water moves, not the boat. */
+.lfc-sea {
+  position: absolute;
+  inset: auto 0 0;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 0.8em;
+  opacity: 0.75;
+}
+
+.lfc-wave {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.lfc-wave path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.1;
+  stroke-linecap: round;
+  animation: lfc-drift 3.6s linear infinite;
+}
+
+.lfc-wave--back path {
+  stroke-width: 0.9;
+  opacity: 0.42;
+  animation-duration: 6s;
+  animation-direction: reverse;
+}
+
+.lfc-text {
+  white-space: nowrap;
+}
+
+.lfc-name {
+  font-weight: 600;
+}
+
+.lfc:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@keyframes lfc-bob {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0) rotate(-2.2deg);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-0.09em) rotate(2.2deg);
+  }
+}
+
+@keyframes lfc-beacon {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.35);
+  }
+}
+
+@keyframes lfc-drift {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-16px);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .lfc:hover .lfc-hull {
+    animation-duration: 2.6s;
+  }
+  .lfc:hover .lfc-wave path {
+    animation-duration: 1.8s;
+  }
+  .lfc:hover .lfc-wave--back path {
+    animation-duration: 3s;
+  }
+  .lfc:hover .lfc-name {
+    text-decoration: underline;
+    text-underline-offset: 0.25em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lfc-hull,
+  .lfc-beacon,
+  .lfc-wave path,
+  .lfc:hover .lfc-hull,
+  .lfc:hover .lfc-wave path {
+    animation: none;
+  }
+  .lfc-hull {
+    transform: translateX(-50%) rotate(-1.5deg);
+  }
+  .lfc-beacon {
+    opacity: 1;
+  }
 }

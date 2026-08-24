@@ -229,14 +229,12 @@ if (isPublishArtifact) {
 
   for (const file of sharedPages) {
     const source = await readFile(path.join(targetRoot, file), 'utf8');
-    if (!source.includes('class="lf-care-bar"')) fail(`${file}: Little Fight care bar is missing.`);
-    if (!source.includes('Designed, Built and Cared For By')) fail(`${file}: Little Fight care-bar copy is missing.`);
-    if (!source.includes('https://littlefightnyc.com/')) fail(`${file}: Little Fight care-bar link is incorrect.`);
-    if (!source.includes('/assets/lifi/mark-orange.svg')) fail(`${file}: Little Fight tugboat asset is missing.`);
-    if (/Designed,\s*Hosted\s*and\s*Cared\s*For\s*By/i.test(source)) fail(`${file}: legacy Little Fight care credit remains.`);
-  }
-  for (const asset of ['lifi-care.css', 'assets/lifi/mark-orange.svg', 'assets/lifi/oswald-latin-wght-normal.woff2', 'assets/lifi/jetbrains-mono-latin-500-normal.woff2']) {
-    if (!(await exists(path.join(targetRoot, asset)))) fail(`${asset}: required Little Fight care-bar asset is missing.`);
+    if ((source.match(/class="lfc"/g) || []).length !== 1) fail(`${file}: expected exactly one Little Fight credit mark.`);
+    if (!source.includes('Little Fight NYC')) fail(`${file}: Little Fight credit copy is missing.`);
+    if (!source.includes('https://littlefightnyc.com')) fail(`${file}: Little Fight credit link is incorrect.`);
+    if (!source.includes('lfc-beacon')) fail(`${file}: Little Fight tugboat mark is missing.`);
+    if (/Designed,\s*(?:Hosted|Built)\s*and\s*Cared\s*For\s*By/i.test(source)) fail(`${file}: legacy Little Fight care credit remains.`);
+    if (source.includes('data-lfc')) fail(`${file}: unfilled Little Fight credit slot.`);
   }
 }
 
