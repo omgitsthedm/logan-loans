@@ -14,7 +14,9 @@ const count = (source, pattern) => (source.match(pattern) || []).length;
 
 export function injectCareBar(source, file) {
   if (!/<footer\b/i.test(source)) return null;
-  if (count(source, /class=["'][^"']*\blfc\b/i)) throw new Error(`${file}: duplicate credit mark`);
+  // Standalone pages (404) carry the mark inline and have no slot — leave them.
+  if (count(source, /class=["']lfc["']/g) === 1 && !/data-lfc/.test(source)) return null;
+  if (count(source, /class=["']lfc["']/g) > 1) throw new Error(`${file}: duplicate credit mark`);
   if (!/<\/footer>/i.test(source)) throw new Error(`${file}: footer is not closed`);
   if (!/<div class="ftrBase" data-lfc><\/div>/.test(source)) throw new Error(`${file}: credit slot is missing`);
   const landmarks = [count(source, /<main\b/gi), count(source, /<\/main>/gi), count(source, /<footer\b/gi), count(source, /<\/footer>/gi)].join('/');
