@@ -101,7 +101,7 @@
     .bdValue{font-weight:700;color:#fff;font-family:var(--fontHead);font-size:18px}
     .bdRow.bdTotal{padding-top:18px;margin-top:6px;border-top:1px solid rgba(255,255,255,0.18);border-bottom:none}
     .bdRow.bdTotal .bdLabel{color:#fff;font-weight:700;font-size:18px}
-    .bdRow.bdTotal .bdValue{font-size:22px;color:var(--mint)}
+    .bdRow.bdTotal .bdValue{font-size:22px;color:#fff}
     .pieWrap{margin-top:24px;display:flex;align-items:center;gap:24px}
     .pie{width:160px;height:160px;border-radius:50%;flex-shrink:0;background:conic-gradient(var(--mint) 0% 70%, var(--apricot) 70% 84%, #67c293 84% 92%, #a8d8c0 92% 100%);position:relative}
     .pie::after{content:"";position:absolute;inset:30px;background:#0d3d2a;border-radius:50%}
@@ -136,7 +136,7 @@
     .compareValue{font-family:var(--fontHead);font-size:28px;font-weight:700;color:var(--primary);margin-bottom:6px;line-height:1}
     .compareDesc{font-size:14px;color:var(--muted);margin:0}
     .compareCard.recommended{border-color:var(--primary);background:linear-gradient(180deg,rgba(207,231,215,0.25) 0%,#fff 50%);position:relative}
-    .compareCard.recommended::before{content:"Best balance";position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--primary);color:#fff;padding:4px 12px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase}
+    .compareCard.recommended::before{content:"20% scenario";position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--primary);color:#fff;padding:4px 12px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase}
 
     /* FAQ */
     .faq{margin-top:20px;border:1px solid var(--border);border-radius:var(--rDoor);overflow:hidden;background:rgba(255,255,255,0.6)}
@@ -200,11 +200,62 @@
       {
         "@type": "FAQPage",
         "mainEntity": [
-          {"@type":"Question","name":"How accurate is this Arizona mortgage calculator?","acceptedAnswer":{"@type":"Answer","text":"It uses standard amortization math (the same formula every lender uses) plus Arizona-specific defaults: 0.6% effective property tax, 0.35% annual insurance, and 0.8% annual PMI when down payment is below 20%. Your actual rate, taxes, and insurance will vary — but the estimate gets you within a few dollars of reality."}},
-          {"@type":"Question","name":"What is included in my monthly payment?","acceptedAnswer":{"@type":"Answer","text":"The calculator shows principal & interest, property taxes, homeowners insurance, PMI (if down payment is under 20%), and any HOA fees you enter. Together these are called PITI — or PITIA when HOA is included."}},
-          {"@type":"Question","name":"Why does Arizona property tax show as 0.6%?","acceptedAnswer":{"@type":"Answer","text":"Arizona has one of the lowest effective property tax rates in the country. The statewide average is about 0.6% of assessed value annually — substantially lower than the U.S. average of around 1.1%. Your actual rate varies by county and city."}},
-          {"@type":"Question","name":"How is PMI calculated?","acceptedAnswer":{"@type":"Answer","text":"Private mortgage insurance is required when your down payment is less than 20%. The calculator uses 0.8% of your loan amount annually, which is a typical mid-range rate. Actual PMI varies by credit score, loan-to-value, and the specific lender — Logan can quote your real PMI on a pre-approval call."}},
-          {"@type":"Question","name":"Can I drop PMI later?","acceptedAnswer":{"@type":"Answer","text":"Yes. On a conventional loan, you can request PMI removal once you hit 20% equity (either by paying down or by appreciation with a new appraisal). It drops automatically at 22% equity by federal law. FHA loans have different rules — MIP is typically permanent unless you refinance."}}
+          {
+            "@type": "Question",
+            "name": "How accurate is this calculator?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The principal-and-interest calculation follows the loan amount, interest rate, and term you enter. Taxes, homeowners insurance, mortgage insurance, and HOA depend on the assumptions shown. Actual costs can differ materially. Use a lender’s Loan Estimate and property-specific tax and insurance information before making a financing decision."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What's PITI vs PITIA?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "PITI means principal, interest, taxes, and insurance. PITIA also includes association dues. This calculator totals those entered costs and any modeled mortgage insurance. Some costs may be paid separately rather than through an escrow account; the estimate is a combined monthly housing-cost model."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does this calculator model mortgage insurance?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "This model uses annual mortgage insurance of 0.8% of the loan for conventional scenarios below 20% down, 0.85% for FHA scenarios, and 0.9% for jumbo scenarios below 20% down. It adds none for VA scenarios. These are illustrative model assumptions, not current premiums or eligibility rules. Upfront mortgage-insurance premiums and funding fees are not included. Ask Logan for the applicable program costs."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How should I set the property-tax assumption?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Use a property-specific annual tax estimate from the local tax authority or your transaction documents. Divide that dollar amount by the home price and multiply by 100 to set the percentage. The initial 0.6% is a starting assumption, not a verified current statewide average."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Should I put more or less down?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The comparison cards show how down payment changes this model’s loan amount and monthly cost. Also consider closing costs, cash reserves, other debts, and your plans for the home. A lower modeled payment does not by itself establish the best financing choice."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What rate should I use if I don't have a quote yet?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Try several hypothetical rates to see how sensitive the payment is. The initial 7% is an illustrative input, not a current advertised rate or APR. A lender quote depends on the loan and borrower; use the quoted interest rate once available."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does this work for refinances?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For a rough payment comparison, use the current home value as the price and adjust the down-payment percentage until the displayed loan amount matches the proposed refinance principal. For example, a $500,000 value with 20% entered produces a $400,000 loan. That percentage represents equity in this comparison, not the existing loan balance. Refinancing can change the principal through financed costs or cash out; this tool does not calculate refinance break-even."
+            }
+          }
         ]
       }
     ]
@@ -267,7 +318,7 @@
         <div class="threshold" aria-hidden="true"></div>
         <p class="kicker">Free Tool · No Email Required</p>
         <h1 class="h1">Arizona Mortgage Calculator</h1>
-        <p class="p" style="margin-top:14px">Estimate your monthly payment in seconds. Includes Arizona property taxes, homeowners insurance, PMI, and HOA — so the number you see is the number you'd actually pay.</p>
+        <p class="p" style="margin-top:14px">Explore a monthly payment estimate with property taxes, homeowners insurance, mortgage insurance, and HOA. Adjust the starting assumptions for your situation; this is not a loan quote or approval.</p>
       </div>
     </section>
 
@@ -341,7 +392,7 @@
                 <span class="calcLabelValue" id="lblTaxPct">0.60%</span>
               </div>
               <input type="range" id="rngTaxPct" min="0" max="2.5" step="0.05" value="0.60" aria-label="Annual property tax percentage">
-              <p class="small muted" style="margin:6px 0 0 0;font-size:13px">Arizona average is 0.6%. Adjust for your county.</p>
+              <p class="small muted" style="margin:6px 0 0 0;font-size:13px">Illustrative starting value. Enter the property’s annual tax as a percentage of its price.</p>
             </div>
 
             <div class="calcGroup">
@@ -358,13 +409,13 @@
                 <span class="calcLabelValue" id="lblHoa">$0</span>
               </div>
               <input type="range" id="rngHoa" min="0" max="800" step="10" value="0" aria-label="Monthly HOA fee">
-              <p class="small muted" style="margin:6px 0 0 0;font-size:13px">Many Scottsdale and Chandler communities run $150–$600/mo.</p>
+              <p class="small muted" style="margin:6px 0 0 0;font-size:13px">Use the property’s actual monthly association dues, if any.</p>
             </div>
           </div>
 
           <div class="calcOutput" aria-live="polite">
             <p class="outLabel">Estimated monthly payment</p>
-            <p class="outBig" id="outTotal">$2,996</p>
+            <p class="outBig" id="outTotal">$3,057</p>
             <p class="outSmall" id="outSubtitle">Principal, interest, taxes, insurance · 30 yr</p>
 
             <div class="breakdown">
@@ -381,7 +432,7 @@
                 <span class="bdValue" id="outIns">$146</span>
               </div>
               <div class="bdRow" id="rowPMI" style="display:none">
-                <span class="bdLabel"><span class="bdSwatch" style="background:#ff7a59"></span>PMI</span>
+                <span class="bdLabel"><span class="bdSwatch" style="background:#ff7a59"></span>Mortgage insurance</span>
                 <span class="bdValue" id="outPMI">$0</span>
               </div>
               <div class="bdRow" id="rowHOA" style="display:none">
@@ -390,12 +441,12 @@
               </div>
               <div class="bdRow bdTotal">
                 <span class="bdLabel">Total monthly</span>
-                <span class="bdValue" id="outTotalSmall">$2,996</span>
+                <span class="bdValue" id="outTotalSmall">$3,057</span>
               </div>
             </div>
 
             <div class="ctaBlock">
-              <a class="btn btnMint" href="./apply">Use this estimate to get pre-approved</a>
+              <a class="btn btnMint" href="./apply">Discuss this estimate with Logan</a>
               <a class="btn btnGhost" href="tel:+14808037763">Or call Logan: (480) 803-7763</a>
             </div>
           </div>
@@ -439,23 +490,23 @@
         <div style="margin-top:48px">
           <p class="kicker">Compare scenarios</p>
           <h2 class="h2">How down payment changes everything</h2>
-          <p class="p">Same home, same rate, three different down-payment strategies. The math doesn't lie.</p>
+          <p class="p">Compare the same home, rate, and loan type with different down payments. These scenarios exclude closing costs and do not recommend a financing choice.</p>
 
           <div class="compareGrid" id="compareGrid">
             <div class="compareCard">
               <p class="compareLabel">5% Down</p>
-              <p class="compareValue" id="cmp5">$3,418</p>
-              <p class="compareDesc">$25,000 down · Includes PMI · Lowest cash to close</p>
+              <p class="compareValue" id="cmp5">$3,873</p>
+              <p class="compareDesc" id="cmp5Desc">$25,000 down · Mortgage insurance included</p>
             </div>
             <div class="compareCard recommended">
               <p class="compareLabel">20% Down</p>
-              <p class="compareValue" id="cmp20">$2,996</p>
-              <p class="compareDesc">$100,000 down · No PMI · Strongest offer position</p>
+              <p class="compareValue" id="cmp20">$3,057</p>
+              <p class="compareDesc" id="cmp20Desc">$100,000 down · No monthly mortgage insurance in this model</p>
             </div>
             <div class="compareCard">
               <p class="compareLabel">25% Down</p>
-              <p class="compareValue" id="cmp25">$2,829</p>
-              <p class="compareDesc">$125,000 down · No PMI · Most cash committed</p>
+              <p class="compareValue" id="cmp25">$2,891</p>
+              <p class="compareDesc" id="cmp25Desc">$125,000 down · No monthly mortgage insurance in this model</p>
             </div>
           </div>
         </div>
@@ -466,9 +517,9 @@
     <section class="section">
       <div class="wrap">
         <p class="kicker">How this calculator works</p>
-        <h2 class="h2">Built on the same math your lender uses.</h2>
-        <p class="p">Every mortgage calculator on the internet uses the same formula: M = P[r(1+r)^n] / [(1+r)^n − 1]. The difference is whether the defaults match the state you're buying in.</p>
-        <p class="p" style="margin-top:14px">This calculator uses Arizona-specific defaults: 0.6% effective property tax (vs. the national 1.1%), 0.35% annual homeowners insurance, and 0.8% annual PMI when down payment is below 20%. Adjust any of them — your actual numbers from the title company and insurance carrier will be close, but Logan can quote real numbers on a pre-approval call.</p>
+        <h2 class="h2">How the estimate is calculated.</h2>
+        <p class="p">Principal and interest use fixed-rate amortization: M = P[r(1+r)^n] / [(1+r)^n − 1]. P is the loan amount, r the monthly interest rate, and n the number of monthly payments. Taxes, insurance, and HOA are added separately.</p>
+        <p class="p" style="margin-top:14px">Starting values are illustrative: a $500,000 home, 20% down, 7% interest over 30 years, property tax at 0.6% of price annually, $1,750 annual homeowners insurance, and no HOA. They are not current market averages or a lender offer. Mortgage-insurance assumptions vary by loan type and are explained below. Upfront program fees, closing costs, maintenance, and utilities are excluded. <a href="https://www.consumerfinance.gov/owning-a-home/loan-estimate/" target="_blank" rel="noopener">Compare the estimate with a lender’s Loan Estimate</a>.</p>
 
         <div style="margin-top:32px">
           <h2 class="h2">Frequently asked questions</h2>
@@ -479,7 +530,7 @@
                 How accurate is this calculator? <span class="faqIcon" aria-hidden="true">+</span>
               </button>
               <div class="faqPanel"><div class="faqPanelInner">
-                It uses the standard amortization formula every lender uses. The estimate is within a few dollars of reality on principal & interest. The escrow components — taxes, insurance, PMI — are estimates based on Arizona averages. Your actual escrow amounts come from the title company quote (taxes) and your chosen insurance carrier. Logan can give you real, lender-quoted numbers on a 15-minute pre-approval call.
+                The principal-and-interest calculation follows the loan amount, interest rate, and term you enter. Taxes, homeowners insurance, mortgage insurance, and HOA depend on the assumptions shown. Actual costs can differ materially. Use a lender’s Loan Estimate and property-specific tax and insurance information before making a financing decision.
               </div></div>
             </div>
 
@@ -488,25 +539,25 @@
                 What's PITI vs PITIA? <span class="faqIcon" aria-hidden="true">+</span>
               </button>
               <div class="faqPanel"><div class="faqPanelInner">
-                PITI = Principal, Interest, Taxes, Insurance — the four pieces of a typical monthly mortgage payment. PITIA adds the "A" for HOA fees, which lenders include in your debt-to-income calculation even though HOAs aren't escrowed by the lender. The total monthly number above shows PITIA when you've entered an HOA amount.
+                PITI means principal, interest, taxes, and insurance. PITIA also includes association dues. This calculator totals those entered costs and any modeled mortgage insurance. Some costs may be paid separately rather than through an escrow account; the estimate is a combined monthly housing-cost model.
               </div></div>
             </div>
 
             <div class="faqItem">
               <button class="faqBtn" data-faq-btn aria-expanded="false" type="button">
-                Why does PMI show on some down payments and not others? <span class="faqIcon" aria-hidden="true">+</span>
+                How does this calculator model mortgage insurance? <span class="faqIcon" aria-hidden="true">+</span>
               </button>
               <div class="faqPanel"><div class="faqPanelInner">
-                Conventional loans require Private Mortgage Insurance (PMI) when your down payment is below 20% — that's the lender's protection if you default before you have meaningful equity. The calculator adds PMI at 0.8% of the loan amount annually whenever your down payment is below 20%. FHA loans use a different system called MIP, which is typically permanent unless you refinance. VA loans don't have monthly PMI — just a one-time funding fee at close.
+                This model uses annual mortgage insurance of 0.8% of the loan for conventional scenarios below 20% down, 0.85% for FHA scenarios, and 0.9% for jumbo scenarios below 20% down. It adds none for VA scenarios. These are illustrative model assumptions, not current premiums or eligibility rules. Upfront mortgage-insurance premiums and funding fees are not included. Ask Logan for the applicable program costs.
               </div></div>
             </div>
 
             <div class="faqItem">
               <button class="faqBtn" data-faq-btn aria-expanded="false" type="button">
-                Why is Arizona property tax so low? <span class="faqIcon" aria-hidden="true">+</span>
+                How should I set the property-tax assumption? <span class="faqIcon" aria-hidden="true">+</span>
               </button>
               <div class="faqPanel"><div class="faqPanelInner">
-                Arizona's effective property tax rate averages around 0.6% statewide — well below the national average of 1.1%. The exact rate varies by county, city, and school district, but most Maricopa County buyers see effective rates between 0.55% and 0.75%. If you're moving from California, Texas, Illinois, or New Jersey, your tax bill will likely be a pleasant surprise.
+                Use a property-specific annual tax estimate from the local tax authority or your transaction documents. Divide that dollar amount by the home price and multiply by 100 to set the percentage. The initial 0.6% is a starting assumption, not a verified current statewide average.
               </div></div>
             </div>
 
@@ -515,7 +566,7 @@
                 Should I put more or less down? <span class="faqIcon" aria-hidden="true">+</span>
               </button>
               <div class="faqPanel"><div class="faqPanelInner">
-                Use the comparison cards above to see how different down payments change your monthly. The bigger question is what you do with the cash you'd save by putting less down — if you'd invest it for higher return, less down can be the smarter move. If you'd just hold it in checking, more down saves you on PMI and interest. Logan walks through this trade-off on every pre-approval call with your actual numbers.
+                The comparison cards show how down payment changes this model’s loan amount and monthly cost. Also consider closing costs, cash reserves, other debts, and your plans for the home. A lower modeled payment does not by itself establish the best financing choice.
               </div></div>
             </div>
 
@@ -524,7 +575,7 @@
                 What rate should I use if I don't have a quote yet? <span class="faqIcon" aria-hidden="true">+</span>
               </button>
               <div class="faqPanel"><div class="faqPanelInner">
-                Use a rate within 0.25% of current 30-year national averages, which you can check at any major lender's homepage. Your actual rate depends on credit score, loan-to-value, loan type, and lender — Logan can quote your real rate same-day after a quick credit pull during the pre-approval.
+                Try several hypothetical rates to see how sensitive the payment is. The initial 7% is an illustrative input, not a current advertised rate or APR. A lender quote depends on the loan and borrower; use the quoted interest rate once available.
               </div></div>
             </div>
 
@@ -533,7 +584,7 @@
                 Does this work for refinances? <span class="faqIcon" aria-hidden="true">+</span>
               </button>
               <div class="faqPanel"><div class="faqPanelInner">
-                Yes — enter your current home value and your existing loan balance as the "down payment" equivalent (so the loan amount lands at your new principal). For a true refinance breakeven (does it make sense to refi?), call Logan and we'll run it with closing costs included.
+                For a rough payment comparison, use the current home value as the price and adjust the down-payment percentage until the displayed loan amount matches the proposed refinance principal. For example, a $500,000 value with 20% entered produces a $400,000 loan. That percentage represents equity in this comparison, not the existing loan balance. Refinancing can change the principal through financed costs or cash out; this tool does not calculate refinance break-even.
               </div></div>
             </div>
 
@@ -546,8 +597,8 @@
       <div class="wrap">
         <div class="porch">
           <div class="porchText">
-            <h2 class="h3" style="margin:0 0 6px 0">From estimate to actual rate in one call.</h2>
-            <p class="small muted" style="margin:0">Same-day pre-approval. No bots. No hand-offs. Just clear numbers from a real human lender.</p>
+            <h2 class="h3" style="margin:0 0 6px 0">Talk through the estimate with Logan.</h2>
+            <p class="small muted" style="margin:0">Discuss the assumptions, available loan options, and what is needed for a lender quote.</p>
           </div>
           <div style="display:flex;gap:10px;flex-wrap:wrap">
             <a class="btn btnPrimary" href="./apply">Get Pre-Approved</a>
@@ -685,6 +736,10 @@
       $('cmp5').textContent = fmt(c5.total);
       $('cmp20').textContent = fmt(c20.total);
       $('cmp25').textContent = fmt(c25.total);
+      for (const [pct, result] of [[5, c5], [20, c20], [25, c25]]) {
+        $('cmp' + pct + 'Desc').textContent = fmt(result.down) + ' down · ' +
+          (result.pmi > 0 ? 'Mortgage insurance included' : 'No monthly mortgage insurance in this model');
+      }
 
       // Amortization (yearly)
       buildAmort(r.loan, state.rate, state.term);
