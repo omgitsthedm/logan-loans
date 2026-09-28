@@ -321,6 +321,22 @@ button, input, textarea, select{
   box-shadow: none;
 }
 
+.formStatus{
+  min-height:52px;
+  margin-top:14px;
+  padding:14px 18px;
+  display:flex;
+  align-items:center;
+  border:1px solid rgba(22,90,63,0.12);
+  border-radius:12px;
+  background:rgba(207,231,215,0.2);
+  color:var(--muted);
+  font-size:15px;
+  font-weight:600;
+}
+.formStatus.ok{background:rgba(47,175,122,0.1);border-color:rgba(47,175,122,0.25);color:var(--primary)}
+.formStatus.error{background:rgba(243,178,122,0.18);border-color:rgba(166,79,38,0.35);color:#6b3117}
+
 .btnPrimary{
   background: linear-gradient(135deg, var(--primary) 0%, #1e7a54 100%);
   color: var(--bg);

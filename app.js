@@ -4,37 +4,116 @@
 // ─── Tracking Config ───────────────────────────────────────────────────────
 const TRACKING = {
   gtm: 'GTM-MTWF64T2', // Little Fight-managed Logan Loans GTM container
+  // Verified 2026-09-28 in GA4 property 544167583 / web stream 15198816712.
+  // GTM remains the sole tag owner; this ID only supplies the documented
+  // ga-disable control when a visitor withdraws consent.
+  measurementId: 'G-VP8CWM9B50',
   adsApply: '',        // Google Ads conversion ID for apply form submit
   adsContact: '',      // Google Ads conversion ID for contact form submit
 };
 
 // ─── UTM Capture ───────────────────────────────────────────────────────────
-// Capture UTM params + click IDs on landing, persist to sessionStorage,
-// then auto-fill hidden inputs on any form with data-utm-form attribute.
-(function captureUTM() {
-  const params = new URLSearchParams(window.location.search);
-  const keys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'gbraid', 'wbraid'];
-  keys.forEach(k => {
-    const v = params.get(k);
-    if (v) sessionStorage.setItem('ll_' + k, v);
+// Attribution is optional analytics data. It is never persisted on preview,
+// noindex, QA, or unconsented sessions, and values are constrained to routing
+// tokens rather than free-form query-string data.
+const ATTRIBUTION_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'gbraid', 'wbraid'];
+const CONSENT_KEY = 'll_consent';
+const QA_SESSION_KEY = 'll_analytics_qa_session';
+// Kept in lockstep with sitemap.xml by scripts/test-analytics.mjs. Tracking an
+// unsitemapped route is a defect, even when that route is on the canonical host.
+const PUBLIC_ANALYTICS_PATHS = new Set([
+  '/', '/about', '/affordability-calculator', '/apply', '/arcadia-biltmore', '/arizona', '/beverly-hills',
+  '/blog', '/blog-dscr-loans-arizona', '/blog-first-time-buyer-arizona', '/blog-how-much-house-phoenix',
+  '/blog-mortgage-points-arizona', '/blog-preapproval-guide', '/calculator', '/catalina-foothills', '/chandler',
+  '/contact', '/disclosures', '/faq', '/fha-vs-conventional', '/fifteen-vs-thirty-year-mortgage', '/first-time-buyer',
+  '/flagstaff', '/gilbert', '/glendale', '/glossary', '/how-it-works', '/investor-loans', '/meet-logan', '/mesa',
+  '/north-phoenix', '/north-scottsdale', '/paradise-valley', '/partners', '/peoria', '/premium-markets', '/privacy',
+  '/programs', '/refinance', '/refinance-calculator', '/relocation', '/sedona', '/service-areas',
+  '/southern-california', '/tempe', '/terms', '/tools', '/va-vs-conventional',
+]);
+
+function safelyRead(storageName, key) {
+  return safelyReadState(storageName, key).value;
+}
+
+function safelyReadState(storageName, key) {
+  try {
+    const storage = window[storageName];
+    if (!storage) return { available: false, value: null };
+    return { available: true, value: storage.getItem(key) ?? null };
+  } catch { return { available: false, value: null }; }
+}
+
+function safelyWrite(storageName, key, value) {
+  try {
+    const storage = window[storageName];
+    storage?.setItem(key, value);
+    return true;
+  } catch { return false; }
+}
+
+function safelyRemove(storageName, key) {
+  try { window[storageName]?.removeItem(key); } catch { /* Storage can be unavailable in private contexts. */ }
+}
+
+function canonicalPageLocation() {
+  const path = window.location?.pathname?.startsWith('/') ? window.location.pathname : '/';
+  return `https://logan.loans${path}`;
+}
+
+function sanitizedReferrer() {
+  return '';
+}
+
+function isQASession() {
+  const params = new URLSearchParams(window.location?.search || '');
+  if (params.has('qa')) {
+    safelyWrite('sessionStorage', QA_SESSION_KEY, 'true');
+    return true;
+  }
+  const session = safelyReadState('sessionStorage', QA_SESSION_KEY);
+  return !session.available || session.value === 'true';
+}
+
+function isProductionAnalyticsContext() {
+  const hostname = (window.location?.hostname || '').toLowerCase();
+  const protocol = (window.location?.protocol || '').toLowerCase();
+  const pathname = window.location?.pathname || '/';
+  const robots = document.querySelector?.('meta[name="robots"]')?.getAttribute('content') || '';
+  return protocol === 'https:'
+    && hostname === 'logan.loans'
+    && PUBLIC_ANALYTICS_PATHS.has(pathname)
+    && !navigator.webdriver
+    && !isQASession()
+    && !/\bnoindex\b/i.test(robots);
+}
+
+function sanitizedAttributionValue(value) {
+  const normalized = String(value || '').trim();
+  return /^[A-Za-z0-9._~%+-]{1,100}$/.test(normalized) ? normalized : '';
+}
+
+function captureUTM() {
+  if (!isProductionAnalyticsContext() || getConsent() !== 'granted') return;
+  const params = new URLSearchParams(window.location.search || '');
+  ATTRIBUTION_KEYS.forEach((key) => {
+    const value = sanitizedAttributionValue(params.get(key));
+    if (value) safelyWrite('sessionStorage', `ll_${key}`, value);
   });
-})();
+}
 
 function fillUTMInputs(form) {
-  const keys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'gbraid', 'wbraid'];
-  keys.forEach(k => {
-    const val = sessionStorage.getItem('ll_' + k) || '';
+  if (!isProductionAnalyticsContext() || getConsent() !== 'granted') return;
+  ATTRIBUTION_KEYS.forEach(k => {
+    const val = safelyRead('sessionStorage', `ll_${k}`) || '';
     const el = form.querySelector(`[name="${k}"]`);
     if (el) el.value = val;
   });
 }
 
 // ─── Consent Banner ────────────────────────────────────────────────────────
-// GDPR-compliant: deny by default, grant on accept, persist to localStorage.
-const CONSENT_KEY = 'll_consent';
-
 function getConsent() {
-  return localStorage.getItem(CONSENT_KEY);
+  return safelyRead('localStorage', CONSENT_KEY);
 }
 
 function ensureGoogleConsentLayer() {
@@ -43,9 +122,16 @@ function ensureGoogleConsentLayer() {
   return window.gtag;
 }
 
+function setGoogleAnalyticsDisabled(disabled) {
+  // Consent Mode is the active control. This future-proofs an explicit GA
+  // disable flag without guessing a measurement ID or introducing a second tag.
+  if (TRACKING.measurementId) window[`ga-disable-${TRACKING.measurementId}`] = disabled;
+}
+
 function updateGoogleConsent(granted) {
   const gtag = ensureGoogleConsentLayer();
-  const analyticsState = granted ? 'granted' : 'denied';
+  const analyticsState = granted && isProductionAnalyticsContext() ? 'granted' : 'denied';
+  setGoogleAnalyticsDisabled(analyticsState !== 'granted');
   gtag('consent', 'update', {
     ad_storage: 'denied',
     ad_user_data: 'denied',
@@ -55,7 +141,7 @@ function updateGoogleConsent(granted) {
 }
 
 function setConsent(granted) {
-  localStorage.setItem(CONSENT_KEY, granted ? 'granted' : 'denied');
+  safelyWrite('localStorage', CONSENT_KEY, granted ? 'granted' : 'denied');
   const banner = document.getElementById('consentBanner');
   if (banner) {
     banner.setAttribute('aria-hidden', 'true');
@@ -64,29 +150,59 @@ function setConsent(granted) {
     setTimeout(() => banner.remove(), 240);
   }
   updateGoogleConsent(granted);
-  if (granted) loadTracking();
+  if (granted) {
+    captureUTM();
+    document.querySelectorAll?.('[data-utm-form]').forEach(fillUTMInputs);
+    loadTracking();
+  } else {
+    ATTRIBUTION_KEYS.forEach((key) => safelyRemove('sessionStorage', `ll_${key}`));
+  }
+  updateConsentControls();
+}
+
+function sanitizedEventParams(params) {
+  const safe = {};
+  // Custom events only expose the two routing labels this site actually uses.
+  // Never forward arbitrary caller data, which could include form values or URLs.
+  if (['phone', 'email', 'application', 'contact'].includes(params?.lead_channel)) {
+    safe.lead_channel = params.lead_channel;
+  }
+  if (['applyForm', 'preapprovalForm', 'generalContactForm', 'contactForm'].includes(params?.form_id)) {
+    safe.form_id = params.form_id;
+  }
+  return safe;
 }
 
 function trackEvent(eventName, params = {}) {
-  if (getConsent() !== 'granted') return false;
-  const safeParams = Object.assign({
+  if (getConsent() !== 'granted' || !isProductionAnalyticsContext()) return false;
+  const fixedContext = {
     page_path: window.location.pathname,
+    page_location: canonicalPageLocation(),
+    page_referrer: sanitizedReferrer(),
     event_category: 'lead_engagement',
-  }, params);
+  };
+  const safeParams = Object.assign({}, sanitizedEventParams(params), fixedContext);
   const gtag = ensureGoogleConsentLayer();
   gtag('event', eventName, safeParams);
   return true;
 }
 
 function loadTracking() {
-  if (!TRACKING.gtm || getConsent() !== 'granted' || typeof window.__trackingLoaded !== 'undefined') return;
+  if (!TRACKING.gtm || getConsent() !== 'granted' || !isProductionAnalyticsContext() || typeof window.__trackingLoaded !== 'undefined') return;
   updateGoogleConsent(true);
+  const firstScript = document.getElementsByTagName?.('script')?.[0];
+  if (!firstScript?.parentNode) return;
+  const gtag = ensureGoogleConsentLayer();
+  gtag('set', {
+    page_location: canonicalPageLocation(),
+    page_referrer: sanitizedReferrer(),
+  });
   window.__trackingLoaded = true;
 
   (function(w, d, s, l, i) {
     w[l] = w[l] || [];
     w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
-    var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l !== 'dataLayer' ? '&l=' + l : '';
+    var f = firstScript, j = d.createElement(s), dl = l !== 'dataLayer' ? '&l=' + l : '';
     j.async = true;
     j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
     f.parentNode.insertBefore(j, f);
@@ -98,7 +214,12 @@ function buildConsentBanner() {
   const storedConsent = getConsent();
   if (storedConsent !== null) {
     updateGoogleConsent(storedConsent === 'granted');
-    if (storedConsent === 'granted') loadTracking();
+    if (storedConsent === 'granted') {
+      captureUTM();
+      document.querySelectorAll?.('[data-utm-form]').forEach(fillUTMInputs);
+      loadTracking();
+    }
+    updateConsentControls();
     return;
   }
 
@@ -122,7 +243,30 @@ function buildConsentBanner() {
   document.getElementById('consentDeny').addEventListener('click', () => setConsent(false));
 }
 
+function updateConsentControls() {
+  const status = document.querySelector?.('[data-consent-status]');
+  if (!status) return;
+  const consent = getConsent();
+  status.textContent = consent === 'granted' && isProductionAnalyticsContext()
+    ? 'Optional analytics are on for this browser.'
+    : 'Optional analytics are off for this browser.';
+}
+
+function reopenConsentChoices() {
+  safelyRemove('localStorage', CONSENT_KEY);
+  updateGoogleConsent(false);
+  ATTRIBUTION_KEYS.forEach((key) => safelyRemove('sessionStorage', `ll_${key}`));
+  document.getElementById('consentBanner')?.remove();
+  buildConsentBanner();
+  updateConsentControls();
+}
+
 document.addEventListener('DOMContentLoaded', buildConsentBanner);
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll?.('[data-consent-reset]').forEach((button) => {
+    button.addEventListener('click', reopenConsentChoices);
+  });
+});
 
 function setupConversionClickTracking() {
   document.addEventListener('click', (event) => {
@@ -513,8 +657,16 @@ function setupForm(formId, statusId, opts = {}) {
   function updateStatus(ok, msg) {
     if (!statusEl) return;
     statusEl.classList.toggle('ok', !!ok);
+    statusEl.classList.toggle('error', !ok && statusEl.dataset.error === 'true');
     const msgEl = statusEl.querySelector('[data-msg]');
     if (msgEl) msgEl.textContent = msg;
+  }
+
+  function showDeliveryError(message) {
+    if (!statusEl) return;
+    statusEl.dataset.error = 'true';
+    updateStatus(false, message);
+    delete statusEl.dataset.error;
   }
 
   function fieldHints() {
@@ -553,10 +705,13 @@ function setupForm(formId, statusId, opts = {}) {
     }
 
     const formData = new FormData(form);
+    const controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
+    const timeoutId = window.setTimeout(() => controller?.abort(), 15000);
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams(formData).toString(),
+      signal: controller?.signal,
     }).then(response => {
       if (response.ok) {
         const redirect = opts.redirect || './thanks-contact';
@@ -575,22 +730,24 @@ function setupForm(formId, statusId, opts = {}) {
       } else {
         throw new Error('Network response was not ok');
       }
-    }).catch(() => {
+    }).catch((error) => {
       delete form.dataset.submitting;
       if (submitBtn) {
         submitBtn.disabled = false;
         submitBtn.removeAttribute('aria-busy');
         submitBtn.textContent = originalText;
       }
-      updateStatus(false, "Something went wrong. Please try calling (480) 803-7763 directly.");
-    });
+      showDeliveryError(error?.name === 'AbortError'
+        ? "That took too long to confirm. Your details are still here — please try again or call (480) 803-7763."
+        : "We could not confirm delivery. Your details are still here — please try again or call (480) 803-7763.");
+    }).finally(() => window.clearTimeout(timeoutId));
   });
 }
 
 setupForm('#contactForm', '#formStatus', { redirect: './thanks-contact', eventName: 'contact_form_submit' });
 setupForm('#applyForm', '#applyStatus', { redirect: './thanks', eventName: 'loan_form_submit' });
-setupForm('#preapprovalForm', null, { redirect: './thanks-contact', eventName: 'preapproval_intake_submit' });
-setupForm('#generalContactForm', null, { redirect: './thanks-contact', eventName: 'general_contact_submit' });
+setupForm('#preapprovalForm', '#preapprovalStatus', { redirect: './thanks-contact', eventName: 'preapproval_intake_submit' });
+setupForm('#generalContactForm', '#generalContactStatus', { redirect: './thanks-contact', eventName: 'general_contact_submit' });
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('form').forEach(fillUTMInputs);
 });
