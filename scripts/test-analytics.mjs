@@ -68,14 +68,20 @@ async function runFormScenario({ consent = 'granted', status = 200, formName }) 
     email: createInput('test@example.com', true),
   });
   const forms = { '#preapprovalForm': preapprovalForm, '#generalContactForm': generalContactForm };
-  const location = { href: 'https://logan.loans/contact', pathname: '/contact', search: '' };
+  const location = { href: 'https://logan.loans/contact', protocol: 'https:', hostname: 'logan.loans', pathname: '/contact', search: '' };
   const localStorage = createStorage({ ll_consent: consent });
+  const schedule = (callback, delay = 0) => {
+    if (delay < 1000) callback();
+    return 1;
+  };
   const window = {
     location,
     dataLayer: [],
     localStorage,
     sessionStorage: createStorage(),
     matchMedia: () => ({ matches: false }),
+    setTimeout: schedule,
+    clearTimeout() {},
   };
   const document = {
     body: { classList: { add() {}, remove() {}, contains() { return false; } }, append() {} },
@@ -84,6 +90,7 @@ async function runFormScenario({ consent = 'granted', status = 200, formName }) 
     addEventListener() {},
     getElementById: () => null,
     createElement: () => ({ setAttribute() {}, classList: { add() {} } }),
+    getElementsByTagName: () => [{ parentNode: { insertBefore() {} } }],
     head: { appendChild() {} },
   };
   const context = {
@@ -96,10 +103,7 @@ async function runFormScenario({ consent = 'granted', status = 200, formName }) 
     FormData: MockFormData,
     Element: class {},
     fetch: async () => ({ ok: status >= 200 && status < 300 }),
-    setTimeout: (callback) => {
-      callback();
-      return 1;
-    },
+    setTimeout: schedule,
     clearTimeout() {},
     console,
   };
@@ -122,11 +126,13 @@ async function runFormScenario({ consent = 'granted', status = 200, formName }) 
 function runDirectThankYouScenario() {
   const localStorage = createStorage({ ll_consent: 'granted' });
   const window = {
-    location: { href: 'https://logan.loans/thanks-contact', pathname: '/thanks-contact', search: '' },
+    location: { href: 'https://logan.loans/thanks-contact', protocol: 'https:', hostname: 'logan.loans', pathname: '/thanks-contact', search: '' },
     dataLayer: [],
     localStorage,
     sessionStorage: createStorage(),
     matchMedia: () => ({ matches: false }),
+    setTimeout: (callback) => { callback(); return 1; },
+    clearTimeout() {},
   };
   const context = {
     window,
@@ -137,6 +143,7 @@ function runDirectThankYouScenario() {
       addEventListener() {},
       getElementById: () => null,
       createElement: () => ({ setAttribute() {}, classList: { add() {} } }),
+      getElementsByTagName: () => [{ parentNode: { insertBefore() {} } }],
       head: { appendChild() {} },
     },
     localStorage,
@@ -162,11 +169,13 @@ function runDirectThankYouScenario() {
 function runConsentUpdateScenario(granted) {
   const localStorage = createStorage();
   const window = {
-    location: { href: 'https://logan.loans/', pathname: '/', search: '' },
+    location: { href: 'https://logan.loans/', protocol: 'https:', hostname: 'logan.loans', pathname: '/', search: '' },
     dataLayer: [],
     localStorage,
     sessionStorage: createStorage(),
     matchMedia: () => ({ matches: false }),
+    setTimeout: (callback) => { callback(); return 1; },
+    clearTimeout() {},
   };
   const context = {
     window,
@@ -177,6 +186,7 @@ function runConsentUpdateScenario(granted) {
       addEventListener() {},
       getElementById: () => null,
       createElement: () => ({ setAttribute() {}, classList: { add() {} } }),
+      getElementsByTagName: () => [{ parentNode: { insertBefore() {} } }],
       head: { appendChild() {} },
     },
     localStorage,
@@ -198,32 +208,95 @@ function runConsentUpdateScenario(granted) {
   return JSON.parse(JSON.stringify(Array.from(window.dataLayer.at(-1) || [])));
 }
 
-function runLeadClickScenario({ consent = 'granted', href, label }) {
-  const listeners = new Map();
-  const localStorage = createStorage({ ll_consent: consent });
+function runRevocationScenario() {
+  const localStorage = createStorage();
   const window = {
-    location: { href: 'https://logan.loans/', pathname: '/', search: '' },
+    location: { href: 'https://logan.loans/', protocol: 'https:', hostname: 'logan.loans', pathname: '/', search: '' },
     dataLayer: [],
     localStorage,
     sessionStorage: createStorage(),
     matchMedia: () => ({ matches: false }),
+    setTimeout: (callback) => { callback(); return 1; },
+    clearTimeout() {},
+  };
+  const context = {
+    window,
+    document: {
+      body: { classList: { add() {}, remove() {}, contains() { return false; } }, append() {} },
+      querySelector: () => null,
+      querySelectorAll: () => [],
+      addEventListener() {},
+      getElementById: () => null,
+      createElement: () => ({ setAttribute() {}, classList: { add() {} } }),
+      getElementsByTagName: () => [{ parentNode: { insertBefore() {} } }],
+      head: { appendChild() {} },
+    },
+    localStorage,
+    sessionStorage: window.sessionStorage,
+    navigator: { webdriver: false },
+    URLSearchParams,
+    FormData: MockFormData,
+    Element: class {},
+    fetch: async () => ({ ok: true }),
+    setTimeout: window.setTimeout,
+    clearTimeout() {},
+    console,
+  };
+  vm.runInNewContext(source, context, { filename: 'app.js' });
+  context.setConsent(true);
+  const enabled = window['ga-disable-G-VP8CWM9B50'];
+  context.setConsent(false);
+  const revoked = window['ga-disable-G-VP8CWM9B50'];
+  context.setConsent(true);
+  const regranted = window['ga-disable-G-VP8CWM9B50'];
+  return { enabled, revoked, regranted };
+}
+
+function runLeadClickScenario({
+  consent = 'granted', href, label, hostname = 'logan.loans', search = '', robots = '', pathname = '/',
+  sessionStorage = createStorage(), returnStorage = false, localStorageFault = false, sessionStorageFault = false,
+  triggerClick = true, eventParams = null,
+}) {
+  const listeners = new Map();
+  const localStorage = createStorage({ ll_consent: consent });
+  const window = {
+    location: { href: `https://${hostname}${pathname}${search}`, protocol: 'https:', hostname, pathname, search },
+    dataLayer: [],
+    localStorage,
+    sessionStorage,
+    matchMedia: () => ({ matches: false }),
+    setTimeout: () => 1,
+    clearTimeout() {},
+  };
+  if (localStorageFault) {
+    Object.defineProperty(window, 'localStorage', { get() { throw new Error('storage unavailable'); } });
+  }
+  if (sessionStorageFault) {
+    Object.defineProperty(window, 'sessionStorage', { get() { throw new Error('session storage unavailable'); } });
+  }
+  const consentControls = {
+    consentAccept: { addEventListener() {} },
+    consentDeny: { addEventListener() {} },
   };
   const document = {
-    body: { classList: { add() {}, remove() {}, contains() { return false; } }, append() {} },
-    querySelector: () => null,
+    body: { classList: { add() {}, remove() {}, contains() { return false; } }, append() {}, appendChild() {} },
+    querySelector: (selector) => selector === 'meta[name="robots"]' && robots
+      ? { getAttribute: () => robots }
+      : null,
     querySelectorAll: () => [],
     addEventListener(type, listener) {
       listeners.set(type, [...(listeners.get(type) || []), listener]);
     },
-    getElementById: () => null,
+    getElementById: (id) => consentControls[id] || null,
     createElement: () => ({ setAttribute() {}, classList: { add() {} } }),
+    getElementsByTagName: () => [{ parentNode: { insertBefore() {} } }],
     head: { appendChild() {} },
   };
   const context = {
     window,
     document,
     localStorage,
-    sessionStorage: window.sessionStorage,
+    sessionStorage,
     navigator: { webdriver: false },
     URLSearchParams,
     FormData: MockFormData,
@@ -241,14 +314,18 @@ function runLeadClickScenario({ consent = 'granted', href, label }) {
   for (const listener of listeners.get('DOMContentLoaded') || []) {
     listener();
   }
-  for (const listener of listeners.get('click') || []) {
-    listener({ target: { closest: () => link } });
+  if (triggerClick) {
+    for (const listener of listeners.get('click') || []) {
+      listener({ target: { closest: () => link } });
+    }
   }
+  if (eventParams) context.trackEvent('test_event', eventParams);
   const events = window.dataLayer
     .map((entry) => Array.from(entry || []))
     .filter(([command]) => command === 'event')
     .map(([, eventName, payload]) => ({ eventName, payload }));
-  return JSON.parse(JSON.stringify(events));
+  const result = JSON.parse(JSON.stringify(events));
+  return returnStorage ? { events: result, sessionStorage } : result;
 }
 
 for (const formName of ['preapproval', 'general-contact']) {
@@ -279,6 +356,11 @@ assert.deepEqual(runConsentUpdateScenario(false), ['consent', 'update', {
   ad_personalization: 'denied',
   analytics_storage: 'denied',
 }], 'analytics decline denies analytics and every advertising signal');
+assert.deepEqual(runRevocationScenario(), {
+  enabled: false,
+  revoked: true,
+  regranted: false,
+}, 'consent withdrawal and regrant toggle the verified GA disable flag');
 
 const leadClickCases = [
   ['tel:+14808037763', 'Call Logan', 'phone_click', 'phone'],
@@ -290,9 +372,11 @@ for (const [href, label, eventName, leadChannel] of leadClickCases) {
   const events = runLeadClickScenario({ href, label });
   assert.deepEqual(events, [{
     eventName,
-    payload: {
-      page_path: '/',
-      event_category: 'lead_engagement',
+      payload: {
+        page_path: '/',
+        page_location: 'https://logan.loans/',
+        page_referrer: '',
+        event_category: 'lead_engagement',
       lead_channel: leadChannel,
     },
   }], `${eventName}: consented lead CTA has a fixed, PII-free payload`);
@@ -302,4 +386,75 @@ assert.deepEqual(
   [],
   'lead CTA clicks do not emit analytics before consent',
 );
+assert.deepEqual(
+  runLeadClickScenario({ href: 'tel:+14808037763', label: 'Call Logan', hostname: 'loganloans.netlify.app' }),
+  [],
+  'preview-host CTA clicks do not emit analytics',
+);
+assert.deepEqual(
+  runLeadClickScenario({ href: 'tel:+14808037763', label: 'Call Logan', search: '?qa=1' }),
+  [],
+  'QA-session CTA clicks do not emit analytics',
+);
+assert.deepEqual(
+  runLeadClickScenario({ href: 'tel:+14808037763', label: 'Call Logan', robots: 'noindex,nofollow' }),
+  [],
+  'noindex CTA clicks do not emit analytics',
+);
+assert.deepEqual(
+  runLeadClickScenario({ href: 'tel:+14808037763', label: 'Call Logan', pathname: '/not-a-public-route' }),
+  [],
+  'unsitemapped canonical-host routes do not emit analytics',
+);
+assert.deepEqual(
+  runLeadClickScenario({ href: 'tel:+14808037763', label: 'Call Logan', localStorageFault: true }),
+  [],
+  'a throwing storage getter fails closed without emitting analytics',
+);
+assert.deepEqual(
+  runLeadClickScenario({ href: 'tel:+14808037763', label: 'Call Logan', sessionStorageFault: true }),
+  [],
+  'an unavailable session-storage getter fails closed without emitting analytics',
+);
+assert.deepEqual(
+  runLeadClickScenario({
+    href: '', label: '', triggerClick: false,
+    eventParams: {
+      lead_channel: 'phone',
+      page_path: '/apply?email=visitor@example.test',
+      page_location: 'https://example.test/?message=private',
+      page_referrer: 'https://referrer.test/?phone=4805550100',
+      form_value: 'private message',
+      email: 'visitor@example.test',
+    },
+  }),
+  [{
+    eventName: 'test_event',
+    payload: {
+      lead_channel: 'phone',
+      page_path: '/',
+      page_location: 'https://logan.loans/',
+      page_referrer: '',
+      event_category: 'lead_engagement',
+    },
+  }],
+  'custom event payloads drop caller-supplied URLs, query values, and form data',
+);
+const qaStorage = createStorage();
+const qaLanding = runLeadClickScenario({
+  href: 'tel:+14808037763', label: 'Call Logan', search: '?qa=1', sessionStorage: qaStorage, returnStorage: true,
+});
+assert.deepEqual(qaLanding.events, [], 'QA landing stays analytics-off');
+assert.deepEqual(
+  runLeadClickScenario({ href: 'tel:+14808037763', label: 'Call Logan', sessionStorage: qaLanding.sessionStorage }),
+  [],
+  'a QA session remains analytics-off after a same-tab navigation',
+);
+const policyBlock = source.match(/const PUBLIC_ANALYTICS_PATHS = new Set\(\[([\s\S]*?)\]\);/);
+assert.ok(policyBlock, 'public analytics route policy is present');
+const policyPaths = [...policyBlock[1].matchAll(/'([^']+)'/g)].map((match) => match[1]).sort();
+const sitemapPaths = [...(await readFile(path.join(root, 'sitemap.xml'), 'utf8')).matchAll(/<loc>https:\/\/logan\.loans([^<]+)<\/loc>/g)]
+  .map((match) => match[1])
+  .sort();
+assert.deepEqual(policyPaths, sitemapPaths, 'public analytics route policy exactly matches sitemap.xml');
 console.log('Analytics harness passed: consent signals, form failure/success/dedupe, and direct-thank-you paths.');
