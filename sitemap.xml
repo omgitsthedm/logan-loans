@@ -3,7 +3,7 @@
   <!-- Core pages -->
   <url><loc>https://logan.loans/</loc><lastmod>2026-07-24</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://logan.loans/apply</loc><lastmod>2026-07-24</lastmod><changefreq>monthly</changefreq><priority>0.95</priority></url>
-  <url><loc>https://logan.loans/contact</loc><lastmod>2026-07-24</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://logan.loans/contact</loc><lastmod>2026-10-08</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
   <url><loc>https://logan.loans/programs</loc><lastmod>2026-07-24</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
   <url><loc>https://logan.loans/about</loc><lastmod>2026-07-24</lastmod><changefreq>monthly</changefreq><priority>0.82</priority></url>
   <url><loc>https://logan.loans/meet-logan</loc><lastmod>2026-07-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -33,11 +33,11 @@
   <url><loc>https://logan.loans/blog</loc><lastmod>2026-07-24</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
 
   <!-- Blog posts -->
-  <url><loc>https://logan.loans/blog-first-time-buyer-arizona</loc><lastmod>2026-07-24</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://logan.loans/blog-how-much-house-phoenix</loc><lastmod>2026-07-24</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://logan.loans/blog-preapproval-guide</loc><lastmod>2026-07-24</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://logan.loans/blog-dscr-loans-arizona</loc><lastmod>2026-07-24</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://logan.loans/blog-mortgage-points-arizona</loc><lastmod>2026-07-24</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://logan.loans/blog-first-time-buyer-arizona</loc><lastmod>2026-10-08</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://logan.loans/blog-how-much-house-phoenix</loc><lastmod>2026-10-08</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://logan.loans/blog-preapproval-guide</loc><lastmod>2026-10-08</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://logan.loans/blog-dscr-loans-arizona</loc><lastmod>2026-10-08</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://logan.loans/blog-mortgage-points-arizona</loc><lastmod>2026-10-08</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
 
   <!-- Social proof -->
 

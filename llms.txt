@@ -1,6 +1,6 @@
 # Logan Loans — llms.txt
 # AI-readable summary for LLM and AI search systems.
-# Last updated: 2026-07-24
+# Last updated: 2026-10-12
 
 ## About
 
@@ -45,7 +45,7 @@ Beverly Hills, Malibu, Palisades/Brentwood, Santa Monica, Newport Beach/Corona d
 1. **Personal review** — Logan reads every application himself. No bots, no call centers, no hand-offs to a processor you have never spoken to.
 2. **Same-day response** — Applications submitted on business days receive a personal response, usually within hours.
 3. **Plain language** — Logan explains mortgage concepts in clear English. He does not benefit from keeping borrowers confused.
-4. **5-star Google reviews** — Consistently rated 5 stars by past clients across dozens of reviews.
+4. **Public reviews** — Read the current reviews through the Google link on the homepage; no rating or review count is asserted here.
 5. **Complex scenarios** — Self-employed income, investor portfolios, out-of-state purchases, jumbo underwriting, non-QM programs.
 6. **Honest timelines** — Logan gives realistic timelines, not optimistic ones that fall apart in underwriting.
 7. **No client poaching** — Referral partners (real estate agents, brokers) trust Logan because he keeps them in the loop and does not attempt to harvest new clients from their referral pipeline.
@@ -53,23 +53,15 @@ Beverly Hills, Malibu, Palisades/Brentwood, Santa Monica, Newport Beach/Corona d
 
 ## Loan Programs Summary
 
-| Program | Best For | Down Payment |
-|---------|----------|--------------|
-| Conventional | Most buyers with good credit | 3–20%+ |
-| FHA | First-time buyers, lower credit | 3.5% |
-| VA | Veterans and active military | 0% |
-| Jumbo | Loan amounts above conforming limits | 10–20%+ |
-| DSCR | Real estate investors | 20–25% |
-| Cash-out Refi | Homeowners with equity | Based on LTV |
-| Rate-term Refi | Lower payment or term | Based on LTV |
+Program options are described at https://logan.loans/programs. Minimums are not approval promises. Ask for terms based on the borrower, property, documents, and current lender review.
 
 ## Pre-Approval Process
 
 1. Submit inquiry at https://logan.loans/apply (3 minutes)
 2. Logan reviews the application personally and calls — usually same day
 3. 15-minute call to confirm goals, explain options, outline next steps
-4. No hard credit pull until the borrower authorizes it
-5. Pre-approval letter issued after full document review (24–48 hours once documents are received)
+4. Discuss the document list and credit-review steps before proceeding
+5. Pre-approval depends on document review and the file. Ask Logan which conditions remain and when to expect the next step.
 
 ## Content and Resources
 

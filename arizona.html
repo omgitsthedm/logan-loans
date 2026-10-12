@@ -3,6 +3,7 @@
 <head><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','analytics_storage':'denied','functionality_storage':'granted','security_storage':'granted','wait_for_update':500});gtag('set','ads_data_redaction',true);</script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#165A3F">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -11,7 +12,10 @@
   <title>Arizona Mortgage Lender | Home Loans Statewide | Logan Loans</title>
   <meta name="description" content="Arizona mortgage lender serving Phoenix, Scottsdale, Tucson, Sedona, and Flagstaff. Same-day pre-approvals, all loan types, NMLS 2466872." />
   <link rel="canonical" href="https://logan.loans/arizona" />
+  <meta name="geo.region" content="US-AZ" />
+  <meta name="geo.placename" content="Phoenix, Arizona" />
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Logan Loans">
   <meta property="og:title" content="Arizona Mortgage Lender | Home Loans Statewide | Logan Loans" />
   <meta property="og:description" content="Arizona mortgage lender serving Phoenix, Scottsdale, Tucson, Sedona, and Flagstaff. Same-day pre-approvals, all loan types, NMLS 2466872." />
   <meta property="og:url" content="https://logan.loans/arizona" />
@@ -73,23 +77,99 @@
     .prose strong{color:var(--ink)}
     @media(max-width:768px){.desktopOnly{display:none}.mobileOnly{display:flex}.footerSimple{grid-template-columns:1fr}.grid3{grid-template-columns:1fr}.steps{grid-template-columns:1fr}.statRow{grid-template-columns:1fr 1fr}}
   </style>
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@graph":[
-      {"@type":"BreadcrumbList","itemListElement":[
-        {"@type":"ListItem","position":1,"name":"Home","item":"https://logan.loans/"},
-        {"@type":"ListItem","position":2,"name":"Arizona","item":"https://logan.loans/arizona"}
-      ]},
-      {"@type":"FAQPage","mainEntity":[
-        {"@type":"Question","name":"What's the conforming loan limit in Arizona for 2026?","acceptedAnswer":{"@type":"Answer","text":"Most Arizona counties follow the standard conforming limit of $806,500 for a single-family home in 2026. Maricopa, Pima, Coconino, and other counties all sit at the standard limit. Anything above crosses into jumbo territory."}},
-        {"@type":"Question","name":"How does Arizona property tax compare to other states?","acceptedAnswer":{"@type":"Answer","text":"Arizona has one of the lowest effective property tax rates in the country at roughly 0.6% of assessed value, versus the national average near 1.1%. On a $500,000 home that's around $3,000 a year in Arizona versus $5,500 in a higher-tax state."}},
-        {"@type":"Question","name":"Are there down payment assistance programs in Arizona?","acceptedAnswer":{"@type":"Answer","text":"Yes. The Arizona Home Plus program offers up to 5% down payment assistance for qualified first-time and repeat buyers. Home in Five (Maricopa County) and Pima Tucson Homebuyers Solution offer similar assistance. Income and purchase-price limits vary by county."}}
-      ]},
-      {"@type":"LocalBusiness","@id":"https://logan.loans/#business","name":"Logan Loans","url":"https://logan.loans/","telephone":"+1-480-803-7763","email":"logan@forward.loans","address":{"@type":"PostalAddress","streetAddress":"11201 N Tatum Blvd #300","addressLocality":"Phoenix","addressRegion":"AZ","postalCode":"85028","addressCountry":"US"},"areaServed":[{"@type":"State","name":"Arizona"},{"@type":"City","name":"Phoenix"},{"@type":"City","name":"Scottsdale"},{"@type":"City","name":"Tucson"},{"@type":"City","name":"Sedona"},{"@type":"City","name":"Flagstaff"}]}
-    ]
-  }
-  </script>
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://logan.loans/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Arizona",
+          "item": "https://logan.loans/arizona"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What's the conforming loan limit in Arizona for 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most Arizona counties follow the standard conforming limit of $832,750 for a single-family home in 2026. Maricopa, Pima, Coconino, and other counties all sit at the standard limit. Anything above crosses into jumbo territory, which has its own underwriting guidelines."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does Arizona property tax compare to other states?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Arizona has one of the lowest effective property tax rates in the country at roughly 0.6% of assessed value, versus the national average near 1.1%. On a $500,000 home that's around $3,000 a year in Arizona versus $5,500 in a higher-tax state. This meaningfully reduces your monthly PITI and improves debt-to-income ratios."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are there down payment assistance programs in Arizona?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The Arizona Home Plus program offers up to 5% down payment assistance for qualified first-time and repeat buyers, layered onto FHA, VA, USDA, or conventional loans. Pima Tucson Homebuyers Solution and Home in Five (Maricopa County) offer similar assistance. Income and purchase-price limits vary by county."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://logan.loans/#business",
+      "name": "Logan Loans",
+      "url": "https://logan.loans/",
+      "telephone": "+1-480-803-7763",
+      "email": "logan@forward.loans",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "11201 N Tatum Blvd #300",
+        "addressLocality": "Phoenix",
+        "addressRegion": "AZ",
+        "postalCode": "85028",
+        "addressCountry": "US"
+      },
+      "areaServed": [
+        {
+          "@type": "State",
+          "name": "Arizona"
+        },
+        {
+          "@type": "City",
+          "name": "Phoenix"
+        },
+        {
+          "@type": "City",
+          "name": "Scottsdale"
+        },
+        {
+          "@type": "City",
+          "name": "Tucson"
+        },
+        {
+          "@type": "City",
+          "name": "Sedona"
+        },
+        {
+          "@type": "City",
+          "name": "Flagstaff"
+        }
+      ]
+    }
+  ]
+}</script>
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -201,14 +281,14 @@
         <div class="grid3">
           <div class="card">
             <h3 class="cardTitle">Conventional 5–20% down</h3>
-            <p class="cardText">The default for most Maricopa and Pima County purchases under $806,500. PMI drops automatically at 78% LTV. Best fit for buyers with 680+ FICO and a clean two-year work history.</p>
+            <p class="cardText">The default for most Maricopa and Pima County purchases under $832,750. PMI drops automatically at 78% LTV. Best fit for buyers with 680+ FICO and a clean two-year work history.</p>
           </div>
           <div class="card">
             <h3 class="cardTitle">FHA + Home Plus DPA</h3>
             <p class="cardText">3.5% down FHA stacked with up to 5% in down payment assistance. After seller credits, qualified buyers regularly close with under $2,000 of their own money on $300k–$400k homes.</p>
           </div>
           <div class="card">
-            <h3 class="cardTitle">Jumbo for $806,500+</h3>
+            <h3 class="cardTitle">Jumbo for $832,750+</h3>
             <p class="cardText">Required across Paradise Valley, North Scottsdale, Arcadia, Biltmore, and parts of Sedona. Typical structure is 10–20% down with full doc, though we run bank-statement and asset-depletion programs for self-employed borrowers.</p>
           </div>
         </div>
@@ -223,7 +303,7 @@
         <div class="faq">
           <div class="faqItem">
             <button class="faqBtn" data-faq-btn aria-expanded="false" type="button">What's the conforming loan limit in Arizona for 2026? <span class="faqIcon">+</span></button>
-            <div class="faqPanel"><div class="faqPanelInner">Most Arizona counties follow the standard conforming limit of $806,500 for a single-family home in 2026. Maricopa, Pima, Coconino, and other counties all sit at the standard limit. Anything above crosses into jumbo territory, which has its own underwriting guidelines.</div></div>
+            <div class="faqPanel"><div class="faqPanelInner">Most Arizona counties follow the standard conforming limit of $832,750 for a single-family home in 2026. Maricopa, Pima, Coconino, and other counties all sit at the standard limit. Anything above crosses into jumbo territory, which has its own underwriting guidelines.</div></div>
           </div>
           <div class="faqItem">
             <button class="faqBtn" data-faq-btn aria-expanded="false" type="button">How does Arizona property tax compare to other states? <span class="faqIcon">+</span></button>
@@ -272,7 +352,8 @@
       </div>
     </section>
 
-  </main>
+  <section class="section"><div class="wrap"><p class="small muted">The 2026 conforming limit for a one-unit home is $832,750 in Maricopa, Pima, Coconino, and Yavapai counties. Limits vary by county and number of units. This is a loan-amount limit, not a home-price limit or an approval. <a class="uLink" href="https://www.fhfa.gov/data/conforming-loan-limit">Check the current FHFA county limits</a>.</p></div></section>
+</main>
   <footer class="footer">
   <div class="wrap">
     <div class="ftrTop">

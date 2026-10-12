@@ -3,8 +3,9 @@
 <head><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','analytics_storage':'denied','functionality_storage':'granted','security_storage':'granted','wait_for_update':500});gtag('set','ads_data_redaction',true);</script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#165A3F">
   <meta name="robots" content="noindex,follow" />
-  <title>Funded Deals | Real Arizona Mortgages | Logan Loans</title>
+  <title>Mortgage Planning Scenarios | Logan Loans</title>
 
   <!-- Favicon set -->
   <link rel="icon" href="/favicon.ico" sizes="any">
@@ -40,7 +41,7 @@
     .footList{margin:0;padding:0;list-style:none}.footList li{margin:0 0 10px 0;color:var(--muted);font-size:16px}
     .faq{margin-top:20px;border:1px solid var(--border);border-radius:var(--rDoor);overflow:hidden;background:rgba(255,255,255,0.6)}.faqItem{border-top:1px solid var(--border)}.faqItem:first-child{border-top:0}.faqBtn{width:100%;text-align:left;border:0;background:transparent;padding:20px;font-weight:700;font-size:16px;color:var(--ink);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}.faqIcon{width:32px;height:32px;border-radius:10px;border:1px solid rgba(22,90,63,0.15);display:grid;place-items:center;color:var(--primary);background:rgba(251,247,239,0.9);flex:0 0 auto;font-size:18px;font-weight:400}.faqPanel{max-height:0;overflow:hidden;transition:max-height var(--tMed) var(--ease)}.faqPanelInner{padding:0 20px 20px 20px;color:var(--muted);font-size:16px;line-height:1.65}
 
-    /* Funded Deals specific */
+    /* Loan Scenarios specific */
     .trustStrip{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
     .statPill{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:999px;border:1px solid rgba(22,90,63,0.18);background:rgba(207,231,215,0.25);font-weight:700;font-size:15px;color:var(--ink)}
     .statPill strong{color:var(--primary)}
@@ -70,25 +71,27 @@
     @media print{.header,.mobileBar,.drawer{display:none!important}body{padding:0}.door{box-shadow:none;border:1px solid #ccc}}
   </style>
 
-  <meta name="description" content="Real loans, real clients, real results. See funded deals from Logan Sullivan, NMLS 2466872 — Arizona mortgages closed on time." />
+  <meta name="description" content="Questions to ask about a first home, larger loan, rental, second home, relocation, or VA purchase. Planning examples, not client results." />
   <link rel="canonical" href="https://logan.loans/funded-deals" />
+  <meta name="geo.region" content="US-AZ" />
+  <meta name="geo.placename" content="Phoenix, Arizona" />
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Funded Deals | Real Arizona Mortgages | Logan Loans" />
-  <meta property="og:description" content="Real loans, real clients, real results. See funded deals from Logan Sullivan, NMLS 2466872 — Arizona mortgages closed on time." />
+  <meta property="og:title" content="Mortgage Planning Scenarios | Logan Loans" />
+  <meta property="og:description" content="Questions to ask about a first home, larger loan, rental, second home, relocation, or VA purchase. Planning examples, not client results." />
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Logan Loans">
   <meta property="og:url" content="https://logan.loans/funded-deals" />
   <meta property="og:image" content="https://logan.loans/assets/img/logan-main.webp" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Funded Deals | Real Arizona Mortgages | Logan Loans" />
-  <meta name="twitter:description" content="Real loans, real clients, real results. See funded deals from Logan Sullivan, NMLS 2466872 — Arizona mortgages closed on time." />
+  <meta name="twitter:title" content="Mortgage Planning Scenarios | Logan Loans" />
+  <meta name="twitter:description" content="Questions to ask about a first home, larger loan, rental, second home, relocation, or VA purchase. Planning examples, not client results." />
   <meta name="twitter:image" content="https://logan.loans/assets/img/logan-main.webp" />
 
-<script type="application/ld+json">
-{
+<script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
     {
@@ -104,62 +107,75 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Funded Deals",
+          "name": "Loan Scenarios",
           "item": "https://logan.loans/funded-deals"
         }
       ]
     },
     {
       "@type": "WebPage",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".h1",
+          ".h2",
+          ".heroContent .p",
+          ".kicker"
+        ]
+      },
       "@id": "https://logan.loans/funded-deals#webpage",
       "url": "https://logan.loans/funded-deals",
-      "name": "Funded Deals | Real Arizona Mortgages | Logan Loans",
-      "description": "Real loans, real clients, real results. See funded deals from Logan Sullivan, NMLS 2466872 — Arizona mortgages closed on time.",
-      "isPartOf": { "@id": "https://logan.loans/#website" },
-      "breadcrumb": { "@id": "https://logan.loans/funded-deals#breadcrumb" }
+      "name": "Mortgage Planning Scenarios | Logan Loans",
+      "description": "Questions to ask about a first home, larger loan, rental, second home, relocation, or VA purchase. Planning examples, not client results.",
+      "isPartOf": {
+        "@id": "https://logan.loans/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://logan.loans/funded-deals#breadcrumb"
+      }
     },
     {
       "@type": "ItemList",
       "@id": "https://logan.loans/funded-deals#deals",
-      "name": "Recent Funded Deals — Logan Sullivan",
-      "description": "Anonymized funded mortgage deals closed by Logan Sullivan, NMLS 2466872.",
+      "name": "Mortgage planning scenarios",
+      "description": "Illustrative questions to prepare for a mortgage conversation; not client results.",
       "numberOfItems": 6,
       "itemListElement": [
         {
           "@type": "ListItem",
           "position": 1,
-          "name": "Paradise Valley Jumbo Conventional — $1,240,000",
-          "description": "Jumbo conventional purchase in Paradise Valley. 20% down payment. Closed in 18 days for a competitive offer."
+          "name": "Jumbo purchase — Paradise Valley, AZ",
+          "description": "Compare the monthly cost and funds you will keep in reserve. Ask which documents the lender needs before choosing a closing date."
         },
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Scottsdale DSCR Investor Loan — $485,000",
-          "description": "DSCR investor loan in Scottsdale for a self-employed buyer. Qualified on rental income with no W-2."
+          "name": "Rental property — Scottsdale, AZ",
+          "description": "Bring the lease or expected rent, property costs, and your plan to repay. Ask how each loan option reviews the property and borrower."
         },
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "North Phoenix First-Time FHA — $378,000",
-          "description": "FHA purchase in North Phoenix for a first-time buyer with a complex credit history. Closed in 32 days with 3.5% down."
+          "name": "First home — North Phoenix, AZ",
+          "description": "Start with a payment that fits your budget. Compare upfront cash, loan costs, and the steps needed before making an offer."
         },
         {
           "@type": "ListItem",
           "position": 4,
-          "name": "Sedona Vacation Home Conventional — $620,000",
-          "description": "Conventional second home purchase in Sedona with an existing primary mortgage."
+          "name": "Second home — Sedona, AZ",
+          "description": "Review the cost of keeping your current home alongside the new purchase. Tell the lender how often you plan to use the property."
         },
         {
           "@type": "ListItem",
           "position": 5,
-          "name": "Beverly Hills Jumbo Purchase — $2,100,000",
-          "description": "California jumbo purchase for a buyer relocating from Arizona. Cross-state coordination, no delays."
+          "name": "Moving states — Beverly Hills, CA",
+          "description": "Map the sale, move, and purchase together. Ask which documents and loan conditions could affect either closing date."
         },
         {
           "@type": "ListItem",
           "position": 6,
-          "name": "North Scottsdale VA Loan — $512,000",
-          "description": "VA loan for a veteran buyer with zero down payment in North Scottsdale. Closed in 24 days."
+          "name": "VA purchase — North Scottsdale, AZ",
+          "description": "Ask about VA eligibility and compare the full costs with other available offers. Confirm any funding fee and the cash needed to close."
         }
       ]
     },
@@ -171,7 +187,7 @@
           "name": "How does Logan handle complex or unusual loan scenarios?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Unusual scenarios — self-employment, complex credit, multiple properties, cross-state purchases — are where careful lenders separate from average ones. Logan reviews every file before committing to a path, communicates what's needed upfront, and builds a realistic timeline so nothing comes apart at closing."
+            "text": "Tell Logan about your income, debts, properties, and timing. He can review the file and explain which documents and loan conditions need attention before choosing a path."
           }
         },
         {
@@ -179,7 +195,7 @@
           "name": "Can Logan work with buyers who don't have W-2 income?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Investors and self-employed buyers have multiple qualifying pathways including DSCR loans (qualify on rental income), bank statement loans (12–24 months of deposits), and conventional programs with a full two-year self-employment history. The right path depends on the deal and the buyer's goals."
+            "text": "Ask about the options for your income and the property. Logan can review investor and self-employed scenarios. Each lender has its own rules and document needs; a loan is not approved just because one income type fits."
           }
         },
         {
@@ -187,14 +203,13 @@
           "name": "What does a fast close actually require from the buyer?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Speed depends heavily on document readiness. When buyers provide clean docs promptly and the appraisal comes back on time, 18–25 day closes are realistic. Logan will tell you exactly what's needed and when so there are no surprises on the timeline."
+            "text": "Provide the documents your lender requests and flag changes early. Appraisal, title, loan conditions, and document review can affect the date. Ask Logan what remains before planning around a closing."
           }
         }
       ]
     }
   ]
-}
-</script>
+}</script>
 </head>
 
 <body>
@@ -262,24 +277,19 @@
           <ol style="display:flex;gap:8px;list-style:none;margin:0 0 24px 0;padding:0;font-size:14px;color:var(--muted);">
             <li><a href="./" class="uLink">Home</a></li>
             <li aria-hidden="true" style="color:var(--border);">/</li>
-            <li aria-current="page" style="color:var(--ink);font-weight:600;">Funded Deals</li>
+            <li aria-current="page" style="color:var(--ink);font-weight:600;">Loan Scenarios</li>
           </ol>
         </nav>
         <div class="door">
           <div class="heroInner">
             <div class="heroContent">
-              <p class="kicker">Proof of work</p>
-              <h1 class="h1">Loans closed. Families moved in.</h1>
-              <p class="p">These are real deals. Real clients. Real scenarios that required creative thinking, fast execution, and honest communication.</p>
+              <p class="kicker">Loan planning</p>
+              <h1 class="h1">Different homes. Different loan questions.</h1>
+              <p class="p">Use these planning examples to prepare for a loan conversation. They are not records of client closings, loan offers, or promises of approval.</p>
 
               <!-- Trust Strip -->
               <div class="trustStrip" role="list" aria-label="Key stats">
-                <div class="statPill" role="listitem"><strong>47+</strong> Reviews</div>
-                <div class="statPill" role="listitem">
-                  <span aria-hidden="true" style="color:var(--apricot);">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-                  <strong>5-Star</strong> Rating
-                </div>
-                <div class="statPill" role="listitem"><strong>3&ndash;5 Day</strong> Clear-to-Close</div>
+                <div class="statPill" role="listitem"><strong>Plan</strong> before you offer</div>
                 <div class="statPill" role="listitem"><strong>NMLS</strong> 2466872</div>
               </div>
             </div>
@@ -292,168 +302,64 @@
     <section class="section" data-observe>
       <div class="wrap">
         <div class="threshold" aria-hidden="true"></div>
-        <p class="kicker">Recent closings</p>
-        <h2 class="h2">Six deals worth knowing about.</h2>
-        <p class="p">Each one had a wrinkle. Each one closed.</p>
+        <p class="kicker">Start with your situation</p>
+        <h2 class="h2">Six conversations worth having.</h2>
+        <p class="p">The right questions depend on the home and what you plan to do with it.</p>
 
-        <div class="grid3" role="list" aria-label="Funded mortgage deals">
+        <div class="grid3" role="list" aria-label="Mortgage planning scenarios">
 
           <!-- Deal 1: Paradise Valley Jumbo -->
           <article class="dealCard card" role="listitem">
-            <span class="dealBadge">Jumbo Conventional</span>
-            <p class="dealAmount">$1,240,000</p>
-            <div class="dealStats">
-              <div class="dealStat">
-                <span class="dealStatLabel">Location</span>
-                <span class="dealStatValue">Paradise Valley, AZ</span>
-              </div>
-              <div class="dealStat">
-                <span class="dealStatLabel">Program</span>
-                <span class="dealStatValue">Jumbo Conventional</span>
-              </div>
-              <div class="dealStat">
-                <span class="dealStatLabel">Timeline</span>
-                <span class="dealStatValue">18-day close</span>
-              </div>
-              <div class="dealStat">
-                <span class="dealStatLabel">Down</span>
-                <span class="dealStatValue">20%</span>
-              </div>
-            </div>
-            <p class="dealOutcome">Client needed clean docs and a fast close for a competitive offer. Done.</p>
+            <span class="dealBadge">Jumbo purchase</span>
+            <p class="dealAmount">Purchase</p>
+            <div class="dealStats"><div class="dealStat"><span class="dealStatLabel">Location</span><span class="dealStatValue">Paradise Valley, AZ</span></div><div class="dealStat"><span class="dealStatLabel">Compare</span><span class="dealStatValue">Jumbo options</span></div><div class="dealStat"><span class="dealStatLabel">Bring</span><span class="dealStatValue">Income and assets</span></div><div class="dealStat"><span class="dealStatLabel">Review</span><span class="dealStatValue">Cash to close</span></div></div>
+            <p class="dealOutcome">Compare the monthly cost and funds you will keep in reserve. Ask which documents the lender needs before choosing a closing date.</p>
           </article>
 
           <!-- Deal 2: Scottsdale DSCR -->
           <article class="dealCard card" role="listitem">
-            <span class="dealBadge">DSCR Investor</span>
-            <p class="dealAmount">$485,000</p>
-            <div class="dealStats">
-              <div class="dealStat">
-                <span class="dealStatLabel">Location</span>
-                <span class="dealStatValue">Scottsdale, AZ</span>
-              </div>
-              <div class="dealStat">
-                <span class="dealStatLabel">Program</span>
-                <span class="dealStatValue">DSCR Investment</span>
-              </div>
-              <div class="dealStat">
-                <span class="dealStatLabel">Cash flow</span>
-                <span class="dealStatValue">Positive Day 1</span>
-              </div>
-              <div class="dealStat">
-                <span class="dealStatLabel">Income</span>
-                <span class="dealStatValue">Rental (no W-2)</span>
-              </div>
-            </div>
-            <p class="dealOutcome">Self-employed investor &mdash; no W-2, no problem. Qualified on rental income.</p>
+            <span class="dealBadge">Rental property</span>
+            <p class="dealAmount">Rental</p>
+            <div class="dealStats"><div class="dealStat"><span class="dealStatLabel">Location</span><span class="dealStatValue">Scottsdale, AZ</span></div><div class="dealStat"><span class="dealStatLabel">Compare</span><span class="dealStatValue">Investor options</span></div><div class="dealStat"><span class="dealStatLabel">Bring</span><span class="dealStatValue">Rent and expenses</span></div><div class="dealStat"><span class="dealStatLabel">Review</span><span class="dealStatValue">Property use</span></div></div>
+            <p class="dealOutcome">Bring the lease or expected rent, property costs, and your plan to repay. Ask how each loan option reviews the property and borrower.</p>
           </article>
 
           <!-- Deal 3: North Phoenix FHA -->
           <article class="dealCard card" role="listitem">
-            <span class="dealBadge">First-Time FHA</span>
-            <p class="dealAmount">$378,000</p>
-            <div class="dealStats">
-              <div class="dealStat">
-                <span class="dealStatLabel">Location</span>
-                <span class="dealStatValue">North Phoenix, AZ</span>
-              </div>
-              <div class="dealStat">
-                <span class="dealStatLabel">Program</span>
-                <span class="dealStatValue">FHA Purchase</span>
-              </div>
-              <div class="dealStat">
-                <span class="dealStatLabel">Timeline</span>
-                <span class="dealStatValue">32-day close</span>
-              </div>
-              <div class="dealStat">
-                <span class="dealStatLabel">Down</span>
-                <span class="dealStatValue">3.5%</span>
-              </div>
-            </div>
-            <p class="dealOutcome">First-time buyer, complicated credit history. Closed in 32 days.</p>
+            <span class="dealBadge">First home</span>
+            <p class="dealAmount">First home</p>
+            <div class="dealStats"><div class="dealStat"><span class="dealStatLabel">Location</span><span class="dealStatValue">North Phoenix, AZ</span></div><div class="dealStat"><span class="dealStatLabel">Compare</span><span class="dealStatValue">Purchase options</span></div><div class="dealStat"><span class="dealStatLabel">Bring</span><span class="dealStatValue">Income and debts</span></div><div class="dealStat"><span class="dealStatLabel">Review</span><span class="dealStatValue">Total payment</span></div></div>
+            <p class="dealOutcome">Start with a payment that fits your budget. Compare upfront cash, loan costs, and the steps needed before making an offer.</p>
           </article>
 
           <!-- Deal 4: Sedona Vacation Home -->
           <article class="dealCard card" role="listitem">
-            <span class="dealBadge">Vacation Home</span>
-            <p class="dealAmount">$620,000</p>
-            <div class="dealStats">
-              <div class="dealStat">
-                <span class="dealStatLabel">Location</span>
-                <span class="dealStatValue">Sedona, AZ</span>
-              </div>
-              <div class="dealStat">
-                <span class="dealStatLabel">Program</span>
-                <span class="dealStatValue">Conventional</span>
-              </div>
-              <div class="dealStat">
-                <span class="dealStatLabel">Type</span>
-                <span class="dealStatValue">Second Home</span>
-              </div>
-              <div class="dealStat">
-                <span class="dealStatLabel">Complexity</span>
-                <span class="dealStatValue">Existing mortgage</span>
-              </div>
-            </div>
-            <p class="dealOutcome">Second home purchase with existing mortgage &mdash; underwriting complexity handled.</p>
+            <span class="dealBadge">Second home</span>
+            <p class="dealAmount">Second home</p>
+            <div class="dealStats"><div class="dealStat"><span class="dealStatLabel">Location</span><span class="dealStatValue">Sedona, AZ</span></div><div class="dealStat"><span class="dealStatLabel">Discuss</span><span class="dealStatValue">Planned use</span></div><div class="dealStat"><span class="dealStatLabel">Bring</span><span class="dealStatValue">Current loan costs</span></div><div class="dealStat"><span class="dealStatLabel">Review</span><span class="dealStatValue">Both home budgets</span></div></div>
+            <p class="dealOutcome">Review the cost of keeping your current home alongside the new purchase. Tell the lender how often you plan to use the property.</p>
           </article>
 
           <!-- Deal 5: Beverly Hills Jumbo -->
           <article class="dealCard card" role="listitem">
-            <span class="dealBadge">Jumbo</span>
-            <p class="dealAmount">$2,100,000</p>
-            <div class="dealStats">
-              <div class="dealStat">
-                <span class="dealStatLabel">Location</span>
-                <span class="dealStatValue">Beverly Hills, CA</span>
-              </div>
-              <div class="dealStat">
-                <span class="dealStatLabel">Program</span>
-                <span class="dealStatValue">Jumbo Purchase</span>
-              </div>
-              <div class="dealStat">
-                <span class="dealStatLabel">Buyer</span>
-                <span class="dealStatValue">Relocating from AZ</span>
-              </div>
-              <div class="dealStat">
-                <span class="dealStatLabel">Scope</span>
-                <span class="dealStatValue">Cross-state</span>
-              </div>
-            </div>
-            <p class="dealOutcome">Out-of-state buyer relocating from AZ. Cross-state coordination, no delays.</p>
+            <span class="dealBadge">Moving states</span>
+            <p class="dealAmount">Relocation</p>
+            <div class="dealStats"><div class="dealStat"><span class="dealStatLabel">Location</span><span class="dealStatValue">Beverly Hills, CA</span></div><div class="dealStat"><span class="dealStatLabel">Discuss</span><span class="dealStatValue">Sale and purchase</span></div><div class="dealStat"><span class="dealStatLabel">Bring</span><span class="dealStatValue">Income details</span></div><div class="dealStat"><span class="dealStatLabel">Review</span><span class="dealStatValue">Closing dates</span></div></div>
+            <p class="dealOutcome">Map the sale, move, and purchase together. Ask which documents and loan conditions could affect either closing date.</p>
           </article>
 
           <!-- Deal 6: North Scottsdale VA -->
           <article class="dealCard card" role="listitem">
-            <span class="dealBadge">VA Loan</span>
-            <p class="dealAmount">$512,000</p>
-            <div class="dealStats">
-              <div class="dealStat">
-                <span class="dealStatLabel">Location</span>
-                <span class="dealStatValue">North Scottsdale, AZ</span>
-              </div>
-              <div class="dealStat">
-                <span class="dealStatLabel">Program</span>
-                <span class="dealStatValue">VA Purchase</span>
-              </div>
-              <div class="dealStat">
-                <span class="dealStatLabel">Down</span>
-                <span class="dealStatValue">$0 (zero down)</span>
-              </div>
-              <div class="dealStat">
-                <span class="dealStatLabel">Timeline</span>
-                <span class="dealStatValue">24-day close</span>
-              </div>
-            </div>
-            <p class="dealOutcome">Veteran buyer, zero down. Fast VA appraisal coordination, 24-day close.</p>
+            <span class="dealBadge">VA purchase</span>
+            <p class="dealAmount">VA purchase</p>
+            <div class="dealStats"><div class="dealStat"><span class="dealStatLabel">Location</span><span class="dealStatValue">North Scottsdale, AZ</span></div><div class="dealStat"><span class="dealStatLabel">Compare</span><span class="dealStatValue">VA and other offers</span></div><div class="dealStat"><span class="dealStatLabel">Bring</span><span class="dealStatValue">Eligibility details</span></div><div class="dealStat"><span class="dealStatLabel">Review</span><span class="dealStatValue">Fees and payment</span></div></div>
+            <p class="dealOutcome">Ask about VA eligibility and compare the full costs with other available offers. Confirm any funding fee and the cash needed to close.</p>
           </article>
 
         </div>
 
         <!-- Disclaimer -->
-        <p class="disclaimer" role="note">
-          All deal details are approximate and anonymized to protect client privacy. Loan amounts, timelines, and terms reflect representative scenarios. Results may vary based on individual credit, income, property type, and market conditions.
-        </p>
+        <p class="disclaimer" role="note">These examples are for planning only. Loan availability, costs, and timing depend on the borrower, property, lender, and full review. They do not describe a specific client result.</p>
 
       </div>
     </section>
@@ -463,7 +369,7 @@
       <div class="wrap">
         <div class="threshold" aria-hidden="true"></div>
         <p class="kicker">Behind the numbers</p>
-        <h2 class="h2">How Logan handles the hard ones.</h2>
+        <h2 class="h2">What to bring to the conversation.</h2>
         <p class="p">Not every deal is straightforward. Here's what to expect when it isn't.</p>
 
         <div class="faq" role="list" aria-label="Frequently asked questions about tough loan scenarios">
@@ -474,9 +380,7 @@
               <span class="faqIcon" aria-hidden="true">+</span>
             </button>
             <div class="faqPanel">
-              <div class="faqPanelInner">
-                Unusual scenarios &mdash; self-employment, complex credit, multiple properties, cross-state purchases &mdash; are where careful lenders separate from average ones. Logan reviews every file before committing to a path, communicates what's needed upfront, and builds a realistic timeline so nothing comes apart at closing.
-              </div>
+              <div class="faqPanelInner">Tell Logan about your income, debts, properties, and timing. He can review the file and explain which documents and loan conditions need attention before choosing a path.</div>
             </div>
           </div>
 
@@ -486,9 +390,7 @@
               <span class="faqIcon" aria-hidden="true">+</span>
             </button>
             <div class="faqPanel">
-              <div class="faqPanelInner">
-                Yes. Investors and self-employed buyers have multiple qualifying pathways including DSCR loans (qualify on rental income), bank statement loans (12&ndash;24 months of deposits), and conventional programs with a full two-year self-employment history. The right path depends on the deal and the buyer's goals.
-              </div>
+              <div class="faqPanelInner">Ask about the options for your income and the property. Logan can review investor and self-employed scenarios. Each lender has its own rules and document needs; a loan is not approved just because one income type fits.</div>
             </div>
           </div>
 
@@ -498,9 +400,7 @@
               <span class="faqIcon" aria-hidden="true">+</span>
             </button>
             <div class="faqPanel">
-              <div class="faqPanelInner">
-                Speed depends heavily on document readiness. When buyers provide clean docs promptly and the appraisal comes back on time, 18&ndash;25 day closes are realistic. Logan will tell you exactly what's needed and when so there are no surprises on the timeline.
-              </div>
+              <div class="faqPanelInner">Provide the documents your lender requests and flag changes early. Appraisal, title, loan conditions, and document review can affect the date. Ask Logan what remains before planning around a closing.</div>
             </div>
           </div>
 
@@ -514,8 +414,8 @@
         <div class="threshold" aria-hidden="true"></div>
         <div class="porch" aria-label="Call to action">
           <div class="stack">
-            <p class="cardTitle" style="margin:0;">Ready to be the next one?</p>
-            <p class="small muted" style="margin:0;">Every deal on this page started with a short conversation. Yours can too.</p>
+            <p class="cardTitle" style="margin:0;">Which questions fit your plans?</p>
+            <p class="small muted" style="margin:0;">Tell Logan about the home, your budget, and when you hope to move.</p>
           </div>
           <div class="row">
             <a class="btn btnPrimary" href="./apply">Get Pre-Approved &rarr;</a>

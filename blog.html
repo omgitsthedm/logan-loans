@@ -3,6 +3,7 @@
 <head><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','analytics_storage':'denied','functionality_storage':'granted','security_storage':'granted','wait_for_update':500});gtag('set','ads_data_redaction',true);</script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#165A3F">
   <title>Mortgage Insights | Logan Loans Blog</title>
 
   <!-- Favicon set -->
@@ -73,32 +74,44 @@
     @media print{.header,.mobileBar,.drawer{display:none!important}body{padding:0}.door{box-shadow:none;border:1px solid #ccc}}
   </style>
 
-  <meta name="description" content="Honest mortgage education from Logan Sullivan, NMLS 2466872. Clear explanations on rates, programs, and Arizona real estate." />
+  <meta name="description" content="A question about your mortgage can keep you up long after the lender closes." />
   <link rel="canonical" href="https://logan.loans/blog" />
+  <meta name="geo.region" content="US-AZ" />
+  <meta name="geo.placename" content="Phoenix, Arizona" />
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Mortgage Insights | Logan Loans Blog" />
-  <meta property="og:description" content="Honest mortgage education from Logan Sullivan, NMLS 2466872. Clear explanations on rates, programs, and Arizona real estate." />
+  <meta property="og:description" content="A question about your mortgage can keep you up long after the lender closes." />
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Logan Loans">
   <meta property="og:url" content="https://logan.loans/blog" />
   <meta property="og:image" content="https://logan.loans/assets/img/logan-main.webp" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Mortgage Insights | Logan Loans Blog" />
-  <meta name="twitter:description" content="Honest mortgage education from Logan Sullivan, NMLS 2466872. Clear explanations on rates, programs, and Arizona real estate." />
+  <meta name="twitter:description" content="A question about your mortgage can keep you up long after the lender closes." />
   <meta name="twitter:image" content="https://logan.loans/assets/img/logan-main.webp" />
 
-<script type="application/ld+json">
-{
+<script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        {"@type":"ListItem","position":1,"name":"Home","item":"https://logan.loans/"},
-        {"@type":"ListItem","position":2,"name":"Blog","item":"https://logan.loans/blog"}
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://logan.loans/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://logan.loans/blog"
+        }
       ]
     },
     {
@@ -114,41 +127,90 @@
       "name": "Logan Loans Blog",
       "url": "https://logan.loans/blog",
       "description": "Plain-English mortgage education from Logan Sullivan, NMLS 2466872.",
-      "author": {"@type":"Person","name":"Logan Sullivan","jobTitle":"Mortgage Advisor","url":"https://logan.loans/meet-logan"},
-      "publisher": {"@id":"https://logan.loans/#organization"}
+      "author": {
+        "@type": "Person",
+        "name": "Logan Sullivan",
+        "jobTitle": "Mortgage Advisor",
+        "url": "https://logan.loans/meet-logan"
+      },
+      "publisher": {
+        "@id": "https://logan.loans/#organization"
+      }
     },
     {
       "@type": "ItemList",
       "name": "Logan Loans Articles",
       "itemListElement": [
-        {"@type":"ListItem","position":1,"url":"https://logan.loans/blog-how-much-house-phoenix","name":"How Much House Can You Actually Afford in Phoenix Right Now?"},
-        {"@type":"ListItem","position":2,"url":"https://logan.loans/blog-preapproval-guide","name":"The Real Difference Between Pre-Qualification and Pre-Approval"},
-        {"@type":"ListItem","position":3,"url":"https://logan.loans/blog-dscr-loans-arizona","name":"DSCR Loans Explained: How Investors Finance Without W-2 Income"},
-        {"@type":"ListItem","position":4,"url":"https://logan.loans/blog-mortgage-points-arizona","name":"Should You Buy Points to Lower Your Rate? Here's the Math."},
-        {"@type":"ListItem","position":5,"url":"https://logan.loans/blog-first-time-buyer-arizona","name":"Arizona First-Time Homebuyer Guide 2026: Pre-Approval to Keys"}
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "url": "https://logan.loans/blog-how-much-house-phoenix",
+          "name": "How Much House Can You Actually Afford in Phoenix Right Now?"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "url": "https://logan.loans/blog-preapproval-guide",
+          "name": "The Real Difference Between Pre-Qualification and Pre-Approval"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "url": "https://logan.loans/blog-dscr-loans-arizona",
+          "name": "DSCR Loans Explained: How Investors Finance Without W-2 Income"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "url": "https://logan.loans/blog-mortgage-points-arizona",
+          "name": "Should You Buy Points to Lower Your Rate? Here's the Math."
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "url": "https://logan.loans/blog-first-time-buyer-arizona",
+          "name": "Arizona First-Time Homebuyer Guide 2026: Pre-Approval to Keys"
+        }
       ]
     },
     {
       "@type": "WebPage",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".h1",
+          ".h2",
+          ".heroContent .p",
+          ".kicker"
+        ]
+      },
       "@id": "https://logan.loans/blog#webpage",
       "url": "https://logan.loans/blog",
       "name": "Mortgage Insights | Logan Loans Blog",
-      "description": "Honest mortgage education from Logan Sullivan, NMLS 2466872. Clear explanations on rates, programs, and Arizona real estate.",
-      "isPartOf": { "@id": "https://logan.loans/#website" },
-      "breadcrumb": { "@id": "https://logan.loans/blog#breadcrumb" }
+      "description": "A question about your mortgage can keep you up long after the lender closes.",
+      "isPartOf": {
+        "@id": "https://logan.loans/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://logan.loans/blog#breadcrumb"
+      }
     },
     {
       "@type": "BlogPosting",
       "@id": "https://logan.loans/blog-how-much-house-phoenix#article",
       "headline": "How Much House Can You Actually Afford in Phoenix Right Now?",
-      "description": "A practical look at buying power, debt-to-income ratios, and why payment comfort matters more than approval ceiling.",
+      "description": "A question about your mortgage can keep you up long after the lender closes.",
       "datePublished": "2026-03-15",
       "dateModified": "2026-03-15",
       "image": "https://logan.loans/assets/img/logan-main.webp",
       "author": {
         "@type": "Person",
         "name": "Logan Sullivan",
-        "identifier": { "@type": "PropertyValue", "name": "NMLS", "value": "2466872" }
+        "identifier": {
+          "@type": "PropertyValue",
+          "name": "NMLS",
+          "value": "2466872"
+        }
       },
       "publisher": {
         "@type": "Organization",
@@ -161,14 +223,18 @@
       "@type": "BlogPosting",
       "@id": "https://logan.loans/blog-preapproval-guide#article",
       "headline": "The Real Difference Between Pre-Qualification and Pre-Approval",
-      "description": "Why pre-qualifications are nearly worthless with sellers and what a true pre-approval actually signals.",
+      "description": "A question about your mortgage can keep you up long after the lender closes.",
       "datePublished": "2026-04-02",
       "dateModified": "2026-04-02",
       "image": "https://logan.loans/assets/img/logan-main.webp",
       "author": {
         "@type": "Person",
         "name": "Logan Sullivan",
-        "identifier": { "@type": "PropertyValue", "name": "NMLS", "value": "2466872" }
+        "identifier": {
+          "@type": "PropertyValue",
+          "name": "NMLS",
+          "value": "2466872"
+        }
       },
       "publisher": {
         "@type": "Organization",
@@ -181,14 +247,18 @@
       "@type": "BlogPosting",
       "@id": "https://logan.loans/blog-dscr-loans-arizona#article",
       "headline": "DSCR Loans Explained: How Investors Finance Without W-2 Income",
-      "description": "An honest breakdown of debt service coverage ratio lending and how rental income qualifies you for investment properties.",
+      "description": "A question about your mortgage can keep you up long after the lender closes.",
       "datePublished": "2026-04-18",
       "dateModified": "2026-04-18",
       "image": "https://logan.loans/assets/img/logan-main.webp",
       "author": {
         "@type": "Person",
         "name": "Logan Sullivan",
-        "identifier": { "@type": "PropertyValue", "name": "NMLS", "value": "2466872" }
+        "identifier": {
+          "@type": "PropertyValue",
+          "name": "NMLS",
+          "value": "2466872"
+        }
       },
       "publisher": {
         "@type": "Organization",
@@ -201,14 +271,18 @@
       "@type": "BlogPosting",
       "@id": "https://logan.loans/blog-mortgage-points-arizona#article",
       "headline": "Should You Buy Points to Lower Your Rate? Here's the Math.",
-      "description": "Break-even analysis on mortgage points, when buying down your rate makes financial sense, and when it doesn't.",
+      "description": "A question about your mortgage can keep you up long after the lender closes.",
       "datePublished": "2026-05-01",
       "dateModified": "2026-05-01",
       "image": "https://logan.loans/assets/img/logan-main.webp",
       "author": {
         "@type": "Person",
         "name": "Logan Sullivan",
-        "identifier": { "@type": "PropertyValue", "name": "NMLS", "value": "2466872" }
+        "identifier": {
+          "@type": "PropertyValue",
+          "name": "NMLS",
+          "value": "2466872"
+        }
       },
       "publisher": {
         "@type": "Organization",
@@ -221,14 +295,18 @@
       "@type": "BlogPosting",
       "@id": "https://logan.loans/blog-first-time-buyer-arizona#article",
       "headline": "Arizona First-Time Homebuyer Guide 2026: Pre-Approval to Keys",
-      "description": "A step-by-step first-time buyer guide covering pre-approval, loan programs, offers, inspections, underwriting, and Arizona-specific details.",
+      "description": "A question about your mortgage can keep you up long after the lender closes.",
       "datePublished": "2026-04-10",
       "dateModified": "2026-04-10",
       "image": "https://logan.loans/assets/img/logan-main.webp",
       "author": {
         "@type": "Person",
         "name": "Logan Sullivan",
-        "identifier": { "@type": "PropertyValue", "name": "NMLS", "value": "2466872" }
+        "identifier": {
+          "@type": "PropertyValue",
+          "name": "NMLS",
+          "value": "2466872"
+        }
       },
       "publisher": {
         "@type": "Organization",
@@ -238,8 +316,7 @@
       "url": "https://logan.loans/blog-first-time-buyer-arizona"
     }
   ]
-}
-</script>
+}</script>
 </head>
 
 <body>
@@ -315,7 +392,7 @@
             <div class="heroContent">
               <p class="kicker">Mortgage education</p>
               <h1 class="h1">Real answers to the questions everyone searches at midnight.</h1>
-              <p class="p">Mortgage questions don't keep business hours. These articles cut through the jargon so you can make confident decisions — whether you're buying next month or just getting curious.</p>
+              <p class="p">A question about your mortgage can keep you up long after the lender closes. Start here for plain answers about your budget, loan options, and next step.</p>
               <p class="small muted">By Logan Sullivan &bull; NMLS 2466872 &bull; Arizona + Southern California</p>
             </div>
           </div>
