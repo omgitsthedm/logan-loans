@@ -1,0 +1,533 @@
+{
+  "version": 1,
+  "reviewedOn": "2026-10-18",
+  "reviewFile": "work/2026-10-18-audit-resolution/service-content-review.md",
+  "pages": [
+    {
+      "slug": "hard-money",
+      "name": "Hard money loans",
+      "title": "Hard Money Loans in Arizona & California | Logan Loans",
+      "description": "Discuss hard money financing for an investment property: project costs, property review, cash needs, loan terms, and a realistic repayment plan.",
+      "eyebrow": "Investment property financing",
+      "heading": "Hard money starts with the property. The plan matters, too.",
+      "lead": "Buying an investment property, funding a renovation, or working through a timing gap? Start with the property, the full project budget, and how you expect to repay the loan.",
+      "scenario": "investor",
+      "cta": "Discuss my investment property",
+      "mobileCta": "Discuss my deal",
+      "heroPoints": ["Property and intended use", "Cash needed through the project", "Sale or refinance plan"],
+      "introHeading": "A financing conversation for a specific deal",
+      "intro": "Hard money generally refers to privately funded, property-secured financing, often used for a shorter investment project. The property is central to the review, but it is only one part of the decision. Your experience, available cash, borrowing entity, and repayment plan may also matter. Logan can help you discuss the structure and the questions a lender will need answered.",
+      "audiences": [
+        {"title": "An investment purchase", "text": "You have a property in mind and need to understand whether its condition and intended use fit an available financing option."},
+        {"title": "A property to improve", "text": "You need to connect the purchase, renovation scope, cash contribution, and expected sale or rental plan."},
+        {"title": "A temporary financing need", "text": "You are considering a shorter loan and can explain the event that would repay it, along with a backup plan."}
+      ],
+      "discussion": [
+        "Will the property be an investment, and will anyone borrowing on the loan live there?",
+        "What are the purchase price, current condition, renovation scope, and basis for the projected value?",
+        "How much cash can you contribute at closing and keep available for carrying costs or unexpected work?",
+        "Who will own the property and sign the loan? Ask about any entity and personal guarantee requirements.",
+        "What repays the loan, and what happens if the sale, repairs, or refinance take longer than planned?"
+      ],
+      "documents": [
+        "Property address, listing or purchase contract, and target dates.",
+        "A line-item project budget, contractor estimates, and a proposed schedule if work is needed.",
+        "Current loan balances if the property is already owned.",
+        "A summary of your available funds, relevant projects, and proposed ownership structure.",
+        "The planned exit: sale assumptions or a rental and refinance outline."
+      ],
+      "constraintHeading": "Understand the cash flow before the closing date",
+      "constraints": [
+        "Ask for a clear explanation of interest, lender and third-party fees, payment timing, maturity, extension terms, and any prepayment restrictions. Compare the total cost for your expected holding period and a longer one.",
+        "If renovation funds are involved, confirm what is available at closing and what is released later. Draws may depend on completed work, inspections, and lender approval. A property valuation does not guarantee that every project cost will be financed.",
+        "This page focuses on business-purpose investment projects. If you intend to occupy the property, say so at the start so the discussion follows the appropriate home financing requirements."
+      ],
+      "process": [
+        {"title": "Describe the deal", "text": "Share the property, use, budget, and timing. Identify gaps in the project information before comparing structures."},
+        {"title": "Review the terms", "text": "Discuss available lender options, cash requirements, repayment obligations, and the documents needed for a formal review."},
+        {"title": "Confirm the path to repayment", "text": "Work through the proposed exit and remaining conditions. Funding depends on lender approval, property review, and closing requirements."}
+      ],
+      "faqs": [
+        {"question": "Does hard money mean the borrower is not reviewed?", "answer": "No. A lender may review credit, available funds, experience, ownership documents, and guarantees as well as the collateral. Ask what applies to your exact transaction."},
+        {"question": "Can I assume I will refinance when the project is finished?", "answer": "No. A future refinance is a separate financing decision. Property condition, rental income, your finances, and lender requirements at that time can affect the result. Discuss a backup repayment plan before committing."},
+        {"question": "Is a faster closing guaranteed?", "answer": "No. Share the contract deadline early. Valuation, title, insurance, project documents, and lender conditions can affect when a transaction is ready to close."}
+      ],
+      "related": [
+        {"slug": "fix-and-flip", "label": "Fix-and-flip financing", "text": "Plan for acquisition, renovation, and resale."},
+        {"slug": "bridge-loans", "label": "Bridge loans", "text": "Work through a temporary financing gap."},
+        {"slug": "dscr-loans", "label": "DSCR rental loans", "text": "Explore a rental-focused financing path."}
+      ],
+      "closingHeading": "Bring the property and the plan.",
+      "closingText": "A short overview is enough to begin: where it is, what you want to do, your timing, and how you expect to repay the loan.",
+      "sources": ["https://www.instagram.com/logan.loans/", "https://logan.loans/glossary", "https://logan.loans/investor-loans"]
+    },
+    {
+      "slug": "non-qm",
+      "name": "Non-QM loans",
+      "title": "Non-QM Mortgage Options in AZ & CA | Logan Loans",
+      "description": "Explore Non-QM mortgage questions for complex income: documentation, repayment review, property use, costs, and comparison with other loan options.",
+      "eyebrow": "Financing for a more complex financial picture",
+      "heading": "Your income may need a different way to be explained.",
+      "lead": "If a standard mortgage application does not capture how you earn or hold your money, a Non-QM conversation can help you understand which documentation options to explore.",
+      "scenario": "self-employed",
+      "cta": "Discuss my income situation",
+      "mobileCta": "Discuss my income",
+      "heroPoints": ["How you earn and document income", "Property use and loan purpose", "Payment, cash, and total cost"],
+      "introHeading": "A category of loans, with different rules inside it",
+      "intro": "Non-QM means a mortgage falls outside the Qualified Mortgage category. It does not describe one universal product or a promise of easier approval. Some options use different ways to document income or assets. The right conversation starts with your complete financial picture and the home or investment you want to finance.",
+      "audiences": [
+        {"title": "Business owners", "text": "Your income and business cash flow require more context than a paycheck alone provides."},
+        {"title": "Borrowers with several income sources", "text": "You need to explain how different earnings or asset sources contribute to your ability to repay."},
+        {"title": "People comparing documentation options", "text": "You want to understand whether a different review method is available and how its terms compare."}
+      ],
+      "discussion": [
+        "What type of income do you receive, how long has it continued, and how does it vary?",
+        "Is the property your home, a second home, or an investment? Will the loan have a consumer or business purpose?",
+        "Which records best explain your income, business ownership, assets, and existing debts?",
+        "What funds are available for the down payment, closing costs, and reserves after closing?",
+        "How would the proposed payment and loan terms fit your budget if your income changes?"
+      ],
+      "documents": [
+        "A short description of your work, ownership interests, and income sources.",
+        "An inventory of available records, such as tax returns, bank statements, financial statements, or asset statements.",
+        "An overview of monthly debts and other properties you own.",
+        "Your estimated purchase price or refinance balance, property use, and timing.",
+        "Questions about any income or asset source that is difficult to document."
+      ],
+      "constraintHeading": "Different documentation still needs a careful review",
+      "constraints": [
+        "For a consumer mortgage, being outside the Qualified Mortgage category does not remove applicable ability-to-repay requirements. Expect a lender to evaluate the information supporting your repayment capacity. Which documents it accepts depends on the program and your circumstances.",
+        "Compare any available Non-QM option with other mortgage options you may qualify for. Review the interest structure, payment changes, upfront costs, loan term, and any prepayment provisions. A loan label alone cannot tell you its price or whether it fits your needs.",
+        "Business-purpose rental financing follows a different discussion from a mortgage for a home you will occupy. Tell Logan the intended use first; a rental loan should not be treated as an interchangeable owner-occupied mortgage."
+      ],
+      "process": [
+        {"title": "Explain the full picture", "text": "Start with your income sources, property plans, and the documentation you have. Identify what a standard application may not explain."},
+        {"title": "Compare possible routes", "text": "Discuss relevant documentation methods alongside any conventional or other available options, including their costs and limitations."},
+        {"title": "Prepare the lender review", "text": "Confirm the requested records and receive instructions for sharing them securely. Approval remains subject to borrower and property requirements."}
+      ],
+      "faqs": [
+        {"question": "Is Non-QM the same as a no-documentation loan?", "answer": "No. A different documentation method does not mean no verification. The lender will specify the records needed to evaluate your situation and the requirements that apply."},
+        {"question": "Does being self-employed mean I need Non-QM?", "answer": "No. Self-employed borrowers may qualify for other mortgage programs. Review those possibilities as well as any relevant alternative documentation option before deciding."},
+        {"question": "Are bank statement loans and DSCR loans the same thing?", "answer": "No. Bank statement programs may use deposits to help evaluate a borrower's qualifying income. DSCR financing focuses on eligible rental income relative to a property's qualifying debt payment. Property use and the applicable program determine which conversation is relevant."}
+      ],
+      "related": [
+        {"slug": "bank-statement-loans", "label": "Bank statement loans", "text": "Explore how business cash flow may be documented."},
+        {"slug": "jumbo-loans", "label": "Jumbo mortgages", "text": "Discuss a larger home loan and your financial picture."},
+        {"slug": "dscr-loans", "label": "DSCR rental loans", "text": "Start with the income from an investment property."}
+      ],
+      "reading": [{"url": "https://www.consumerfinance.gov/ask-cfpb/what-is-a-qualified-mortgage-en-1789/", "label": "CFPB: What is a Qualified Mortgage?"}],
+      "closingHeading": "Start with how your finances actually work.",
+      "closingText": "Share your income sources, property plans, and the part of the mortgage process you want help understanding.",
+      "sources": ["https://www.instagram.com/logan.loans/", "https://logan.loans/faq", "https://logan.loans/partners", "https://www.consumerfinance.gov/ask-cfpb/what-is-a-qualified-mortgage-en-1789/", "https://www.consumerfinance.gov/ask-cfpb/what-is-the-ability-to-repay-rule-en-1787/"]
+    },
+    {
+      "slug": "bank-statement-loans",
+      "name": "Bank statement loans",
+      "title": "Bank Statement Loans in Arizona & California | Logan Loans",
+      "description": "Self-employed? Discuss bank statement mortgage options, how deposits are reviewed, documents to prepare, and the costs and requirements to compare.",
+      "eyebrow": "Self-employed mortgage questions",
+      "heading": "Make your business cash flow easier to understand.",
+      "lead": "A bank statement mortgage conversation looks at whether deposit records can help document qualifying income. Start with how your business earns money and the records that tell its story.",
+      "scenario": "self-employed",
+      "cta": "Discuss my self-employed income",
+      "mobileCta": "Discuss my income",
+      "heroPoints": ["Business and ownership history", "Deposits and business expenses", "Your home financing goal"],
+      "introHeading": "Another way to document income may be worth discussing",
+      "intro": "Some mortgage programs use personal or business bank statements as an alternative way to evaluate income. That can be relevant when self-employment makes a standard income review more complex. It does not mean every deposit counts as income, or that a bank statement program will be the best available option.",
+      "audiences": [
+        {"title": "Business owners", "text": "You receive business revenue through an account and need to explain expenses, ownership, and the income available to you."},
+        {"title": "Independent professionals", "text": "Your earnings arrive from different clients or vary during the year, and you want to understand the documentation options."},
+        {"title": "Self-employed homeowners", "text": "You are buying or refinancing and want to compare a bank statement approach with a review using other financial records."}
+      ],
+      "discussion": [
+        "How does the business make money, and how long have you owned or operated it?",
+        "Are deposits made to personal accounts, business accounts, or both? Are other owners involved?",
+        "Which deposits are revenue, transfers between accounts, borrowed funds, or one-time transactions?",
+        "What business expenses must be considered before income is available for personal loan payments?",
+        "Is the property a home you will occupy, a second home, or a rental investment?"
+      ],
+      "documents": [
+        "A summary of your business, ownership percentage, and how you pay yourself.",
+        "A list of the bank accounts that receive income; the lender will confirm the required statement period.",
+        "An explanation of significant transfers, unusual deposits, or seasonal changes.",
+        "Available business financial records and a summary of personal debts and other mortgages.",
+        "Your property plans, estimated down payment or equity, and target timeline."
+      ],
+      "constraintHeading": "Deposits are the starting point for a calculation",
+      "constraints": [
+        "A lender determines which deposits are eligible and how to account for expenses, ownership, and other factors. Total deposits are not automatically qualifying income. The required statement history and supporting records vary by program.",
+        "A bank statement approach changes part of the income documentation process. Credit, debt obligations, funds for closing, reserves, and the property still require review. An account balance by itself does not establish that the loan is affordable.",
+        "Compare the available terms with any mortgage you may qualify for using tax returns or other records. Ask about upfront costs, payment changes, and any restrictions over the time you expect to keep the loan."
+      ],
+      "process": [
+        {"title": "Map your income", "text": "Explain the business, the accounts used, and the property you want to finance. A short overview can identify the questions to resolve."},
+        {"title": "Confirm the documentation path", "text": "Discuss which records a lender would request and how it evaluates deposits, expenses, and ownership before comparing options."},
+        {"title": "Prepare a complete review", "text": "Use the secure document instructions provided for your application. Resolve unclear transactions and review the proposed terms and conditions."}
+      ],
+      "faqs": [
+        {"question": "Does every deposit count as qualifying income?", "answer": "No. Transfers, unusual deposits, and business receipts may need explanation or adjustment. The lender's calculation also considers the program's expense and ownership rules."},
+        {"question": "How many months of statements do I need?", "answer": "That depends on the lender and program. Confirm the exact period and whether personal or business statements are required before collecting or submitting records."},
+        {"question": "Should I upload bank statements through the contact form?", "answer": "Start with a general description of your business and financing goal. Keep account numbers and financial documents out of the public inquiry form; request the appropriate secure document instructions when an application review begins."}
+      ],
+      "related": [
+        {"slug": "non-qm", "label": "Non-QM options", "text": "Understand the wider alternative documentation discussion."},
+        {"slug": "jumbo-loans", "label": "Jumbo mortgages", "text": "Consider documentation needs for a larger home loan."},
+        {"slug": "dscr-loans", "label": "DSCR rental loans", "text": "Financing questions when the property will be a rental."}
+      ],
+      "closingHeading": "Tell Logan how you earn, and what you want to finance.",
+      "closingText": "You can begin with the type of business, your ownership role, the property use, and your timeline. Detailed records can follow through the appropriate application process.",
+      "sources": ["https://logan.loans/", "https://logan.loans/investor-loans", "https://logan.loans/faq", "https://logan.loans/glossary"]
+    },
+    {
+      "slug": "dscr-loans",
+      "name": "DSCR rental loans",
+      "title": "DSCR Rental Property Loans in AZ & CA | Logan Loans",
+      "description": "Understand DSCR rental financing: eligible rent, property payments, borrower review, reserves, rental use, and information to bring to a loan discussion.",
+      "eyebrow": "Rental property financing",
+      "heading": "Start with the rent. Look at the whole property.",
+      "lead": "DSCR financing focuses on a rental property's income relative to its qualifying debt payment. The useful next step is to review the rent assumptions, ownership plan, cash needs, and lender requirements together.",
+      "scenario": "rental",
+      "cta": "Discuss my rental property",
+      "mobileCta": "Discuss my rental",
+      "heroPoints": ["Eligible rental income", "Qualifying property payment", "Borrower and property requirements"],
+      "introHeading": "What the ratio can tell you",
+      "intro": "DSCR stands for debt service coverage ratio. For a residential rental loan, the lender compares eligible rental income with the qualifying property payment under its program. It decides how rent is documented and which payment components to include. That ratio is one part of a financing review; it is not a complete measure of the property's investment return.",
+      "audiences": [
+        {"title": "Buying a rental", "text": "You want to compare the property's supportable rent with the proposed financing and your available cash."},
+        {"title": "Refinancing an investment", "text": "You already own a rental and need to review its current lease, loan balance, equity, and refinancing goals."},
+        {"title": "Planning a longer hold", "text": "You are considering rental financing after improvements and need to understand the future review before relying on it."}
+      ],
+      "discussion": [
+        "What is the property type, location, condition, and intended rental use?",
+        "Is rent supported by a current lease, market rent analysis, or another method the lender accepts?",
+        "How are principal, interest, taxes, insurance, association dues, or other costs treated in the calculation?",
+        "What cash is available for closing, reserves, repairs, vacancies, and expenses outside the lender's ratio?",
+        "Will you borrow individually or through an entity, and what credit or guarantee requirements apply?"
+      ],
+      "documents": [
+        "The property address, purchase contract or current loan information, and ownership details.",
+        "Existing leases and a clear description of the intended rental arrangement.",
+        "Known property tax, insurance, and association expenses.",
+        "A summary of available funds, existing mortgages, and other rental properties.",
+        "Any renovation plans or changes in rental use that could affect the review."
+      ],
+      "constraintHeading": "A property ratio is not a profit forecast",
+      "constraints": [
+        "An acceptable DSCR does not remove borrower review. A lender may still evaluate credit, down payment or equity, reserves, ownership structure, and the property. Requirements and available terms depend on the program.",
+        "Keep a separate operating budget for vacancy, maintenance, management, repairs, and capital work. Some of those costs may sit outside the lender's qualifying payment. Meeting a financing calculation does not mean the investment will produce positive cash flow.",
+        "Confirm intended occupancy and rental use early. Short-term rental projections, entity ownership, and cash-out requests need specific review; none should be assumed eligible. A later refinance is subject to the requirements in effect when you apply."
+      ],
+      "process": [
+        {"title": "Set out the rental plan", "text": "Share the property, current or proposed rent, expenses, ownership, and whether you are buying or refinancing."},
+        {"title": "Check the calculation", "text": "Confirm the lender's rent documentation and payment method, then review cash requirements and the terms of any available option."},
+        {"title": "Review the complete transaction", "text": "Prepare borrower and property records. Approval depends on the lender's full review, valuation, title, and closing conditions."}
+      ],
+      "faqs": [
+        {"question": "Is DSCR financing based only on the property's income?", "answer": "Rental income is central to the approach, but it is not the only review. The lender may also consider your credit, cash, reserves, ownership documents, and guarantees, as well as property eligibility."},
+        {"question": "Can I use my own short-term rental projection?", "answer": "Share it as an assumption to discuss, not as verified qualifying rent. The lender must confirm whether the rental use is eligible and what income documentation or valuation it will accept."},
+        {"question": "Is DSCR financing for a home I plan to live in?", "answer": "This discussion is for rental investment financing. If you intend to occupy the home, disclose that before comparing programs so the loan is reviewed for its actual use."}
+      ],
+      "related": [
+        {"slug": "investor-loans", "label": "Investor loan overview", "text": "Compare rental, renovation, and temporary financing needs."},
+        {"slug": "fix-and-flip", "label": "Fix-and-flip financing", "text": "Plan for a property that needs work before its next use."},
+        {"slug": "bridge-loans", "label": "Bridge loans", "text": "Discuss timing before longer-term rental financing."}
+      ],
+      "closingHeading": "Bring the rent assumptions and the real costs.",
+      "closingText": "Share the address, rental plan, approximate purchase price or balance, and your available timeline. Logan can help identify what needs a closer review.",
+      "sources": ["https://logan.loans/investor-loans", "https://logan.loans/programs", "https://logan.loans/blog-dscr-loans-arizona", "https://logan.loans/glossary"]
+    },
+    {
+      "slug": "fix-and-flip",
+      "name": "Fix-and-flip financing",
+      "title": "Fix-and-Flip Financing in AZ & CA | Logan Loans",
+      "description": "Plan a fix-and-flip financing discussion around the purchase, renovation budget, draws, carrying costs, property review, and a realistic sale or refinance exit.",
+      "eyebrow": "Financing a renovation project",
+      "heading": "Price the work. Plan the funding. Know the exit.",
+      "lead": "A renovation project needs more than a purchase price. Connect the scope of work, cash available, construction schedule, and repayment plan before choosing a financing structure.",
+      "scenario": "rehab",
+      "cta": "Discuss my renovation project",
+      "mobileCta": "Discuss my rehab",
+      "heroPoints": ["Acquisition and renovation budget", "Draws and cash needed between them", "Sale or rental exit assumptions"],
+      "introHeading": "A loan discussion built around the project",
+      "intro": "Fix-and-flip financing is a conversation about acquiring or refinancing an investment property, completing planned improvements, and repaying the loan after the project. Whether renovation costs can be included, and how those funds are released, depends on the lender and the deal. Separate the project you hope to complete from the work, value, and timeline a lender can verify.",
+      "audiences": [
+        {"title": "A purchase with renovation work", "text": "You have a property and need to understand how the acquisition and improvement budget could fit together."},
+        {"title": "An existing property to reposition", "text": "You want to review current debt, planned work, available equity, and the cash required to complete the project."},
+        {"title": "A rehab with a rental plan", "text": "You may keep the property after repairs and want to discuss both the project loan and the later rental financing review."}
+      ],
+      "discussion": [
+        "What work is cosmetic, structural, or dependent on permits and professional plans?",
+        "Who will perform the work, and how are their scope, pricing, and schedule documented?",
+        "What supports the proposed after-repair value, and who will verify it?",
+        "Which costs must you fund at closing or before a reimbursement draw?",
+        "How will the loan be repaid if the renovation runs over budget or the property takes longer to sell?"
+      ],
+      "documents": [
+        "Property address, purchase contract or current loan details, and available condition photos.",
+        "A detailed scope of work, contractor estimates, and a line-item budget.",
+        "Known permit requirements, plans, and the proposed completion schedule.",
+        "A summary of your relevant project experience and funds available for costs and contingencies.",
+        "Sale assumptions or a rental plan, including support for expected value or rent."
+      ],
+      "constraintHeading": "Know when money is available, not just the loan amount",
+      "constraints": [
+        "Ask whether renovation funds are advanced or reimbursed, how inspections are arranged, what a draw costs, and what evidence of completed work is required. The timing of contractor payments needs to fit the funding process.",
+        "Budget for interest, taxes, insurance, utilities, and other carrying costs alongside the renovation. Confirm maturity, extension conditions, and any prepayment provisions. Additional work or delays can change both cash needs and the expected return.",
+        "A projected after-repair value is an estimate, not a promised sale price. A plan to refinance into rental financing also needs a separate eligibility review. Describe any intention to occupy the property so the appropriate loan purpose is established."
+      ],
+      "process": [
+        {"title": "Scope the project", "text": "Connect the purchase or existing debt with the work, contractor, budget, schedule, and intended final use."},
+        {"title": "Review funding and conditions", "text": "Discuss cash at closing, renovation disbursements, valuation, inspections, fees, and the lender's project requirements."},
+        {"title": "Plan completion and repayment", "text": "Document the exit and a realistic contingency. Confirm remaining approval and closing conditions before relying on funds."}
+      ],
+      "faqs": [
+        {"question": "Will the loan cover all renovation costs?", "answer": "Do not assume that it will. The lender determines the eligible budget and financing structure. Ask what you must contribute, what is held for future draws, and which costs remain your responsibility."},
+        {"question": "Can I change the work after the loan closes?", "answer": "Ask how changes to the approved scope, contractor, budget, or schedule are handled. A change can affect draw approval, value assumptions, and the funds needed to complete the project."},
+        {"question": "What if I decide to rent the property instead of selling?", "answer": "Discuss that possibility before committing. Rental use, expected rent, property condition, and your finances can affect a future refinance. Keeping the property does not automatically extend or replace the project loan."}
+      ],
+      "related": [
+        {"slug": "hard-money", "label": "Hard money loans", "text": "Understand the property, borrower, and exit review."},
+        {"slug": "dscr-loans", "label": "DSCR rental loans", "text": "Explore financing questions for a longer rental hold."},
+        {"slug": "construction-loans", "label": "Construction financing", "text": "Discuss a build or a more extensive construction plan."}
+      ],
+      "closingHeading": "Put the project on the table.",
+      "closingText": "Start with the property, purchase or loan balance, planned work, rough budget, and whether you intend to sell or hold it.",
+      "sources": ["https://logan.loans/programs", "https://logan.loans/investor-loans", "https://logan.loans/glossary"]
+    },
+    {
+      "slug": "bridge-loans",
+      "name": "Bridge loans",
+      "title": "Bridge Loan Questions in Arizona & California | Logan Loans",
+      "description": "Discuss a bridge loan around the property, timing gap, existing debt, carrying costs, collateral, and the event that will repay temporary financing.",
+      "eyebrow": "When financing and timing do not line up",
+      "heading": "A bridge loan needs a clear destination.",
+      "lead": "Temporary financing can create a connection between two events. Start by identifying the gap, the property involved, and exactly how you expect the loan to be repaid.",
+      "scenario": "bridge",
+      "cta": "Discuss my timing gap",
+      "mobileCta": "Discuss my bridge",
+      "heroPoints": ["What needs to happen first", "How long funds may be needed", "Repayment and backup plans"],
+      "introHeading": "The purpose of the bridge changes the conversation",
+      "intro": "Bridge financing is generally temporary financing tied to a later event, such as a sale or a refinance. An investor's property transaction and a homeowner's plan to buy before selling can have different program and borrower requirements. Explain which situation you are in before comparing options; the name alone does not establish eligibility.",
+      "audiences": [
+        {"title": "An investment purchase", "text": "You are evaluating temporary financing while another source of funds or a longer-term loan is being arranged."},
+        {"title": "A property in transition", "text": "A sale, renovation, or rental plan affects when you expect to repay or refinance the existing debt."},
+        {"title": "A move with overlapping dates", "text": "You need to discuss buying and selling timelines. Logan can first determine whether a homeowner financing route is available for the situation."}
+      ],
+      "discussion": [
+        "What event creates the need for temporary funds, and which dates are contractual rather than preferred?",
+        "Which property would secure the loan, and what debts or liens already exist?",
+        "Will you occupy any property involved, or is the transaction for business-purpose investment?",
+        "How will you cover payments, insurance, taxes, and other costs while the properties or loans overlap?",
+        "What is the repayment event, what evidence supports it, and what is the backup if it is delayed?"
+      ],
+      "documents": [
+        "The addresses, current ownership, and intended use of each property involved.",
+        "Existing loan balances and available mortgage or lien information.",
+        "Purchase contracts, listing information, or a concise explanation of the planned transaction.",
+        "A timeline showing the funds needed and the anticipated sale or refinance.",
+        "A summary of your available cash and the costs you expect to carry during the overlap."
+      ],
+      "constraintHeading": "Test the plan against a longer timeline",
+      "constraints": [
+        "Review the interest, fees, payment schedule, maturity, and extension provisions together. Ask how a delayed sale or refinance would affect your cash needs and what happens when the loan becomes due. An extension should never be assumed.",
+        "Property equity does not automatically become available borrowing capacity. The lender must evaluate value, existing liens, loan structure, borrower qualifications, and the proposed use of funds. Confirm which property or properties would secure the debt.",
+        "A future mortgage requires its own approval. If refinancing is the expected exit, discuss the likely documentation and property conditions now, while recognizing that future terms and eligibility may change."
+      ],
+      "process": [
+        {"title": "Map the gap", "text": "Identify the two events, the properties, the amount of temporary funding needed, and the actual deadlines."},
+        {"title": "Compare a workable structure", "text": "Review any available options alongside timing alternatives, including cash contribution, collateral, carrying costs, and loan obligations."},
+        {"title": "Confirm the exit and conditions", "text": "Discuss how repayment is expected to happen and the backup plan. A lender must complete its review before financing can be relied upon."}
+      ],
+      "faqs": [
+        {"question": "Are investor bridge loans and buy-before-you-sell loans the same?", "answer": "No. Property use, loan purpose, collateral, and borrower requirements can differ. Tell Logan whether the transaction involves your home or an investment so the appropriate options can be reviewed."},
+        {"question": "Can a bridge loan stay in place if my sale is delayed?", "answer": "Only the actual loan terms can answer that. Ask about maturity, any available extension process and cost, and the lender's requirements. Do not build your plan around an unconfirmed extension."},
+        {"question": "Does bridge financing guarantee a later refinance?", "answer": "No. A later lender will evaluate the application, property, and program requirements at that time. Review a repayment alternative before relying on refinancing as the only exit."}
+      ],
+      "related": [
+        {"slug": "hard-money", "label": "Hard money loans", "text": "Review temporary investment property financing questions."},
+        {"slug": "dscr-loans", "label": "DSCR rental loans", "text": "Discuss a possible longer-term rental financing path."},
+        {"slug": "home-equity", "label": "Home equity options", "text": "Compare questions about borrowing against an existing home."}
+      ],
+      "closingHeading": "Tell Logan what needs to happen, and when.",
+      "closingText": "Share the property use, current debt, dates, and expected source of repayment. That gives the conversation a useful starting point.",
+      "sources": ["https://logan.loans/programs", "https://logan.loans/investor-loans", "https://logan.loans/glossary"]
+    },
+    {
+      "slug": "construction-loans",
+      "name": "Construction financing",
+      "title": "Construction Financing in Arizona & California | Logan Loans",
+      "description": "Discuss construction financing with a clear project scope, builder, budget, permits, draw plan, contingency, and an explanation of what happens after completion.",
+      "eyebrow": "Financing a home build",
+      "heading": "Turn a building plan into a financing conversation.",
+      "lead": "Construction financing starts with what you are building, who will build it, the full budget, and how the loan will be repaid or replaced after completion.",
+      "scenario": "construction",
+      "cta": "Discuss my construction project",
+      "mobileCta": "Discuss my build",
+      "heroPoints": ["Project, builder, and property use", "Budget and staged funding", "Financing after completion"],
+      "introHeading": "First, identify what you are financing",
+      "intro": "Financing a build is different from buying a completed new home. A construction loan generally funds work over a shorter period, often through advances as the project progresses. If you are buying a finished home from a builder, a purchase mortgage may be the relevant conversation instead. Logan can help identify the information needed to discuss the right route.",
+      "audiences": [
+        {"title": "Planning a home build", "text": "You have a site or a proposed purchase and want to understand the financing questions before finalizing the project."},
+        {"title": "Reviewing a substantial project", "text": "Your plans involve more than a routine repair, and you need to clarify whether construction or renovation financing is appropriate."},
+        {"title": "Comparing new-home paths", "text": "You are deciding between funding construction and financing the purchase of a home a builder will complete."}
+      ],
+      "discussion": [
+        "Will the completed property be your home or an investment, and what type of property is planned?",
+        "Do you already own the site, or is its acquisition part of the proposed project?",
+        "Who is the builder, what is their scope, and what contract and qualifications can be provided?",
+        "How complete are the plans, permits, site work estimates, utilities, and construction budget?",
+        "What funds cover unexpected costs, and what financing or sale is expected after completion?"
+      ],
+      "documents": [
+        "Property address or parcel details and current ownership or purchase information.",
+        "Available plans, specifications, permits, and the proposed builder contract.",
+        "A budget covering construction, site work, professional costs, and a contingency.",
+        "The expected project schedule and any known approval or utility dependencies.",
+        "A summary of your available funds, existing debt on the property, and plans for the completed home."
+      ],
+      "constraintHeading": "Construction has funding stages as well as building stages",
+      "constraints": [
+        "Ask how draws are requested, inspected, approved, and paid. Confirm the cash required before the first draw and between later draws. Changes to the plans, budget, or builder may need review and may affect the funding schedule.",
+        "Discuss interest and payment obligations during construction, completion deadlines, extension terms, and costs if the project takes longer. The full budget should account for carrying costs and unexpected work, not just the construction contract.",
+        "Some structures connect construction and permanent financing; others require a separate loan or payoff after the build. Ask what is actually available for your project and what conditions apply. Permanent financing is not automatic unless the agreed structure provides for it and its conditions are met."
+      ],
+      "process": [
+        {"title": "Describe the project", "text": "Share the site, intended use, builder, stage of planning, and approximate schedule. Separate a build from a completed-home purchase."},
+        {"title": "Review the budget and funding", "text": "Discuss available program structures, project documentation, cash contribution, valuation, and the draw process."},
+        {"title": "Connect completion to repayment", "text": "Confirm what must happen at completion, how the loan is paid off or converted, and the remaining borrower, builder, and property conditions."}
+      ],
+      "faqs": [
+        {"question": "Do I need a construction loan to buy a new home?", "answer": "Not necessarily. If a builder finances construction and sells you the completed home, a purchase mortgage may be appropriate. Explain when you take ownership and who is responsible for funding the work."},
+        {"question": "Can I discuss a project if I do not own the site yet?", "answer": "Yes. Explain the proposed acquisition and build together. Site eligibility and whether any acquisition costs can be included need specific review; a construction discussion does not establish that a separate land loan is available."},
+        {"question": "Will the construction loan automatically become a mortgage?", "answer": "That depends on the structure. Ask whether conversion is included, what completion conditions apply, or whether you will need a new application and separate financing."}
+      ],
+      "related": [
+        {"slug": "fix-and-flip", "label": "Renovation financing", "text": "Review acquisition and rehab questions for an investment."},
+        {"slug": "jumbo-loans", "label": "Jumbo mortgages", "text": "Discuss a larger loan for a completed home."},
+        {"slug": "programs", "label": "Explore loan programs", "text": "Compare the starting points for home and investment financing."}
+      ],
+      "reading": [{"url": "https://www.consumerfinance.gov/ask-cfpb/what-is-a-construction-loan-en-108/", "label": "CFPB: How construction loans work"}],
+      "closingHeading": "Bring the plans you have so far.",
+      "closingText": "Start with the location, intended use, builder if selected, rough budget, and stage of planning. Logan can help identify the questions that need answers next.",
+      "sources": ["https://logan.loans/programs", "https://www.consumerfinance.gov/ask-cfpb/what-is-a-construction-loan-en-108/"]
+    },
+    {
+      "slug": "home-equity",
+      "name": "Home equity options",
+      "title": "Home Equity & HELOC Questions in AZ & CA | Logan Loans",
+      "description": "Compare home equity financing questions: HELOC draws and repayment, lump-sum borrowing, cash-out refinancing, existing mortgage costs, and payment changes.",
+      "eyebrow": "Borrowing against an existing home",
+      "heading": "Put your home equity in context before borrowing.",
+      "lead": "The amount you need, when you need it, and your repayment plan help shape the conversation. Review the new payment alongside your existing mortgage and the costs of each available option.",
+      "scenario": "home-equity",
+      "cta": "Discuss my home equity options",
+      "mobileCta": "Discuss my equity",
+      "heroPoints": ["Purpose and timing of the funds", "Existing mortgage and other liens", "Payments now and later"],
+      "introHeading": "Three structures to understand",
+      "intro": "Home equity is the difference between your home's value and the debts secured by it. It is not the same as the amount a lender will let you borrow. Property value, existing liens, your finances, and program limits all affect the review. These structures provide a useful starting point for comparing the options available in your situation.",
+      "audiences": [
+        {"title": "A home equity line of credit", "text": "A HELOC allows borrowing from an approved line during its draw period. Ask how the rate, available credit, and payments can change."},
+        {"title": "A home equity loan", "text": "A separate loan generally provides a lump sum. Ask whether that option is available and how its payment fits alongside your first mortgage."},
+        {"title": "A cash-out refinance", "text": "A new mortgage replaces the existing one and provides cash from the transaction. Compare the effect on the full mortgage balance, rate, term, and costs."}
+      ],
+      "discussion": [
+        "What will the funds be used for, and do you need one amount or access over time?",
+        "What are the current mortgage balance, rate, payment, and remaining term?",
+        "Are there other loans or liens secured by the property, and who owns it?",
+        "What new payment would fit your budget, including a higher-rate or repayment-period scenario?",
+        "How long do you expect to keep the home and the new loan or line?"
+      ],
+      "documents": [
+        "Property address, intended use, and your estimate of its current value.",
+        "A summary of the existing mortgage and any other secured debts.",
+        "The amount and timing of funds needed, with a project budget if relevant.",
+        "An overview of income, monthly debts, and available cash.",
+        "Questions about retaining the existing mortgage or comparing a refinance."
+      ],
+      "constraintHeading": "Understand the repayment obligation, including changes",
+      "constraints": [
+        "For a HELOC, review the draw period, repayment period, rate adjustments, and how the minimum payment is calculated. Payments can increase, including when borrowing ends and repayment begins. Ask about fees, minimum draws, and circumstances that could limit further access to the line.",
+        "For any available option, compare upfront and ongoing costs and how much debt you will carry after closing. A cash-out refinance changes the financing on the existing balance as well as the cash you receive.",
+        "A home equity loan or line is secured by your home, and failure to repay can put the home at risk. Using it to consolidate other debts moves those balances into a home-secured obligation; it does not eliminate the debt."
+      ],
+      "process": [
+        {"title": "Define the need", "text": "Explain the purpose, amount, timing, and repayment budget alongside your existing mortgage."},
+        {"title": "Compare available structures", "text": "Review a line, separate loan, or refinance where available. Compare payments, total costs, changing terms, and the effect on your current financing."},
+        {"title": "Review the details", "text": "Confirm the required borrower and property documents, written terms, and remaining conditions before deciding whether to proceed."}
+      ],
+      "faqs": [
+        {"question": "Can I keep my current first mortgage?", "answer": "A separate home equity loan or HELOC may allow the first mortgage to remain in place, subject to eligibility and lien requirements. A cash-out refinance replaces it. Compare the costs and combined payments in your situation."},
+        {"question": "Does a HELOC payment stay the same?", "answer": "Not necessarily. A variable rate, a change in the amount borrowed, or the transition to repayment can change the payment. Ask to see how each of those events would affect the proposed line."},
+        {"question": "Can I borrow all of my home's equity?", "answer": "Do not assume that you can. The lender determines the acceptable property value, combined secured debt, and other program requirements, as well as reviewing your ability to make the payments."}
+      ],
+      "related": [
+        {"slug": "refinance", "label": "Refinance options", "text": "Review the effect of replacing an existing mortgage."},
+        {"slug": "bridge-loans", "label": "Bridge loan questions", "text": "Discuss a temporary timing gap involving property."},
+        {"slug": "bank-statement-loans", "label": "Self-employed income", "text": "Explore the records that may support an income review."}
+      ],
+      "reading": [{"url": "https://www.consumerfinance.gov/ask-cfpb/what-is-a-home-equity-line-of-credit-heloc-en-107/", "label": "CFPB: Understanding a home equity line of credit"}],
+      "closingHeading": "Start with the goal, then compare the borrowing options.",
+      "closingText": "Share what the funds are for, when you need them, and a general picture of your existing mortgage. Detailed financial records can follow through the application process.",
+      "sources": ["https://logan.loans/programs", "https://logan.loans/refinance", "https://www.consumerfinance.gov/ask-cfpb/what-is-a-home-equity-line-of-credit-heloc-en-107/", "https://www.consumerfinance.gov/ask-cfpb/what-is-the-difference-between-a-home-equity-loan-and-a-home-equity-line-of-credit-heloc-en-247/", "https://www.consumerfinance.gov/ask-cfpb/what-other-types-of-loans-are-similar-to-a-heloc-en-253/"]
+    },
+    {
+      "slug": "jumbo-loans",
+      "name": "Jumbo mortgages",
+      "title": "Jumbo Mortgages in Arizona & California | Logan Loans",
+      "description": "Discuss a jumbo mortgage with the applicable conforming limit, your income and assets, available cash, property details, loan costs, and timing in view.",
+      "eyebrow": "Financing above the conforming loan limit",
+      "heading": "A larger mortgage deserves a complete financial picture.",
+      "lead": "Start with the amount you need to finance, the property's location and use, and how your income and assets are documented. Then compare the terms of the options available to you.",
+      "scenario": null,
+      "cta": "Discuss my jumbo mortgage",
+      "mobileCta": "Discuss my mortgage",
+      "heroPoints": ["Loan amount and property location", "Income, assets, and cash reserves", "Costs and the proposed payment"],
+      "introHeading": "Jumbo depends on the loan, location, and year",
+      "intro": "A jumbo mortgage generally exceeds the applicable conforming loan limit. That limit varies by location and number of units and can change each year. The amount you borrow matters, not the home's price alone. Logan can help you discuss the relevant limit and how the proposed loan fits your broader finances.",
+      "audiences": [
+        {"title": "Buying with a larger loan", "text": "Your planned financing may exceed the applicable conforming limit, and you want to compare cash and payment choices."},
+        {"title": "Refinancing a larger balance", "text": "You want to review the costs, term, and payment of a replacement mortgage alongside your current loan."},
+        {"title": "Documenting complex finances", "text": "Your earnings, business ownership, or assets require a clear explanation as part of the mortgage review."}
+      ],
+      "discussion": [
+        "Where is the property, how many units does it have, and will it be a primary home, second home, or investment?",
+        "What loan amount are you considering after the down payment or existing equity?",
+        "How are income, bonuses, business earnings, or asset sources documented?",
+        "What funds are available for closing, and what cash do you want to keep available afterward?",
+        "Are there property details, sale contingencies, or contractual dates that could affect the review?"
+      ],
+      "documents": [
+        "Property address or search area, intended use, estimated price, and proposed loan amount.",
+        "A summary of income sources and the records available to support them.",
+        "An overview of assets, the source of closing funds, and current debts.",
+        "Existing mortgage information if refinancing or retaining another property.",
+        "Any purchase contract, sale contingency, or target closing date."
+      ],
+      "constraintHeading": "Compare the entire structure",
+      "constraints": [
+        "Jumbo programs can differ in their documentation, credit, reserve, and property requirements. A larger down payment does not replace the rest of the review. Confirm the criteria for your loan amount, property use, and financial circumstances.",
+        "Compare available fixed or adjustable structures, if relevant, using the payment, upfront costs, term, and potential future changes. Discuss how much cash to put into the property alongside the liquidity you want to retain.",
+        "If you are self-employed or have complex income, ask which documentation methods are available for the specific program. A bank statement or other alternative approach should not be assumed to apply to every jumbo loan."
+      ],
+      "process": [
+        {"title": "Set the borrowing context", "text": "Identify the property, applicable conforming limit, proposed loan amount, intended use, and your timing."},
+        {"title": "Review finances and options", "text": "Connect your income, assets, obligations, and cash plans with any available lender options and their requirements."},
+        {"title": "Prepare for a full review", "text": "Confirm document needs, property review, written terms, and closing conditions. Final approval depends on the complete application and transaction."}
+      ],
+      "faqs": [
+        {"question": "Is every expensive home financed with a jumbo loan?", "answer": "No. The financed amount is compared with the applicable conforming limit. The down payment, location, and number of units can affect whether a loan is above that limit."},
+        {"question": "Is there one jumbo loan limit for Arizona and California?", "answer": "No. Applicable conforming limits vary by county and unit count, and they change over time. Check the current FHFA county information for the property before using a number to plan your financing."},
+        {"question": "Can a self-employed borrower explore jumbo financing?", "answer": "Yes, a self-employed borrower can discuss jumbo options. Which income records and calculations a lender accepts depends on the program and the full financial picture; it does not establish approval in advance."}
+      ],
+      "related": [
+        {"slug": "bank-statement-loans", "label": "Bank statement loans", "text": "Discuss documentation questions for self-employed income."},
+        {"slug": "non-qm", "label": "Non-QM options", "text": "Understand a different mortgage documentation conversation."},
+        {"slug": "premium-markets", "label": "Premium market guidance", "text": "Explore planning for a higher-value home purchase."}
+      ],
+      "reading": [{"url": "https://www.fhfa.gov/data/conforming-loan-limit", "label": "FHFA: Current conforming loan limits by county"}],
+      "closingHeading": "Connect the home purchase with the rest of your finances.",
+      "closingText": "Share the location, approximate purchase price or balance, planned down payment, and how you earn your income. That is enough to begin the conversation.",
+      "sources": ["https://logan.loans/faq", "https://logan.loans/programs", "https://logan.loans/premium-markets", "https://www.fhfa.gov/data/conforming-loan-limit"]
+    }
+  ]
+}

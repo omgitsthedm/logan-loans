@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "preparedAt": "2026-10-18",
+  "releaseStatus": "pending-client-compliance-review",
+  "contentOwner": "Logan Sullivan / authorized compliance reviewer",
+  "implementationOwner": "Little Fight NYC",
+  "groups": [
+    {
+      "pages": ["disclosures", "about", "meet-logan", "partners"],
+      "topic": "Company identity, licensing and participant roles",
+      "sources": ["https://forward.loans/disclosures/", "https://forward.loans/loan-officer/logan-sullivan/", "https://nmlsconsumeraccess.org/"],
+      "preparedAt": "2026-10-18",
+      "reviewDue": "2026-11-18",
+      "status": "pending-client-compliance-review",
+      "note": "Company disclosures do not independently certify current individual authority. Recheck after organizational or license changes."
+    },
+    {
+      "pages": ["faq", "glossary", "blog-dscr-loans-arizona"],
+      "topic": "Eligibility explanations, current limits and examples",
+      "sourceRegister": "work/2026-10-18-audit-resolution/regulated-content-review.md",
+      "preparedAt": "2026-10-18",
+      "reviewDue": "2026-12-01",
+      "status": "pending-client-compliance-review",
+      "note": "Recheck annual limits for the next calendar year and lender-specific criteria whenever guidelines change."
+    },
+    {
+      "pages": ["index", "programs", "investor-loans", "hard-money", "non-qm", "bank-statement-loans", "dscr-loans", "fix-and-flip", "bridge-loans", "construction-loans", "home-equity", "jumbo-loans", "loan-scenarios"],
+      "topic": "Specialist offerings and original educational explanations",
+      "sourceRegister": "work/2026-10-18-audit-resolution/service-content-review.md",
+      "preparedAt": "2026-10-18",
+      "reviewDue": "2027-01-18",
+      "status": "pending-client-offering-confirmation",
+      "note": "No rates, minimum scores, approval guarantees, or verified client results are invented. Hypothetical examples are labeled."
+    },
+    {
+      "pages": ["index", "hard-money", "non-qm", "bank-statement-loans", "dscr-loans", "fix-and-flip", "bridge-loans", "construction-loans", "home-equity", "jumbo-loans"],
+      "topic": "Actual video clips and client proof",
+      "sourceRegister": "work/2026-10-18-audit-resolution/source-material-needed.md",
+      "status": "awaiting-source-material",
+      "note": "The video manifest is intentionally empty. No Instagram dialogue was fabricated or reconstructed."
+    }
+  ]
+}

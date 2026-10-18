@@ -66,7 +66,7 @@ function resolveInternalReference(file, reference) {
   return `${absolute}.html`;
 }
 
-if (htmlFiles.length !== 58) fail(`Expected 58 HTML pages, found ${htmlFiles.length}.`);
+if (htmlFiles.length !== 68) fail(`Expected 68 HTML pages, found ${htmlFiles.length}.`);
 for (const [file, expectedBody] of siteVerificationFiles) {
   const verificationPath = path.join(targetRoot, file);
   if (!(await exists(verificationPath))) {
@@ -116,6 +116,10 @@ for (const file of htmlFiles) {
   } else if (!/noindex/i.test(source)) {
     fail(`${file}: non-indexable outcome page must declare noindex.`);
   }
+
+  const robotsDirectives = occurrences(source, /<meta\s+name=["']robots["']\s+content=["']([^"']*)["']/gi).map(match => match[1]);
+  if (robotsDirectives.length > 1) fail(`${file}: multiple robots tags create an ambiguous indexing decision.`);
+  if (isIndexable && robotsDirectives.some(value => /\bnoindex\b/i.test(value))) fail(`${file}: indexable page declares noindex.`);
 
   const ids = occurrences(source, /\sid=["']([^"']+)["']/gi).map((match) => match[1]);
   const duplicateIds = ids.filter((id, index) => ids.indexOf(id) !== index);
@@ -220,7 +224,7 @@ for (const file of htmlFiles) {
   });
 }
 
-if (sharedPages.length !== 57) fail(`Expected 57 shared-shell pages, found ${sharedPages.length}.`);
+if (sharedPages.length !== 67) fail(`Expected 67 shared-shell pages, found ${sharedPages.length}.`);
 
 if (isPublishArtifact) {
   for (const file of Object.keys(narrativeManifest.pages)) {
@@ -253,15 +257,17 @@ if (!/data-faq-search/.test(faqSource) || !/class=["'][^"']*faq-page/.test(faqSo
 
 const expectedForms = new Map([
   ['apply', ['bot-field', 'email', 'form-name', 'gbraid', 'gclid', 'goal', 'location', 'message', 'name', 'phone', 'price_range', 'timeline', 'utm_campaign', 'utm_content', 'utm_medium', 'utm_source', 'utm_term', 'wbraid']],
-  ['preapproval', ['bot-field', 'city', 'email', 'expected_home_price', 'form-name', 'loan_type', 'name', 'notes', 'phone', 'timeline']],
+  ['preapproval', ['after_repair_value', 'bot-field', 'builder_status', 'city', 'construction_budget', 'email', 'estimated_monthly_pitia', 'estimated_monthly_rent', 'estimated_property_value', 'existing_mortgage_balance', 'exit_strategy', 'expected_home_price', 'form-name', 'home_equity_goal', 'income_documents', 'inquiry_scenario', 'land_status', 'loan_type', 'name', 'notes', 'ownership_type', 'phone', 'property_type', 'rehab_budget', 'reserve_months', 'self_employment_history', 'source_intent', 'timeline']],
   ['general-contact', ['bot-field-2', 'email', 'form-name', 'message', 'name']],
   ['partner-referral', ['bot-field', 'brokerage', 'client_types', 'email', 'form-name', 'gbraid', 'gclid', 'name', 'phone', 'utm_campaign', 'utm_content', 'utm_medium', 'utm_source', 'utm_term', 'wbraid']],
   ['newsletter', ['bot-field', 'email', 'form-name']],
 ]);
 const expectedFormFingerprints = new Map([
   ['apply', 'a595d8201a6a68ca21853e24ea86e434d01bbdbd0f58cf341be92dd0e24e9726'],
-  ['preapproval', 'cb923f813c42bf554d535899a65cf0c7e64ffce6e6bdb807d6ca504586f182d7'],
-  ['general-contact', 'c6d5d977c1a940e9f15771162bb08789bc9505b0242473179fc22c1d27faddbc'],
+  // October 18 authorized inquiry redesign: preserve form identities and legacy
+  // fields, add optional scenario details, require only name and email.
+  ['preapproval', '160077aca2058ae88d546353aac90bb27f85cdc3166becadb43a07169660fddd'],
+  ['general-contact', '122c1f8de1b37d725ff083aa191c469a0d1b1e49bac4596238a0d368b1437470'],
   ['partner-referral', 'fab26bb28ecd421aa2c10bbc7b641f42687d6f57651788202749a360626a898c'],
   ['newsletter', 'a22f34ee3179733d9b4b3c617dc7e156048dae35bca88c4eee58dfae3619fac7'],
 ]);

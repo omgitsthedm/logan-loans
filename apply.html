@@ -130,6 +130,7 @@
     }
   ]
 }</script>
+  <link rel="stylesheet" href="./scenario.css">
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -201,6 +202,7 @@
             <div class="formCard" data-mobile-bar-suppress>
               <h2 class="h2" style="font-size:clamp(22px,2.5vw,30px);margin-bottom:6px;">Pre-Approval Request</h2>
               <p class="small muted" style="margin:0 0 24px 0;"><strong>Name and email are enough to start.</strong> Everything else is optional and simply helps Logan prepare for the conversation.</p>
+              <p class="inquiryShortcut">Have a property project in mind? Start with the <a class="uLink" href="./contact?scenario=rental#intake">rental</a>, <a class="uLink" href="./contact?scenario=rehab#intake">rehab</a>, or <a class="uLink" href="./contact?scenario=bridge#intake">bridge</a> questions.</p>
 
               <form id="applyForm" name="apply" method="POST" data-netlify="true" data-utm-form netlify-honeypot="bot-field" action="./thanks">
                 <input type="hidden" name="form-name" value="apply" />
@@ -222,7 +224,7 @@
                     <input type="text" id="apply-name" name="name" autocomplete="name" required placeholder="First and last name" />
                   </div>
                   <div class="field">
-                    <label for="apply-phone">Phone number</label>
+                    <label for="apply-phone">Phone number (optional)</label>
                     <input type="tel" id="apply-phone" name="phone" autocomplete="tel" placeholder="(480) 000-0000" />
                   </div>
                   <div class="field fieldFull">
@@ -352,7 +354,7 @@
 
               <hr class="hr" />
 
-              <p class="tiny muted" style="margin:0;text-align:center;">Forward Loans, LLC · NMLS 2006640<br>Equal Housing Lender · Licensed AZ &amp; CA</p>
+              <p class="tiny muted" style="margin:0;text-align:center;">Forward Holdings LLC dba Forward Loans · NMLS 2006640<br>Equal Housing Lender · Licensed AZ &amp; CA</p>
             </div>
           </aside>
 
@@ -421,17 +423,18 @@
         <p class="ftrTitle">Connect</p>
         <a class="ftrLink" href="https://www.instagram.com/logan.loans" target="_blank" rel="noopener">Instagram</a>
         <a class="ftrLink" href="https://www.linkedin.com/in/logansulliv" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="ftrLink" href="https://www.google.com/search?q=Logan+Sullivan+Mortgage+Advisor" target="_blank" rel="noopener">Google reviews</a>
+        <a class="ftrLink" href="https://www.google.com/search?kgmid=/g/11w48840g3" target="_blank" rel="noopener">Google reviews</a>
       </div>
       <div class="ftrCol">
         <p class="ftrTitle">Legal</p>
         <a class="ftrLink" href="./privacy">Privacy</a>
         <a class="ftrLink" href="./disclosures">Disclosures</a>
         <a class="ftrLink" href="./terms">Terms</a>
-        <a class="ftrLink" href="https://forward.loans/loan-officer/logan-sullivan/" target="_blank" rel="noopener">NMLS profile</a>
+        <a class="ftrLink" href="https://forward.loans/loan-officer/logan-sullivan/" target="_blank" rel="noopener">Company biography</a>
+        <a class="ftrLink" href="https://nmlsconsumeraccess.org/" target="_blank" rel="noopener">NMLS Consumer Access</a>
       </div>
     </div>
-    <p class="ftrFine"><strong>NMLS</strong> 2466872 (Logan Sullivan) &middot; <strong>Forward Loans</strong> NMLS 2006640. All loans subject to credit approval. Same-day pre-approval depends on timing and completeness of information.</p>
+    <p class="ftrFine"><strong>NMLS</strong> 2466872 (Logan Sullivan) &middot; <strong>Forward Holdings LLC dba Forward Loans</strong> NMLS 2006640. All loans subject to credit approval. Same-day pre-approval depends on timing and completeness of information.</p>
     <div class="ftrBase" data-lfc></div>
   </div>
 </footer>

@@ -150,6 +150,7 @@
     }
   ]
 }</script>
+  <link rel="stylesheet" href="./scenario.css">
 </head>
 
 <body>
@@ -214,90 +215,248 @@
   <div class="wrap">
     <div class="threshold" aria-hidden="true"></div>
     <p class="kicker">Contact</p>
-    <h1 class="h1" style="font-size:clamp(30px,4vw,48px)">Get pre-approved, the calm way.</h1>
-    <p class="p">Give what you know. If something is fuzzy, that's normal. We'll tighten it together.</p>
-    <div class="grid3" role="list" style="margin-top:22px;">
-      <div class="card" role="listitem">
-        <p class="cardTitle">Arizona buyers</p>
-        <p class="cardText">Send the city, rough price range, timeline, and what payment feels comfortable. Logan will turn the first pass into a cleaner purchase range.</p>
-      </div>
-      <div class="card" role="listitem">
-        <p class="cardTitle">Real estate agents</p>
-        <p class="cardText">For client referrals, include the contract timeline, offer target, and any file complexity. Logan protects the agent relationship and communicates directly.</p>
-      </div>
-      <div class="card" role="listitem">
-        <p class="cardTitle">Complex files</p>
-        <p class="cardText">Self-employed, investor, relocation, jumbo, and bank statement scenarios are welcome. The first job is to identify the right path, not force a generic answer.</p>
-      </div>
-    </div>
+    <h1 class="h1" style="font-size:clamp(30px,4vw,48px)">Let's talk through your next move.</h1>
+    <p class="p">Start with your question, your home, or a property you're considering. Name and email are enough to begin.</p>
 
-    <div class="formWrap" data-mobile-bar-suppress style="margin-top:24px;">
+    <div class="formWrap inquiryWrap" data-mobile-bar-suppress style="margin-top:24px;">
       <!-- PRE-APPROVAL FORM -->
       <div id="intake" class="formCard">
-        <p class="cardTitle" style="margin:0 0 14px 0;">Pre-Approval Intake</p>
+        <h2 class="cardTitle inquiryHeading" id="intake-heading" data-scenario-heading>Start with a question.</h2>
+        <p class="small muted inquiryIntro" id="intake-help">Only name and email are required. Everything else helps Logan prepare for your conversation.</p>
 
-        <form id="preapprovalForm" name="preapproval" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <form id="preapprovalForm" class="inquiryForm" name="preapproval" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-scenario-inquiry aria-labelledby="intake-heading" aria-describedby="intake-help">
           <input type="hidden" name="form-name" value="preapproval" />
+          <input type="hidden" name="inquiry_scenario" value="" />
+          <input type="hidden" name="source_intent" value="" />
           <p class="visually-hidden">
             <label>Don't fill this out if you're human: <input type="text" name="bot-field" tabindex="-1" autocomplete="off" /></label>
           </p>
 
           <div class="formGrid">
             <label class="field">
-              <span class="label">Name</span>
+              <span class="label">Name (required)</span>
               <input class="input" type="text" name="name" autocomplete="name" required />
             </label>
 
             <label class="field">
-              <span class="label">Email</span>
+              <span class="label">Email (required)</span>
               <input class="input" type="email" name="email" autocomplete="email" required />
             </label>
 
-            <label class="field">
-              <span class="label">Phone</span>
-              <input class="input" type="tel" name="phone" autocomplete="tel" required />
-            </label>
-
-            <label class="field">
-              <span class="label">Buying in (city/state)</span>
-              <input class="input" type="text" name="city" placeholder="e.g. Scottsdale, AZ" required />
-            </label>
-
-            <label class="field">
-              <span class="label">Timeline</span>
-              <select class="input" name="timeline" required>
-                <option value="" selected disabled>Select</option>
-                <option>ASAP (0–30 days)</option>
-                <option>1–3 months</option>
-                <option>3–6 months</option>
-                <option>6+ months</option>
-              </select>
-            </label>
-
-            <label class="field">
-              <span class="label">Expected home price (ballpark)</span>
-              <input class="input" type="text" name="expected_home_price" placeholder="e.g. $500K – $700K" />
-            </label>
-
-            <label class="field">
-              <span class="label">Loan type</span>
-              <select class="input" name="loan_type">
+            <label class="field fieldFull">
+              <span class="label">What can Logan help with? (optional)</span>
+              <select class="input" name="loan_type" aria-describedby="scenario-help">
+                <option value="">Choose a goal, or leave this blank</option>
                 <option value="first-time">First-time buyer</option>
                 <option value="buying-again">Buying again</option>
                 <option value="refinance">Refinance</option>
-                <option value="investor">Investor loan (DSCR, Bank Statement)</option>
+                <option value="investor">Rental property / DSCR</option>
+                <option value="rehab">Fix-and-flip / rehab project</option>
+                <option value="bridge">Bridge financing / buying before selling</option>
+                <option value="self-employed">Self-employed / bank statement options</option>
+                <option value="construction">Construction financing</option>
+                <option value="home-equity">Home equity / HELOC</option>
                 <option value="other">Other / Not sure</option>
               </select>
             </label>
+          </div>
+          <p class="scenarioHelp" id="scenario-help" data-scenario-help aria-live="polite">Choose a goal for optional questions about your situation. Ballpark figures are enough.</p>
 
+          <details class="scenarioDetails">
+            <summary>Add contact and property basics <span>Optional</span></summary>
+            <div class="formGrid">
+              <label class="field">
+                <span class="label">Phone</span>
+                <input class="input" type="tel" name="phone" autocomplete="tel" />
+              </label>
+              <label class="field">
+                <span class="label">Property city and state</span>
+                <input class="input" type="text" name="city" placeholder="e.g. Scottsdale, AZ" />
+              </label>
+              <label class="field">
+                <span class="label">Timeline</span>
+                <select class="input" name="timeline">
+                  <option value="">Not sure yet</option>
+                  <option>ASAP (0–30 days)</option>
+                  <option>1–3 months</option>
+                  <option>3–6 months</option>
+                  <option>6+ months</option>
+                </select>
+              </label>
+              <label class="field">
+                <span class="label">Purchase price, if known</span>
+                <input class="input" type="text" name="expected_home_price" placeholder="e.g. $500K – $700K" />
+              </label>
+            </div>
+          </details>
+
+          <details class="scenarioDetails" data-scenario-panel data-scenarios="rental rehab bridge construction">
+            <summary>About the property <span>Optional</span></summary>
+            <div class="formGrid">
+              <label class="field">
+                <span class="label">Property type</span>
+                <select class="input" name="property_type">
+                  <option value="">Not sure yet</option>
+                  <option value="single-family">Single-family home</option>
+                  <option value="two-four-units">Two to four units</option>
+                  <option value="condo">Condo / townhome</option>
+                  <option value="five-plus-units">Five or more units</option>
+                  <option value="land">Land</option>
+                  <option value="other">Other</option>
+                </select>
+              </label>
+              <label class="field">
+                <span class="label">Planned ownership</span>
+                <select class="input" name="ownership_type">
+                  <option value="">Not sure yet</option>
+                  <option value="personal">In my name</option>
+                  <option value="llc">An LLC or other entity</option>
+                </select>
+              </label>
+            </div>
+          </details>
+
+          <details class="scenarioDetails" data-scenario-panel data-scenarios="rental">
+            <summary>Rental property numbers <span>Optional estimates</span></summary>
+            <div class="formGrid">
+              <label class="field">
+                <span class="label">Expected monthly rent ($)</span>
+                <input class="input" type="number" name="estimated_monthly_rent" min="0" step="any" inputmode="decimal" placeholder="e.g. 2400" />
+              </label>
+              <label class="field">
+                <span class="label">Monthly mortgage, taxes, insurance and HOA ($)</span>
+                <input class="input" type="number" name="estimated_monthly_pitia" min="0" step="any" inputmode="decimal" placeholder="Leave blank if you need an estimate" />
+              </label>
+              <label class="field">
+                <span class="label">Months of reserves, if known</span>
+                <input class="input" type="number" name="reserve_months" min="0" step="1" inputmode="numeric" placeholder="e.g. 6" />
+              </label>
+            </div>
+          </details>
+
+          <details class="scenarioDetails" data-scenario-panel data-scenarios="rehab">
+            <summary>Rehab project numbers <span>Optional estimates</span></summary>
+            <div class="formGrid">
+              <label class="field">
+                <span class="label">Rehab budget ($)</span>
+                <input class="input" type="number" name="rehab_budget" min="0" step="any" inputmode="decimal" placeholder="e.g. 80000" />
+              </label>
+              <label class="field">
+                <span class="label">Estimated value after repairs ($)</span>
+                <input class="input" type="number" name="after_repair_value" min="0" step="any" inputmode="decimal" placeholder="e.g. 450000" />
+              </label>
+            </div>
+          </details>
+
+          <details class="scenarioDetails" data-scenario-panel data-scenarios="rehab bridge construction">
+            <summary>Your plan after the project or move <span>Optional</span></summary>
+            <div class="formGrid">
+              <label class="field fieldFull">
+                <span class="label">Expected next step</span>
+                <select class="input" name="exit_strategy">
+                  <option value="">Not sure yet</option>
+                  <option value="sell-project">Sell the project property</option>
+                  <option value="refinance">Refinance and keep the property</option>
+                  <option value="sell-current-home">Sell my current home</option>
+                  <option value="long-term-home">Keep it as my home</option>
+                  <option value="other">Another plan</option>
+                </select>
+              </label>
+            </div>
+          </details>
+
+          <details class="scenarioDetails" data-scenario-panel data-scenarios="bridge home-equity">
+            <summary>The property you already own <span>Optional estimates</span></summary>
+            <div class="formGrid">
+              <label class="field">
+                <span class="label">Estimated current value ($)</span>
+                <input class="input" type="number" name="estimated_property_value" min="0" step="any" inputmode="decimal" placeholder="e.g. 500000" />
+              </label>
+              <label class="field">
+                <span class="label">Existing mortgage balance ($)</span>
+                <input class="input" type="number" name="existing_mortgage_balance" min="0" step="any" inputmode="decimal" placeholder="e.g. 300000" />
+              </label>
+            </div>
+          </details>
+
+          <details class="scenarioDetails" data-scenario-panel data-scenarios="self-employed">
+            <summary>How you document your income <span>Optional</span></summary>
+            <div class="formGrid">
+              <label class="field">
+                <span class="label">Time self-employed</span>
+                <select class="input" name="self_employment_history">
+                  <option value="">Not sure yet</option>
+                  <option value="under-one-year">Less than one year</option>
+                  <option value="one-two-years">One to two years</option>
+                  <option value="two-plus-years">More than two years</option>
+                </select>
+              </label>
+              <label class="field">
+                <span class="label">Income records available</span>
+                <select class="input" name="income_documents">
+                  <option value="">I'd like help with this</option>
+                  <option value="tax-returns">Personal and business tax returns</option>
+                  <option value="bank-statements">Bank statements</option>
+                  <option value="1099">1099 income records</option>
+                  <option value="other">Other records</option>
+                </select>
+              </label>
+            </div>
+          </details>
+
+          <details class="scenarioDetails" data-scenario-panel data-scenarios="construction">
+            <summary>Your construction plans <span>Optional</span></summary>
+            <div class="formGrid">
+              <label class="field">
+                <span class="label">Land status</span>
+                <select class="input" name="land_status">
+                  <option value="">Still exploring</option>
+                  <option value="owned">I own the land</option>
+                  <option value="under-contract">Land is under contract</option>
+                  <option value="searching">I'm looking for land</option>
+                </select>
+              </label>
+              <label class="field">
+                <span class="label">Estimated construction budget ($)</span>
+                <input class="input" type="number" name="construction_budget" min="0" step="any" inputmode="decimal" placeholder="Leave blank if you're planning" />
+              </label>
+              <label class="field">
+                <span class="label">Builder selected?</span>
+                <select class="input" name="builder_status">
+                  <option value="">Not sure yet</option>
+                  <option value="selected">Yes</option>
+                  <option value="searching">Still looking</option>
+                </select>
+              </label>
+            </div>
+          </details>
+
+          <details class="scenarioDetails" data-scenario-panel data-scenarios="home-equity">
+            <summary>What you'd like the equity to do <span>Optional</span></summary>
+            <div class="formGrid">
+              <label class="field fieldFull">
+                <span class="label">Main goal</span>
+                <select class="input" name="home_equity_goal">
+                  <option value="">Not sure yet</option>
+                  <option value="renovation">Home improvements</option>
+                  <option value="debt-consolidation">Debt consolidation</option>
+                  <option value="investment">Another property or investment</option>
+                  <option value="flexibility">Financial flexibility</option>
+                  <option value="other">Other</option>
+                </select>
+              </label>
+            </div>
+          </details>
+
+          <div class="formGrid">
             <label class="field fieldFull">
-              <span class="label">Anything we should know? (optional)</span>
-              <textarea class="input" name="notes" rows="3" placeholder="Self-employed? Relocating? Special situation?"></textarea>
+              <span class="label">Your question or anything else to know (optional)</span>
+              <textarea class="input" name="notes" rows="3" placeholder="What are you trying to work out?"></textarea>
             </label>
           </div>
 
           <div class="row" style="margin-top:14px;">
-            <button class="btn btnPrimary" type="submit">Submit Intake</button>
+            <button class="btn btnPrimary" type="submit" data-scenario-submit>Send My Request</button>
             <a class="btn btnSecondary" href="tel:+14808037763">Call Instead</a>
           </div>
 
@@ -305,7 +464,7 @@
             Same-day pre-approval is available when possible, depending on completeness of information and timing. All loans are subject to credit approval and program guidelines.
           </p>
           <div id="preapprovalStatus" class="formStatus" role="status" aria-live="polite">
-            <span data-msg>Fill in the required fields to send your intake.</span>
+            <span data-msg>Add your name and email when you're ready to send.</span>
           </div>
         </form>
       </div>
@@ -336,7 +495,7 @@
         <p class="cardTitle" style="margin:0 0 10px 0;">Licensing</p>
         <p class="small muted" style="margin:0;">
           <strong>NMLS</strong> 2466872 (Logan Sullivan)<br />
-          <strong>Forward Loans</strong> NMLS 2006640
+          <strong>Forward Holdings LLC dba Forward Loans</strong> NMLS 2006640
         </p>
         <p class="tiny muted" style="margin-top:8px;">
           <a class="uLink" href="https://forward.loans/loan-officer/logan-sullivan/" target="_blank" rel="noopener">View official loan officer profile →</a>
@@ -367,8 +526,8 @@
           </label>
 
           <label class="field fieldFull">
-            <span class="label">Your question</span>
-            <textarea class="input" name="message" rows="4" required placeholder="What would you like to know?"></textarea>
+            <span class="label">Your question (optional)</span>
+            <textarea class="input" name="message" rows="4" placeholder="What would you like to know?"></textarea>
           </label>
         </div>
 
@@ -379,6 +538,20 @@
           <span data-msg>Fill in your name and email to send your question.</span>
         </div>
       </form>
+    </div>
+    <div class="grid3" role="list" style="margin-top:24px;">
+      <div class="card" role="listitem">
+        <p class="cardTitle">Arizona buyers</p>
+        <p class="cardText">Send the city, rough price range, timeline, and what payment feels comfortable. Logan will turn the first pass into a cleaner purchase range.</p>
+      </div>
+      <div class="card" role="listitem">
+        <p class="cardTitle">Real estate agents</p>
+        <p class="cardText">For client referrals, include the contract timeline, offer target, and any file complexity. Logan protects the agent relationship and communicates directly.</p>
+      </div>
+      <div class="card" role="listitem">
+        <p class="cardTitle">Complex files</p>
+        <p class="cardText">Self-employed, investor, relocation, jumbo, and bank statement scenarios are welcome. The first job is to identify the right path, not force a generic answer.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -401,17 +574,18 @@
         <p class="ftrTitle">Connect</p>
         <a class="ftrLink" href="https://www.instagram.com/logan.loans" target="_blank" rel="noopener">Instagram</a>
         <a class="ftrLink" href="https://www.linkedin.com/in/logansulliv" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="ftrLink" href="https://www.google.com/search?q=Logan+Sullivan+Mortgage+Advisor" target="_blank" rel="noopener">Google reviews</a>
+        <a class="ftrLink" href="https://www.google.com/search?kgmid=/g/11w48840g3" target="_blank" rel="noopener">Google reviews</a>
       </div>
       <div class="ftrCol">
         <p class="ftrTitle">Legal</p>
         <a class="ftrLink" href="./privacy">Privacy</a>
         <a class="ftrLink" href="./disclosures">Disclosures</a>
         <a class="ftrLink" href="./terms">Terms</a>
-        <a class="ftrLink" href="https://forward.loans/loan-officer/logan-sullivan/" target="_blank" rel="noopener">NMLS profile</a>
+        <a class="ftrLink" href="https://forward.loans/loan-officer/logan-sullivan/" target="_blank" rel="noopener">Company biography</a>
+        <a class="ftrLink" href="https://nmlsconsumeraccess.org/" target="_blank" rel="noopener">NMLS Consumer Access</a>
       </div>
     </div>
-    <p class="ftrFine"><strong>NMLS</strong> 2466872 (Logan Sullivan) &middot; <strong>Forward Loans</strong> NMLS 2006640. All loans subject to credit approval. Same-day pre-approval depends on timing and completeness of information.</p>
+    <p class="ftrFine"><strong>NMLS</strong> 2466872 (Logan Sullivan) &middot; <strong>Forward Holdings LLC dba Forward Loans</strong> NMLS 2006640. All loans subject to credit approval. Same-day pre-approval depends on timing and completeness of information.</p>
     <div class="ftrBase" data-lfc></div>
   </div>
 </footer>

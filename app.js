@@ -34,6 +34,8 @@ const PUBLIC_ANALYTICS_PATHS = new Set([
   '/north-phoenix', '/north-scottsdale', '/paradise-valley', '/partners', '/peoria', '/premium-markets', '/privacy',
   '/programs', '/refinance', '/refinance-calculator', '/relocation', '/sedona', '/service-areas',
   '/southern-california', '/tempe', '/terms', '/tools', '/va-vs-conventional',
+  '/hard-money', '/non-qm', '/bank-statement-loans', '/dscr-loans', '/fix-and-flip',
+  '/bridge-loans', '/construction-loans', '/home-equity', '/jumbo-loans', '/loan-scenarios',
 ]);
 
 function safelyRead(storageName, key) {
@@ -829,7 +831,7 @@ function setupForm(formId, statusId, opts = {}) {
       if (submitBtn) {
         submitBtn.disabled = false;
         submitBtn.removeAttribute('aria-busy');
-        submitBtn.textContent = originalText;
+        submitBtn.textContent = submitBtn.dataset?.scenarioLabel || originalText;
       }
       showDeliveryError(error?.name === 'AbortError'
         ? "That took too long to confirm. Your details are still here — please try again or call (480) 803-7763."
@@ -845,6 +847,136 @@ setupForm('#generalContactForm', '#generalContactStatus', { redirect: './thanks-
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('form').forEach(fillUTMInputs);
 });
+
+// Scenario labels are a closed vocabulary. Query strings never populate personal
+// or financial inputs and these values are not sent to analytics.
+const CONTACT_SCENARIOS = Object.freeze({
+  'first-time': {
+    loanType: 'first-time',
+    heading: 'Plan your first home purchase.',
+    button: 'Ask About My First Home',
+    help: 'Share your question or any basics you already know. No property details are required.',
+  },
+  'buying-again': {
+    loanType: 'buying-again',
+    heading: 'Plan your next home and the move.',
+    button: 'Ask About My Next Move',
+    help: 'Your city and timeline can help Logan connect the purchase and sale. Leave unknown details blank.',
+  },
+  refinance: {
+    loanType: 'refinance',
+    heading: 'Talk through your refinance goals.',
+    button: 'Ask About Refinancing',
+    help: 'Tell Logan what you want to change about your current loan. Everything beyond name and email is optional.',
+  },
+  rental: {
+    loanType: 'investor',
+    heading: "Let's look at your rental property.",
+    button: 'Ask About This Rental',
+    help: 'Optional rental questions are below. Rough rent and expense figures are useful; leave anything unknown blank.',
+  },
+  rehab: {
+    loanType: 'rehab',
+    heading: 'Talk through your rehab project.',
+    button: 'Share My Rehab Project',
+    help: 'Optional project questions are below. Share the rehab budget, estimated finished value, or exit plan if you have them.',
+  },
+  bridge: {
+    loanType: 'bridge',
+    heading: 'Connect the property and the timeline.',
+    button: 'Ask About Bridge Financing',
+    help: 'Optional bridge questions are below. Your current property and plan after the move help Logan prepare.',
+  },
+  'self-employed': {
+    loanType: 'self-employed',
+    heading: 'Start with how you earn your income.',
+    button: 'Ask About My Income Options',
+    help: 'Optional income questions are below. Choose the records you have; no documents are needed to start this conversation.',
+  },
+  construction: {
+    loanType: 'construction',
+    heading: 'Talk through what you want to build.',
+    button: 'Share My Construction Plans',
+    help: 'Optional construction questions are below. Share where you are with the land, builder, and budget.',
+  },
+  'home-equity': {
+    loanType: 'home-equity',
+    heading: 'Talk through your home equity goals.',
+    button: 'Ask About Home Equity',
+    help: 'Optional home equity questions are below. A rough property value and loan balance are enough if you know them.',
+  },
+  other: {
+    loanType: 'other',
+    heading: 'Start with your question.',
+    button: 'Send My Question',
+    help: "You don't need to know the loan name. Tell Logan what you want to work out, or leave the details for your conversation.",
+  },
+});
+
+function normalizeContactScenario(value) {
+  const candidate = String(value || '').trim().toLowerCase();
+  const normalized = candidate === 'investor' ? 'rental' : candidate;
+  return Object.prototype.hasOwnProperty.call(CONTACT_SCENARIOS, normalized) ? normalized : '';
+}
+
+function contactScenarioFromQuery(search) {
+  const params = new URLSearchParams(search || '');
+  const scenario = normalizeContactScenario(params.get('scenario'));
+  if (scenario) return scenario;
+  const legacyTopics = { 'home-equity': 'home-equity', construction: 'construction', 'move-up': 'buying-again' };
+  const topic = params.get('topic');
+  return Object.prototype.hasOwnProperty.call(legacyTopics, topic) ? legacyTopics[topic] : '';
+}
+
+function setupScenarioInquiry() {
+  const form = document.querySelector('[data-scenario-inquiry]');
+  const goal = form?.querySelector('[name="loan_type"]');
+  if (!form || !goal || form.dataset.scenarioReady === 'true') return;
+
+  const panels = Array.from(form.querySelectorAll('[data-scenario-panel]'));
+  const heading = document.querySelector('[data-scenario-heading]');
+  const help = form.querySelector('[data-scenario-help]');
+  const button = form.querySelector('[data-scenario-submit]');
+  const currentIntent = form.querySelector('[name="inquiry_scenario"]');
+  const sourceIntent = form.querySelector('[name="source_intent"]');
+  const incoming = contactScenarioFromQuery(window.location.search);
+
+  if (sourceIntent) sourceIntent.value = incoming;
+  // A restored user selection takes priority over the incoming link.
+  if (incoming && !goal.value) goal.value = CONTACT_SCENARIOS[incoming].loanType;
+
+  function updateScenario(reveal = false) {
+    const scenario = normalizeContactScenario(goal.value);
+    const config = CONTACT_SCENARIOS[scenario];
+    if (currentIntent) currentIntent.value = scenario;
+    form.dataset.scenario = scenario;
+
+    panels.forEach((panel) => {
+      const active = !!scenario && (panel.dataset.scenarios || '').split(/\s+/).includes(scenario);
+      panel.hidden = !active;
+      panel.querySelectorAll('input, select, textarea').forEach((field) => {
+        // Values survive a goal change, while unrelated fields stay out of POSTs
+        // and native validation. Without JS every optional group stays usable.
+        field.disabled = !active;
+      });
+      if (active && reveal) panel.open = true;
+    });
+
+    if (heading) heading.textContent = config?.heading || 'Start with a question.';
+    if (help) help.textContent = config?.help || 'Choose a goal for optional questions about your situation. Ballpark figures are enough.';
+    if (button) {
+      button.dataset.scenarioLabel = config?.button || 'Send My Request';
+      if (form.dataset.submitting !== 'true') button.textContent = button.dataset.scenarioLabel;
+    }
+  }
+
+  updateScenario(!!incoming || !!goal.value);
+  goal.addEventListener('change', () => updateScenario(true));
+  window.addEventListener?.('pageshow', () => updateScenario(false));
+  form.dataset.scenarioReady = 'true';
+}
+
+document.addEventListener('DOMContentLoaded', setupScenarioInquiry);
 
 function setupContactTopic() {
   const topic = new URLSearchParams(window.location.search).get('topic');

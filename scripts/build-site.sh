@@ -29,14 +29,25 @@ for source_file in "${ROOT_FILES[@]}"; do
   cp "$source_file" "$PUBLISH_DIR/"
 done
 
-cp -R "$REPO_ROOT/assets" "$PUBLISH_DIR/assets"
+mkdir -p "$PUBLISH_DIR/assets"
+for asset_path in "$REPO_ROOT/assets"/*; do
+  # Video files enter the publish artifact only through the approved manifest.
+  if [[ "$(basename "$asset_path")" != "video" ]]; then
+    cp -R "$asset_path" "$PUBLISH_DIR/assets/"
+  fi
+done
 cp -R "$REPO_ROOT/data" "$PUBLISH_DIR/data"
 
 node "$REPO_ROOT/scripts/render-narratives.mjs" "$PUBLISH_DIR"
+node "$REPO_ROOT/scripts/render-videos.mjs" "$PUBLISH_DIR"
 node "$REPO_ROOT/scripts/stamp-assets.mjs" "$PUBLISH_DIR"
+node "$REPO_ROOT/scripts/test-video-publishing.mjs"
 node "$REPO_ROOT/scripts/test-lifi-care-bar.mjs"
 node --input-type=module -e "import { injectLifiCareBar } from '$REPO_ROOT/scripts/inject-lifi-care-bar.mjs'; const result = await injectLifiCareBar('$PUBLISH_DIR'); console.log(\`Installed Little Fight care bar on \${result.pages} pages.\`);"
 node "$REPO_ROOT/scripts/audit-site.mjs" "$PUBLISH_DIR"
 node "$REPO_ROOT/scripts/test-calculator.mjs" "$PUBLISH_DIR"
+node "$REPO_ROOT/scripts/test-analytics.mjs"
+node "$REPO_ROOT/scripts/test-investor-inquiry.mjs"
+node "$REPO_ROOT/scripts/test-specialist-journeys.mjs" "$PUBLISH_DIR"
 
 echo "Prepared safe publish directory: $PUBLISH_DIR"

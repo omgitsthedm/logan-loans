@@ -1,5 +1,11 @@
 # Logan Loans source of truth
 
+## Audit implementation review — 2026-10-18
+
+- The current production source was verified as `73aa3e7b4ad57ec603aa0e89d0d4dccf20f59b3c` on canonical `master`; Netlify production deploy `6acd603263303f94f5730b94` was published October 12, 2026. This supersedes the older deployment snapshot below.
+- Audit corrections are prepared on `codex/logan-site-audit-2026-10-18`. See `work/2026-10-18-audit-resolution/implementation-review.md` for scope, passing build checks, and remaining approval/source material.
+- A hosted draft is pending Netlify CLI authorization in the implementation workspace. No October 18 production deployment or live lead submission is claimed. Existing client/compliance release review still applies.
+
 ## Acquisition readiness release — 2026-09-28
 
 - **Technical acquisition foundation — released.** Optional GTM loading and custom events run only on the exact `https://logan.loans` host after affirmative consent. Preview hosts, `?qa` sessions, webdriver runs, noindex pages, unknown routes, and unavailable session storage remain analytics-off. `GTM-MTWF64T2` remains the sole tag owner. Events use canonical origin/path context, blank referrer context, and an allowlist that drops caller-supplied URLs and form values.
