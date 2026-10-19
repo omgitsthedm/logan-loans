@@ -1,5 +1,7 @@
 # Logan Loans audit implementation
 
+**October 19 follow-up:** see `../2026-10-19-release-review/release-readiness.md` for the current release decision, source-verifiable follow-up corrections, exact approval owners, and the authenticated-preview blocker. The October 18 record below is historical; it does not establish current approval or production publication.
+
 Prepared October 18, 2026, on `codex/logan-site-audit-2026-10-18`, based on canonical `master` commit `73aa3e7b4ad57ec603aa0e89d0d4dccf20f59b3c`.
 
 ## Status

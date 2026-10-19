@@ -1,21 +1,34 @@
 {
-  "version": 1,
+  "version": 2,
   "preparedAt": "2026-10-18",
   "releaseStatus": "pending-client-compliance-review",
   "contentOwner": "Logan Sullivan / authorized compliance reviewer",
   "implementationOwner": "Little Fight NYC",
   "groups": [
     {
-      "pages": ["disclosures", "about", "meet-logan", "partners"],
+      "pages": [
+        "disclosures",
+        "about",
+        "meet-logan",
+        "partners"
+      ],
       "topic": "Company identity, licensing and participant roles",
-      "sources": ["https://forward.loans/disclosures/", "https://forward.loans/loan-officer/logan-sullivan/", "https://nmlsconsumeraccess.org/"],
+      "sources": [
+        "https://forward.loans/disclosures/",
+        "https://forward.loans/loan-officer/logan-sullivan/",
+        "https://nmlsconsumeraccess.org/"
+      ],
       "preparedAt": "2026-10-18",
       "reviewDue": "2026-11-18",
       "status": "pending-client-compliance-review",
       "note": "Company disclosures do not independently certify current individual authority. Recheck after organizational or license changes."
     },
     {
-      "pages": ["faq", "glossary", "blog-dscr-loans-arizona"],
+      "pages": [
+        "faq",
+        "glossary",
+        "blog-dscr-loans-arizona"
+      ],
       "topic": "Eligibility explanations, current limits and examples",
       "sourceRegister": "work/2026-10-18-audit-resolution/regulated-content-review.md",
       "preparedAt": "2026-10-18",
@@ -24,7 +37,21 @@
       "note": "Recheck annual limits for the next calendar year and lender-specific criteria whenever guidelines change."
     },
     {
-      "pages": ["index", "programs", "investor-loans", "hard-money", "non-qm", "bank-statement-loans", "dscr-loans", "fix-and-flip", "bridge-loans", "construction-loans", "home-equity", "jumbo-loans", "loan-scenarios"],
+      "pages": [
+        "index",
+        "programs",
+        "investor-loans",
+        "hard-money",
+        "non-qm",
+        "bank-statement-loans",
+        "dscr-loans",
+        "fix-and-flip",
+        "bridge-loans",
+        "construction-loans",
+        "home-equity",
+        "jumbo-loans",
+        "loan-scenarios"
+      ],
       "topic": "Specialist offerings and original educational explanations",
       "sourceRegister": "work/2026-10-18-audit-resolution/service-content-review.md",
       "preparedAt": "2026-10-18",
@@ -33,11 +60,90 @@
       "note": "No rates, minimum scores, approval guarantees, or verified client results are invented. Hypothetical examples are labeled."
     },
     {
-      "pages": ["index", "hard-money", "non-qm", "bank-statement-loans", "dscr-loans", "fix-and-flip", "bridge-loans", "construction-loans", "home-equity", "jumbo-loans"],
+      "pages": [
+        "index",
+        "hard-money",
+        "non-qm",
+        "bank-statement-loans",
+        "dscr-loans",
+        "fix-and-flip",
+        "bridge-loans",
+        "construction-loans",
+        "home-equity",
+        "jumbo-loans"
+      ],
       "topic": "Actual video clips and client proof",
       "sourceRegister": "work/2026-10-18-audit-resolution/source-material-needed.md",
       "status": "awaiting-source-material",
       "note": "The video manifest is intentionally empty. No Instagram dialogue was fabricated or reconstructed."
+    }
+  ],
+  "lastTechnicalReviewAt": "2026-10-19",
+  "releaseDecision": "hold-entire-pr",
+  "reviewEvidence": "work/2026-10-19-release-review/release-readiness.md",
+  "approvalEvidence": [],
+  "releaseGates": [
+    {
+      "id": "identity-authority",
+      "owner": "Logan Sullivan / authorized compliance reviewer",
+      "status": "pending-verified-approval",
+      "requiredEvidence": "Current individual and company NMLS/state records, approved entity/DBA and license wording, authorized AZ/CA coverage and broker/correspondent role; name, authority, date, and approved revision."
+    },
+    {
+      "id": "advertised-offerings",
+      "owner": "Logan Sullivan / authorized compliance reviewer",
+      "status": "pending-verified-approval",
+      "pages": [
+        "hard-money",
+        "non-qm",
+        "bank-statement-loans",
+        "dscr-loans",
+        "fix-and-flip",
+        "bridge-loans",
+        "construction-loans",
+        "home-equity",
+        "jumbo-loans"
+      ],
+      "requiredEvidence": "Confirm each advertised program is currently available through Logan in the stated states and approve the actual page wording, related navigation and offer schema. Confirm construction-only/conversion, homeowner bridge, HELOC/closed-end home equity and alternative-documentation structures before stating that specific structure is offered. More specific terms may remain omitted."
+    },
+    {
+      "id": "regulated-copy-and-workflow",
+      "owner": "Logan Sullivan / authorized compliance reviewer",
+      "status": "pending-verified-approval",
+      "requiredEvidence": "Approve corrected FAQ/glossary/DSCR, disclosures, hypothetical scenario labels, inquiry versus application wording, same-day and direct-response claims. Review inherited regulated statements identified in the release report; source verification is not compliance approval."
+    },
+    {
+      "id": "contact-and-review-destination",
+      "owner": "Logan Sullivan / authorized business representative",
+      "status": "pending-client-confirmation",
+      "requiredEvidence": "Confirm preserved direct phone/email, intended Google review profile, actual inquiry recipient and response ownership. No testimonials, ratings or actual outcomes are authorized by this record."
+    },
+    {
+      "id": "hosted-preview-and-responsive-qa",
+      "owner": "Little Fight NYC",
+      "status": "blocked-preview-deploy-authentication",
+      "requiredEvidence": "Create a draft on existing Netlify site a9776112-531e-4ca2-ba17-9338b8eef423; verify noindex, review only preview URLs, inspect desktop/mobile routes and interactions, preserve all five provider forms, no live lead submissions."
+    },
+    {
+      "id": "final-release",
+      "owner": "Little Fight NYC",
+      "status": "blocked-by-open-gates",
+      "requiredEvidence": "Recheck exact approved content revision, current year limits, full build and inquiry tests, production baseline, draft evidence and written content approval before separately authorized production release. Do not infer permission from passing tests or mergeability."
+    }
+  ],
+  "optionalContentGates": [
+    {
+      "id": "videos",
+      "status": "awaiting-source-material",
+      "blocksCoreReleaseWhenOmitted": false,
+      "inventory": "content/videos.json",
+      "requiredEvidence": "Actual clip, original URL/date, accurate captions and poster, publication rights and authorized review of statements. Keep manifest empty until supplied and approved."
+    },
+    {
+      "id": "actual-client-outcomes",
+      "status": "awaiting-source-material",
+      "blocksCoreReleaseWhenOmitted": false,
+      "requiredEvidence": "Documented facts, explicit publication permission and authorized final-copy review. Existing three educational examples remain hypothetical; no actual outcome may be inferred."
     }
   ]
 }
