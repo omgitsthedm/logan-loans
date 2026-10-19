@@ -5,6 +5,8 @@ on:
 
 jobs:
   review:
+    # Codex branches must not automatically invoke a separate AI provider.
+    if: ${{ !startsWith(github.head_ref, 'codex/') }}
     runs-on: ubuntu-latest
     permissions:
       contents: read

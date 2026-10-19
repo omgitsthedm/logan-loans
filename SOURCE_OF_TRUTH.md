@@ -1,5 +1,19 @@
 # Logan Loans source of truth
 
+## PR #8 release review — 2026-10-19
+
+- **Hold the full PR from production; retain draft status.** Current review and exact approval ownership: `work/2026-10-19-release-review/release-readiness.md` and `content/review-register.json`. No verified client/compliance approval was received.
+- Current Netlify production remains `6acd603263303f94f5730b94` (October 12, title identifies source `73aa3e7`). Direct live/immutable homepage hashes match. GitHub push does not deploy this manually released site.
+- The nine service explanations are supported for review, but branded pages, inquiry links, cards and offer schema all require actual offering/state/identity and publication approval. Source-supported FAQ/glossary corrections and a scenario-page landmark fix are prepared on the PR branch. Five form identities and direct contacts are preserved; video inventory remains empty.
+- Local build checks pass; no GitHub CI success or responsive visual pass is inferred. Connector inspection works, but CLI draft deployment returned `Unauthorized: could not retrieve project`; the available Netlify browser session is signed out. Hosted preview and desktop/mobile checks remain pending secure deployment access.
+- Videos and real case studies may stay omitted for an approved text-only release; unverified content must not be added. Little Fight NYC owns implementation and release QA; Logan/authorized compliance owns regulated publication approval.
+
+## Audit implementation review — 2026-10-18
+
+- The current production source was verified as `73aa3e7b4ad57ec603aa0e89d0d4dccf20f59b3c` on canonical `master`; Netlify production deploy `6acd603263303f94f5730b94` was published October 12, 2026. This supersedes the older deployment snapshot below.
+- Audit corrections are prepared on `codex/logan-site-audit-2026-10-18`. See `work/2026-10-18-audit-resolution/implementation-review.md` for scope, passing build checks, and remaining approval/source material.
+- A hosted draft is pending Netlify CLI authorization in the implementation workspace. No October 18 production deployment or live lead submission is claimed. Existing client/compliance release review still applies.
+
 ## Acquisition readiness release — 2026-09-28
 
 - **Technical acquisition foundation — released.** Optional GTM loading and custom events run only on the exact `https://logan.loans` host after affirmative consent. Preview hosts, `?qa` sessions, webdriver runs, noindex pages, unknown routes, and unavailable session storage remain analytics-off. `GTM-MTWF64T2` remains the sole tag owner. Events use canonical origin/path context, blank referrer context, and an allowlist that drops caller-supplied URLs and form values.

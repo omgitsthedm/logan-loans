@@ -1,0 +1,121 @@
+/* Contact and application pages only. All optional questions remain usable without JS. */
+#intake,
+#question {
+  scroll-margin-top: 110px;
+}
+
+.formWrap.inquiryWrap {
+  grid-template-columns: minmax(0, 1.45fr) minmax(260px, 1fr);
+  align-items: start;
+}
+
+.inquiryHeading.cardTitle {
+  margin: 0 0 10px;
+  font-size: clamp(23px, 2.3vw, 30px);
+  line-height: 1.25;
+}
+
+.inquiryIntro,
+.scenarioHelp {
+  margin: 0 0 18px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.scenarioHelp {
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+.inquiryForm .formGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.inquiryForm .field {
+  min-width: 0;
+  margin-bottom: 0;
+}
+
+.inquiryForm input,
+.inquiryForm select,
+.inquiryForm textarea {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.inquiryForm .btn {
+  white-space: normal;
+  text-align: center;
+}
+
+.scenarioDetails {
+  margin: 14px 0;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--rCard);
+  background: rgba(207, 231, 215, 0.12);
+}
+
+.scenarioDetails > summary {
+  min-height: 44px;
+  padding: 8px 0;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 750;
+  line-height: 1.45;
+  color: var(--primary);
+}
+
+.scenarioDetails > summary span {
+  display: block;
+  padding-left: 18px;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.scenarioDetails > summary:focus-visible,
+.inquiryForm input:focus-visible,
+.inquiryForm select:focus-visible,
+.inquiryForm textarea:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+.scenarioDetails > .formGrid {
+  margin: 16px 0 0;
+}
+
+.inquiryForm [data-scenario-panel][hidden] {
+  display: none !important;
+}
+
+.inquiryShortcut {
+  padding: 14px 16px;
+  margin: 0 0 24px;
+  border-left: 3px solid var(--primary);
+  background: rgba(207, 231, 215, 0.16);
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .formWrap.inquiryWrap {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .inquiryForm .formGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .scenarioDetails {
+    padding: 12px;
+  }
+
+  .inquiryForm .row > .btn {
+    flex: 1 1 100%;
+  }
+}

@@ -23,6 +23,11 @@ const htmlFiles = (await readdir(publishDirectory))
   .filter((file) => file.endsWith('.html') && !siteVerificationFiles.has(file))
   .sort();
 
+const additionalStyles = new Map();
+for (const name of ['specialist.css', 'services.css', 'scenario.css']) {
+  additionalStyles.set(name, digest(await readFile(path.join(publishDirectory, name))));
+}
+
 let cssReferences = 0;
 let jsReferences = 0;
 let sharedPages = 0;
@@ -33,7 +38,7 @@ for (const file of htmlFiles) {
   let pageCssReferences = 0;
   let pageJsReferences = 0;
 
-  const stamped = source
+  let stamped = source
     .replace(/(href=["'](?:\.\/|\/)?styles\.css)(?:\?[^"']*)?(["'])/g, (_match, prefix, quote) => {
       pageCssReferences += 1;
       cssReferences += 1;
@@ -52,10 +57,13 @@ for (const file of htmlFiles) {
     }
   }
 
+  stamped = stamped.replace(/(href=["'](?:\.\/|\/)?)(specialist\.css|services\.css|scenario\.css)(?:\?[^"']*)?(["'])/g,
+    (_match, prefix, name, quote) => `${prefix}${name}?v=${additionalStyles.get(name)}${quote}`);
+
   if (stamped !== source) await writeFile(filePath, stamped);
 }
 
-if (htmlFiles.length !== 58 || sharedPages !== 57 || cssReferences !== 114 || jsReferences !== 57) {
+if (htmlFiles.length !== 68 || sharedPages !== 67 || cssReferences !== 134 || jsReferences !== 67) {
   throw new Error(
     `Unexpected asset surface: ${htmlFiles.length} HTML, ${sharedPages} shared pages, ${cssReferences} CSS refs, ${jsReferences} JS refs`
   );

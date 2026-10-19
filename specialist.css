@@ -1,0 +1,40 @@
+/* Specialist discovery, planning examples, and approved video explanations. */
+.specialistTitle { font-size: clamp(32px, 4.5vw, 54px); max-width: 24ch; }
+.specialistIntro { padding-top: 18px; }
+.specialistGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 24px; }
+.specialistCard { display: flex; flex-direction: column; gap: 14px; padding: 26px; border: 1px solid var(--border); border-radius: var(--rCard); background: var(--surface); min-width: 0; }
+.specialistCard h3 { margin: 0; font: 700 clamp(22px, 2.2vw, 28px)/1.25 var(--fontHead); color: var(--primary); }
+.specialistCard p { margin: 0; color: var(--muted); font-size: 17px; line-height: 1.65; }
+.specialistCard > span { margin-top: auto; font-size: 15px; font-weight: 700; color: var(--primary); }
+a.specialistCard:hover { border-color: var(--primary); box-shadow: var(--shadowCard); }
+.specialistCard:focus-visible, .specialistLinks a:focus-visible, .heroContact a:focus-visible { outline: 3px solid var(--primary); outline-offset: 5px; }
+.heroContact { color: rgba(255,255,255,.8); font-size: 15px; margin: 18px 0 0; }
+.heroContact a { text-decoration: underline; text-underline-offset: 4px; }
+.heroContact a:focus-visible { outline-color: #fff; }
+.specialistLinks { display: flex; flex-wrap: wrap; gap: 10px; margin: 24px 0 18px; }
+.specialistLinks a { padding: 10px 16px; border: 1px solid rgba(22,90,63,.22); border-radius: 999px; color: var(--primary); font-size: 16px; font-weight: 700; }
+.specialistLinks a:hover { background: var(--sage); }
+.specialistActions { margin: 24px 0 18px; }
+.specialistSectionTitle { margin-top: 44px; font-size: clamp(28px, 3.5vw, 40px); }
+.specialistNote { padding: clamp(22px, 4vw, 36px); margin: 32px 0; background: rgba(207,231,215,.3); border: 1px solid rgba(22,90,63,.15); border-radius: var(--rCard); }
+.specialistNote p { font-size: 17px; max-width: 78ch; }
+.specialistSteps { padding-left: 24px; max-width: 76ch; }
+.specialistSteps li { padding: 8px 0 8px 6px; font-size: 18px; }
+.scenarioExample { scroll-margin-top: 100px; margin-top: 28px; padding: clamp(24px, 4vw, 40px); border: 1px solid var(--border); border-radius: var(--rCard); background: #fff; }
+.scenarioExample h2 { font-size: clamp(28px, 3vw, 38px); }
+.scenarioExample dl { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 14px 20px; font-size: 17px; }
+.scenarioExample dt { color: var(--primary); font-weight: 700; }
+.scenarioExample dd { margin: 0; color: var(--muted); }
+.videoLibrary { padding-block: 36px; }
+.videoLibrary video { display: block; width: 100%; max-height: 540px; background: #0d3d2a; border-radius: 12px; }
+.videoLibrary time { display: block; font-size: 14px; color: var(--muted); margin-bottom: 12px; }
+.videoLibrary h3 { margin-top: 18px; }
+.videoLibrary .specialistGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 900px) { .specialistGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) {
+  .specialistGrid, .videoLibrary .specialistGrid { grid-template-columns: 1fr; }
+  .specialistCard { padding: 22px; }
+  .specialistActions .btn { width: 100%; white-space: normal; text-align: center; }
+  .scenarioExample dl { grid-template-columns: 1fr; gap: 4px; }
+  .scenarioExample dd { margin-bottom: 14px; }
+}

@@ -82,10 +82,17 @@ for (const [file, key] of narrativeEntries) {
 
   const leadStart = source.indexOf('<p', h1Close);
   const leadClose = leadStart === -1 ? -1 : source.indexOf('</p>', leadStart);
+  // A page may place its first action before the narrative image. Keep the
+  // default for existing pages and replace an explicit slot where provided.
+  const anchor = '<!-- LOGAN_STORY_ANCHOR -->';
+  const anchorCount = source.split(anchor).length - 1;
+  if (anchorCount > 1) throw new Error(`${file}: multiple narrative anchors.`);
   const insertionPoint = leadClose === -1
     ? h1Close + '</h1>'.length
     : leadClose + '</p>'.length;
-  const output = `${source.slice(0, insertionPoint)}${renderFigure(key, asset)}${source.slice(insertionPoint)}`;
+  const output = anchorCount === 1
+    ? source.replace(anchor, renderFigure(key, asset))
+    : `${source.slice(0, insertionPoint)}${renderFigure(key, asset)}${source.slice(insertionPoint)}`;
   await writeFile(filePath, output);
   rendered += 1;
 }

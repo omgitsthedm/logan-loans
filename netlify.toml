@@ -495,3 +495,65 @@
 [build]
   command = "bash scripts/build-site.sh"
   publish = "dist"
+
+# Specialist routes use the same extensionless canonical URL convention.
+
+[[redirects]]
+  from = "/hard-money.html"
+  to = "/hard-money"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/non-qm.html"
+  to = "/non-qm"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/bank-statement-loans.html"
+  to = "/bank-statement-loans"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/dscr-loans.html"
+  to = "/dscr-loans"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/fix-and-flip.html"
+  to = "/fix-and-flip"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/bridge-loans.html"
+  to = "/bridge-loans"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/construction-loans.html"
+  to = "/construction-loans"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/home-equity.html"
+  to = "/home-equity"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/jumbo-loans.html"
+  to = "/jumbo-loans"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/loan-scenarios.html"
+  to = "/loan-scenarios"
+  status = 301
+  force = true
