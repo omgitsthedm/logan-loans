@@ -15,6 +15,7 @@ Production mortgage website with regulated disclosures and real Netlify lead for
 - Build: `bash scripts/build-site.sh` → ignored `dist/`
 - Audit source/build: `node scripts/audit-site.mjs .` / `node scripts/audit-site.mjs dist`
 - Preview and production deploys are explicit Netlify CLI actions.
+- IndexNow (only after a production deploy is live): `node scripts/indexnow.mjs` dry-runs the built sitemap. `--submit` alone sends the whole sitemap: use it once, for the first submission. Every later release sends only the URLs it added, changed or removed: `--submit --changed <canonical-url>`, repeating `--changed` per URL. Never resubmit unchanged URLs.
 
 ## Safety
 
