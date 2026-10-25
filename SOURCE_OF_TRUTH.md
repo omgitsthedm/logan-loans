@@ -1,5 +1,11 @@
 # Logan Loans source of truth
 
+## Search corrections release — 2026-10-24
+
+- **Released:** source commit `1fe0114ffb3ec847292e6602007848117c5ac9bc` on `master`, production deploy [`6adda12bfaa4c84a2513e0b0`](https://6adda12bfaa4c84a2513e0b0--loganloans.netlify.app), published `2026-10-25T06:26:56.190Z` by manual Netlify CLI upload of the reviewed `dist/` to site `a9776112-531e-4ca2-ba17-9338b8eef423`. It supersedes the 2026-10-12 copy release `6acd603263303f94f5730b94` (`73aa3e7`).
+- **Scope:** `logo` and `image` on the 35 business JSON-LD entries, plus IndexNow key file `4cea1175e9f654a2703625f426315ee2.txt` and `scripts/indexnow.mjs`. All 59 live pages have identical visible text before and after; outside JSON-LD the HTML is byte-identical. No NMLS, license, rate/APR, eligibility or disclosure text changed; the AZ/CA license placeholders stay on compliance hold.
+- **IndexNow:** the one full-sitemap submission (48 URLs) was made at `2026-10-25T06:28:12Z` after the key was live and returned HTTP 202. Every later release submits only its added, changed or removed URLs with `--submit --changed <url>`.
+
 ## Acquisition readiness release — 2026-09-28
 
 - **Technical acquisition foundation — released.** Optional GTM loading and custom events run only on the exact `https://logan.loans` host after affirmative consent. Preview hosts, `?qa` sessions, webdriver runs, noindex pages, unknown routes, and unavailable session storage remain analytics-off. `GTM-MTWF64T2` remains the sole tag owner. Events use canonical origin/path context, blank referrer context, and an allowlist that drops caller-supplied URLs and form values.
