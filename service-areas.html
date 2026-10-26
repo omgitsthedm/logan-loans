@@ -92,6 +92,7 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "publisher": {"@id":"https://logan.loans/#business"},
       "@type": "WebSite",
       "@id": "https://logan.loans/#website",
       "url": "https://logan.loans/",
@@ -100,7 +101,7 @@
     },
     {
       "@type": "LocalBusiness",
-      "@id": "https://logan.loans/#localbusiness",
+      "@id": "https://logan.loans/#business",
       "name": "Logan Loans",
       "logo": {"@type": "ImageObject", "url": "https://logan.loans/android-chrome-512x512.png", "width": 512, "height": 512},
       "image": "https://logan.loans/assets/img/logan-main.webp",
@@ -150,6 +151,7 @@
       "priceRange": "$$"
     },
     {
+      "publisher": {"@id":"https://logan.loans/#business"},
       "@type": "WebPage",
       "speakable": {
         "@type": "SpeakableSpecification",

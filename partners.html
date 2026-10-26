@@ -79,6 +79,7 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "publisher": {"@id":"https://logan.loans/#business"},
       "@type": "WebSite",
       "@id": "https://logan.loans/#website",
       "url": "https://logan.loans/",
@@ -86,6 +87,8 @@
       "inLanguage": "en-US"
     },
     {
+      "publisher": {"@id":"https://logan.loans/#business"},
+      "mainEntity": {"@id":"https://logan.loans/partners#realtor-mortgage-partner-service"},
       "@type": "WebPage",
       "speakable": {
         "@type": "SpeakableSpecification",
@@ -110,11 +113,14 @@
       "inLanguage": "en-US"
     },
     {
+      "url": "https://logan.loans/partners",
+      "mainEntityOfPage": {"@id":"https://logan.loans/partners#webpage"},
       "@type": "Service",
       "@id": "https://logan.loans/partners#realtor-mortgage-partner-service",
       "name": "Mortgage partner for Arizona Realtors",
       "serviceType": "Mortgage pre-approval and lending support for real estate agents",
       "provider": {
+        "@id": "https://logan.loans/#logan-sullivan",
         "@type": "Person",
         "name": "Logan Sullivan",
         "identifier": {

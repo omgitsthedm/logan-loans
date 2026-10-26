@@ -136,6 +136,7 @@
       ]
     },
     {
+      "@id": "https://logan.loans/#business",
       "@type": "LocalBusiness",
       "name": "Logan Loans — Beverly Hills Mortgage",
       "logo": {"@type": "ImageObject", "url": "https://logan.loans/android-chrome-512x512.png", "width": 512, "height": 512},
@@ -153,6 +154,7 @@
         "addressCountry": "US"
       },
       "employee": {
+        "@id": "https://logan.loans/#logan-sullivan",
         "@type": "Person",
         "name": "Logan Sullivan",
         "jobTitle": "Mortgage Advisor",
@@ -161,8 +163,11 @@
       "areaServed": {
         "@type": "City",
         "name": "Beverly Hills",
-        "addressRegion": "CA",
-        "addressCountry": "US"
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "CA",
+          "addressCountry": "US"
+        }
       },
       "parentOrganization": {
         "@type": "Organization",

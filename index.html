@@ -107,7 +107,7 @@
   "@graph": [
     {
       "@type": "Organization",
-      "@id": "https://logan.loans/#organization",
+      "@id": "https://logan.loans/#business",
       "name": "Logan Loans",
       "url": "https://logan.loans/",
       "logo": "https://logan.loans/assets/img/logo.svg",
@@ -131,7 +131,7 @@
       "name": "Logan Loans",
       "description": "Premium Arizona mortgage guidance for buyers, investors, and real estate agents. Same-day pre-approval available, direct lender communication, and no hand-offs.",
       "inLanguage": "en-US",
-      "publisher": { "@id": "https://logan.loans/#organization" },
+      "publisher": { "@id": "https://logan.loans/#business" },
       "potentialAction": {
         "@type": "SearchAction",
         "target": {
@@ -146,7 +146,7 @@
       "@id": "https://logan.loans/#logan-sullivan",
       "name": "Logan Sullivan",
       "jobTitle": "Mortgage Advisor",
-      "worksFor": { "@id": "https://logan.loans/#organization" },
+      "worksFor": { "@id": "https://logan.loans/#business" },
       "url": "https://logan.loans/meet-logan",
       "image": "https://logan.loans/assets/img/logan-main.webp",
       "telephone": "+14808037763",
@@ -164,7 +164,7 @@
     },
     {
       "@type": ["FinancialService", "LocalBusiness"],
-      "@id": "https://logan.loans/#localbusiness",
+      "@id": "https://logan.loans/#business",
       "name": "Logan Loans",
       "logo": {"@type": "ImageObject", "url": "https://logan.loans/android-chrome-512x512.png", "width": 512, "height": 512},
       "image": "https://logan.loans/assets/img/logan-main.webp",
@@ -230,13 +230,14 @@
       ]
     },
     {
+      "publisher": {"@id":"https://logan.loans/#business"},
       "@type": "WebPage",
       "@id": "https://logan.loans/#webpage",
       "url": "https://logan.loans/",
       "name": "Arizona Mortgage Advisor for Buyers & Realtors | Logan Loans",
       "description": "Premium Arizona mortgage guidance for buyers, investors, and real estate agents. Same-day pre-approval available, direct lender communication, and no hand-offs.",
       "isPartOf": { "@id": "https://logan.loans/#website" },
-      "about": { "@id": "https://logan.loans/#localbusiness" },
+      "about": { "@id": "https://logan.loans/#business" },
       "speakable": {
         "@type": "SpeakableSpecification",
         "cssSelector": [".h1", ".h2", ".heroContent .p", ".kicker"]

@@ -1,5 +1,13 @@
 # Logan Loans source of truth
 
+## Local schema identity candidate — 2026-10-25
+
+- **Local branch only; not pushed or deployed:** branch `codex/logan-schema-20261025`, based on `96d62b8bb811469ce2a7e974b2daae7b2489bd40`. The dirty canonical checkout was preserved; this candidate lives in an isolated worktree.
+- **Scope:** 45 HTML files unify four business IDs and anonymous Logan Loans declarations under `https://logan.loans/#business`; Logan Sullivan remains the separate `https://logan.loans/#logan-sullivan` person. Forward Loans remains a separate employer/parent organization. The existing programs and Realtor-partner services connect to their own pages in both directions. Two city entries move postal fields into PostalAddress, the glossary loses invalid self-membership, and the blog breadcrumb reference now resolves to its list.
+- **Validation:** build/source audits pass for 58 pages and 48 indexable URLs. Eight schema regressions, five protected form contracts, calculator regressions, and the analytics harness pass. A local audit against current Schema.org vocabulary checks all 67 built JSON-LD blocks with zero type/property/domain/typed-range errors or unresolved internal entity references. All 59 source HTML files are byte-identical outside JSON-LD; original facts remain unchanged after the intended identity and vocabulary corrections.
+- **Release state:** provider read-back still shows production `6adda12bfaa4c84a2513e0b0` ready/current on exact site `a9776112-531e-4ca2-ba17-9338b8eef423`. Six sampled live-page graphs matched the clean source baseline before editing. No push, preview, production deploy, live lead submission, or IndexNow submission occurred. No deploy credits used.
+- **Client facts:** office/address eligibility and approved AZ/CA license values still require the client's confirmation. Existing regulated copy was preserved; this technical repair does not substantiate those claims. Before a future publication, recheck the exact source/artifact and batch any approved factual corrections.
+
 ## Search corrections release — 2026-10-24
 
 - **Released:** source commit `1fe0114ffb3ec847292e6602007848117c5ac9bc` on `master`, production deploy [`6adda12bfaa4c84a2513e0b0`](https://6adda12bfaa4c84a2513e0b0--loganloans.netlify.app), published `2026-10-25T06:26:56.190Z` by manual Netlify CLI upload of the reviewed `dist/` to site `a9776112-531e-4ca2-ba17-9338b8eef423`. It supersedes the 2026-10-12 copy release `6acd603263303f94f5730b94` (`73aa3e7`).

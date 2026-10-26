@@ -5,6 +5,7 @@ import { createHash } from 'node:crypto';
 import path from 'node:path';
 import process from 'node:process';
 import { fileURLToPath } from 'node:url';
+import { schemaIdentityIssues } from './schema-identity.mjs';
 
 const repositoryRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const targetRoot = path.resolve(process.argv[2] || repositoryRoot);
@@ -132,6 +133,9 @@ for (const file of htmlFiles) {
     }
   });
   schemasByFile.set(file, parsedSchemas);
+  for (const issue of schemaIdentityIssues(parsedSchemas, expectedCanonical(file))) {
+    fail(`${file}: ${issue}.`);
+  }
 
   const cssReferences = occurrences(source, /href=["'](?:\.\/|\/)?styles\.css(?:\?[^"']*)?["']/g).length;
   const jsReferences = occurrences(source, /src=["'](?:\.\/|\/)?app\.js(?:\?[^"']*)?["']/g).length;
