@@ -91,7 +91,9 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "publisher": {"@id":"https://logan.loans/#business"},
+      "publisher": {
+        "@id": "https://logan.loans/#business"
+      },
       "@type": "WebSite",
       "@id": "https://logan.loans/#website",
       "url": "https://logan.loans/",
@@ -102,7 +104,12 @@
       "@type": "LocalBusiness",
       "@id": "https://logan.loans/#business",
       "name": "Logan Loans",
-      "logo": {"@type": "ImageObject", "url": "https://logan.loans/android-chrome-512x512.png", "width": 512, "height": 512},
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://logan.loans/android-chrome-512x512.png",
+        "width": 512,
+        "height": 512
+      },
       "image": "https://logan.loans/assets/img/logan-main.webp",
       "url": "https://logan.loans/",
       "sameAs": [
@@ -132,8 +139,13 @@
       "priceRange": "$$"
     },
     {
-      "publisher": {"@id":"https://logan.loans/#business"},
-      "@type": "WebPage",
+      "publisher": {
+        "@id": "https://logan.loans/#business"
+      },
+      "@type": [
+        "WebPage",
+        "ProfilePage"
+      ],
       "speakable": {
         "@type": "SpeakableSpecification",
         "cssSelector": [
@@ -148,7 +160,10 @@
       "isPartOf": {
         "@id": "https://logan.loans/#website"
       },
-      "description": "A home search comes with a lot of numbers."
+      "description": "A home search comes with a lot of numbers.",
+      "mainEntity": {
+        "@id": "https://logan.loans/#logan-sullivan"
+      }
     },
     {
       "@type": "BreadcrumbList",
@@ -166,6 +181,43 @@
           "item": "https://logan.loans/meet-logan"
         }
       ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://logan.loans/#logan-sullivan",
+      "name": "Logan Sullivan",
+      "jobTitle": "Mortgage Advisor",
+      "worksFor": {
+        "@id": "https://logan.loans/#business"
+      },
+      "url": "https://logan.loans/meet-logan",
+      "image": "https://logan.loans/assets/img/logan-main.webp",
+      "telephone": "+14808037763",
+      "email": "logan@forward.loans",
+      "identifier": {
+        "@type": "PropertyValue",
+        "name": "NMLS",
+        "value": "2466872"
+      },
+      "knowsAbout": [
+        "Conventional Loans",
+        "FHA Loans",
+        "VA Loans",
+        "Jumbo Loans",
+        "DSCR Loans",
+        "Arizona Mortgages",
+        "Arizona Realtor Referrals",
+        "Pre-Approval",
+        "Home Purchase",
+        "Refinancing"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/logansulliv",
+        "https://forward.loans/loan-officer/logan-sullivan/"
+      ],
+      "mainEntityOfPage": {
+        "@id": "https://logan.loans/meet-logan#webpage"
+      }
     }
   ]
 }</script>
@@ -441,14 +493,14 @@
         <p class="ftrTitle">Connect</p>
         <a class="ftrLink" href="https://www.instagram.com/logan.loans" target="_blank" rel="noopener">Instagram</a>
         <a class="ftrLink" href="https://www.linkedin.com/in/logansulliv" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="ftrLink" href="https://www.google.com/search?q=Logan+Sullivan+Mortgage+Advisor" target="_blank" rel="noopener">Google reviews</a>
+        <a class="ftrLink" href="https://www.google.com/search?q=Logan+Sullivan+Mortgage+Advisor" target="_blank" rel="noopener">Google search</a>
       </div>
       <div class="ftrCol">
         <p class="ftrTitle">Legal</p>
         <a class="ftrLink" href="./privacy">Privacy</a>
         <a class="ftrLink" href="./disclosures">Disclosures</a>
         <a class="ftrLink" href="./terms">Terms</a>
-        <a class="ftrLink" href="https://forward.loans/loan-officer/logan-sullivan/" target="_blank" rel="noopener">NMLS profile</a>
+        <a class="ftrLink" href="https://forward.loans/loan-officer/logan-sullivan/" target="_blank" rel="noopener">Forward Loans profile</a>
       </div>
     </div>
     <p class="ftrFine"><strong>NMLS</strong> 2466872 (Logan Sullivan) &middot; <strong>Forward Loans</strong> NMLS 2006640. All loans subject to credit approval. Same-day pre-approval depends on timing and completeness of information.</p>

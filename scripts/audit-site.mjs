@@ -95,8 +95,16 @@ const sharedPages = [];
 
 for (const file of htmlFiles) {
   const source = await readFile(path.join(targetRoot, file), 'utf8');
+  if (/>Google reviews<\/a>|>NMLS profile<\/a>/.test(source)) {
+    fail(`${file}: footer link label misrepresents its search or employer-profile destination.`);
+  }
   const isIndexable = !excludedFromIndex.has(file);
   if (isIndexable) indexableFiles.push(file);
+  const robotsTags = [...source.matchAll(/<meta\b(?=[^>]*\bname=["']robots["'])[^>]*\bcontent=["']([^"']*)["'][^>]*>/gi)];
+  if (robotsTags.length > 1) fail(`${file}: expected at most one unambiguous robots directive.`);
+  if (isIndexable && robotsTags.some((match) => /\bnoindex\b/i.test(match[1]))) {
+    fail(`${file}: intended indexable page declares noindex.`);
+  }
 
   if (source.includes('https://www.logan.loans')) fail(`${file}: legacy www canonical host remains.`);
   if (source.includes('grandfundingllc.com')) fail(`${file}: unrelated Grand Funding entity remains in Logan schema.`);
@@ -114,7 +122,7 @@ for (const file of htmlFiles) {
     if (canonical !== expectedCanonical(file)) {
       fail(`${file}: canonical is ${canonical || 'missing'}; expected ${expectedCanonical(file)}.`);
     }
-  } else if (!/noindex/i.test(source)) {
+  } else if (!robotsTags.some((match) => /\bnoindex\b/i.test(match[1]))) {
     fail(`${file}: non-indexable outcome page must declare noindex.`);
   }
 
@@ -262,11 +270,14 @@ const expectedForms = new Map([
   ['partner-referral', ['bot-field', 'brokerage', 'client_types', 'email', 'form-name', 'gbraid', 'gclid', 'name', 'phone', 'utm_campaign', 'utm_content', 'utm_medium', 'utm_source', 'utm_term', 'wbraid']],
   ['newsletter', ['bot-field', 'email', 'form-name']],
 ]);
+// 2026-10-27: phone is optional for preapproval and partner-referral.
+// Apply keeps the relocation value but uses a direction-neutral label for its two-state service page.
+// All field names, types, hidden values, honeypots, and other required fields remain protected.
 const expectedFormFingerprints = new Map([
-  ['apply', 'a595d8201a6a68ca21853e24ea86e434d01bbdbd0f58cf341be92dd0e24e9726'],
-  ['preapproval', 'cb923f813c42bf554d535899a65cf0c7e64ffce6e6bdb807d6ca504586f182d7'],
+  ['apply', 'fab86521600428064d1c47e1967c28950ff90df61466d75038c4d53cebc6a09a'],
+  ['preapproval', 'ed357d461652e8cf48fde44e51bb62fec2fe59d63e9d59df4a115891fb655793'],
   ['general-contact', 'c6d5d977c1a940e9f15771162bb08789bc9505b0242473179fc22c1d27faddbc'],
-  ['partner-referral', 'fab26bb28ecd421aa2c10bbc7b641f42687d6f57651788202749a360626a898c'],
+  ['partner-referral', '27a902a7ca80aa9cd353d4ac4f4b2d4cab53546b290bc1a03f1c5bf5689dcec0'],
   ['newsletter', 'a22f34ee3179733d9b4b3c617dc7e156048dae35bca88c4eee58dfae3619fac7'],
 ]);
 const discoveredForms = new Map();

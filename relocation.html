@@ -92,7 +92,9 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "publisher": {"@id":"https://logan.loans/#business"},
+      "publisher": {
+        "@id": "https://logan.loans/#business"
+      },
       "@type": "WebSite",
       "@id": "https://logan.loans/#website",
       "url": "https://logan.loans/",
@@ -103,7 +105,12 @@
       "@type": "LocalBusiness",
       "@id": "https://logan.loans/#business",
       "name": "Logan Loans",
-      "logo": {"@type": "ImageObject", "url": "https://logan.loans/android-chrome-512x512.png", "width": 512, "height": 512},
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://logan.loans/android-chrome-512x512.png",
+        "width": 512,
+        "height": 512
+      },
       "image": "https://logan.loans/assets/img/logan-main.webp",
       "url": "https://logan.loans/",
       "sameAs": [
@@ -134,7 +141,9 @@
       "priceRange": "$$"
     },
     {
-      "publisher": {"@id":"https://logan.loans/#business"},
+      "publisher": {
+        "@id": "https://logan.loans/#business"
+      },
       "@type": "WebPage",
       "speakable": {
         "@type": "SpeakableSpecification",
@@ -149,7 +158,10 @@
       "isPartOf": {
         "@id": "https://logan.loans/#website"
       },
-      "description": "Two homes and two closing dates can make one move feel like two jobs."
+      "description": "Two homes and two closing dates can make one move feel like two jobs.",
+      "mainEntity": {
+        "@id": "https://logan.loans/relocation#service"
+      }
     },
     {
       "@type": "BreadcrumbList",
@@ -167,6 +179,23 @@
           "item": "https://logan.loans/relocation"
         }
       ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://logan.loans/relocation#service",
+      "name": "Relocation mortgage guidance",
+      "url": "https://logan.loans/relocation",
+      "description": "Two homes and two closing dates can make one move feel like two jobs.",
+      "provider": {
+        "@id": "https://logan.loans/#business"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://logan.loans/relocation#webpage"
+      },
+      "availableChannel": {
+        "@type": "ServiceChannel",
+        "serviceUrl": "https://logan.loans/contact?topic=relocation#question"
+      }
     }
   ]
 }</script>
@@ -251,7 +280,7 @@
         </nav>
 
         <div class="navCta desktopOnly">
-          <a class="btn btnPrimary" href="./apply">Get Pre-Approved</a>
+          <a class="btn btnPrimary" href="./apply?goal=relocation">Get Pre-Approved</a>
           <a class="btn btnSecondary" href="tel:+14808037763">Call (480) 803-7763</a>
         </div>
 
@@ -276,7 +305,7 @@
         <a class="drawerLink" href="./contact">Contact</a>
 
         <div class="drawerCtas">
-          <a class="btn btnPrimary" href="./apply">Get Pre-Approved</a>
+          <a class="btn btnPrimary" href="./apply?goal=relocation">Get Pre-Approved</a>
           <a class="btn btnSecondary" href="tel:+14808037763">Call (480) 803-7763</a>
         </div>
 
@@ -390,7 +419,7 @@
         <p class="small muted" style="margin:0;">Ballpark is fine. We’ll reply with a clear plan.</p>
       </div>
       <div class="row">
-        <a class="btn btnPrimary" href="./apply">Start the Form</a>
+        <a class="btn btnPrimary" href="./apply?goal=relocation">Start the Form</a>
         <a class="btn btnSecondary" href="tel:+14808037763">Call</a>
       </div>
     </div>
@@ -407,6 +436,13 @@
   </div>
 </section>
 
+
+<section class="section" aria-label="Related mortgage resources">
+  <div class="wrap">
+    <h2 class="h3">Plan your next step</h2>
+    <p class="small muted">Organize the financing side of your move with the <a class="uLink" href="./blog-preapproval-guide">pre-approval document guide</a> and the <a class="uLink" href="./affordability-calculator">home affordability calculator</a>. Bring your destination and target move date to the conversation.</p>
+  </div>
+</section>
 
 <footer class="footer">
   <div class="wrap">
@@ -425,14 +461,14 @@
         <p class="ftrTitle">Connect</p>
         <a class="ftrLink" href="https://www.instagram.com/logan.loans" target="_blank" rel="noopener">Instagram</a>
         <a class="ftrLink" href="https://www.linkedin.com/in/logansulliv" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="ftrLink" href="https://www.google.com/search?q=Logan+Sullivan+Mortgage+Advisor" target="_blank" rel="noopener">Google reviews</a>
+        <a class="ftrLink" href="https://www.google.com/search?q=Logan+Sullivan+Mortgage+Advisor" target="_blank" rel="noopener">Google search</a>
       </div>
       <div class="ftrCol">
         <p class="ftrTitle">Legal</p>
         <a class="ftrLink" href="./privacy">Privacy</a>
         <a class="ftrLink" href="./disclosures">Disclosures</a>
         <a class="ftrLink" href="./terms">Terms</a>
-        <a class="ftrLink" href="https://forward.loans/loan-officer/logan-sullivan/" target="_blank" rel="noopener">NMLS profile</a>
+        <a class="ftrLink" href="https://forward.loans/loan-officer/logan-sullivan/" target="_blank" rel="noopener">Forward Loans profile</a>
       </div>
     </div>
     <p class="ftrFine"><strong>NMLS</strong> 2466872 (Logan Sullivan) &middot; <strong>Forward Loans</strong> NMLS 2006640. All loans subject to credit approval. Same-day pre-approval depends on timing and completeness of information.</p>
@@ -444,7 +480,7 @@
 
 <div class="mobileBar mobileOnly" role="region" aria-label="Quick actions">
   <a class="btn btnSecondary mobileBarBtn" href="tel:+14808037763" aria-label="Call Logan Loans"> Call</a>
-  <a class="btn btnPrimary mobileBarBtn" href="./apply" aria-label="Get pre-approved">Pre-Approve</a>
+  <a class="btn btnPrimary mobileBarBtn" href="./apply?goal=relocation" aria-label="Get pre-approved">Pre-Approve</a>
 </div>
 
 <link rel="stylesheet" href="./styles.css?v=20260720-polish" media="print" onload="this.media='all'">

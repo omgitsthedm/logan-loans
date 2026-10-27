@@ -337,6 +337,9 @@ button, input, textarea, select{
 .formStatus.ok{background:rgba(47,175,122,0.1);border-color:rgba(47,175,122,0.25);color:var(--primary)}
 .formStatus.error{background:rgba(243,178,122,0.18);border-color:rgba(166,79,38,0.35);color:#6b3117}
 
+/* Keep linked inquiry headings below the sticky navigation. */
+#question, #intake { scroll-margin-top: 7rem; }
+
 .btnPrimary{
   background: linear-gradient(135deg, var(--primary) 0%, #1e7a54 100%);
   color: var(--bg);

@@ -171,7 +171,7 @@ function sanitizedEventParams(params) {
   if (['phone', 'email', 'application', 'contact'].includes(params?.lead_channel)) {
     safe.lead_channel = params.lead_channel;
   }
-  if (['applyForm', 'preapprovalForm', 'generalContactForm', 'contactForm'].includes(params?.form_id)) {
+  if (['applyForm', 'preapprovalForm', 'generalContactForm', 'contactForm', 'partnerReferralForm', 'newsletterForm'].includes(params?.form_id)) {
     safe.form_id = params.form_id;
   }
   return safe;
@@ -741,6 +741,16 @@ function setupForm(formId, statusId, opts = {}) {
   const nameEl = form.querySelector('[name="name"]');
   const emailEl = form.querySelector('[name="email"]');
   const phoneEl = form.querySelector('[name="phone"]');
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const originalText = submitBtn?.textContent || 'Send';
+  const eventFormId = form.id || opts.formId;
+  let generation = 0;
+  let controller;
+  let timeoutId;
+  let redirectId;
+  let restoreControls = () => {};
+  let accepted = false;
+  let started = false;
 
   function isEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((v || '').trim()); }
   function isPhone(v, required = false) {
@@ -764,7 +774,7 @@ function setupForm(formId, statusId, opts = {}) {
   }
 
   function fieldHints() {
-    if (!nameEl || !emailEl) return;
+    if (!nameEl || !emailEl || form.dataset.submitting === 'true') return;
     const nameOk = nameEl.value.trim().length >= 2;
     const emailOk = isEmail(emailEl.value);
     const phoneOk = phoneEl ? isPhone(phoneEl.value, phoneEl.required) : true;
@@ -778,10 +788,48 @@ function setupForm(formId, statusId, opts = {}) {
   [nameEl, emailEl, phoneEl].forEach(el => el?.addEventListener('input', fieldHints));
   fieldHints();
 
+  form.addEventListener('input', () => {
+    if (!started) {
+      started = true;
+      trackEvent('form_start', { form_id: eventFormId });
+    }
+  });
+
+  function unlock() {
+    restoreControls();
+    delete form.dataset.submitting;
+    form.removeAttribute('aria-busy');
+    if (submitBtn) {
+      submitBtn.removeAttribute('aria-busy');
+      submitBtn.textContent = originalText;
+    }
+  }
+
+  // An abandoned request must never redirect a visitor after Back restores it.
+  window.addEventListener('pagehide', () => {
+    generation += 1;
+    controller?.abort();
+    window.clearTimeout(timeoutId);
+    window.clearTimeout(redirectId);
+    unlock();
+  });
+  window.addEventListener('pageshow', (event) => {
+    if (!event.persisted) return;
+    if (accepted) {
+      form.reset();
+      accepted = false;
+      started = false;
+      fillUTMInputs(form);
+    }
+    unlock();
+    updateStatus(false, 'Your form is ready. You can send a new request.');
+  });
+
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     if (form.dataset.submitting === 'true') return;
-    const nameOk = nameEl?.value.trim().length >= 2;
+    if (!form.reportValidity()) return;
+    const nameOk = !nameEl || nameEl.value.trim().length >= 2;
     const emailOk = isEmail(emailEl?.value || '');
     const phoneOk = phoneEl ? isPhone(phoneEl.value, phoneEl.required) : true;
 
@@ -789,52 +837,59 @@ function setupForm(formId, statusId, opts = {}) {
     if (!emailOk) { emailEl?.focus(); updateStatus(false, "That email looks a bit off. Try again?"); return; }
     if (phoneEl && !phoneOk) { phoneEl?.focus(); updateStatus(false, "Phone can be blank, or a standard number format."); return; }
 
-    const submitBtn = form.querySelector('button[type="submit"]');
-    const originalText = submitBtn?.textContent || "Send";
+    const robots = document.querySelector('meta[name="robots"]')?.getAttribute('content') || '';
+    if (window.location.protocol !== 'https:' || window.location.hostname !== 'logan.loans' || /\bnoindex\b/i.test(robots)) {
+      showDeliveryError('Preview only. Nothing was sent. Use logan.loans to contact Logan.');
+      return;
+    }
+
+    // Snapshot before locking fields: disabled controls are omitted by FormData.
+    const body = new URLSearchParams(new FormData(form)).toString();
+    const controls = Array.from(form.elements).map((element) => [element, element.disabled]);
+    restoreControls = () => controls.forEach(([element, disabled]) => { element.disabled = disabled; });
+    controls.forEach(([element]) => { element.disabled = true; });
+    const requestGeneration = ++generation;
     form.dataset.submitting = 'true';
+    form.setAttribute('aria-busy', 'true');
     if (submitBtn) {
       submitBtn.disabled = true;
       submitBtn.setAttribute('aria-busy', 'true');
       submitBtn.textContent = "Sending...";
     }
 
-    const formData = new FormData(form);
-    const controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
-    const timeoutId = window.setTimeout(() => controller?.abort(), 15000);
-    fetch('/', {
+    updateStatus(false, 'Sending your request. Please wait for confirmation.');
+    controller = new AbortController();
+    timeoutId = window.setTimeout(() => controller.abort(), 15000);
+    return fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formData).toString(),
-      signal: controller?.signal,
+      body,
+      signal: controller.signal,
     }).then(response => {
+      if (requestGeneration !== generation) return;
       if (response.ok) {
-        const redirect = opts.redirect || './thanks-contact';
-        let didRedirect = false;
-        const go = () => {
-          if (didRedirect) return;
-          didRedirect = true;
-          window.location.href = redirect;
-        };
+        accepted = true;
+        updateStatus(true, opts.successMessage || 'Your request was accepted. Opening confirmation...');
         trackEvent(opts.eventName || 'form_submit', {
-          form_id: form.id || 'form',
-          event_callback: go,
-          event_timeout: 600,
+          form_id: eventFormId,
         });
-        setTimeout(go, 700);
+        if (opts.redirect === false) return;
+        redirectId = window.setTimeout(() => {
+          if (requestGeneration === generation) window.location.href = opts.redirect || './thanks-contact';
+        }, 700);
       } else {
         throw new Error('Network response was not ok');
       }
     }).catch((error) => {
-      delete form.dataset.submitting;
-      if (submitBtn) {
-        submitBtn.disabled = false;
-        submitBtn.removeAttribute('aria-busy');
-        submitBtn.textContent = originalText;
-      }
+      if (requestGeneration !== generation) return;
+      unlock();
+      trackEvent('form_submit_error', { form_id: eventFormId });
       showDeliveryError(error?.name === 'AbortError'
         ? "That took too long to confirm. Your details are still here — please try again or call (480) 803-7763."
         : "We could not confirm delivery. Your details are still here — please try again or call (480) 803-7763.");
-    }).finally(() => window.clearTimeout(timeoutId));
+    }).finally(() => {
+      if (requestGeneration === generation) window.clearTimeout(timeoutId);
+    });
   });
 }
 
@@ -842,6 +897,8 @@ setupForm('#contactForm', '#formStatus', { redirect: './thanks-contact', eventNa
 setupForm('#applyForm', '#applyStatus', { redirect: './thanks', eventName: 'loan_form_submit' });
 setupForm('#preapprovalForm', '#preapprovalStatus', { redirect: './thanks-contact', eventName: 'preapproval_intake_submit' });
 setupForm('#generalContactForm', '#generalContactStatus', { redirect: './thanks-contact', eventName: 'general_contact_submit' });
+setupForm('form[name="partner-referral"]', '#partnerReferralStatus', { formId: 'partnerReferralForm', eventName: 'partner_referral_submit' });
+setupForm('form[name="newsletter"]', '#newsletterStatus', { formId: 'newsletterForm', eventName: 'newsletter_signup', redirect: false, successMessage: 'Your signup request was received. Thank you.' });
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('form').forEach(fillUTMInputs);
 });
@@ -861,6 +918,22 @@ function setupContactTopic() {
       heading: 'Plan the move before the dates get tight.',
       message: 'I am buying again and want to coordinate my current home, next purchase, and closing timeline.',
     },
+    investor: {
+      heading: 'Ask about an investment property.',
+      message: 'I want to discuss financing for an investment property.',
+    },
+    'first-time-buyer': {
+      heading: 'Plan your first home purchase.',
+      message: 'I am buying my first home and want help understanding the next steps.',
+    },
+    refinance: {
+      heading: 'Talk through a possible refinance.',
+      message: 'I want to compare refinancing with keeping my current mortgage.',
+    },
+    relocation: {
+      heading: 'Talk through your move.',
+      message: 'I am relocating and want to discuss financing and my timeline.',
+    },
   }[topic];
   if (!topicCopy) return;
 
@@ -872,6 +945,17 @@ function setupContactTopic() {
 }
 
 document.addEventListener('DOMContentLoaded', setupContactTopic);
+
+function setupApplyGoal() {
+  const goal = new URLSearchParams(window.location.search).get('goal');
+  const allowed = ['purchase-primary', 'purchase-investment', 'refinance', 'relocation'];
+  const select = document.querySelector('#applyForm [name="goal"]');
+  if (select && !select.value && allowed.includes(goal) && Array.from(select.options).some((option) => option.value === goal)) {
+    select.value = goal;
+  }
+}
+
+document.addEventListener('DOMContentLoaded', setupApplyGoal);
 
 // ─── Instagram Feed ─────────────────────────────────────────────────────────
 function escapeHTML(value) {

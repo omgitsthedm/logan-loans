@@ -19,7 +19,7 @@ function createStorage(initial = {}) {
 }
 
 function createInput(value, required = false) {
-  return { value, required, focus() {}, addEventListener() {} };
+  return { value, required, disabled: false, focus() {}, addEventListener() {} };
 }
 
 function createForm(id, fields) {
@@ -33,6 +33,9 @@ function createForm(id, fields) {
   return {
     id,
     dataset: {},
+    elements: [...Object.values(fields), button],
+    reportValidity: () => true,
+    reset() {},
     querySelector(selector) {
       if (selector === 'button[type="submit"]') return button;
       const name = selector.match(/^\[name="(.+)"\]$/)?.[1];
@@ -76,6 +79,7 @@ async function runFormScenario({ consent = 'granted', status = 200, formName }) 
   };
   const window = {
     location,
+    addEventListener() {},
     dataLayer: [],
     localStorage,
     sessionStorage: createStorage(),
@@ -101,6 +105,7 @@ async function runFormScenario({ consent = 'granted', status = 200, formName }) 
     navigator: { webdriver: false },
     URLSearchParams,
     FormData: MockFormData,
+    AbortController,
     Element: class {},
     fetch: async () => ({ ok: status >= 200 && status < 300 }),
     setTimeout: schedule,
@@ -333,7 +338,8 @@ for (const formName of ['preapproval', 'general-contact']) {
   assert.deepEqual(denied.events, [], `${formName}: no event before consent`);
 
   const failed = await runFormScenario({ status: 500, formName });
-  assert.deepEqual(failed.events, [], `${formName}: no event on failed response`);
+  assert.deepEqual(failed.events.map((event) => event.eventName), ['form_submit_error', 'form_submit_error'], `${formName}: failed attempts emit errors, never success`);
+  assert.ok(!JSON.stringify(failed.events).includes('test@example.com'), `${formName}: error measurement excludes applicant details`);
   assert.equal(failed.href, 'https://logan.loans/contact', `${formName}: failed response does not redirect`);
 
   const succeeded = await runFormScenario({ status: 200, formName });

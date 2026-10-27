@@ -487,7 +487,7 @@
             <input type="hidden" name="form-name" value="partner-referral" />
 
             <!-- Honeypot -->
-            <div class="honeypot">
+            <div class="honeypot" aria-hidden="true">
               <label>Don&#x2019;t fill this out: <input type="text" name="bot-field" tabindex="-1" autocomplete="off" /></label>
             </div>
 
@@ -508,8 +508,8 @@
               </div>
 
               <div class="field">
-                <label for="partner-phone">Phone <span aria-label="required" style="color:var(--primary);">*</span></label>
-                <input type="tel" id="partner-phone" name="phone" required autocomplete="tel" placeholder="(480) 555-0100" />
+                <label for="partner-phone">Phone (optional)</label>
+                <input type="tel" id="partner-phone" name="phone" autocomplete="tel" placeholder="(480) 555-0100" />
               </div>
 
               <div class="field">
@@ -531,6 +531,8 @@
             <div style="margin-top:20px;">
               <button type="submit" class="btn btnPrimary" style="width:100%;">Connect with Logan</button>
             </div>
+
+            <div id="partnerReferralStatus" class="formStatus" role="status" aria-live="polite"><span data-msg>Tell Logan how to reach you.</span></div>
 
             <p class="formNote">By submitting this form, you consent to being contacted by Logan Sullivan regarding your inquiry. NMLS 2466872 &#x2022; Forward Loans, LLC NMLS 2006640. All loans subject to credit approval.</p>
           </form>
@@ -621,14 +623,14 @@
         <p class="ftrTitle">Connect</p>
         <a class="ftrLink" href="https://www.instagram.com/logan.loans" target="_blank" rel="noopener">Instagram</a>
         <a class="ftrLink" href="https://www.linkedin.com/in/logansulliv" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="ftrLink" href="https://www.google.com/search?q=Logan+Sullivan+Mortgage+Advisor" target="_blank" rel="noopener">Google reviews</a>
+        <a class="ftrLink" href="https://www.google.com/search?q=Logan+Sullivan+Mortgage+Advisor" target="_blank" rel="noopener">Google search</a>
       </div>
       <div class="ftrCol">
         <p class="ftrTitle">Legal</p>
         <a class="ftrLink" href="./privacy">Privacy</a>
         <a class="ftrLink" href="./disclosures">Disclosures</a>
         <a class="ftrLink" href="./terms">Terms</a>
-        <a class="ftrLink" href="https://forward.loans/loan-officer/logan-sullivan/" target="_blank" rel="noopener">NMLS profile</a>
+        <a class="ftrLink" href="https://forward.loans/loan-officer/logan-sullivan/" target="_blank" rel="noopener">Forward Loans profile</a>
       </div>
     </div>
     <p class="ftrFine"><strong>NMLS</strong> 2466872 (Logan Sullivan) &middot; <strong>Forward Loans</strong> NMLS 2006640. All loans subject to credit approval. Same-day pre-approval depends on timing and completeness of information.</p>

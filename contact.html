@@ -93,7 +93,9 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "publisher": {"@id":"https://logan.loans/#business"},
+      "publisher": {
+        "@id": "https://logan.loans/#business"
+      },
       "@type": "WebSite",
       "@id": "https://logan.loans/#website",
       "url": "https://logan.loans/",
@@ -105,7 +107,12 @@
       "@type": "LocalBusiness",
       "@id": "https://logan.loans/#business",
       "name": "Logan Loans",
-      "logo": {"@type": "ImageObject", "url": "https://logan.loans/android-chrome-512x512.png", "width": 512, "height": 512},
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://logan.loans/android-chrome-512x512.png",
+        "width": 512,
+        "height": 512
+      },
       "image": "https://logan.loans/assets/img/logan-main.webp",
       "url": "https://logan.loans/",
       "telephone": "+14808037763",
@@ -132,11 +139,19 @@
         "https://www.instagram.com/logan.loans",
         "https://www.linkedin.com/in/logansulliv"
       ],
-      "priceRange": "$$"
+      "priceRange": "$$",
+      "contactPoint": {
+        "@id": "https://logan.loans/contact#contact-point"
+      }
     },
     {
-      "publisher": {"@id":"https://logan.loans/#business"},
-      "@type": "WebPage",
+      "publisher": {
+        "@id": "https://logan.loans/#business"
+      },
+      "@type": [
+        "WebPage",
+        "ContactPage"
+      ],
       "speakable": {
         "@type": "SpeakableSpecification",
         "cssSelector": [
@@ -150,7 +165,18 @@
       "isPartOf": {
         "@id": "https://logan.loans/#website"
       },
-      "description": "Contact Logan Loans for mortgage pre-approval in Arizona. Quick intake, clear steps, no pressure."
+      "description": "Contact Logan Loans for mortgage pre-approval in Arizona. Quick intake, clear steps, no pressure.",
+      "mainEntity": {
+        "@id": "https://logan.loans/contact#contact-point"
+      }
+    },
+    {
+      "@type": "ContactPoint",
+      "@id": "https://logan.loans/contact#contact-point",
+      "contactType": "Mortgage inquiries",
+      "telephone": "+14808037763",
+      "email": "logan@forward.loans",
+      "url": "https://logan.loans/contact"
     }
   ]
 }</script>
@@ -242,7 +268,7 @@
 
         <form id="preapprovalForm" name="preapproval" method="POST" data-netlify="true" netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="preapproval" />
-          <p class="visually-hidden">
+          <p class="visually-hidden" aria-hidden="true">
             <label>Don't fill this out if you're human: <input type="text" name="bot-field" tabindex="-1" autocomplete="off" /></label>
           </p>
 
@@ -258,8 +284,8 @@
             </label>
 
             <label class="field">
-              <span class="label">Phone</span>
-              <input class="input" type="tel" name="phone" autocomplete="tel" required />
+              <span class="label">Phone (optional)</span>
+              <input class="input" type="tel" name="phone" autocomplete="tel" />
             </label>
 
             <label class="field">
@@ -350,12 +376,12 @@
 
     <!-- GENERAL CONTACT FORM -->
     <div class="card" id="question" data-mobile-bar-suppress style="margin-top:24px;">
-      <p class="cardTitle" data-topic-heading>Have a question?</p>
+      <h2 class="cardTitle" data-topic-heading>Have a question?</h2>
       <p class="cardText" style="margin-bottom:14px;">Not ready for pre-approval yet? Just ask anything.</p>
 
       <form id="generalContactForm" name="general-contact" method="POST" data-netlify="true" netlify-honeypot="bot-field-2">
         <input type="hidden" name="form-name" value="general-contact" />
-        <p class="visually-hidden">
+        <p class="visually-hidden" aria-hidden="true">
           <label>Don't fill this out if you're human: <input type="text" name="bot-field-2" tabindex="-1" autocomplete="off" /></label>
         </p>
 
@@ -405,14 +431,14 @@
         <p class="ftrTitle">Connect</p>
         <a class="ftrLink" href="https://www.instagram.com/logan.loans" target="_blank" rel="noopener">Instagram</a>
         <a class="ftrLink" href="https://www.linkedin.com/in/logansulliv" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="ftrLink" href="https://www.google.com/search?q=Logan+Sullivan+Mortgage+Advisor" target="_blank" rel="noopener">Google reviews</a>
+        <a class="ftrLink" href="https://www.google.com/search?q=Logan+Sullivan+Mortgage+Advisor" target="_blank" rel="noopener">Google search</a>
       </div>
       <div class="ftrCol">
         <p class="ftrTitle">Legal</p>
         <a class="ftrLink" href="./privacy">Privacy</a>
         <a class="ftrLink" href="./disclosures">Disclosures</a>
         <a class="ftrLink" href="./terms">Terms</a>
-        <a class="ftrLink" href="https://forward.loans/loan-officer/logan-sullivan/" target="_blank" rel="noopener">NMLS profile</a>
+        <a class="ftrLink" href="https://forward.loans/loan-officer/logan-sullivan/" target="_blank" rel="noopener">Forward Loans profile</a>
       </div>
     </div>
     <p class="ftrFine"><strong>NMLS</strong> 2466872 (Logan Sullivan) &middot; <strong>Forward Loans</strong> NMLS 2006640. All loans subject to credit approval. Same-day pre-approval depends on timing and completeness of information.</p>
