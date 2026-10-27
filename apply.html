@@ -56,21 +56,21 @@
     @media print{.header,.mobileBar,.drawer{display:none!important}body{padding:0}}
   </style>
 
-  <meta name="description" content="Start your Arizona mortgage pre-approval in minutes. Logan Sullivan (NMLS 2466872) reviews your application personally. Same-day responses, no obligation." />
+  <meta name="description" content="Start your pre-approval with Logan Sullivan (NMLS 2466872) on his Forward Loans page. Logan reviews every request personally." />
   <link rel="canonical" href="https://logan.loans/apply" />
   <meta name="geo.region" content="US-AZ" />
   <meta name="geo.placename" content="Phoenix, Arizona" />
-  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+  <meta name="robots" content="noindex,follow" />
 
   <meta property="og:title" content="Get Pre-Approved | Logan Loans" />
-  <meta property="og:description" content="Start your Arizona mortgage pre-approval in minutes. Personal review by Logan Sullivan, NMLS 2466872." />
+  <meta property="og:description" content="Start your pre-approval with Logan Sullivan (NMLS 2466872) on his Forward Loans page. Logan reviews every request personally." />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Logan Loans">
   <meta property="og:url" content="https://logan.loans/apply" />
   <meta property="og:image" content="https://logan.loans/assets/img/logan-main.webp" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Get Pre-Approved | Logan Loans" />
-  <meta name="twitter:description" content="Start your Arizona mortgage pre-approval in minutes." />
+  <meta name="twitter:description" content="Start your pre-approval with Logan Sullivan (NMLS 2466872) on his Forward Loans page. Logan reviews every request personally." />
   <meta name="twitter:image" content="https://logan.loans/assets/img/logan-main.webp" />
 
 <script type="application/ld+json">{
@@ -107,7 +107,7 @@
       "@id": "https://logan.loans/apply#webpage",
       "url": "https://logan.loans/apply",
       "name": "Get Pre-Approved | Logan Loans",
-      "description": "Start your Arizona mortgage pre-approval in minutes. Logan Sullivan (NMLS 2466872) reviews your application personally. Same-day responses, no obligation.",
+      "description": "Start your pre-approval with Logan Sullivan (NMLS 2466872) on his Forward Loans page. Logan reviews every request personally.",
       "isPartOf": {
         "@id": "https://logan.loans/#website"
       },
@@ -151,7 +151,7 @@
           <a href="./contact">Contact</a>
         </nav>
         <div class="navCta desktopOnly">
-          <a class="btn btnPrimary" href="./apply" aria-current="page">Get Pre-Approved</a>
+          <a class="btn btnPrimary" href="https://forward.loans/loan-officer/logan-sullivan/" rel="noopener">Get Pre-Approved</a>
           <a class="btn btnSecondary" href="tel:+14808037763">Call (480) 803-7763</a>
         </div>
         <button class="navToggle mobileOnly" type="button" aria-label="Open menu" aria-expanded="false" data-nav-toggle>
@@ -173,7 +173,7 @@
         <a class="drawerLink" href="./partners">For Realtors</a>
         <a class="drawerLink" href="./contact">Contact</a>
         <div class="drawerCtas">
-          <a class="btn btnPrimary" href="./apply">Get Pre-Approved</a>
+          <a class="btn btnPrimary" href="https://forward.loans/loan-officer/logan-sullivan/" rel="noopener">Get Pre-Approved</a>
           <a class="btn btnSecondary" href="tel:+14808037763">Call (480) 803-7763</a>
         </div>
         <p class="drawerNote">Arizona • Southern California</p>
@@ -185,130 +185,36 @@
     <!-- HERO -->
     <section class="section" style="padding-top:48px;padding-bottom:32px;">
       <div class="wrap">
-        <p class="kicker">Zero obligation · Same-day response</p>
-        <h1 class="h1" style="max-width:780px;">Let's get you pre-approved.</h1>
-        <p class="p" style="margin-top:16px;">Fill out the form below and Logan reviews it personally — usually the same day. No bots, no call centers, no pressure. Just a real conversation about what you can comfortably afford.</p>
+        <p class="kicker">Pre-approval &amp; pre-qualification</p>
+        <h1 class="h1" style="max-width:780px;">Start your pre-approval with Logan.</h1>
+        <p class="p" style="margin-top:16px;">Applications and pre-qualification happen on Logan&rsquo;s page at Forward Loans, the licensed mortgage company he works through. Nothing is collected on this site.</p>
       </div>
     </section>
 
-    <!-- FORM + TRUST PANEL -->
+    <!-- HANDOFF + TRUST PANEL -->
     <section class="section" style="padding-top:0;" data-observe>
       <div class="wrap">
         <div class="applyWrap">
 
-          <!-- FORM -->
           <div>
             <div class="threshold" aria-hidden="true"></div>
-            <div class="formCard" data-mobile-bar-suppress>
-              <h2 class="h2" style="font-size:clamp(22px,2.5vw,30px);margin-bottom:6px;">Pre-Approval Request</h2>
-              <p class="small muted" style="margin:0 0 24px 0;"><strong>Name and email are enough to start.</strong> Everything else is optional and simply helps Logan prepare for the conversation.</p>
-
-              <form id="applyForm" name="apply" method="POST" data-netlify="true" data-utm-form netlify-honeypot="bot-field" action="./thanks">
-                <input type="hidden" name="form-name" value="apply" />
-                <p class="visually-hidden" aria-hidden="true"><label>Don't fill this out: <input type="text" name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
-
-                <!-- UTM hidden inputs -->
-                <input type="hidden" name="utm_source" />
-                <input type="hidden" name="utm_medium" />
-                <input type="hidden" name="utm_campaign" />
-                <input type="hidden" name="utm_term" />
-                <input type="hidden" name="utm_content" />
-                <input type="hidden" name="gclid" />
-                <input type="hidden" name="gbraid" />
-                <input type="hidden" name="wbraid" />
-
-                <div class="formGrid">
-                  <div class="field">
-                    <label for="apply-name">Your name <span aria-hidden="true">*</span></label>
-                    <input type="text" id="apply-name" name="name" autocomplete="name" required placeholder="First and last name" />
-                  </div>
-                  <div class="field">
-                    <label for="apply-phone">Phone number (optional)</label>
-                    <input type="tel" id="apply-phone" name="phone" autocomplete="tel" placeholder="(480) 000-0000" />
-                  </div>
-                  <div class="field fieldFull">
-                    <label for="apply-email">Email address <span aria-hidden="true">*</span></label>
-                    <input type="email" id="apply-email" name="email" autocomplete="email" required placeholder="you@example.com" />
-                  </div>
-                  <div class="field fieldFull">
-                    <label for="apply-goal">What's your goal?</label>
-                    <select id="apply-goal" name="goal">
-                      <option value="">Select one…</option>
-                      <option value="purchase-primary">Buy a primary home</option>
-                      <option value="purchase-investment">Buy an investment property</option>
-                      <option value="refinance">Refinance my current home</option>
-                      <option value="cash-out">Cash-out refinance</option>
-                      <option value="relocation">Relocating</option>
-                      <option value="luxury">Luxury / jumbo purchase</option>
-                      <option value="not-sure">Not sure yet — just exploring</option>
-                    </select>
-                  </div>
-                  <details class="optionalDetails fieldFull">
-                    <summary>Help Logan prepare <span>Optional details</span></summary>
-                    <p class="help">Share what you know. “Not sure” is a perfectly useful answer.</p>
-                    <div class="optionalGrid">
-                      <div class="field">
-                        <label for="apply-timeline">Timeline</label>
-                        <select id="apply-timeline" name="timeline">
-                          <option value="">Select one…</option>
-                          <option value="asap">ASAP — I have an offer in</option>
-                          <option value="1-3months">1–3 months</option>
-                          <option value="3-6months">3–6 months</option>
-                          <option value="6plus">6+ months</option>
-                          <option value="exploring">Just exploring options</option>
-                        </select>
-                      </div>
-                      <div class="field">
-                        <label for="apply-price">Estimated purchase price</label>
-                        <select id="apply-price" name="price_range">
-                          <option value="">Select range…</option>
-                          <option value="under-300k">Under $300,000</option>
-                          <option value="300-500k">$300,000 – $500,000</option>
-                          <option value="500-750k">$500,000 – $750,000</option>
-                          <option value="750k-1m">$750,000 – $1,000,000</option>
-                          <option value="1m-2m">$1M – $2M</option>
-                          <option value="over-2m">Over $2M</option>
-                          <option value="not-sure">Not sure yet</option>
-                        </select>
-                      </div>
-                      <div class="field fieldFull">
-                        <label for="apply-location">Where are you buying?</label>
-                        <select id="apply-location" name="location">
-                          <option value="">Select area…</option>
-                          <option value="phoenix">Phoenix / Metro</option>
-                          <option value="scottsdale">Scottsdale</option>
-                          <option value="paradise-valley">Paradise Valley</option>
-                          <option value="north-scottsdale">North Scottsdale</option>
-                          <option value="flagstaff">Flagstaff / Sedona</option>
-                          <option value="tucson">Tucson</option>
-                          <option value="la">Los Angeles / Beverly Hills</option>
-                          <option value="socal-coast">Southern California Coast</option>
-                          <option value="other">Other / Not sure</option>
-                        </select>
-                      </div>
-                      <div class="field fieldFull">
-                        <label for="apply-message">Anything else Logan should know?</label>
-                        <textarea id="apply-message" name="message" rows="3" placeholder="Credit situation, unique income, second home, investment scenario — anything that helps us prepare the right conversation."></textarea>
-                      </div>
-                    </div>
-                  </details>
-                </div>
-
-                <div id="applyStatus" class="formStatus" role="status" aria-live="polite">
-                  <span data-msg>Fill in your name and email to get started.</span>
-                </div>
-
-                <button type="submit" class="btn btnPrimary" style="width:100%;margin-top:16px;font-size:18px;padding:18px 28px;">
-                  Send My Request
-                </button>
-
-                <p class="tiny muted" style="text-align:center;margin-top:12px;">By submitting, you agree to be contacted by Logan Sullivan (NMLS 2466872) regarding your mortgage inquiry. No spam. Unsubscribe any time. See <a class="uLink" href="./privacy">Privacy Policy</a>.</p>
-              </form>
+            <div class="formCard">
+              <h2 class="h2" style="font-size:clamp(22px,2.5vw,30px);margin-bottom:6px;">Continue on Forward Loans</h2>
+              <p class="small muted" style="margin:0 0 24px 0;">Logan&rsquo;s Forward Loans page is where you start a pre-qualification, apply, or send Logan your details. It opens forward.loans in this tab.</p>
+              <a class="btn btnPrimary" href="https://forward.loans/loan-officer/logan-sullivan/" rel="noopener" style="width:100%;font-size:18px;padding:18px 28px;">Get Pre-Approved with Logan</a>
+              <p class="tiny muted" style="text-align:center;margin-top:12px;">You&rsquo;ll leave logan.loans for forward.loans. Forward Loans&rsquo; own privacy terms apply there.</p>
+              <hr class="hr" />
+              <p style="font-weight:800;margin:0 0 6px 0;font-size:18px;">Rather talk first?</p>
+              <p class="small muted" style="margin:0 0 14px 0;">Call or email Logan directly.</p>
+              <div class="row">
+                <a class="btn btnSecondary" href="tel:+14808037763">Call (480) 803-7763</a>
+                <a class="btn btnSecondary" href="mailto:logan@forward.loans">Email Logan</a>
+              </div>
             </div>
           </div>
 
           <!-- TRUST PANEL -->
-          <aside aria-label="Why work with Logan">
+          <aside aria-label="Who you are working with">
             <div class="trustPanel">
               <div class="loganMini">
                 <img src="./assets/img/logan-headshot-1.webp" alt="Logan Sullivan, Mortgage Advisor" class="loganMiniPhoto" width="64" height="64" loading="eager">
@@ -322,28 +228,21 @@
 
               <div class="trustPillList">
                 <div class="trustPill">
-                  <div class="trustPillIcon" aria-hidden="true">24h</div>
+                  <div class="trustPillIcon" aria-hidden="true">1:1</div>
                   <div>
-                    <p class="trustPillText">Same-day response</p>
-                    <p class="trustPillSub">Logan reviews every application personally — usually within hours, not days.</p>
-                  </div>
-                </div>
-                <div class="trustPill">
-                  <div class="trustPillIcon" aria-hidden="true">No</div>
-                  <div>
-                    <p class="trustPillText">Zero obligation</p>
-                    <p class="trustPillSub">This is a conversation, not a commitment. No hard pull until you're ready.</p>
+                    <p class="trustPillText">Personal review</p>
+                    <p class="trustPillSub">Logan reviews every request himself. No call center, no hand-offs.</p>
                   </div>
                 </div>
                 <div class="trustPill">
                   <div class="trustPillIcon" aria-hidden="true">ID</div>
                   <div>
                     <p class="trustPillText">NMLS 2466872</p>
-                    <p class="trustPillSub">Licensed in Arizona and California. <a class="uLink" href="https://forward.loans/loan-officer/logan-sullivan/" target="_blank" rel="noopener">Verify credentials</a>.</p>
+                    <p class="trustPillSub">Serving Arizona and California. <a class="uLink" href="https://www.nmlsconsumeraccess.org/EntityDetails.aspx/INDIVIDUAL/2466872" target="_blank" rel="noopener">Verify on NMLS Consumer Access</a>.</p>
                   </div>
                 </div>
                 <div class="trustPill">
-                  <div class="trustPillIcon" aria-hidden="true"></div>
+                  <div class="trustPillIcon" aria-hidden="true">Hrs</div>
                   <div>
                     <p class="trustPillText">Prefer to call?</p>
                     <p class="trustPillSub"><a class="uLink" href="tel:+14808037763">(480) 803-7763</a> · Mon–Fri 9am–6pm, Sat 10am–4pm</p>
@@ -353,7 +252,7 @@
 
               <hr class="hr" />
 
-              <p class="tiny muted" style="margin:0;text-align:center;">Forward Loans, LLC · NMLS 2006640<br>Equal Housing Lender · Licensed AZ &amp; CA</p>
+              <p class="tiny muted" style="margin:0;text-align:center;">Forward Loans NMLS #2006640 · Arizona Mortgage Broker License #MB-1012025<br>Equal Housing Lender · <a class="uLink" href="https://forward.loans/disclosures" target="_blank" rel="noopener">Disclosures</a></p>
             </div>
           </aside>
 
@@ -366,39 +265,23 @@
       <div class="wrap">
         <div class="threshold" aria-hidden="true"></div>
         <p class="kicker">What happens next</p>
-        <h2 class="h2">Three steps from form to approval letter</h2>
+        <h2 class="h2">Three steps to a pre-approval letter</h2>
 
         <div class="steps">
           <div class="step">
             <div class="stepNum" aria-hidden="true">1</div>
-            <p style="font-weight:800;margin:0 0 8px 0;font-size:18px;">Logan reviews your request</p>
-            <p class="small muted" style="margin:0;">Usually within a few hours. He reads every submission himself — no processing queue, no script-readers.</p>
+            <p style="font-weight:800;margin:0 0 8px 0;font-size:18px;">Start on Forward Loans</p>
+            <p class="small muted" style="margin:0;">Begin a pre-qualification or application on Logan&rsquo;s Forward Loans page.</p>
           </div>
           <div class="step">
             <div class="stepNum" aria-hidden="true">2</div>
-            <p style="font-weight:800;margin:0 0 8px 0;font-size:18px;">Quick 15-minute call</p>
-            <p class="small muted" style="margin:0;">Logan calls to confirm your goals, explain your options, and outline next steps. No hard credit pull at this stage.</p>
+            <p style="font-weight:800;margin:0 0 8px 0;font-size:18px;">Talk it through with Logan</p>
+            <p class="small muted" style="margin:0;">Logan confirms your goals, explains your options, and tells you exactly which documents are needed.</p>
           </div>
           <div class="step">
             <div class="stepNum" aria-hidden="true">3</div>
             <p style="font-weight:800;margin:0 0 8px 0;font-size:18px;">Pre-approval letter in hand</p>
-            <p class="small muted" style="margin:0;">Once you're ready to move forward, Logan assembles your file and delivers a pre-approval letter your agent can put to work.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PORCH CTA -->
-    <section class="section" data-observe>
-      <div class="wrap">
-        <div class="porch">
-          <div class="stack">
-            <p style="font-weight:800;font-size:20px;margin:0;">Prefer to skip the form?</p>
-            <p class="small muted" style="margin:0;">Call or text Logan directly and get the same personal response.</p>
-          </div>
-          <div class="row">
-            <a class="btn btnPrimary" href="tel:+14808037763">Call (480) 803-7763</a>
-            <a class="btn btnSecondary" href="./contact">Send a Message</a>
+            <p class="small muted" style="margin:0;">Once your file supports it, Logan delivers a pre-approval letter your agent can put to work.</p>
           </div>
         </div>
       </div>
@@ -421,7 +304,6 @@
       <div class="ftrCol">
         <p class="ftrTitle">Connect</p>
         <a class="ftrLink" href="https://www.instagram.com/logan.loans" target="_blank" rel="noopener">Instagram</a>
-        <a class="ftrLink" href="https://www.linkedin.com/in/logansulliv" target="_blank" rel="noopener">LinkedIn</a>
         <a class="ftrLink" href="https://www.google.com/search?q=Logan+Sullivan+Mortgage+Advisor" target="_blank" rel="noopener">Google search</a>
       </div>
       <div class="ftrCol">
@@ -432,14 +314,14 @@
         <a class="ftrLink" href="https://forward.loans/loan-officer/logan-sullivan/" target="_blank" rel="noopener">Forward Loans profile</a>
       </div>
     </div>
-    <p class="ftrFine"><strong>NMLS</strong> 2466872 (Logan Sullivan) &middot; <strong>Forward Loans</strong> NMLS 2006640. All loans subject to credit approval. Same-day pre-approval depends on timing and completeness of information.</p>
+    <p class="ftrFine"><strong>Logan Sullivan</strong> <a href="https://www.nmlsconsumeraccess.org/EntityDetails.aspx/INDIVIDUAL/2466872" target="_blank" rel="noopener">NMLS #2466872</a> &middot; <strong>Forward Loans</strong> <a href="https://www.nmlsconsumeraccess.org/EntityDetails.aspx/COMPANY/2006640" target="_blank" rel="noopener">NMLS #2006640</a> &middot; Arizona Mortgage Broker License #MB-1012025 &middot; Equal Housing Lender. <a href="https://forward.loans/disclosures" target="_blank" rel="noopener">Forward Loans licensing &amp; disclosures</a>. All loans subject to credit approval.</p>
     <div class="ftrBase" data-lfc></div>
   </div>
 </footer>
 
   <div class="mobileBar mobileOnly" role="region" aria-label="Quick actions">
     <a class="btn btnSecondary mobileBarBtn" href="tel:+14808037763" aria-label="Call Logan Loans"> Call</a>
-    <a class="btn btnPrimary mobileBarBtn" href="#applyForm" aria-label="Go to pre-approval form">Start Here</a>
+    <a class="btn btnPrimary mobileBarBtn" href="https://forward.loans/loan-officer/logan-sullivan/" aria-label="Get pre-approved on Forward Loans" rel="noopener">Start Here</a>
   </div>
 
   <link rel="stylesheet" href="./styles.css?v=20260720-polish" media="print" onload="this.media='all'">

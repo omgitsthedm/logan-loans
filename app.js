@@ -26,7 +26,7 @@ const QA_SESSION_KEY = 'll_analytics_qa_session';
 // Kept in lockstep with sitemap.xml by scripts/test-analytics.mjs. Tracking an
 // unsitemapped route is a defect, even when that route is on the canonical host.
 const PUBLIC_ANALYTICS_PATHS = new Set([
-  '/', '/about', '/affordability-calculator', '/apply', '/arcadia-biltmore', '/arizona', '/beverly-hills',
+  '/', '/about', '/affordability-calculator', '/arcadia-biltmore', '/arizona', '/beverly-hills',
   '/blog', '/blog-dscr-loans-arizona', '/blog-first-time-buyer-arizona', '/blog-how-much-house-phoenix',
   '/blog-mortgage-points-arizona', '/blog-preapproval-guide', '/calculator', '/catalina-foothills', '/chandler',
   '/contact', '/disclosures', '/faq', '/fha-vs-conventional', '/fifteen-vs-thirty-year-mortgage', '/first-time-buyer',
@@ -171,7 +171,7 @@ function sanitizedEventParams(params) {
   if (['phone', 'email', 'application', 'contact'].includes(params?.lead_channel)) {
     safe.lead_channel = params.lead_channel;
   }
-  if (['applyForm', 'preapprovalForm', 'generalContactForm', 'contactForm', 'partnerReferralForm', 'newsletterForm'].includes(params?.form_id)) {
+  if (['partnerReferralForm', 'newsletterForm'].includes(params?.form_id)) {
     safe.form_id = params.form_id;
   }
   return safe;
@@ -374,7 +374,7 @@ function setupConversionClickTracking() {
     // Event names and fixed categories are sufficient for GA4 key-event setup.
     if (href.startsWith('tel:')) return trackEvent('phone_click', { lead_channel: 'phone' });
     if (href.startsWith('mailto:')) return trackEvent('email_click', { lead_channel: 'email' });
-    if (/\/apply|pre.?approved|pre.?approval|loan application/.test(combined)) {
+    if (/forward\.loans\/loan-officer\/logan-sullivan|\/apply|pre.?approved|pre.?approval|loan application/.test(combined)) {
       return trackEvent('loan_apply_start', { lead_channel: 'application' });
     }
     if (/contact|consult|quote|question|talk to logan/.test(combined)) {
@@ -751,6 +751,7 @@ function setupForm(formId, statusId, opts = {}) {
   let restoreControls = () => {};
   let accepted = false;
   let started = false;
+  let interrupted = false;
 
   function isEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((v || '').trim()); }
   function isPhone(v, required = false) {
@@ -807,6 +808,7 @@ function setupForm(formId, statusId, opts = {}) {
 
   // An abandoned request must never redirect a visitor after Back restores it.
   window.addEventListener('pagehide', () => {
+    interrupted = form.dataset.submitting === 'true';
     generation += 1;
     controller?.abort();
     window.clearTimeout(timeoutId);
@@ -815,14 +817,17 @@ function setupForm(formId, statusId, opts = {}) {
   });
   window.addEventListener('pageshow', (event) => {
     if (!event.persisted) return;
+    // Only speak up when Back restored a form that had actually been sent or was mid-send.
+    const wasActive = accepted || interrupted;
     if (accepted) {
       form.reset();
       accepted = false;
       started = false;
       fillUTMInputs(form);
     }
+    interrupted = false;
     unlock();
-    updateStatus(false, 'Your form is ready. You can send a new request.');
+    if (wasActive) updateStatus(false, 'Your form is ready. You can send a new request.');
   });
 
   form.addEventListener('submit', (e) => {
@@ -893,69 +898,13 @@ function setupForm(formId, statusId, opts = {}) {
   });
 }
 
-setupForm('#contactForm', '#formStatus', { redirect: './thanks-contact', eventName: 'contact_form_submit' });
-setupForm('#applyForm', '#applyStatus', { redirect: './thanks', eventName: 'loan_form_submit' });
-setupForm('#preapprovalForm', '#preapprovalStatus', { redirect: './thanks-contact', eventName: 'preapproval_intake_submit' });
-setupForm('#generalContactForm', '#generalContactStatus', { redirect: './thanks-contact', eventName: 'general_contact_submit' });
+// Applications, pre-qualification, and contact requests happen on Logan's Forward Loans page
+// (2026-10-27). Only the partner-referral and newsletter forms remain on this site.
 setupForm('form[name="partner-referral"]', '#partnerReferralStatus', { formId: 'partnerReferralForm', eventName: 'partner_referral_submit' });
 setupForm('form[name="newsletter"]', '#newsletterStatus', { formId: 'newsletterForm', eventName: 'newsletter_signup', redirect: false, successMessage: 'Your signup request was received. Thank you.' });
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('form').forEach(fillUTMInputs);
 });
-
-function setupContactTopic() {
-  const topic = new URLSearchParams(window.location.search).get('topic');
-  const topicCopy = {
-    'home-equity': {
-      heading: 'Ask about home equity.',
-      message: 'I want to ask about a HELOC or home equity option.',
-    },
-    construction: {
-      heading: 'Ask about construction financing.',
-      message: 'I want to ask about a construction loan.',
-    },
-    'move-up': {
-      heading: 'Plan the move before the dates get tight.',
-      message: 'I am buying again and want to coordinate my current home, next purchase, and closing timeline.',
-    },
-    investor: {
-      heading: 'Ask about an investment property.',
-      message: 'I want to discuss financing for an investment property.',
-    },
-    'first-time-buyer': {
-      heading: 'Plan your first home purchase.',
-      message: 'I am buying my first home and want help understanding the next steps.',
-    },
-    refinance: {
-      heading: 'Talk through a possible refinance.',
-      message: 'I want to compare refinancing with keeping my current mortgage.',
-    },
-    relocation: {
-      heading: 'Talk through your move.',
-      message: 'I am relocating and want to discuss financing and my timeline.',
-    },
-  }[topic];
-  if (!topicCopy) return;
-
-  const form = document.querySelector('form[name="general-contact"]');
-  const message = form?.querySelector('[name="message"]');
-  const heading = document.querySelector('[data-topic-heading]');
-  if (message && !message.value.trim()) message.value = topicCopy.message;
-  if (heading) heading.textContent = topicCopy.heading;
-}
-
-document.addEventListener('DOMContentLoaded', setupContactTopic);
-
-function setupApplyGoal() {
-  const goal = new URLSearchParams(window.location.search).get('goal');
-  const allowed = ['purchase-primary', 'purchase-investment', 'refinance', 'relocation'];
-  const select = document.querySelector('#applyForm [name="goal"]');
-  if (select && !select.value && allowed.includes(goal) && Array.from(select.options).some((option) => option.value === goal)) {
-    select.value = goal;
-  }
-}
-
-document.addEventListener('DOMContentLoaded', setupApplyGoal);
 
 // ─── Instagram Feed ─────────────────────────────────────────────────────────
 function escapeHTML(value) {

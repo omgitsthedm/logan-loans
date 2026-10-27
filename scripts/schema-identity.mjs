@@ -33,6 +33,13 @@ export function schemaIdentityIssues(schemas, canonicalUrl) {
     if (types(node).includes('DefinedTermSet') && 'inDefinedTermSet' in node) {
       issues.push('DefinedTermSet cannot use the DefinedTerm membership property');
     }
+    if (/11201|Tatum Blvd/i.test(node.streetAddress || '') || /^85028/.test(node.postalCode || '')) {
+      issues.push('Forward Loans HQ address must not be published for the service-area business');
+    }
+    if (isLoganBusiness(node) && node.geo) issues.push('Service-area business must not publish office coordinates');
+    if ([].concat(node.sameAs || []).some((url) => /linkedin\.com|tiktok\.com/i.test(url))) {
+      issues.push('Only the Instagram social profile may appear in sameAs');
+    }
     if (legacyBusinessIds.has(node['@id'])) issues.push(`Legacy business identity ${node['@id']}`);
     if (isLoganBusiness(node) && node['@id'] !== BUSINESS_ID) issues.push('Logan Loans business lacks its canonical identity');
     if (types(node).includes('Person') && node.name === 'Logan Sullivan' && node['@id'] !== PERSON_ID) {

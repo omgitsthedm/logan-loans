@@ -60,18 +60,26 @@ class MockFormData {
   *[Symbol.iterator]() {}
 }
 
-async function runFormScenario({ consent = 'granted', status = 200, formName }) {
-  const preapprovalForm = createForm('preapprovalForm', {
+// Applications moved to Forward Loans on 2026-10-27; the remaining on-site forms are
+// the Realtor partner referral and the newsletter signup.
+async function runFormScenario({ consent = 'granted', status = 200, formName, pageshowOnly = false }) {
+  const partnerForm = createForm('', {
     name: createInput('Test Visitor', true),
     email: createInput('test@example.com', true),
-    phone: createInput('480 555 0100', true),
+    phone: createInput('', false),
   });
-  const generalContactForm = createForm('generalContactForm', {
-    name: createInput('Test Visitor', true),
+  const newsletterForm = createForm('', {
     email: createInput('test@example.com', true),
   });
-  const forms = { '#preapprovalForm': preapprovalForm, '#generalContactForm': generalContactForm };
-  const location = { href: 'https://logan.loans/contact', protocol: 'https:', hostname: 'logan.loans', pathname: '/contact', search: '' };
+  const forms = { 'form[name="partner-referral"]': partnerForm, 'form[name="newsletter"]': newsletterForm };
+  const statusMessages = [];
+  const status_ = {
+    dataset: {},
+    classList: { toggle() {} },
+    querySelector: () => ({ set textContent(value) { statusMessages.push(value); } }),
+  };
+  const windowListeners = new Map();
+  const location = { href: 'https://logan.loans/partners', protocol: 'https:', hostname: 'logan.loans', pathname: '/partners', search: '' };
   const localStorage = createStorage({ ll_consent: consent });
   const schedule = (callback, delay = 0) => {
     if (delay < 1000) callback();
@@ -79,7 +87,9 @@ async function runFormScenario({ consent = 'granted', status = 200, formName }) 
   };
   const window = {
     location,
-    addEventListener() {},
+    addEventListener(type, listener) {
+      windowListeners.set(type, [...(windowListeners.get(type) || []), listener]);
+    },
     dataLayer: [],
     localStorage,
     sessionStorage: createStorage(),
@@ -89,7 +99,7 @@ async function runFormScenario({ consent = 'granted', status = 200, formName }) 
   };
   const document = {
     body: { classList: { add() {}, remove() {}, contains() { return false; } }, append() {} },
-    querySelector: (selector) => forms[selector] || null,
+    querySelector: (selector) => forms[selector] || (selector === '#partnerReferralStatus' && formName === 'partner-referral' ? status_ : null),
     querySelectorAll: () => [],
     addEventListener() {},
     getElementById: () => null,
@@ -113,7 +123,13 @@ async function runFormScenario({ consent = 'granted', status = 200, formName }) 
     console,
   };
   vm.runInNewContext(source, context, { filename: 'app.js' });
-  const form = formName === 'preapproval' ? preapprovalForm : generalContactForm;
+  const form = formName === 'newsletter' ? newsletterForm : partnerForm;
+  if (pageshowOnly) {
+    // Back/forward restore of a form that was never sent must stay silent.
+    (windowListeners.get('pagehide') || []).forEach((listener) => listener({ persisted: true }));
+    (windowListeners.get('pageshow') || []).forEach((listener) => listener({ persisted: true }));
+    return { statusMessages };
+  }
   await form.submit();
   await Promise.resolve();
   await Promise.resolve();
@@ -333,21 +349,30 @@ function runLeadClickScenario({
   return returnStorage ? { events: result, sessionStorage } : result;
 }
 
-for (const formName of ['preapproval', 'general-contact']) {
+const formContracts = {
+  'partner-referral': { eventName: 'partner_referral_submit', formId: 'partnerReferralForm', successHref: './thanks-contact' },
+  newsletter: { eventName: 'newsletter_signup', formId: 'newsletterForm', successHref: 'https://logan.loans/partners' },
+};
+for (const [formName, contract] of Object.entries(formContracts)) {
   const denied = await runFormScenario({ consent: 'denied', formName });
   assert.deepEqual(denied.events, [], `${formName}: no event before consent`);
 
   const failed = await runFormScenario({ status: 500, formName });
   assert.deepEqual(failed.events.map((event) => event.eventName), ['form_submit_error', 'form_submit_error'], `${formName}: failed attempts emit errors, never success`);
   assert.ok(!JSON.stringify(failed.events).includes('test@example.com'), `${formName}: error measurement excludes applicant details`);
-  assert.equal(failed.href, 'https://logan.loans/contact', `${formName}: failed response does not redirect`);
+  assert.equal(failed.href, 'https://logan.loans/partners', `${formName}: failed response does not redirect`);
 
   const succeeded = await runFormScenario({ status: 200, formName });
-  const eventName = formName === 'preapproval' ? 'preapproval_intake_submit' : 'general_contact_submit';
-  assert.deepEqual(succeeded.events.map((event) => event.eventName), [eventName], `${formName}: exactly one success event`);
-  assert.equal(succeeded.events[0].payload.form_id, formName === 'preapproval' ? 'preapprovalForm' : 'generalContactForm');
-  assert.equal(succeeded.href, './thanks-contact', `${formName}: successful response keeps the confirmation redirect`);
+  assert.deepEqual(succeeded.events.map((event) => event.eventName), [contract.eventName], `${formName}: exactly one success event`);
+  assert.equal(succeeded.events[0].payload.form_id, contract.formId);
+  assert.equal(succeeded.href, contract.successHref, `${formName}: success keeps its confirmation behavior`);
 }
+
+const untouchedRestore = await runFormScenario({ formName: 'partner-referral', pageshowOnly: true });
+assert.ok(
+  !untouchedRestore.statusMessages.some((message) => /ready\. You can send a new request/.test(message)),
+  'Back-restore of an unsent form does not claim a request was sent',
+);
 
 assert.deepEqual(runDirectThankYouScenario(), [], 'direct thank-you visit emits no form-success event');
 assert.deepEqual(runConsentUpdateScenario(true), ['consent', 'update', {
@@ -372,6 +397,8 @@ const leadClickCases = [
   ['tel:+14808037763', 'Call Logan', 'phone_click', 'phone'],
   ['mailto:logan@forward.loans', 'Email Logan', 'email_click', 'email'],
   ['./apply', 'Get Pre-Approved', 'loan_apply_start', 'application'],
+  ['https://forward.loans/loan-officer/logan-sullivan/', 'Get Pre-Approved', 'loan_apply_start', 'application'],
+  ['https://forward.loans/loan-officer/logan-sullivan/', 'Start Pre-Qualification', 'loan_apply_start', 'application'],
   ['./contact', 'Talk to Logan', 'contact_click', 'contact'],
 ];
 for (const [href, label, eventName, leadChannel] of leadClickCases) {
@@ -517,4 +544,4 @@ assert.equal(adsDenied.fbq, undefined, 'denied ads consent defines no fbq');
 const adsGpc = runAdsScenario({ gpc: true });
 assert.equal(adsGpc.scripts.length, 1, 'Global Privacy Control suppresses the pixel');
 assert.equal(adsGpc.fbq, undefined, 'Global Privacy Control leaves fbq undefined');
-console.log('Analytics harness passed: consent signals, form failure/success/dedupe, direct-thank-you, and ads consent paths.');
+console.log('Analytics harness passed: consent signals, partner/newsletter failure/success/dedupe, Back-restore silence, Forward handoff clicks, direct-thank-you, and ads consent paths.');

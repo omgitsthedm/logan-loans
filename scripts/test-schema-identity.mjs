@@ -55,3 +55,11 @@ test('the page breadcrumb reference resolves to its actual list', () => {
   graph.push({ '@type': 'BreadcrumbList', '@id': `${url}#breadcrumb` });
   assert.deepEqual(schemaIdentityIssues(graph, url), []);
 });
+test('the service-area business publishes no office address, coordinates, or non-Instagram socials', () => {
+  const business = { '@type': 'LocalBusiness', '@id': 'https://logan.loans/#business', name: 'Logan Loans', areaServed: [{ '@type': 'State', name: 'Arizona' }, { '@type': 'State', name: 'California' }], sameAs: ['https://www.instagram.com/logan.loans'] };
+  assert.deepEqual(schemaIdentityIssues([business], url), []);
+  const withAddress = { ...business, address: { '@type': 'PostalAddress', streetAddress: '11201 N Tatum Blvd #300', postalCode: '85028' } };
+  assert.ok(schemaIdentityIssues([withAddress], url).some((message) => message.includes('HQ address')));
+  assert.ok(schemaIdentityIssues([{ ...business, geo: { '@type': 'GeoCoordinates', latitude: 33.6373, longitude: -111.977 } }], url).some((message) => message.includes('coordinates')));
+  assert.ok(schemaIdentityIssues([{ ...business, sameAs: ['https://www.linkedin.com/in/logansulliv'] }], url).some((message) => message.includes('Instagram')));
+});

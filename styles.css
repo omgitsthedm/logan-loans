@@ -1113,6 +1113,8 @@ button, input, textarea, select{
   line-height: 1.55;
 }
 .ftrFine strong{ color: var(--ink); font-weight: 700; }
+.ftrFine a{ color: var(--ink); text-decoration: underline; text-underline-offset: 2px; }
+.ftrFine a:hover{ color: var(--primary); }
 
 .ftrBase{
   --lfc-size: 12px;

@@ -19,6 +19,8 @@ const htmlFiles = (await readdir(targetRoot))
   .sort();
 const excludedFromIndex = new Set([
   '404.html',
+  // 2026-10-27: applications moved to Forward Loans; /apply stays live as a noindex handoff page.
+  'apply.html',
   'funded-deals.html',
   'la-jolla-del-mar.html',
   'malibu.html',
@@ -107,6 +109,13 @@ for (const file of htmlFiles) {
   }
 
   if (source.includes('https://www.logan.loans')) fail(`${file}: legacy www canonical host remains.`);
+  // 2026-10-27 client directives: service-area business, no public address, Forward Loans handoff,
+  // no speed/response-time promises, Instagram as the only social profile.
+  if (/11201|85028|Tatum Blvd|33\.6373|-111\.977/i.test(source)) fail(`${file}: Forward Loans HQ address or coordinates must not be published.`);
+  if (/linkedin\.com|tiktok\.com|linktr\.ee/i.test(source)) fail(`${file}: only the Instagram social profile may be linked.`);
+  if (/same[-\s]day|same business day|within hours|\b24h\b|24 hours/i.test(source)) fail(`${file}: response-time or same-day promise remains.`);
+  if (/<a\b[^>]*\bhref=["'](?:\.\/|\/)?apply(?:\.html)?(?:[?#][^"']*)?["']/i.test(source)) fail(`${file}: apply CTA must point to Logan's Forward Loans page.`);
+  if (/href=["'][^"']*contact\?topic=/i.test(source)) fail(`${file}: retired contact-topic prefill link remains.`);
   if (source.includes('grandfundingllc.com')) fail(`${file}: unrelated Grand Funding entity remains in Logan schema.`);
 
   const titleCount = occurrences(source, /<title>[\s\S]*?<\/title>/gi).length;
@@ -160,6 +169,16 @@ for (const file of htmlFiles) {
     }
     if (!footer.includes('2466872') || !footer.includes('2006640')) {
       fail(`${file}: shared footer must retain both protected NMLS identifiers.`);
+    }
+    // 2026-10-27 client-approved licensing line and verification links.
+    for (const required of [
+      'Arizona Mortgage Broker License #MB-1012025',
+      'Equal Housing Lender',
+      'https://www.nmlsconsumeraccess.org/EntityDetails.aspx/INDIVIDUAL/2466872',
+      'https://www.nmlsconsumeraccess.org/EntityDetails.aspx/COMPANY/2006640',
+      'https://forward.loans/disclosures',
+    ]) {
+      if (!footer.includes(required)) fail(`${file}: shared footer is missing approved licensing text or link: ${required}.`);
     }
   }
 
@@ -264,19 +283,18 @@ if (!/data-faq-search/.test(faqSource) || !/class=["'][^"']*faq-page/.test(faqSo
 }
 
 const expectedForms = new Map([
-  ['apply', ['bot-field', 'email', 'form-name', 'gbraid', 'gclid', 'goal', 'location', 'message', 'name', 'phone', 'price_range', 'timeline', 'utm_campaign', 'utm_content', 'utm_medium', 'utm_source', 'utm_term', 'wbraid']],
-  ['preapproval', ['bot-field', 'city', 'email', 'expected_home_price', 'form-name', 'loan_type', 'name', 'notes', 'phone', 'timeline']],
-  ['general-contact', ['bot-field-2', 'email', 'form-name', 'message', 'name']],
   ['partner-referral', ['bot-field', 'brokerage', 'client_types', 'email', 'form-name', 'gbraid', 'gclid', 'name', 'phone', 'utm_campaign', 'utm_content', 'utm_medium', 'utm_source', 'utm_term', 'wbraid']],
   ['newsletter', ['bot-field', 'email', 'form-name']],
 ]);
 // 2026-10-27: phone is optional for preapproval and partner-referral.
 // Apply keeps the relocation value but uses a direction-neutral label for its two-state service page.
 // All field names, types, hidden values, honeypots, and other required fields remain protected.
+// 2026-10-27: per Logan's directive, applications, pre-qualification, and contact requests happen on
+// https://forward.loans/loan-officer/logan-sullivan/. The apply, preapproval, and general-contact forms
+// were deliberately retired (their past Netlify submissions are untouched); they must not reappear.
+// Partner-referral and newsletter are not applications and keep their exact names and fingerprints.
+const retiredForms = ['apply', 'preapproval', 'general-contact'];
 const expectedFormFingerprints = new Map([
-  ['apply', 'fab86521600428064d1c47e1967c28950ff90df61466d75038c4d53cebc6a09a'],
-  ['preapproval', 'ed357d461652e8cf48fde44e51bb62fec2fe59d63e9d59df4a115891fb655793'],
-  ['general-contact', 'c6d5d977c1a940e9f15771162bb08789bc9505b0242473179fc22c1d27faddbc'],
   ['partner-referral', '27a902a7ca80aa9cd353d4ac4f4b2d4cab53546b290bc1a03f1c5bf5689dcec0'],
   ['newsletter', 'a22f34ee3179733d9b4b3c617dc7e156048dae35bca88c4eee58dfae3619fac7'],
 ]);
@@ -289,6 +307,10 @@ for (const file of htmlFiles) {
   const forms = occurrences(source, /<form\b([^>]*)>([\s\S]*?)<\/form>/gi);
   forms.forEach((match) => {
     const formName = match[1].match(/\bname=["']([^"']+)["']/i)?.[1];
+    if (formName && retiredForms.includes(formName)) {
+      discoveredFormCounts.set(formName, (discoveredFormCounts.get(formName) || 0) + 1);
+      return;
+    }
     if (!formName || !expectedForms.has(formName)) return;
     const fieldNames = occurrences(match[2], /<(?:input|select|textarea)\b[^>]*\bname=["']([^"']+)["']/gi)
       .map((field) => field[1])
@@ -307,6 +329,10 @@ for (const file of htmlFiles) {
     );
     discoveredFormCounts.set(formName, (discoveredFormCounts.get(formName) || 0) + 1);
   });
+}
+
+for (const formName of retiredForms) {
+  if (discoveredFormCounts.has(formName)) fail(`Retired application form ${formName} reappeared; applications belong on Forward Loans.`);
 }
 
 for (const [formName, expectedFields] of expectedForms) {
@@ -362,8 +388,9 @@ if (faqSource.includes('$806,500') || faqSource.includes('$1,209,750')) {
   warn('Regulated 2026 loan-limit figures remain on compliance hold; owner approval is required before correction.');
 }
 const disclosures = await readFile(path.join(targetRoot, 'disclosures.html'), 'utf8');
-if (/Placeholder:\s*(?:AZ|CA-DFPI)/.test(disclosures)) {
-  warn('Public AZ and CA license placeholders remain on compliance hold; approved license values are still required.');
+if (/Placeholder:/i.test(disclosures)) fail('disclosures.html: license placeholder text must not be published.');
+if (!disclosures.includes('MB-1012025') || !disclosures.includes('https://forward.loans/disclosures')) {
+  fail('disclosures.html: approved Arizona license and Forward Loans disclosures link are required.');
 }
 
 warnings.forEach((message) => console.warn(`WARN: ${message}`));
