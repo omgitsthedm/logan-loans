@@ -1,5 +1,13 @@
 # Logan Loans source of truth
 
+## Production release — 2026-10-28
+
+- **Released:** source commit `227d4aa` (branch `codex/logan-schema-20261025`, fast-forwarded to `master`), production deploy [`6ae19c653ce697fd63857fb3`](https://6ae19c653ce697fd63857fb3--loganloans.netlify.app), published `2026-10-28T06:56:01Z` on exact site `a9776112-531e-4ca2-ba17-9338b8eef423`. REST zip upload as a draft, verified on its deploy URL, then published with `/restore`. Artifact `logan-production.zip` sha256 `dfc2da47f7b24c93b3acbc89235942a58bd5177c9962b47ae442d3905fa8db81`. About 15 deploy credits.
+- **Why:** restores the 9 header blocks and 75 redirects the 2026-10-27 address hotfix (`6ae13448`) dropped. Every rule now lives in `_headers`/`_redirects`, so CLI, REST zip and Drop deploys all apply them, and `audit-site.mjs` fails if they go missing. Also ships Logan's Oct 27 directives (Forward Loans handoff, licensing line, no speed promises, Instagram only) and the release-audit layout/a11y fixes.
+- **Verified live:** deploy summary "77 redirect rules / 9 header rules"; CSP, HSTS (63072000), X-Frame-Options DENY and nosniff present; `/about.html`, `/apply-now`, `/pre-approval`, `/home` 301 to their targets; `loganloans.netlify.app` 301 to `logan.loans`; 16 key routes 200; sitemap 47 URLs; zero `Tatum|85028|same-day|10 minutes` on sampled pages; `partner-referral` and `newsletter` forms still registered. `/blog/x` 404s, the same as the pre-hotfix CLI deploy `6adda12b`.
+- **Rollback:** restore `6ae13448f5258a6f1aaf8e5e` (lacks edge rules). Never restore `6adda12b` (shows the Forward HQ address).
+- **Next:** IndexNow for changed URLs only; California licensing and loan-limit figures stay on Logan's compliance hold.
+
 ## Client directives applied locally — 2026-10-27
 
 - **Local commits on `codex/logan-schema-20261025` only.** No push, deploy, IndexNow request, form submission or email. Approved by Logan Sullivan on 2026-10-27.
