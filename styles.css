@@ -4008,3 +4008,105 @@ input[type="range"],
     opacity: 1;
   }
 }
+
+/* ============================================
+   RELEASE AUDIT 2026-10-27
+   Readable-text floor (16px running text), 44px tap targets,
+   narrow-phone fit, and caption contrast. Specificity is raised with
+   `html` so page-level <style> blocks cannot undercut the floor.
+   ============================================ */
+html .ftrNote,
+html .ftrFine,
+html .ftrFine a,
+html .tiny,
+html .small,
+html .resourceDesc,
+html .trustPillSub,
+html .answerText,
+html .proofText,
+html .outSub,
+html .outSmall,
+html .pathText,
+html .loganMiniRole,
+html .formulaNote,
+html .postByline,
+html .engageAttr,
+html .compareDesc,
+html .founderTitle,
+html .founderNmls,
+html .disclaimer,
+html .decisionNote,
+html .loganNMLS,
+html .formNote,
+html .proseDate,
+html .chip,
+html .branchAction,
+html main td,
+html main .uLink,
+html .breadcrumb,
+html .relatedPosts,
+html .formulaNote,
+html .formStatus span,
+html .processScene figcaption span,
+html .statusLine p,
+html .calcLabel > span,
+html .calcGroup > p.small,
+html #outSubText,
+html #outSubtitle,
+html .equalHousing p,
+html .card > a.uLink,
+html .toolMeta span,
+html .postAuthor p,
+html .decisionNote .uLink {
+  font-size: 16px !important;
+}
+
+/* 44px targets for standalone links and controls (inline sentence links are exempt). */
+html .drawerClose { height: 46px; min-height: 46px; }
+html .brand { min-height: 44px; }
+html .breadcrumb a,
+html nav[aria-label="Breadcrumb"] a { min-width: 44px; justify-content: center; }
+html .breadcrumb a,
+html nav[aria-label="Breadcrumb"] a,
+html .card > div > a.uLink,
+html .pressValue a,
+html .decisionNote .uLink,
+html .relatedPosts a,
+html .footList li a,
+html .postReadMore,
+html .branchAction,
+html .card > div > a.uLink:only-child,
+html .card > a.uLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+html .footList li { margin-bottom: 2px; }
+html input[type="range"] { min-height: 44px; }
+html .alphaLink { width: 44px; height: 44px; }
+
+/* Narrow phones: buttons may wrap instead of forcing the page wider. */
+html .formWrap { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 900px) {
+  html .formWrap { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 400px) {
+  html .btn { white-space: normal; text-align: center; }
+}
+@media (max-width: 480px) {
+  html .door .h1,
+  html .h1 { font-size: clamp(29px, 8.2vw, 36px); overflow-wrap: break-word; }
+}
+
+/* The jump-by-letter bar stays one swipeable row on phones instead of four sticky rows. */
+@media (max-width: 600px) {
+  html .alphaNav { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  html .alphaNav::-webkit-scrollbar { display: none; }
+  html .alphaList { flex-wrap: nowrap; justify-content: flex-start; width: max-content; }
+}
+
+/* Letter jumps land below the sticky header and letter bar. */
+html .glSection { scroll-margin-top: 152px; }
+
+/* Caption headline sits on the deep-green band; keep it white. */
+html .storyCaption strong { color: #fff; }

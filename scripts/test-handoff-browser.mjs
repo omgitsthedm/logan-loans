@@ -15,7 +15,7 @@ const { chromium } = require(process.env.PLAYWRIGHT_MODULE_PATH || 'playwright-c
 const output = resolve(process.argv[2] || '/tmp/logan-handoff-check');
 await mkdir(output, { recursive: true });
 const FORWARD = 'https://forward.loans/loan-officer/logan-sullivan/';
-const csp = (await readFile(resolve(root, 'netlify.toml'), 'utf8')).match(/Content-Security-Policy = "([^"]+)"/)[1];
+const csp = (await readFile(resolve(root, '_headers'), 'utf8')).match(/Content-Security-Policy: ([^\n]+)/)[1].trim();
 const checks = [], errors = [], missing = [], external = [];
 function check(name, result) { checks.push({ name, pass: Boolean(result) }); assert.ok(result, name); }
 const types = { '.html': 'text/html', '.js': 'application/javascript', '.css': 'text/css', '.json': 'application/json', '.svg': 'image/svg+xml', '.webp': 'image/webp', '.png': 'image/png', '.ico': 'image/x-icon' };

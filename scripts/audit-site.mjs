@@ -14,6 +14,8 @@ const warnings = [];
 const siteVerificationFiles = new Map([
   ['google9dd9990931be8b22.html', 'google-site-verification: google9dd9990931be8b22.html'],
 ]);
+// 2026-10-27: no speed promises about Logan's own service (pre-approval speed, response minutes, closing-day targets).
+const SPEED_PROMISE = /(quick|fast|instant|rapid)[-\s]?pre-?approv|pre-?approval should too|next steps? (in \d+ minutes|fast)|real fast|routinely close[^.]{0,60}\d+ days|closing in \d+ days is normal/i;
 const htmlFiles = (await readdir(targetRoot))
   .filter((file) => file.endsWith('.html') && !siteVerificationFiles.has(file))
   .sort();
@@ -114,6 +116,8 @@ for (const file of htmlFiles) {
   if (/11201|85028|Tatum Blvd|33\.6373|-111\.977/i.test(source)) fail(`${file}: Forward Loans HQ address or coordinates must not be published.`);
   if (/linkedin\.com|tiktok\.com|linktr\.ee/i.test(source)) fail(`${file}: only the Instagram social profile may be linked.`);
   if (/same[-\s]day|same business day|within hours|\b24h\b|24 hours/i.test(source)) fail(`${file}: response-time or same-day promise remains.`);
+  { const footerEnd = source.indexOf('</footer>'); const mainEnd = source.indexOf('</main>'); if (footerEnd !== -1 && mainEnd !== -1 && footerEnd < mainEnd) fail(`${file}: footer must follow </main>; page content after the footer is out of reading order.`); }
+  if (SPEED_PROMISE.test(source)) fail(`${file}: speed promise remains (${source.match(SPEED_PROMISE)[0]}).`);
   if (/<a\b[^>]*\bhref=["'](?:\.\/|\/)?apply(?:\.html)?(?:[?#][^"']*)?["']/i.test(source)) fail(`${file}: apply CTA must point to Logan's Forward Loans page.`);
   if (/href=["'][^"']*contact\?topic=/i.test(source)) fail(`${file}: retired contact-topic prefill link remains.`);
   if (source.includes('grandfundingllc.com')) fail(`${file}: unrelated Grand Funding entity remains in Logan schema.`);
@@ -377,15 +381,28 @@ if (/addEventListener\(\s*['"]scroll['"]/.test(appSource)) {
   }
 }
 
+// Edge rules ship inside the publish directory so CLI, REST zip and Drop deploys all apply them.
+{
+  const redirects = await readFile(path.join(targetRoot, '_redirects'), 'utf8').catch(() => '');
+  const headers = await readFile(path.join(targetRoot, '_headers'), 'utf8').catch(() => '');
+  const rules = redirects.split('\n').filter((line) => line.trim() && !line.trim().startsWith('#'));
+  if (!/^https:\/\/loganloans\.netlify\.app\/\*\s+https:\/\/logan\.loans\/:splat\s+301!/m.test(redirects)) fail('_redirects: Netlify subdomain host redirect is missing.');
+  if (rules.length < 77) fail(`_redirects: expected at least 77 rules, found ${rules.length}.`);
+  for (const required of ['Content-Security-Policy:', 'Strict-Transport-Security:', 'X-Frame-Options: DENY', 'X-Content-Type-Options: nosniff', "form-action 'self'"]) {
+    if (!headers.includes(required)) fail(`_headers: ${required} is missing.`);
+  }
+}
 if (await exists(path.join(targetRoot, 'netlify.toml'))) {
   const netlify = await readFile(path.join(targetRoot, 'netlify.toml'), 'utf8');
-  if (!netlify.includes('https://loganloans.netlify.app/*') || !netlify.includes('https://logan.loans/:splat')) {
-    fail('netlify.toml: Netlify subdomain host redirect is missing.');
-  }
+  if (/\[\[(headers|redirects)\]\]/.test(netlify)) fail('netlify.toml: keep headers and redirects in _headers/_redirects only, so no deploy method drops or duplicates them.');
 }
 
 if (faqSource.includes('$806,500') || faqSource.includes('$1,209,750')) {
   warn('Regulated 2026 loan-limit figures remain on compliance hold; owner approval is required before correction.');
+}
+for (const file of ['site.webmanifest', 'llms.txt']) {
+  const text = await readFile(path.join(targetRoot, file), 'utf8');
+  if (SPEED_PROMISE.test(text) || /same[-\s]day|within hours|24 hours/i.test(text)) fail(`${file}: speed promise remains.`);
 }
 const disclosures = await readFile(path.join(targetRoot, 'disclosures.html'), 'utf8');
 if (/Placeholder:/i.test(disclosures)) fail('disclosures.html: license placeholder text must not be published.');

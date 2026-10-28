@@ -24,6 +24,7 @@ ROOT_FILES=(
   "$REPO_ROOT"/*.xml
   "$REPO_ROOT"/*.webmanifest
   "$REPO_ROOT/_redirects"
+  "$REPO_ROOT/_headers"
 )
 for source_file in "${ROOT_FILES[@]}"; do
   cp "$source_file" "$PUBLISH_DIR/"
