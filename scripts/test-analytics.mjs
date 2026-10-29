@@ -281,7 +281,7 @@ function runLeadClickScenario({
   const listeners = new Map();
   const localStorage = createStorage({ ll_consent: consent });
   const window = {
-    location: { href: `https://${hostname}${pathname}${search}`, protocol: 'https:', hostname, pathname, search },
+    location: { href: `https://${hostname}${pathname}${search}`, origin: `https://${hostname}`, protocol: 'https:', hostname, pathname, search },
     dataLayer: [],
     localStorage,
     sessionStorage,
@@ -319,6 +319,7 @@ function runLeadClickScenario({
     localStorage,
     sessionStorage,
     navigator: { webdriver: false },
+    URL,
     URLSearchParams,
     FormData: MockFormData,
     Element: class {},
@@ -396,9 +397,11 @@ assert.deepEqual(runRevocationScenario(), {
 const leadClickCases = [
   ['tel:+14808037763', 'Call Logan', 'phone_click', 'phone'],
   ['mailto:logan@forward.loans', 'Email Logan', 'email_click', 'email'],
-  ['./apply', 'Get Pre-Approved', 'loan_apply_start', 'application'],
-  ['https://forward.loans/loan-officer/logan-sullivan/', 'Get Pre-Approved', 'loan_apply_start', 'application'],
-  ['https://forward.loans/loan-officer/logan-sullivan/', 'Start Pre-Qualification', 'loan_apply_start', 'application'],
+  ['./apply', 'Get Pre-Approved', 'application_info_click', 'application'],
+  ['https://forward.loans/loan-officer/logan-sullivan/', 'Get Pre-Approved', 'forward_profile_click', 'forward_profile'],
+  ['https://forward.loans/loan-officer/logan-sullivan/', 'Start Pre-Qualification', 'forward_profile_click', 'forward_profile'],
+  ['https://forward.loans/loan-officer/logan-sullivan/', 'Forward Loans profile', 'forward_profile_click', 'forward_profile'],
+  ['https://forward.loans/loan-officer/logan-sullivan/?email=private@example.test', 'Talk to Logan', 'forward_profile_click', 'forward_profile'],
   ['./contact', 'Talk to Logan', 'contact_click', 'contact'],
 ];
 for (const [href, label, eventName, leadChannel] of leadClickCases) {
@@ -413,6 +416,17 @@ for (const [href, label, eventName, leadChannel] of leadClickCases) {
       lead_channel: leadChannel,
     },
   }], `${eventName}: consented lead CTA has a fixed, PII-free payload`);
+}
+for (const [href, label] of [
+  ['./blog-preapproval-guide', 'Pre-approval guide'],
+  ['./faq', 'Questions about applying'],
+  ['https://example.test/contact', 'Contact'],
+  ['https://example.test/forward.loans/loan-officer/logan-sullivan/', 'Apply'],
+  ['https://forward.loans/loan-officer/someone-else/', 'Get Pre-Approved'],
+  ['https://forward.loans/loan-officer/logan-sullivan-extra/', 'Apply'],
+  ['https://forward.loans.example.test/loan-officer/logan-sullivan/', 'Apply'],
+]) {
+  assert.deepEqual(runLeadClickScenario({ href, label }), [], `${href}: informational or unrelated links are not inquiry intent`);
 }
 assert.deepEqual(
   runLeadClickScenario({ consent: 'denied', href: 'tel:+14808037763', label: 'Call Logan' }),

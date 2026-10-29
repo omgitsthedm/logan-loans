@@ -103,7 +103,7 @@ try {
   await measured.page.goto(measured.base + '/programs', { waitUntil: 'networkidle' });
   await measured.page.evaluate(() => document.addEventListener('click', (e) => e.preventDefault()));
   await measured.page.locator('.navCta a.btnPrimary').click();
-  check('Forward CTA click emits PII-free loan_apply_start', (await events(measured.page)).some((e) => e.name === 'loan_apply_start' && e.params.lead_channel === 'application'));
+  check('Forward CTA click emits a PII-free profile handoff, not an application start', (await events(measured.page)).some((e) => e.name === 'forward_profile_click' && e.params.lead_channel === 'forward_profile'));
   await measured.context.close();
 
   // Remaining on-site forms (not applications) keep their provider contracts.

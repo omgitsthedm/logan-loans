@@ -1,6 +1,7 @@
 # Edge redirects. Kept in the publish directory so CLI, REST zip and Drop deploys all apply them.
 # Rules are evaluated top to bottom; the first match wins.
 /sitemap.xml  /sitemap.xml  200
+/sitemap.website.xml  /sitemap.xml  301
 /robots.txt   /robots.txt   200
 
 https://loganloans.netlify.app/*  https://logan.loans/:splat  301!

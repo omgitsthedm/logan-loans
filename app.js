@@ -168,7 +168,7 @@ function sanitizedEventParams(params) {
   const safe = {};
   // Custom events only expose the two routing labels this site actually uses.
   // Never forward arbitrary caller data, which could include form values or URLs.
-  if (['phone', 'email', 'application', 'contact'].includes(params?.lead_channel)) {
+  if (['phone', 'email', 'application', 'contact', 'forward_profile'].includes(params?.lead_channel)) {
     safe.lead_channel = params.lead_channel;
   }
   if (['partnerReferralForm', 'newsletterForm'].includes(params?.form_id)) {
@@ -367,17 +367,21 @@ function setupConversionClickTracking() {
     const link = event.target.closest && event.target.closest('a[href]');
     if (!link) return;
     const href = link.getAttribute('href') || '';
-    const label = (link.innerText || link.getAttribute('aria-label') || '').trim().slice(0, 80);
-    const combined = (href + ' ' + label).toLowerCase();
-
-    // Keep lead measurements free of phone numbers, email addresses, and CTA copy.
-    // Event names and fixed categories are sufficient for GA4 key-event setup.
+    // A click is intent, never proof of an application or accepted inquiry.
+    // Match approved destinations without reading CTA copy or forwarding URLs.
     if (href.startsWith('tel:')) return trackEvent('phone_click', { lead_channel: 'phone' });
     if (href.startsWith('mailto:')) return trackEvent('email_click', { lead_channel: 'email' });
-    if (/forward\.loans\/loan-officer\/logan-sullivan|\/apply|pre.?approved|pre.?approval|loan application/.test(combined)) {
-      return trackEvent('loan_apply_start', { lead_channel: 'application' });
+    let target;
+    try { target = new URL(href, window.location.href); } catch { return; }
+    const path = target.pathname.replace(/\/$/, '').replace(/\.html$/, '');
+    if (target.origin === 'https://forward.loans' && path === '/loan-officer/logan-sullivan') {
+      return trackEvent('forward_profile_click', { lead_channel: 'forward_profile' });
     }
-    if (/contact|consult|quote|question|talk to logan/.test(combined)) {
+    if (target.origin !== window.location.origin) return;
+    if (path === '/apply') {
+      return trackEvent('application_info_click', { lead_channel: 'application' });
+    }
+    if (path === '/contact') {
       return trackEvent('contact_click', { lead_channel: 'contact' });
     }
   }, true);
