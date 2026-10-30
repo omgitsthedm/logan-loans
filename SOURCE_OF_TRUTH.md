@@ -1,5 +1,14 @@
 # Logan Loans source of truth
 
+## Published follow-through — October 29, 2026 (Arizona)
+
+- David authorized publication: ‘clean it all up and push it all live’. The tested candidate is now live at https://logan.loans.
+- Exact Netlify site `a9776112-531e-4ca2-ba17-9338b8eef423`; production deploy `6ae3ff5acd7a364d64b7de0a`, published `2026-10-30T02:22:24.076Z`; application source `f11888fae1ad97fcc9079055c6c336ef280870d2`. Search, social-link, inquiry and consent-safe analytics follow-through.
+- One successful production release; expected deployment cost 15 credits (billing usage has not been reconciled). The subsequent documentation-only commit uses `[skip ci] [skip netlify]` and must not republish the website.
+- Live custom-domain pages, canonical URLs, structured data, social cards and sampled first-party assets matched the reviewed artifact. Desktop/mobile inquiry or booking entry points were checked; no real request, booking, payment, email or customer-record read was made. Registered form metadata and applicable safe booking configuration/endpoint guards passed.
+- Saved analytics and HTTP acceptance are not proof of inbox delivery, a qualified inquiry or revenue. Existing owner-access, business-fact and provider-indexing follow-ups remain separate. Earlier ‘local’ or ‘undeployed’ statements below record the pre-release state and are superseded here.
+
+
 ## Search and inquiry follow-through — 2026-10-28
 
 - **Local branch only:** `codex/logan-followthrough-20261028`, based on release receipt `76332e079266e377e2707c7e1115c1c0bf4df27e` / released runtime `227d4aa`. David authorized committing this validated repair on its separate branch. The canonical checkout's 65 dirty/untracked entries and the clean released-source worktree were preserved. No push, deploy, real form submission, applicant-record read, or message; zero deployment credits.
