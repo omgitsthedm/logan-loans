@@ -1,5 +1,11 @@
 # Logan Loans source of truth
 
+## Production release — November 2, 2026 (Arizona)
+
+- Exact Netlify site `a9776112-531e-4ca2-ba17-9338b8eef423`; production deploy `6ae82bce8b32746163f6c0b9`, published `2026-11-02T06:21:04Z` through the Netlify CLI from the verified `dist/` artifact.
+- Source repair commit `50186e1` is pushed on `codex/logan-followthrough-20261028`. `/apply` remains `noindex,follow`, has no local application form, and now directs a visitor to the existing direct call/email options if the Forward application does not appear.
+- Source/build audits and the consent-safe analytics harness passed. Live `/apply` returned 200 with the fallback, existing direct links and security headers. BankingBridge still rejects `forward.loans` in its embed settings; a Forward/BankingBridge administrator must authorize the domain before embedded application completion can work. One production deploy used approximately 15 Netlify deploy credits; billing total was not queried.
+
 ## Published follow-through — October 29, 2026 (Arizona)
 
 - David authorized publication: ‘clean it all up and push it all live’. The tested candidate is now live at https://logan.loans.
