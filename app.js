@@ -289,7 +289,7 @@ function loadTracking() {
   })(window, document, 'script', 'dataLayer', TRACKING.gtm);
 }
 
-function buildConsentBanner() {
+function buildConsentBanner(force = false) {
   if (navigator.webdriver) return; // skip in Lighthouse
   const storedConsent = getConsent();
   if (storedConsent !== null) {
@@ -304,6 +304,7 @@ function buildConsentBanner() {
     return;
   }
 
+  if (force !== true && document.querySelector('script[data-lf-signature]')) return;
   const banner = document.createElement('div');
   banner.id = 'consentBanner';
   banner.setAttribute('role', 'region');
@@ -351,7 +352,7 @@ function reopenConsentChoices() {
   updateGoogleConsent(false);
   ATTRIBUTION_KEYS.forEach((key) => safelyRemove('sessionStorage', `ll_${key}`));
   document.getElementById('consentBanner')?.remove();
-  buildConsentBanner();
+  buildConsentBanner(true);
   updateConsentControls();
 }
 

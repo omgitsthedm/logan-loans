@@ -42,3 +42,5 @@ node "$REPO_ROOT/scripts/audit-site.mjs" "$PUBLISH_DIR"
 node "$REPO_ROOT/scripts/test-calculator.mjs" "$PUBLISH_DIR"
 
 echo "Prepared safe publish directory: $PUBLISH_DIR"
+
+node "$REPO_ROOT/scripts/client-footer/install.mjs" "$PUBLISH_DIR"
