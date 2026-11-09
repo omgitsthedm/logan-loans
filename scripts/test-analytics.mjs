@@ -457,4 +457,58 @@ const sitemapPaths = [...(await readFile(path.join(root, 'sitemap.xml'), 'utf8')
   .map((match) => match[1])
   .sort();
 assert.deepEqual(policyPaths, sitemapPaths, 'public analytics route policy exactly matches sitemap.xml');
-console.log('Analytics harness passed: consent signals, form failure/success/dedupe, and direct-thank-you paths.');
+
+function runAdsScenario({ consent = 'granted', adsConsent = 'granted', pixelId = '1234567890', gpc = false, eventName = null } = {}) {
+  const stubbed = pixelId ? source.replace("metaPixelId: '',", `metaPixelId: '${pixelId}',`) : source;
+  const localStorage = createStorage({ ll_consent: consent, ll_ads_consent: adsConsent });
+  const scripts = [];
+  const window = {
+    location: { href: 'https://logan.loans/contact', protocol: 'https:', hostname: 'logan.loans', pathname: '/contact', search: '' },
+    dataLayer: [],
+    localStorage,
+    sessionStorage: createStorage(),
+    matchMedia: () => ({ matches: false }),
+    setTimeout: () => 1,
+    clearTimeout() {},
+  };
+  const document = {
+    body: { classList: { add() {}, remove() {}, contains() { return false; } }, append() {}, appendChild() {} },
+    querySelector: () => null,
+    querySelectorAll: () => [],
+    addEventListener() {},
+    getElementById: () => null,
+    createElement: () => ({ dataset: {}, setAttribute() {}, classList: { add() {} } }),
+    getElementsByTagName: () => [{ parentNode: { insertBefore(script) { scripts.push(script); } } }],
+    head: { appendChild() {} },
+  };
+  const context = {
+    window, document, localStorage, sessionStorage: window.sessionStorage,
+    navigator: { webdriver: false, globalPrivacyControl: gpc },
+    URLSearchParams, FormData: MockFormData, Element: class {},
+    fetch: async () => ({ ok: true }), setTimeout: () => 1, clearTimeout() {}, console,
+  };
+  vm.runInNewContext(stubbed, context, { filename: 'app.js' });
+  context.buildConsentBanner();
+  if (eventName) context.trackEvent(eventName, { form_id: 'preapprovalForm', lead_channel: 'application' });
+  return { scripts, fbq: window.fbq };
+}
+
+assert.ok(source.includes("metaPixelId: '',"), 'shipped app.js keeps the pixel ID empty');
+const adsOff = runAdsScenario({ pixelId: '' });
+assert.equal(adsOff.scripts.length, 1, 'empty pixel ID loads only GTM');
+assert.equal(adsOff.fbq, undefined, 'empty pixel ID defines no fbq');
+const adsOn = runAdsScenario({});
+assert.equal(adsOn.scripts.length, 2, 'ads consent loads the Meta transport alongside GTM');
+assert.ok(JSON.stringify(adsOn.fbq.q).includes('1234567890'), 'pixel inits with the configured ID');
+assert.ok(JSON.stringify(adsOn.fbq.q).includes('PageView'), 'pixel records a PageView');
+const adsLead = runAdsScenario({ eventName: 'preapproval_intake_submit' });
+assert.ok(JSON.stringify(adsLead.fbq.q).includes('Lead'), 'form submit translates to Lead');
+const adsContact = runAdsScenario({ eventName: 'phone_click' });
+assert.ok(JSON.stringify(adsContact.fbq.q).includes('Contact'), 'call tap translates to Contact');
+const adsDenied = runAdsScenario({ adsConsent: 'denied' });
+assert.equal(adsDenied.scripts.length, 1, 'denied ads consent loads only GTM');
+assert.equal(adsDenied.fbq, undefined, 'denied ads consent defines no fbq');
+const adsGpc = runAdsScenario({ gpc: true });
+assert.equal(adsGpc.scripts.length, 1, 'Global Privacy Control suppresses the pixel');
+assert.equal(adsGpc.fbq, undefined, 'Global Privacy Control leaves fbq undefined');
+console.log('Analytics harness passed: consent signals, form failure/success/dedupe, direct-thank-you, and ads consent paths.');

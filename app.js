@@ -10,6 +10,9 @@ const TRACKING = {
   measurementId: 'G-VP8CWM9B50',
   adsApply: '',        // Google Ads conversion ID for apply form submit
   adsContact: '',      // Google Ads conversion ID for contact form submit
+  // Meta Pixel ID for ads measurement. Empty means off: no Meta script loads,
+  // no request is made, and the ads toggle never renders. See docs/ADS.md.
+  metaPixelId: '',
 };
 
 // ─── UTM Capture ───────────────────────────────────────────────────────────
@@ -18,6 +21,7 @@ const TRACKING = {
 // tokens rather than free-form query-string data.
 const ATTRIBUTION_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'gbraid', 'wbraid'];
 const CONSENT_KEY = 'll_consent';
+const ADS_CONSENT_KEY = 'll_ads_consent';
 const QA_SESSION_KEY = 'll_analytics_qa_session';
 // Kept in lockstep with sitemap.xml by scripts/test-analytics.mjs. Tracking an
 // unsitemapped route is a defect, even when that route is on the canonical host.
@@ -173,7 +177,82 @@ function sanitizedEventParams(params) {
   return safe;
 }
 
+function getAdsConsent() {
+  return safelyRead('localStorage', ADS_CONSENT_KEY);
+}
+
+function adsOptedOut() {
+  return Boolean(navigator.globalPrivacyControl) || navigator.webdriver === true;
+}
+
+function adsOffered() {
+  return Boolean(TRACKING.metaPixelId) && !adsOptedOut();
+}
+
+function adsAllowed() {
+  return adsOffered() && getAdsConsent() === 'granted' && isProductionAnalyticsContext();
+}
+
+function loadAdsPixel() {
+  if (!adsAllowed() || typeof window.__adsLoaded !== 'undefined') return;
+  const firstScript = document.getElementsByTagName?.('script')?.[0];
+  if (!firstScript?.parentNode) return;
+  window.__adsLoaded = true;
+  const fbq = window.fbq = window.fbq || function () { (window.fbq.q = window.fbq.q || []).push(arguments); };
+  if (!window._fbq) window._fbq = fbq;
+  window.fbq.push = window.fbq;
+  window.fbq.loaded = true;
+  window.fbq.version = '2.0';
+  window.fbq.queue = [];
+  const j = document.createElement('script');
+  j.async = true;
+  j.dataset.llMetaPixel = TRACKING.metaPixelId;
+  j.src = 'https://connect.facebook.net/en_US/fbevents.js';
+  firstScript.parentNode.insertBefore(j, firstScript);
+  window.fbq('init', TRACKING.metaPixelId);
+  window.fbq('track', 'PageView');
+}
+
+// Site events translated to Meta standard events. A submitted form is a Lead;
+// a call or email tap is a Contact. Only the two routing labels cross over.
+// See docs/ADS.md.
+const META_EVENT_MAP = {
+  loan_form_submit: 'Lead',
+  preapproval_intake_submit: 'Lead',
+  contact_form_submit: 'Lead',
+  general_contact_submit: 'Lead',
+  phone_click: 'Contact',
+  email_click: 'Contact',
+};
+
+function trackAds(eventName, params = {}) {
+  if (!adsAllowed() || typeof window.fbq !== 'function') return false;
+  const mapped = META_EVENT_MAP[eventName];
+  const clean = sanitizedEventParams(params);
+  if (mapped) window.fbq('track', mapped, clean);
+  else window.fbq('trackCustom', eventName, clean);
+  return true;
+}
+
+// Google Ads conversion IDs, keyed by form-submit event. Empty IDs mean the
+// corresponding conversion never fires. The GTM container owns the ads tag.
+const GOOGLE_ADS_MAP = {
+  loan_form_submit: 'adsApply',
+  preapproval_intake_submit: 'adsApply',
+  contact_form_submit: 'adsContact',
+  general_contact_submit: 'adsContact',
+};
+
+function trackGoogleAdsConversion(eventName) {
+  const slot = GOOGLE_ADS_MAP[eventName];
+  const sendTo = slot ? TRACKING[slot] : '';
+  if (!sendTo) return false;
+  ensureGoogleConsentLayer()('event', 'conversion', { send_to: sendTo });
+  return true;
+}
+
 function trackEvent(eventName, params = {}) {
+  trackAds(eventName, params);
   if (getConsent() !== 'granted' || !isProductionAnalyticsContext()) return false;
   const fixedContext = {
     page_path: window.location.pathname,
@@ -184,6 +263,7 @@ function trackEvent(eventName, params = {}) {
   const safeParams = Object.assign({}, sanitizedEventParams(params), fixedContext);
   const gtag = ensureGoogleConsentLayer();
   gtag('event', eventName, safeParams);
+  trackGoogleAdsConversion(eventName);
   return true;
 }
 
@@ -219,6 +299,7 @@ function buildConsentBanner() {
       document.querySelectorAll?.('[data-utm-form]').forEach(fillUTMInputs);
       loadTracking();
     }
+    if (adsAllowed()) loadAdsPixel();
     updateConsentControls();
     return;
   }
@@ -234,6 +315,10 @@ function buildConsentBanner() {
         <button type="button" class="btn btnSecondary consentBtn" id="consentDeny">Decline</button>
         <button type="button" class="btn btnPrimary consentBtn" id="consentAccept">Accept</button>
       </div>
+      ${adsOffered() ? `<div class="consentActions">
+        <button type="button" class="btn btnSecondary consentBtn" id="adsDeny">Ads off</button>
+        <button type="button" class="btn btnSecondary consentBtn" id="adsAccept">Allow ads measurement</button>
+      </div>` : ''}
     </div>
   `;
   document.body.classList.add('has-consent-banner');
@@ -241,6 +326,14 @@ function buildConsentBanner() {
 
   document.getElementById('consentAccept').addEventListener('click', () => setConsent(true));
   document.getElementById('consentDeny').addEventListener('click', () => setConsent(false));
+  document.getElementById('adsAccept')?.addEventListener('click', () => setAdsConsent(true));
+  document.getElementById('adsDeny')?.addEventListener('click', () => setAdsConsent(false));
+}
+
+function setAdsConsent(granted) {
+  safelyWrite('localStorage', ADS_CONSENT_KEY, granted ? 'granted' : 'denied');
+  if (granted) loadAdsPixel();
+  updateConsentControls();
 }
 
 function updateConsentControls() {
@@ -254,6 +347,7 @@ function updateConsentControls() {
 
 function reopenConsentChoices() {
   safelyRemove('localStorage', CONSENT_KEY);
+  safelyRemove('localStorage', ADS_CONSENT_KEY);
   updateGoogleConsent(false);
   ATTRIBUTION_KEYS.forEach((key) => safelyRemove('sessionStorage', `ll_${key}`));
   document.getElementById('consentBanner')?.remove();
